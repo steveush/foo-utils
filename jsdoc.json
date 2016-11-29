@@ -1,0 +1,32 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "includeDate": true,
+    "dateFormat": "Do MMM YYYY",
+    "systemName": "FooUtils",
+    "systemSummary": "Contains common utility methods and classes used in our plugins.",
+    "systemLogo": "",
+    "systemColor": "",
+    "copyright": "FooUtils Copyright © 2016 The contributors to the FooUtils project.",
+    "linenums": true,
+    "collapseSymbols": true,
+    "inverseNav": true,
+    "inlineNav": false,
+    "outputSourceFiles": true,
+    "outputSourcePath": false,
+    "disablePackagePath": true,
+    "methodHeadingReturns": true,
+    "sort": "linenum, longname, version, since",
+    "search": true,
+    "readmeTargets": [],
+    "stylesheets": [],
+    "scripts": ["../dist/foo-utils.js"]
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  }
+}

@@ -1,0 +1,8 @@
+#ignore thumbnails created by windows
+Thumbs.db
+
+#ignore phpstorm config folder
+.idea/
+
+#ignore local test folder
+.test/

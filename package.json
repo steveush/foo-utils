@@ -1,0 +1,41 @@
+{
+  "name": "foo-utils",
+  "version": "0.0.1",
+  "title": "FooUtils",
+  "description": "Contains common utility methods and classes used in our plugins.",
+  "main": "dist/foo-utils.js",
+  "scripts": {
+    "test": "grunt default & grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steveush/foo-utils.git"
+  },
+  "keywords": [
+    "javascript",
+    "utility",
+    "library"
+  ],
+  "author": {
+    "name": "Steve Usher",
+    "url": "https://github.com/steveush"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/steveush/foo-utils/issues"
+  },
+  "homepage": "https://github.com/steveush/foo-utils#readme",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "foodoc": "^0.0.7",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-jsdoc": "^2.1.0"
+  }
+}
