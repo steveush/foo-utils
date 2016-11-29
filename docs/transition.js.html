@@ -1,0 +1,302 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>transition.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"readmeTargets":[],"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					FooUtils
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+										<li><a href="FooUtils.html">FooUtils</a></li>
+										<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+										<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+										<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+										<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+										<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+										<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+								</ul>
+							</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">transition.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">(function($, _, _is){
+	// only register methods if this version is the current version
+	if (_.version !== '@@version') return;
+
+	/**
+	 * @summary Contains common utility methods and members for the CSS transition property.
+	 * @memberof FooUtils
+	 * @namespace transition
+	 */
+	_.transition = {};
+
+	// create a test element to check for the existence of the various transition properties
+	var testElement = document.createElement('div');
+
+	/**
+	 * @summary Whether or not transitions are supported by the current browser.
+	 * @memberof FooUtils.transition
+	 * @name supported
+	 * @type {boolean}
+	 */
+	_.transition.supported = (
+		/**
+		 * @ignore
+		 * @summary Performs a one time test to see if transitions are supported
+		 * @param {Element} el - An element to test with.
+		 * @returns {boolean} `true` if transitions are supported.
+		 */
+		function(el){
+			var style = el.style;
+			return _is.string(style['transition'])
+				|| _is.string(style['WebkitTransition'])
+				|| _is.string(style['MozTransition'])
+				|| _is.string(style['msTransition'])
+				|| _is.string(style['OTransition']);
+		}
+	)(testElement);
+
+	/**
+	 * @summary The `transitionend` event name for the current browser.
+	 * @memberof FooUtils.transition
+	 * @name end
+	 * @type {string}
+	 * @description Depending on the browser this returns one of the following values:
+	 *
+	 * &lt;ul>&lt;!--
+	 * -->&lt;li>`"transitionend"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"webkitTransitionEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"msTransitionEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"oTransitionEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`null` - If the browser doesn't support transitions&lt;/li>&lt;!--
+	 * -->&lt;/ul>
+	 */
+	_.transition.end = (
+		/**
+		 * @ignore
+		 * @summary Performs a one time test to determine which `transitionend` event to use for the current browser.
+		 * @param {Element} el - An element to test with.
+		 * @returns {?string} The correct `transitionend` event for the current browser, `null` if the browser doesn't support transitions.
+		 */
+		function(el){
+			var style = el.style;
+			if (_is.string(style['transition'])) return 'transitionend';
+			if (_is.string(style['WebkitTransition'])) return 'webkitTransitionEnd';
+			if (_is.string(style['MozTransition'])) return 'transitionend';
+			if (_is.string(style['msTransition'])) return 'msTransitionEnd';
+			if (_is.string(style['OTransition'])) return 'oTransitionEnd';
+			return null;
+		}
+	)(testElement);
+
+	/**
+	 * @summary Gets the `transition-duration` value for the supplied jQuery element.
+	 * @memberof FooUtils.transition
+	 * @function duration
+	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
+	 * @param {number} [def=0] - The default value to return if no duration is set.
+	 * @returns {number} The value of the `transition-duration` property converted to a millisecond value.
+	 */
+	_.transition.duration = function($element, def){
+		def = _is.number(def) ? def : 0;
+		if (!_is.jq($element)) return def;
+		// we can use jQuery.css() method to retrieve the value cross browser
+		var duration = $element.css('transition-duration');
+		if (/^([\d\.]*)+?(ms|s)$/i.test(duration)){
+			// if we have a valid time value
+			var match = duration.match(/^([\d\.]*)+?(ms|s)$/i),
+				value = parseFloat(match[1]),
+				unit = match[2].toLowerCase();
+			if (unit === 's'){
+				// convert seconds to milliseconds
+				value = value * 1000;
+			}
+			return value;
+		}
+		return def;
+	};
+
+	/**
+	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
+	 * @memberof FooUtils.transition
+	 * @function start
+	 * @param {jQuery} $element - The jQuery element to start the transition on.
+	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
+	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
+	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
+	 * @returns {jQuery.Deferred}
+	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
+	 *
+	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
+	 * @see {@link jQuery.fn.fooTransition} for more details on the jQuery plugin.
+	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
+	 */
+	_.transition.start = function($element, className, state, timeout){
+		var deferred = $.Deferred();
+
+		$element = $element.first();
+
+		if (_.transition.supported){
+			var safety = $element.data('transition_safety');
+			if (_is.hash(safety) &amp;&amp; _is.number(safety.timer)){
+				clearTimeout(safety.timer);
+				$element.removeData('transition_safety').off(_.transition.end + '.utils');
+				safety.deferred.reject();
+			}
+			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
+			safety = $element.data('transition_safety', {
+				deferred: deferred,
+				timer: setTimeout(function(){
+					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
+					// This will remove the bound event and resolve the deferred
+					$element.removeData('transition_safety').off(_.transition.end + '.utils');
+					deferred.resolve();
+				}, timeout)
+			});
+
+			$element.on(_.transition.end + '.utils', function(e){
+				if ($element.is(e.target)){
+					clearTimeout(safety.timer);
+					$element.removeData('transition_safety').off(_.transition.end + '.utils');
+					deferred.resolve();
+				}
+			});
+		}
+
+		setTimeout(function(){
+			// This is executed inside of a 1ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+			$element.toggleClass(className, state);
+			if (!_.transition.supported){
+				// If the browser doesn't support transitions then just resolve the deferred
+				deferred.resolve();
+			}
+		}, 1);
+
+		return deferred;
+	};
+
+	/**
+	 * @summary Add or remove one or more class names that trigger a transition and perform an action once it ends.
+	 * @memberof external:"jQuery.fn"
+	 * @instance
+	 * @function fooTransition
+	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
+	 * @param {boolean} state - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
+	 * @param {function} callback - A function to call once the transition is complete.
+	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
+	 * @returns {jQuery}
+	 * @description This exposes the {@link FooUtils.transition.start} method as a jQuery plugin.
+	 * @example
+	 * jQuery( ".selector" ).fooTransition( "expand", true, function(){
+	 * 	// do something once the transition is complete
+	 * } );
+	 * @this jQuery
+	 * @see {@link FooUtils.transition.start} for more details on the underlying function.
+	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
+	 */
+	$.fn.fooTransition = function(className, state, callback, timeout){
+		_.transition.start(this, className, state, timeout).then(callback);
+		return this;
+	};
+
+})(
+	// dependencies
+	FooUtils.$,
+	FooUtils,
+	FooUtils.is
+);</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 29th Nov 2016 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="../dist/foo-utils.js"></script>
+</body>
+</html><!-- end:source.tmpl.hbs -->
