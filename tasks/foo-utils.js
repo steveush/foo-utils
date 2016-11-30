@@ -4,8 +4,12 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("foo-utils", "Creates a namespaced version of FooUtils for embedding into other packages.", function(){
 
+		var path = require('path');
+		var src = process.cwd().split(path.sep).pop() === "foo-utils" ? "./dist/foo-utils.js" : "./node_modules/foo-utils/dist/foo-utils.js";
+
 		var options = this.options({
 			namespace: null,
+			src: src,
 			dest: null
 		});
 
@@ -20,7 +24,7 @@ module.exports = function (grunt) {
 		grunt.config.set(['clean','foo-utils'], options.dest);
 
 		grunt.config.set(['copy','foo-utils'], {
-			src: "./dist/foo-utils.js",
+			src: options.src,
 			dest: options.dest,
 			options: {
 				process: function (content, srcpath) {
