@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 		},
 		clean: {
 			dist: ['./dist'],
-			docs: ['./docs']
+			docs: ['./docs'],
+			"foo-utils": ['./tests/my-api-utils.js']
 		},
 		concat: {
 			dist: {
@@ -86,7 +87,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jsdoc');
 
 	grunt.registerTask('default', ['clean:dist','concat','uglify']);
-	grunt.registerTask('test', ['foo-utils','qunit']);
+	grunt.registerTask('test', ['clean:foo-utils','foo-utils','qunit','clean:foo-utils']);
 	grunt.registerTask('document', ['clean:docs','jsdoc']);
 
 };
