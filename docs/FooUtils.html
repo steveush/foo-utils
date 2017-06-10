@@ -36,6 +36,7 @@
 							<li class="dropdown">
 								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 								<ul class="dropdown-menu">
+										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
 										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
 										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
@@ -127,6 +128,14 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title class">
+			<h4 id="Bounds" class="class"><a href="FooUtils.Bounds.html"><span class="signature-new">new&nbsp;</span><span class="name">Bounds</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A simple bounding rectangle class.</p></div></dt>
+<dd class="symbol-details class">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title class">
 			<h4 id="Class" class="class"><a href="FooUtils.Class.html"><span class="signature-new">new&nbsp;</span><span class="name">Class</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
 				<div class="summary"><p>A base class providing some helper methods for prototypal inheritance.</p></div></dt>
 <dd class="symbol-details class">
@@ -186,6 +195,14 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title namespace">
+			<h4 id="str" class="namespace"><a href="FooUtils.str.html"><span class="name">str</span></a></h4>
+				<div class="summary"><p>Contains common string utility methods.</p></div></dt>
+<dd class="symbol-details namespace">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title namespace">
 			<h4 id="transition" class="namespace"><a href="FooUtils.transition.html"><span class="name">transition</span></a></h4>
 				<div class="summary"><p>Contains common utility methods and members for the CSS transition property.</p></div></dt>
 <dd class="symbol-details namespace">
@@ -196,14 +213,6 @@
 											<dt class="symbol-title namespace">
 			<h4 id="url" class="namespace"><a href="FooUtils.url.html"><span class="name">url</span></a></h4>
 				<div class="summary"><p>Contains common url utility methods.</p></div></dt>
-<dd class="symbol-details namespace">
-	<div class="symbol-details-inner">
-	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title namespace">
-			<h4 id="str" class="namespace"><a href="FooUtils.str.html"><span class="name">str</span></a></h4>
-				<div class="summary"><p>Contains common string utility methods.</p></div></dt>
 <dd class="symbol-details namespace">
 	<div class="symbol-details-inner">
 	</div>
@@ -392,6 +401,67 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".ready" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">ready</span><span class="signature-params">( <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Waits for the DOM to be accessible and then executes the supplied callback.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>callback</code></td>
+							<td><span class="param-type"><a href="FooUtils.html#~readyCallback">FooUtils~readyCallback</a></span></td>
+							<td class="last">
+									<p>The function to execute once the DOM is accessible.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>This method can be used as a replacement for the jQuery ready callback to avoid an error in another script stopping our scripts from running.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">FooUtils.ready(function($){	// do something});</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-15">line 15</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
 			<h4 id=".uniqueId" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">uniqueId</span><span class="signature-params">( <span class="signature-param">$element</span> [,&nbsp;<span class="signature-param">prefix</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
 				<div class="summary"><p>Generate and apply a unique id for the given <code>$element</code>.</p></div></dt>
 <dd class="symbol-details function  collapsible-symbol">
@@ -465,7 +535,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-10">line 10</a></p>
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-37">line 37</a></p>
 								</div>
 							</div>
 			
@@ -529,11 +599,217 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-43">line 43</a></p>
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-70">line 70</a></p>
 								</div>
 							</div>
 			
 			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".getViewportBounds" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">getViewportBounds</span><span class="signature-params">( [&nbsp;<span class="signature-param">inflate</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
+				<div class="summary"><p>Gets the bounding rectangle of the current viewport.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>inflate</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-56">line 56</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".getElementBounds" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">getElementBounds</span><span class="signature-params">( <span class="signature-param">element</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
+				<div class="summary"><p>Get the bounding rectangle for the supplied element.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span> | <span class="param-type">string</span></td>
+							<td class="last">
+									<p>The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-76">line 76</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Type Definitions</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title typedef collapsible-symbol">
+			<h4 id="~readyCallback" class="typedef"><span class="name">readyCallback</span><span class="signature-params">( <span class="signature-param">$</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>The callback for the <a href="FooUtils.html#.ready">FooUtils.ready</a> method.</p></div></dt>
+<dd class="symbol-details typedef  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>$</code></td>
+							<td><span class="param-type">jQuery</span></td>
+							<td class="last">
+									<p>The instance of jQuery the plugin was registered with.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">function</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-7">line 7</a></p>
+								</div>
+							</div>
+			
+			
+							<!-- see -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">See</label>
+								<div class="col-sm-9">
+										<p class="form-control-static">Take a look at the <a href="FooUtils.html#.ready">FooUtils.ready</a> method for example usage.</p>
+								</div>
+							</div>
 			
 			
 					</form>
@@ -550,7 +826,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 29th Nov 2016 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 10th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

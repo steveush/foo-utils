@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>FooUtils.Class</title>
+		<title>FooUtils.Bounds</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -73,8 +73,8 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="ancestors"><a href="FooUtils.html">FooUtils</a>.</span><span class="name">Class</span></h1>
-				<div class="summary"><p>A base class providing some helper methods for prototypal inheritance.</p></div>			</div>
+				<h1><span class="ancestors"><a href="FooUtils.html">FooUtils</a>.</span><span class="name">Bounds</span></h1>
+				<div class="summary"><p>A simple bounding rectangle class.</p></div>			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
@@ -82,21 +82,91 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="FooUtils.html">FooUtils</a>.Class</li>
+							<li class="active"><a href="FooUtils.html">FooUtils</a>.Bounds</li>
 						</ol>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Class</span><span class="signature-params">()</span><span class="signature-type"></span></h2>
-		<div class="summary"><p>A base class providing some helper methods for prototypal inheritance.</p></div></dt>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Bounds</span><span class="signature-params">()</span><span class="signature-type"></span></h2>
+		<div class="summary"><p>A simple bounding rectangle class.</p></div></dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a <code>_super</code> method within the scope of any overriding methods that allows a simple way to execute the overridden function.</p>
-			<p>Have a look at the <a href="FooUtils.Class.html#.extend">extend</a> and <a href="FooUtils.Class.html#.override">override</a> method examples to see some basic usage.</p></div>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>When using this base class the actual construction of a class is performed by the <code>construct</code> method.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">var MyClass &#x3D; FooUtils.Class.extend({	construct: function(arg1, arg2){		// handle the construction logic here	}});// use the classvar myClass &#x3D; new MyClass( &quot;arg1:value&quot;, &quot;arg2:value&quot; );</code></pre>
-					</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+							<!-- augments -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Augments</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><a href="FooUtils.Class.html">FooUtils.Class</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-14">line 14</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+							</dl>
+							<article class="secondary">
+									<h3>Methods</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id="inflate" class="function"><span class="name">inflate</span><span class="signature-params">( <span class="signature-param">amount</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
+				<div class="summary"><p>Inflate the bounds by the specified amount.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>amount</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+									<p>A positive number will expand the bounds while a negative one will shrink it.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -117,7 +187,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-22">line 22</a></p>
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-23">line 23</a></p>
 								</div>
 							</div>
 			
@@ -127,10 +197,71 @@
 					</form>
 			</div>	</div>
 </dd>
-							</dl>
-							<article class="secondary">
-									<h3>Methods</h3>
-									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id="intersects" class="function"><span class="name">intersects</span><span class="signature-params">( <span class="signature-param">bounds</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Checks if the supplied bounds object intersects with this one.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>bounds</code></td>
+							<td><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></td>
+							<td class="last">
+									<p>The bounds to check.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-42">line 42</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function collapsible-symbol">
 			<h4 id=".extend" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
