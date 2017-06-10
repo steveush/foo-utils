@@ -222,7 +222,7 @@
 				$.each(parts, function(i, part){
 					if (i === last){
 						value = object[part];
-					} else if (_is.object(object[part])) {
+					} else if (_is.hash(object[part])) {
 						object = object[part];
 					} else {
 						// exit early
@@ -241,7 +241,7 @@
 				if (i === last){
 					object[part] = value;
 				} else {
-					object[part] = {};
+					object = _is.hash(object[part]) ? object[part] : (object[part] = {});
 				}
 			});
 		} else if (!_is.undef(object[name])){

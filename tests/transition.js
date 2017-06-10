@@ -69,15 +69,3 @@ QUnit.test('start', function (assert) {
 	});
 
 });
-
-QUnit.test('fooTransition', function (assert) {
-
-	assert.expect(1);
-	var done = assert.async();
-
-	$('.transitionable').fooTransition( 'start-transition', true, function(){
-		assert.ok(true, "This should always be called whether the browser supports transitions or not.");
-		done();
-	});
-
-});

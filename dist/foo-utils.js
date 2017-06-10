@@ -1,8 +1,8 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.0.1
+* @version 0.0.3
 * @link https://github.com/steveush/foo-utils#readme
-* @copyright Steve Usher 2016
+* @copyright Steve Usher 2017
 * @license Released under the GPL-3.0 license.
 */
 /**
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.0.1',
+		version: '0.0.3',
 	};
 
 	/**
@@ -121,11 +121,15 @@
 		return 0;
 	};
 
-	var exists = !!window.FooUtils; // does the namespace already exist?
-	if (!exists){
-		// if it doesn't exist register it
-		window.FooUtils = utils;
-	} else if (exists){
+	function __exists(){
+		try {
+			return !!window.FooUtils; // does the namespace already exist?
+		} catch(err) {
+			return false;
+		}
+	}
+
+	if (__exists()){
 		// if it already exists always log a warning as there may be version conflicts as the following code always ensures the latest version is loaded
 		if (utils.versionCompare(utils.version, window.FooUtils.version) > 0){
 			// if it exists but it's an old version replace it
@@ -135,6 +139,9 @@
 			// otherwise its a newer version so do nothing
 			console.warn("A newer version of FooUtils (" + window.FooUtils.version + ") already exists in the page, version " + utils.version + " will not register itself.");
 		}
+	} else {
+		// if it doesn't exist register it
+		window.FooUtils = utils;
 	}
 
 	// at this point there will always be a FooUtils namespace registered to the global scope.
@@ -142,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -496,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @memberof FooUtils
@@ -772,7 +779,6 @@
 		return _is.fn(ctx) ? ctx : null;
 	};
 
-
 	/**
 	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
 	 * @memberof FooUtils.fn
@@ -781,7 +787,7 @@
 	 * @param {string} name - The name of the method to execute.
 	 * @param {*} [arg1] - The first argument to call the method with.
 	 * @param {...*} [argN] - Any additional arguments for the method.
-	 * @returns {jQuery.Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
+	 * @returns {Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
 	 *
 	 * If `rejected` any fail callbacks are supplied the arguments the promise was rejected with plus an additional one appended by this method, an array of all objects that have already had their methods run. This allows you to perform rollback operations if required after a failure. The last object in this array would contain the method that raised the error.
 	 * @description This method allows an array of `objects` that implement a common set of methods to be executed in a supplied order. Each method in the queue is only executed after the successful completion of the previous. Success is evaluated as the method did not throw an error and if it returned a promise it was resolved.
@@ -961,6 +967,69 @@
 		return def;
 	};
 
+	/**
+	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
+	 * @memberof FooUtils.fn
+	 * @function when
+	 * @param {Promise[]} promises - The array of promises to wait for.
+	 * @returns {Promise}
+	 */
+	_.fn.when = function(promises){
+		if (!_is.array(promises) || _is.empty(promises)) return $.when();
+		var d = $.Deferred(), results = [], remaining = promises.length;
+		for(var i = 0; i < promises.length; i++){
+			promises[i].then(function(res){
+				results.push(res); // on success, add to results
+			}).always(function(){
+				remaining--; // always mark as finished
+				if(!remaining) d.resolve(results);
+			})
+		}
+		return d.promise(); // return a promise on the remaining values
+	};
+
+	/**
+	 * @summary Return a promise rejected using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function rejectWith
+	 * @param {*} [arg1] - The first argument to reject the promise with.
+	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.rejectWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.reject.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise resolved using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function resolveWith
+	 * @param {*} [arg1] - The first argument to resolve the promise with.
+	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.resolveWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.resolve.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary A resolved promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.resolved = $.Deferred().resolve().promise();
+
+	/**
+	 * @summary A rejected promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.rejected = $.Deferred().reject().promise();
+
 })(
 	// dependencies
 	FooUtils.$,
@@ -969,7 +1038,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1099,7 +1168,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1414,7 +1483,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1468,14 +1537,12 @@
 	 * console.log( options ); // => {"enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.extend = function(target, object, objectN){
-		if (!_is.object(target) || !_is.object(object)) return target;
+		target = _is.object(target) ? target : {};
 		var objects = _fn.arg2arr(arguments);
-		target = objects.shift();
-
+		objects.shift();
 		$.each(objects, function(i, object){
 			_.obj.merge(target, object);
 		});
-
 		return target;
 	};
 
@@ -1499,9 +1566,9 @@
 	 * console.log( _obj.merge( target, object ) ); // => {"name": "My Object", "enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.merge = function(target, object){
-		if (!_is.object(target) || !_is.object(object)) return target;
-		var prop;
-		for (prop in object) {
+		target = _is.object(target) ? target : {};
+		object = _is.object(object) ? object : {};
+		for (var prop in object) {
 			if (object.hasOwnProperty(prop)) {
 				if (_is.object(object[prop])) {
 					target[prop] = _is.object(target[prop]) ? target[prop] : {};
@@ -1638,9 +1705,10 @@
 				$.each(parts, function(i, part){
 					if (i === last){
 						value = object[part];
-					} else if (_is.object(object[part])) {
+					} else if (_is.hash(object[part])) {
 						object = object[part];
 					} else {
+						// exit early
 						return false;
 					}
 				});
@@ -1655,10 +1723,8 @@
 			$.each(parts, function(i, part){
 				if (i === last){
 					object[part] = value;
-				} else if (_is.object(object[part])) {
-					object = object[part];
 				} else {
-					return false;
+					object = _is.hash(object[part]) ? object[part] : (object[part] = {});
 				}
 			});
 		} else if (!_is.undef(object[name])){
@@ -1749,9 +1815,36 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
+
+	/**
+	 * @summary The callback for the {@link FooUtils.ready} method.
+	 * @callback FooUtils~readyCallback
+	 * @param {jQuery} $ - The instance of jQuery the plugin was registered with.
+	 * @this window
+	 * @see Take a look at the {@link FooUtils.ready} method for example usage.
+	 */
+
+	/**
+	 * @summary Waits for the DOM to be accessible and then executes the supplied callback.
+	 * @memberof FooUtils
+	 * @function ready
+	 * @param {FooUtils~readyCallback} callback - The function to execute once the DOM is accessible.
+	 * @example {@caption This method can be used as a replacement for the jQuery ready callback to avoid an error in another script stopping our scripts from running.}
+	 * FooUtils.ready(function($){
+	 * 	// do something
+	 * });
+	 */
+	_.ready = function (callback) {
+		function onready(){
+			try { callback.call(window, _.$); }
+			catch(err) { console.error(err); }
+		}
+		if (Function('/*@cc_on return true@*/')() ? document.readyState === "complete" : document.readyState !== "loading") onready();
+		else document.addEventListener('DOMContentLoaded', onready, false);
+	};
 
 	// A variable to hold the last number used to generate an ID in the current page.
 	var uniqueId = 0;
@@ -1821,7 +1914,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -1928,7 +2021,6 @@
 	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
-	 * @see {@link jQuery.fn.fooTransition} for more details on the jQuery plugin.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
 	_.transition.start = function($element, className, state, timeout){
@@ -1975,30 +2067,6 @@
 		return deferred;
 	};
 
-	/**
-	 * @summary Add or remove one or more class names that trigger a transition and perform an action once it ends.
-	 * @memberof external:"jQuery.fn"
-	 * @instance
-	 * @function fooTransition
-	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
-	 * @param {boolean} state - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
-	 * @param {function} callback - A function to call once the transition is complete.
-	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
-	 * @returns {jQuery}
-	 * @description This exposes the {@link FooUtils.transition.start} method as a jQuery plugin.
-	 * @example
-	 * jQuery( ".selector" ).fooTransition( "expand", true, function(){
-	 * 	// do something once the transition is complete
-	 * } );
-	 * @this jQuery
-	 * @see {@link FooUtils.transition.start} for more details on the underlying function.
-	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
-	 */
-	$.fn.fooTransition = function(className, state, callback, timeout){
-		_.transition.start(this, className, state, timeout).then(callback);
-		return this;
-	};
-
 })(
 	// dependencies
 	FooUtils.$,
@@ -2007,7 +2075,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2145,9 +2213,111 @@
 	FooUtils.obj,
 	FooUtils.fn
 );
+(function($, _, _is){
+	// only register methods if this version is the current version
+	if (_.version !== '0.0.3') return;
+
+	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
+		/**
+		 * @summary A simple bounding rectangle class.
+		 * @memberof FooUtils
+		 * @constructs Bounds
+		 * @augments FooUtils.Class
+		 * @borrows FooUtils.Class.extend as extend
+		 * @borrows FooUtils.Class.override as override
+		 */
+		construct: function(){
+			var self = this;
+			self.top = 0;
+			self.right = 0;
+			self.bottom = 0;
+			self.left = 0;
+			self.width = 0;
+			self.height = 0;
+		},
+		/**
+		 * @summary Inflate the bounds by the specified amount.
+		 * @memberof FooUtils.Bounds#
+		 * @function inflate
+		 * @param {number} amount - A positive number will expand the bounds while a negative one will shrink it.
+		 * @returns {FooUtils.Bounds}
+		 */
+		inflate: function(amount){
+			var self = this;
+			if (_is.number(amount)){
+				self.top -= amount;
+				self.right += amount;
+				self.bottom += amount;
+				self.left -= amount;
+				self.width += amount * 2;
+				self.height += amount * 2;
+			}
+			return self;
+		},
+		/**
+		 * @summary Checks if the supplied bounds object intersects with this one.
+		 * @memberof FooUtils.Bounds#
+		 * @function intersects
+		 * @param {FooUtils.Bounds} bounds - The bounds to check.
+		 * @returns {boolean}
+		 */
+		intersects: function(bounds){
+			var self = this;
+			return self.left <= bounds.right && bounds.left <= self.right && self.top <= bounds.bottom && bounds.top <= self.bottom;
+		}
+	});
+
+	var __$window;
+	/**
+	 * @summary Gets the bounding rectangle of the current viewport.
+	 * @memberof FooUtils
+	 * @function getViewportBounds
+	 * @param {number} [inflate] - An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.
+	 * @returns {FooUtils.Bounds}
+	 */
+	_.getViewportBounds = function(inflate){
+		if (!__$window) __$window = $(window);
+		var bounds = new _.Bounds();
+		bounds.top = __$window.scrollTop();
+		bounds.left = __$window.scrollLeft();
+		bounds.width = __$window.width();
+		bounds.height = __$window.height();
+		bounds.right = bounds.left + bounds.width;
+		bounds.bottom = bounds.top + bounds.height;
+		bounds.inflate(inflate);
+		return bounds;
+	};
+
+	/**
+	 * @summary Get the bounding rectangle for the supplied element.
+	 * @memberof FooUtils
+	 * @function getElementBounds
+	 * @param {(jQuery|HTMLElement|string)} element - The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.
+	 * @returns {FooUtils.Bounds}
+	 */
+	_.getElementBounds = function(element){
+		if (!_is.jq(element)) element = $(element);
+		var bounds = new _.Bounds();
+		if (element.length !== 0){
+			var offset = element.offset();
+			bounds.top = offset.top;
+			bounds.left = offset.left;
+			bounds.width = element.width();
+			bounds.height = element.height();
+		}
+		bounds.right = bounds.left + bounds.width;
+		bounds.bottom = bounds.top + bounds.height;
+		return bounds;
+	};
+
+})(
+	FooUtils.$,
+	FooUtils,
+	FooUtils.is
+);
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -2471,7 +2641,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
 		/**
@@ -2570,7 +2740,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.1') return;
+	if (_.version !== '0.0.3') return;
 
 	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
 		/**
