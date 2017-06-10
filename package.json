@@ -1,6 +1,6 @@
 {
   "name": "foo-utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "title": "FooUtils",
   "description": "Contains common utility methods and classes used in our plugins.",
   "main": "dist/foo-utils.js",
