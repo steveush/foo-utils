@@ -276,7 +276,6 @@
 		return _is.fn(ctx) ? ctx : null;
 	};
 
-
 	/**
 	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
 	 * @memberof FooUtils.fn
@@ -285,7 +284,7 @@
 	 * @param {string} name - The name of the method to execute.
 	 * @param {*} [arg1] - The first argument to call the method with.
 	 * @param {...*} [argN] - Any additional arguments for the method.
-	 * @returns {jQuery.Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
+	 * @returns {Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
 	 *
 	 * If `rejected` any fail callbacks are supplied the arguments the promise was rejected with plus an additional one appended by this method, an array of all objects that have already had their methods run. This allows you to perform rollback operations if required after a failure. The last object in this array would contain the method that raised the error.
 	 * @description This method allows an array of `objects` that implement a common set of methods to be executed in a supplied order. Each method in the queue is only executed after the successful completion of the previous. Success is evaluated as the method did not throw an error and if it returned a promise it was resolved.
@@ -464,6 +463,69 @@
 
 		return def;
 	};
+
+	/**
+	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
+	 * @memberof FooUtils.fn
+	 * @function when
+	 * @param {Promise[]} promises - The array of promises to wait for.
+	 * @returns {Promise}
+	 */
+	_.fn.when = function(promises){
+		if (!_is.array(promises) || _is.empty(promises)) return $.when();
+		var d = $.Deferred(), results = [], remaining = promises.length;
+		for(var i = 0; i < promises.length; i++){
+			promises[i].then(function(res){
+				results.push(res); // on success, add to results
+			}).always(function(){
+				remaining--; // always mark as finished
+				if(!remaining) d.resolve(results);
+			})
+		}
+		return d.promise(); // return a promise on the remaining values
+	};
+
+	/**
+	 * @summary Return a promise rejected using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function rejectWith
+	 * @param {*} [arg1] - The first argument to reject the promise with.
+	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.rejectWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.reject.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise resolved using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function resolveWith
+	 * @param {*} [arg1] - The first argument to resolve the promise with.
+	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.resolveWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.resolve.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary A resolved promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.resolved = $.Deferred().resolve().promise();
+
+	/**
+	 * @summary A rejected promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.rejected = $.Deferred().reject().promise();
 
 })(
 	// dependencies
