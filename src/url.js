@@ -94,12 +94,17 @@
 			result = match[1].replace(/\+/g, '%20'); // replace any + character's with spaces
 			return _is.string(result) && !_is.empty(result) ? decodeURIComponent(result) : null; // decode the result otherwise return null
 		}
-		regex = new RegExp('([?&])' + key + '[^&]*'); // regex to match the key and it's current value but only capture the preceding ? or & char
-		param = key + '=' + encodeURIComponent(value);
-		result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
-		// If nothing was replaced, then add the new param to the end
-		if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
-			result += '&' + param;
+		if (value === "" || value === null){
+			regex = new RegExp('^([^#]*\?)(([^#]*)&)?' + key + '(\=[^&#]*)?(&|#|$)');
+			result = search.replace(regex, '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/,'$1$3$4');
+		} else {
+			regex = new RegExp('([?&])' + key + '[^&]*'); // regex to match the key and it's current value but only capture the preceding ? or & char
+			param = key + '=' + encodeURIComponent(value);
+			result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
+			// If nothing was replaced, then add the new param to the end
+			if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
+				result += '&' + param;
+			}
 		}
 		return result;
 	};
