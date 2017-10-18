@@ -103,7 +103,7 @@
 	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
 	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
-	 * @returns {jQuery.Deferred}
+	 * @returns {Promise}
 	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
@@ -122,7 +122,7 @@
 				safety.deferred.reject();
 			}
 			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
-			safety = $element.data('transition_safety', {
+			safety = {
 				deferred: deferred,
 				timer: setTimeout(function(){
 					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
@@ -130,7 +130,8 @@
 					$element.removeData('transition_safety').off(_.transition.end + '.utils');
 					deferred.resolve();
 				}, timeout)
-			});
+			};
+			$element.data('transition_safety', safety);
 
 			$element.on(_.transition.end + '.utils', function(e){
 				if ($element.is(e.target)){
@@ -142,15 +143,15 @@
 		}
 
 		setTimeout(function(){
-			// This is executed inside of a 1ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
 			$element.toggleClass(className, state);
 			if (!_.transition.supported){
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 1);
+		}, 20);
 
-		return deferred;
+		return deferred.promise();
 	};
 
 })(

@@ -6,3 +6,6 @@ Thumbs.db
 
 #ignore local test folder
 .test/
+
+#ignore local test folder
+node_modules/

@@ -461,7 +461,7 @@
 		// kick off the queue
 		queue.resolve();
 
-		return def;
+		return def.promise();
 	};
 
 	/**

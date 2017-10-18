@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.0.3
+* @version 0.0.5
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2017
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.0.3',
+		version: '0.0.5',
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @memberof FooUtils
@@ -964,7 +964,7 @@
 		// kick off the queue
 		queue.resolve();
 
-		return def;
+		return def.promise();
 	};
 
 	/**
@@ -1038,7 +1038,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1132,12 +1132,17 @@
 			result = match[1].replace(/\+/g, '%20'); // replace any + character's with spaces
 			return _is.string(result) && !_is.empty(result) ? decodeURIComponent(result) : null; // decode the result otherwise return null
 		}
-		regex = new RegExp('([?&])' + key + '[^&]*'); // regex to match the key and it's current value but only capture the preceding ? or & char
-		param = key + '=' + encodeURIComponent(value);
-		result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
-		// If nothing was replaced, then add the new param to the end
-		if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
-			result += '&' + param;
+		if (value === "" || value === null){
+			regex = new RegExp('^([^#]*\?)(([^#]*)&)?' + key + '(\=[^&#]*)?(&|#|$)');
+			result = search.replace(regex, '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/,'$1$3$4');
+		} else {
+			regex = new RegExp('([?&])' + key + '[^&]*'); // regex to match the key and it's current value but only capture the preceding ? or & char
+			param = key + '=' + encodeURIComponent(value);
+			result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
+			// If nothing was replaced, then add the new param to the end
+			if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
+				result += '&' + param;
+			}
 		}
 		return result;
 	};
@@ -1168,7 +1173,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1483,7 +1488,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1815,7 +1820,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1914,7 +1919,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2017,7 +2022,7 @@
 	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
 	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
-	 * @returns {jQuery.Deferred}
+	 * @returns {Promise}
 	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
@@ -2036,7 +2041,7 @@
 				safety.deferred.reject();
 			}
 			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
-			safety = $element.data('transition_safety', {
+			safety = {
 				deferred: deferred,
 				timer: setTimeout(function(){
 					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
@@ -2044,7 +2049,8 @@
 					$element.removeData('transition_safety').off(_.transition.end + '.utils');
 					deferred.resolve();
 				}, timeout)
-			});
+			};
+			$element.data('transition_safety', safety);
 
 			$element.on(_.transition.end + '.utils', function(e){
 				if ($element.is(e.target)){
@@ -2056,15 +2062,15 @@
 		}
 
 		setTimeout(function(){
-			// This is executed inside of a 1ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
 			$element.toggleClass(className, state);
 			if (!_.transition.supported){
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 1);
+		}, 20);
 
-		return deferred;
+		return deferred.promise();
 	};
 
 })(
@@ -2075,7 +2081,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2215,7 +2221,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2317,7 +2323,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -2641,7 +2647,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
 		/**
@@ -2740,7 +2746,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.3') return;
+	if (_.version !== '0.0.5') return;
 
 	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
 		/**
