@@ -285,7 +285,7 @@
 	 * @param {string} name - The name of the method to execute.
 	 * @param {*} [arg1] - The first argument to call the method with.
 	 * @param {...*} [argN] - Any additional arguments for the method.
-	 * @returns {jQuery.Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
+	 * @returns {Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
 	 *
 	 * If `rejected` any fail callbacks are supplied the arguments the promise was rejected with plus an additional one appended by this method, an array of all objects that have already had their methods run. This allows you to perform rollback operations if required after a failure. The last object in this array would contain the method that raised the error.
 	 * @description This method allows an array of `objects` that implement a common set of methods to be executed in a supplied order. Each method in the queue is only executed after the successful completion of the previous. Success is evaluated as the method did not throw an error and if it returned a promise it was resolved.
@@ -462,7 +462,7 @@
 		// kick off the queue
 		queue.resolve();
 
-		return def;
+		return def.promise();
 	};
 
 })(
