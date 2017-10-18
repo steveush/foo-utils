@@ -1,2 +1,5 @@
 #ignore the docs folder when publishing to npm
 docs/
+
+#ignore the node_modules folder when publishing to npm
+node_modules/
