@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>Throttle.js</title>
+		<title>Bounds.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -74,7 +74,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">Throttle.js</span></h1>
+				<h1><span class="name">Bounds.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -86,112 +86,100 @@
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
-	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
+	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
-		 * @summary A timer to throttle the execution of code.
+		 * @summary A simple bounding rectangle class.
 		 * @memberof FooUtils
-		 * @constructs
-		 * @param {number} [idle=0] - The idle time, in milliseconds, that must pass before executing the callback supplied to the {@link FooUtils.Throttle#limit|limit} method.
+		 * @constructs Bounds
 		 * @augments FooUtils.Class
 		 * @borrows FooUtils.Class.extend as extend
 		 * @borrows FooUtils.Class.override as override
-		 * @description This class is basically a wrapper around the {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|window.setTimeout} and {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout|window.clearTimeout} functions. It was created to help throttle the execution of code in event handlers that could be called multiple times per second such as the window resize event. It is meant to limit the execution of expensive code until the specified idle time has lapsed.
-		 *
-		 * Take a look at the examples for the {@link FooUtils.Throttle#limit|limit} and {@link FooUtils.Throttle#clear|clear} methods for basic usage.
-		 * @example &lt;caption>The below shows how you can use this class to prevent expensive code being executed with every call to your window resize handler. If you run this example resize your browser to see when the messages are logged.&lt;/caption>{@run true}
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * $(window).on("resize", function(){
-		 *
-		 * 	throttle.limit(function(){
-		 * 		console.log( "Only called when resizing has stopped for at least 50 milliseconds." );
-		 * 	});
-		 *
-		 * });
-		 * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|WindowTimers.setTimeout() - Web APIs | MDN}
-		 * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout|WindowTimers.clearTimeout() - Web APIs | MDN}
 		 */
-		construct: function(idle){
-			/**
-			 * @summary The id from the last call to {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|window.setTimeout}.
-			 * @type {?number}
-			 * @readonly
-			 * @default null
-			 */
-			this.id = null;
-			/**
-			 * @summary Whether or not there is an active timer.
-			 * @type {boolean}
-			 * @readonly
-			 * @default false
-			 */
-			this.active = false;
-			/**
-			 * @summary The idle time, in milliseconds, the timer should wait before executing the callback supplied to the {@link FooUtils.Throttle#limit|limit} method.
-			 * @type {number}
-			 * @readonly
-			 * @default 0
-			 */
-			this.idle = _is.number(idle) ? idle : 0;
-		},
-		/**
-		 * @summary Starts a new timer clearing any previously set and executes the &lt;code>callback&lt;/code> once it expires.
-		 * @instance
-		 * @param {function} callback - The function to call once the timer expires.
-		 * @example &lt;caption>In the below example the &lt;code>callback&lt;/code> function will only be executed once despite the repeated calls to the {@link FooUtils.Throttle#limit|limit} method as each call resets the idle timer.&lt;/caption>{@run true}
-		 * // create a new throttle
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * // this `for` loop represents something like the window resize event that could call your handler multiple times a second
-		 * for (var i = 0, max = 5; i &lt; max; i++){
-		 *
-		 * 	throttle.limit( function(){
-		 * 		console.log( "Only called once, after the idle timer lapses" );
-		 * 	} );
-		 *
-		 * }
-		 */
-		limit: function(callback){
-			if (!_is.fn(callback)) return;
-			this.clear();
+		construct: function(){
 			var self = this;
-			this.active = true;
-			this.id = setTimeout(function(){
-				self.active = false;
-				self.id = null;
-				callback();
-			}, this.idle);
+			self.top = 0;
+			self.right = 0;
+			self.bottom = 0;
+			self.left = 0;
+			self.width = 0;
+			self.height = 0;
 		},
 		/**
-		 * @summary Clear any previously set timer and prevent the execution of its' callback.
-		 * @instance
-		 * @example &lt;caption>The below shows how to cancel an active throttle and prevent the execution of it's callback.&lt;/caption>{@run true}
-		 * // create a new throttle
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * // this `for` loop represents something like the window resize event that could call your handler multiple times a second
-		 * for (var i = 0, max = 5; i &lt; max; i++){
-		 *
-		 * 	throttle.limit( function(){
-		 * 		console.log( "I'm never called" );
-		 * 	} );
-		 *
-		 * }
-		 *
-		 * // cancel the current throttle timer
-		 * throttle.clear();
+		 * @summary Inflate the bounds by the specified amount.
+		 * @memberof FooUtils.Bounds#
+		 * @function inflate
+		 * @param {number} amount - A positive number will expand the bounds while a negative one will shrink it.
+		 * @returns {FooUtils.Bounds}
 		 */
-		clear: function(){
-			if (_is.number(this.id)){
-				clearTimeout(this.id);
-				this.active = false;
-				this.id = null;
+		inflate: function(amount){
+			var self = this;
+			if (_is.number(amount)){
+				self.top -= amount;
+				self.right += amount;
+				self.bottom += amount;
+				self.left -= amount;
+				self.width += amount * 2;
+				self.height += amount * 2;
 			}
+			return self;
+		},
+		/**
+		 * @summary Checks if the supplied bounds object intersects with this one.
+		 * @memberof FooUtils.Bounds#
+		 * @function intersects
+		 * @param {FooUtils.Bounds} bounds - The bounds to check.
+		 * @returns {boolean}
+		 */
+		intersects: function(bounds){
+			var self = this;
+			return self.left &lt;= bounds.right &amp;&amp; bounds.left &lt;= self.right &amp;&amp; self.top &lt;= bounds.bottom &amp;&amp; bounds.top &lt;= self.bottom;
 		}
 	});
 
+	var __$window;
+	/**
+	 * @summary Gets the bounding rectangle of the current viewport.
+	 * @memberof FooUtils
+	 * @function getViewportBounds
+	 * @param {number} [inflate] - An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.
+	 * @returns {FooUtils.Bounds}
+	 */
+	_.getViewportBounds = function(inflate){
+		if (!__$window) __$window = $(window);
+		var bounds = new _.Bounds();
+		bounds.top = __$window.scrollTop();
+		bounds.left = __$window.scrollLeft();
+		bounds.width = __$window.width();
+		bounds.height = __$window.height();
+		bounds.right = bounds.left + bounds.width;
+		bounds.bottom = bounds.top + bounds.height;
+		bounds.inflate(inflate);
+		return bounds;
+	};
+
+	/**
+	 * @summary Get the bounding rectangle for the supplied element.
+	 * @memberof FooUtils
+	 * @function getElementBounds
+	 * @param {(jQuery|HTMLElement|string)} element - The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.
+	 * @returns {FooUtils.Bounds}
+	 */
+	_.getElementBounds = function(element){
+		if (!_is.jq(element)) element = $(element);
+		var bounds = new _.Bounds();
+		if (element.length !== 0){
+			var offset = element.offset();
+			bounds.top = offset.top;
+			bounds.left = offset.left;
+			bounds.width = element.width();
+			bounds.height = element.height();
+		}
+		bounds.right = bounds.left + bounds.width;
+		bounds.bottom = bounds.top + bounds.height;
+		return bounds;
+	};
+
 })(
-	// dependencies
 	FooUtils.$,
 	FooUtils,
 	FooUtils.is

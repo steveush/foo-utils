@@ -114,11 +114,15 @@
 		return 0;
 	};
 
-	var exists = !!window.FooUtils; // does the namespace already exist?
-	if (!exists){
-		// if it doesn't exist register it
-		window.FooUtils = utils;
-	} else if (exists){
+	function __exists(){
+		try {
+			return !!window.FooUtils; // does the namespace already exist?
+		} catch(err) {
+			return false;
+		}
+	}
+
+	if (__exists()){
 		// if it already exists always log a warning as there may be version conflicts as the following code always ensures the latest version is loaded
 		if (utils.versionCompare(utils.version, window.FooUtils.version) > 0){
 			// if it exists but it's an old version replace it
@@ -128,6 +132,9 @@
 			// otherwise its a newer version so do nothing
 			console.warn("A newer version of FooUtils (" + window.FooUtils.version + ") already exists in the page, version " + utils.version + " will not register itself.");
 		}
+	} else {
+		// if it doesn't exist register it
+		window.FooUtils = utils;
 	}
 
 	// at this point there will always be a FooUtils namespace registered to the global scope.

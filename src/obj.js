@@ -54,14 +54,12 @@
 	 * console.log( options ); // => {"enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.extend = function(target, object, objectN){
-		if (!_is.object(target) || !_is.object(object)) return target;
+		target = _is.object(target) ? target : {};
 		var objects = _fn.arg2arr(arguments);
-		target = objects.shift();
-
+		objects.shift();
 		$.each(objects, function(i, object){
 			_.obj.merge(target, object);
 		});
-
 		return target;
 	};
 
@@ -85,9 +83,9 @@
 	 * console.log( _obj.merge( target, object ) ); // => {"name": "My Object", "enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.merge = function(target, object){
-		if (!_is.object(target) || !_is.object(object)) return target;
-		var prop;
-		for (prop in object) {
+		target = _is.object(target) ? target : {};
+		object = _is.object(object) ? object : {};
+		for (var prop in object) {
 			if (object.hasOwnProperty(prop)) {
 				if (_is.object(object[prop])) {
 					target[prop] = _is.object(target[prop]) ? target[prop] : {};
@@ -224,9 +222,10 @@
 				$.each(parts, function(i, part){
 					if (i === last){
 						value = object[part];
-					} else if (_is.object(object[part])) {
+					} else if (_is.hash(object[part])) {
 						object = object[part];
 					} else {
+						// exit early
 						return false;
 					}
 				});
@@ -241,10 +240,8 @@
 			$.each(parts, function(i, part){
 				if (i === last){
 					object[part] = value;
-				} else if (_is.object(object[part])) {
-					object = object[part];
 				} else {
-					return false;
+					object = _is.hash(object[part]) ? object[part] : (object[part] = {});
 				}
 			});
 		} else if (!_is.undef(object[name])){

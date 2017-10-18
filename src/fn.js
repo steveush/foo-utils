@@ -276,7 +276,6 @@
 		return _is.fn(ctx) ? ctx : null;
 	};
 
-
 	/**
 	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
 	 * @memberof FooUtils.fn
@@ -464,6 +463,69 @@
 
 		return def.promise();
 	};
+
+	/**
+	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
+	 * @memberof FooUtils.fn
+	 * @function when
+	 * @param {Promise[]} promises - The array of promises to wait for.
+	 * @returns {Promise}
+	 */
+	_.fn.when = function(promises){
+		if (!_is.array(promises) || _is.empty(promises)) return $.when();
+		var d = $.Deferred(), results = [], remaining = promises.length;
+		for(var i = 0; i < promises.length; i++){
+			promises[i].then(function(res){
+				results.push(res); // on success, add to results
+			}).always(function(){
+				remaining--; // always mark as finished
+				if(!remaining) d.resolve(results);
+			})
+		}
+		return d.promise(); // return a promise on the remaining values
+	};
+
+	/**
+	 * @summary Return a promise rejected using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function rejectWith
+	 * @param {*} [arg1] - The first argument to reject the promise with.
+	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.rejectWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.reject.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise resolved using the supplied args.
+	 * @memberof FooUtils.fn
+	 * @function resolveWith
+	 * @param {*} [arg1] - The first argument to resolve the promise with.
+	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.resolveWith = function(arg1, argN){
+		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.resolve.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary A resolved promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.resolved = $.Deferred().resolve().promise();
+
+	/**
+	 * @summary A rejected promise object.
+	 * @memberof FooUtils.fn
+	 * @name resolved
+	 * @type {Promise}
+	 */
+	_.fn.rejected = $.Deferred().reject().promise();
 
 })(
 	// dependencies

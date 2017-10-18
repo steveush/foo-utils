@@ -4,6 +4,33 @@
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
+	/**
+	 * @summary The callback for the {@link FooUtils.ready} method.
+	 * @callback FooUtils~readyCallback
+	 * @param {jQuery} $ - The instance of jQuery the plugin was registered with.
+	 * @this window
+	 * @see Take a look at the {@link FooUtils.ready} method for example usage.
+	 */
+
+	/**
+	 * @summary Waits for the DOM to be accessible and then executes the supplied callback.
+	 * @memberof FooUtils
+	 * @function ready
+	 * @param {FooUtils~readyCallback} callback - The function to execute once the DOM is accessible.
+	 * @example {@caption This method can be used as a replacement for the jQuery ready callback to avoid an error in another script stopping our scripts from running.}
+	 * FooUtils.ready(function($){
+	 * 	// do something
+	 * });
+	 */
+	_.ready = function (callback) {
+		function onready(){
+			try { callback.call(window, _.$); }
+			catch(err) { console.error(err); }
+		}
+		if (Function('/*@cc_on return true@*/')() ? document.readyState === "complete" : document.readyState !== "loading") onready();
+		else document.addEventListener('DOMContentLoaded', onready, false);
+	};
+
 	// A variable to hold the last number used to generate an ID in the current page.
 	var uniqueId = 0;
 

@@ -107,7 +107,6 @@
 	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
-	 * @see {@link jQuery.fn.fooTransition} for more details on the jQuery plugin.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
 	_.transition.start = function($element, className, state, timeout){
@@ -153,30 +152,6 @@
 		}, 20);
 
 		return deferred.promise();
-	};
-
-	/**
-	 * @summary Add or remove one or more class names that trigger a transition and perform an action once it ends.
-	 * @memberof external:"jQuery.fn"
-	 * @instance
-	 * @function fooTransition
-	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
-	 * @param {boolean} state - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
-	 * @param {function} callback - A function to call once the transition is complete.
-	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
-	 * @returns {jQuery}
-	 * @description This exposes the {@link FooUtils.transition.start} method as a jQuery plugin.
-	 * @example
-	 * jQuery( ".selector" ).fooTransition( "expand", true, function(){
-	 * 	// do something once the transition is complete
-	 * } );
-	 * @this jQuery
-	 * @see {@link FooUtils.transition.start} for more details on the underlying function.
-	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
-	 */
-	$.fn.fooTransition = function(className, state, callback, timeout){
-		_.transition.start(this, className, state, timeout).then(callback);
-		return this;
 	};
 
 })(
