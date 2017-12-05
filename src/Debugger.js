@@ -2,6 +2,12 @@
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
+	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
+	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
+	var localAvailable = false;
+	try { localAvailable = !!window.localStorage; }
+	catch (err){ localAvailable = false; }
+
 	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
 		/**
 		 * @summary A debug utility class that can be enabled across sessions using the given `key` by storing its state in `localStorage`.
@@ -28,7 +34,7 @@
 			 * @readonly
 			 * @description The value for this property is synced with the current state stored in `localStorage` and should never set from outside of this class.
 			 */
-			this.enabled = !!localStorage.getItem(this.key);
+			this.enabled = localAvailable ? !!localStorage.getItem(this.key) : false;
 		},
 		/**
 		 * @summary Enable the debugger causing additional info to be logged to the console.
@@ -41,6 +47,7 @@
 		 * d.log( "I am logged!" );
 		 */
 		enable: function(){
+			if (!localAvailable) return;
 			this.enabled = true;
 			localStorage.setItem(this.key, this.enabled);
 		},
@@ -57,6 +64,7 @@
 		 * d.log( "Never logged" );
 		 */
 		disable: function(){
+			if (!localAvailable) return;
 			this.enabled = false;
 			localStorage.removeItem(this.key);
 		},
