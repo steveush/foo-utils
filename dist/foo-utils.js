@@ -1,8 +1,8 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.0.6
+* @version 0.0.7
 * @link https://github.com/steveush/foo-utils#readme
-* @copyright Steve Usher 2017
+* @copyright Steve Usher 2018
 * @license Released under the GPL-3.0 license.
 */
 /**
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.0.6',
+		version: '0.0.7',
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1038,7 +1038,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1124,7 +1124,7 @@
 	 * console.log( _url.param( search, "v", "2" ) ); // => "?wmode=opaque&autoplay=1&v=2"
 	 */
 	_.url.param = function(search, key, value){
-		if (!_is.string(search) || _is.empty(search) || !_is.string(key) || _is.empty(key)) return search;
+		if (!_is.string(search) || !_is.string(key) || _is.empty(key)) return search;
 		var regex, match, result, param;
 		if (_is.undef(value)){
 			regex = new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)'); // regex to match the key and it's value but only capture the value
@@ -1141,7 +1141,7 @@
 			result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
 			// If nothing was replaced, then add the new param to the end
 			if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
-				result += '&' + param;
+				result += (result.indexOf("?") !== -1 ? '&' : '?') + param;
 			}
 		}
 		return result;
@@ -1173,7 +1173,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1488,7 +1488,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1820,7 +1820,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1919,7 +1919,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2081,7 +2081,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2221,7 +2221,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2323,7 +2323,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -2647,7 +2647,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -2754,7 +2754,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.6') return;
+	if (_.version !== '0.0.7') return;
 
 	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
 		/**

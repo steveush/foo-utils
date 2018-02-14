@@ -36,5 +36,6 @@ QUnit.test('param:set', function (assert) {
 	assert.equal( FooUtils.url.param( search, "autoplay", "0" ), "?wmode=opaque&autoplay=0" );
 	assert.equal( FooUtils.url.param( search, "v", "2" ), "?wmode=opaque&autoplay=1&v=2" );
 	assert.equal( FooUtils.url.param( search, "encoded", "/encoded_value/" ), "?wmode=opaque&autoplay=1&encoded=%2Fencoded_value%2F" );
+	assert.equal( FooUtils.url.param( "", "autoplay", "0" ), "?autoplay=0" );
 
 });
