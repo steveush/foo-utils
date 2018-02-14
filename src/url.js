@@ -86,7 +86,7 @@
 	 * console.log( _url.param( search, "v", "2" ) ); // => "?wmode=opaque&autoplay=1&v=2"
 	 */
 	_.url.param = function(search, key, value){
-		if (!_is.string(search) || _is.empty(search) || !_is.string(key) || _is.empty(key)) return search;
+		if (!_is.string(search) || !_is.string(key) || _is.empty(key)) return search;
 		var regex, match, result, param;
 		if (_is.undef(value)){
 			regex = new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)'); // regex to match the key and it's value but only capture the value
@@ -103,7 +103,7 @@
 			result = search.replace(regex, '$1' + param); // replace any existing instance of the key with the new value
 			// If nothing was replaced, then add the new param to the end
 			if (result === search && !regex.test(result)) { // if no replacement occurred and the parameter is not currently in the result then add it
-				result += '&' + param;
+				result += (result.indexOf("?") !== -1 ? '&' : '?') + param;
 			}
 		}
 		return result;
