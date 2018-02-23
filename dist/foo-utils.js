@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.0.7
+* @version 0.0.8
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2018
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.0.7',
+		version: '0.0.8',
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1038,7 +1038,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1173,7 +1173,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1488,7 +1488,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1571,12 +1571,12 @@
 	 * console.log( _obj.merge( target, object ) ); // => {"name": "My Object", "enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.merge = function(target, object){
-		target = _is.object(target) ? target : {};
-		object = _is.object(object) ? object : {};
+		target = _is.hash(target) ? target : {};
+		object = _is.hash(object) ? object : {};
 		for (var prop in object) {
 			if (object.hasOwnProperty(prop)) {
-				if (_is.object(object[prop])) {
-					target[prop] = _is.object(target[prop]) ? target[prop] : {};
+				if (_is.hash(object[prop])) {
+					target[prop] = _is.hash(target[prop]) ? target[prop] : {};
 					_.obj.merge(target[prop], object[prop]);
 				} else if (_is.array(object[prop])) {
 					target[prop] = object[prop].slice();
@@ -1820,7 +1820,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1919,7 +1919,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2015,11 +2015,18 @@
 	};
 
 	/**
+	 * @summary The callback function to execute when starting a transition.
+	 * @callback FooUtils.transition~startCallback
+	 * @param {jQuery} $element - The element to start the transition on.
+	 * @this Element
+	 */
+
+	/**
 	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
 	 * @memberof FooUtils.transition
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the transition on.
-	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
+	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
 	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
 	 * @returns {Promise}
@@ -2028,7 +2035,7 @@
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
-	_.transition.start = function($element, className, state, timeout){
+	_.transition.start = function($element, classNameOrFunc, state, timeout){
 		var deferred = $.Deferred();
 
 		$element = $element.first();
@@ -2063,7 +2070,11 @@
 
 		setTimeout(function(){
 			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
-			$element.toggleClass(className, state);
+			if (_is.fn(classNameOrFunc)){
+				classNameOrFunc.apply($element.get(0), [$element]);
+			} else {
+				$element.toggleClass(classNameOrFunc, state);
+			}
 			if (!_.transition.supported){
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
@@ -2081,7 +2092,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2221,7 +2232,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2323,7 +2334,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -2647,7 +2658,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -2754,7 +2765,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.7') return;
+	if (_.version !== '0.0.8') return;
 
 	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
 		/**

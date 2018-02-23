@@ -37,7 +37,8 @@ QUnit.module('transition', {
 	},
 	beforeEach: function () {
 		$('#qunit-fixture').append(
-			$('<div/>', {'class': 'transitionable'}),
+			$('<div/>', {'class': 'transitionable trans-1'}),
+			$('<div/>', {'class': 'transitionable trans-2'}),
 			$('<div/>', {'class': 'duration-test-1'}),
 			$('<div/>', {'class': 'duration-test-2'}),
 			$('<div/>', {'class': 'duration-test-3'})
@@ -60,12 +61,22 @@ QUnit.test('duration', function (assert) {
 
 QUnit.test('start', function (assert) {
 
-	assert.expect(1);
+	assert.expect(2);
 	var done = assert.async();
 
-	FooUtils.transition.start( $('.transitionable'), 'start-transition', true ).then(function(){
-		assert.ok(true, "This should always be called whether the browser supports transitions or not.");
-		done();
+	FooUtils.transition.start( $('.trans-1'), 'start-transition', true ).then(function(){
+		assert.ok(true, "Class triggered transition.");
 	});
+
+	FooUtils.transition.start( $('.trans-2'), function($el){
+		$el.css("opacity", 1);
+	} ).then(function(){
+		assert.ok(true, "Function triggered transition.");
+	});
+
+	// all transitions should be completed within 500ms so trigger the done after 700ms.
+	setTimeout(function(){
+		done();
+	}, 700);
 
 });
