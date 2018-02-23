@@ -96,11 +96,18 @@
 	};
 
 	/**
+	 * @summary The callback function to execute when starting a transition.
+	 * @callback FooUtils.transition~startCallback
+	 * @param {jQuery} $element - The element to start the transition on.
+	 * @this Element
+	 */
+
+	/**
 	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
 	 * @memberof FooUtils.transition
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the transition on.
-	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
+	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
 	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
 	 * @returns {Promise}
@@ -109,7 +116,7 @@
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
-	_.transition.start = function($element, className, state, timeout){
+	_.transition.start = function($element, classNameOrFunc, state, timeout){
 		var deferred = $.Deferred();
 
 		$element = $element.first();
@@ -144,7 +151,11 @@
 
 		setTimeout(function(){
 			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
-			$element.toggleClass(className, state);
+			if (_is.fn(classNameOrFunc)){
+				classNameOrFunc.apply($element.get(0), [$element]);
+			} else {
+				$element.toggleClass(classNameOrFunc, state);
+			}
 			if (!_.transition.supported){
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();

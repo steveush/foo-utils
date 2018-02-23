@@ -83,12 +83,12 @@
 	 * console.log( _obj.merge( target, object ) ); // => {"name": "My Object", "enabled": true, "arr": [4,5,6], "something": 123}
 	 */
 	_.obj.merge = function(target, object){
-		target = _is.object(target) ? target : {};
-		object = _is.object(object) ? object : {};
+		target = _is.hash(target) ? target : {};
+		object = _is.hash(object) ? object : {};
 		for (var prop in object) {
 			if (object.hasOwnProperty(prop)) {
-				if (_is.object(object[prop])) {
-					target[prop] = _is.object(target[prop]) ? target[prop] : {};
+				if (_is.hash(object[prop])) {
+					target[prop] = _is.hash(target[prop]) ? target[prop] : {};
 					_.obj.merge(target[prop], object[prop]);
 				} else if (_is.array(object[prop])) {
 					target[prop] = object[prop].slice();
