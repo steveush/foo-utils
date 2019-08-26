@@ -38,3 +38,13 @@ This package does expose a custom grunt task called `foo-utils` that can be used
 ```
 
 Ideally the above would be used as a step in a larger build process that would include the `my-api-utils.js` file as part of its own concat or uglify tasks resulting in a single file so any include order namespace issues are no longer a problem.
+
+## Changelog
+
+### 0.1.0
+
+Start of changelog. Older versions have no breaking changes.
+* Breaking Change: Removed `FooUtils.Throttle` class, replaced with two methods `FooUtils.fn.debounce( fn, time )` and `FooUtils.fn.throttle( fn, time )`.
+* Added new `FooUtils.EventClass` base class and `FooUtils.Event` classes to allow objects to be subscribed to and emit events through the supplied `.on( eventName, callback [, thisArg] )`, `.off( eventName [, callback] )` and `.trigger( eventName, args )` methods.
+* Added new `FooUtils.selectify( classes )` method.
+* Added new `FooUtils.src( src, srcset, srcWidth, srcHeight, renderWidth, renderHeight, devicePixelRatio )` method.

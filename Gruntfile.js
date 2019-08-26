@@ -36,10 +36,10 @@ module.exports = function(grunt) {
 					"./src/_utils.js",
 					"./src/transition.js",
 					"./src/Class.js",
+					"./src/EventClass.js",
 					"./src/Bounds.js",
 					"./src/Factory.js",
-					"./src/Debugger.js",
-					"./src/Throttle.js"
+					"./src/Debugger.js"
 				],
 				dest: "./dist/foo-utils.js"
 			}

@@ -39,8 +39,9 @@
 										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
 										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+										<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+										<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
 										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
@@ -152,16 +153,24 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title class">
-			<h4 id="Factory" class="class"><a href="FooUtils.Factory.html"><span class="signature-new">new&nbsp;</span><span class="name">Factory</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
-				<div class="summary"><p>A factory for classes allowing them to be registered and created using a friendly name.</p></div></dt>
+			<h4 id="Event" class="class"><a href="FooUtils.Event.html"><span class="signature-new">new&nbsp;</span><span class="name">Event</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A base event class providing just a type and defaultPrevented properties.</p></div></dt>
 <dd class="symbol-details class">
 	<div class="symbol-details-inner">
 	</div>
 </dd>
 											<hr/>
 											<dt class="symbol-title class">
-			<h4 id="Throttle" class="class"><a href="FooUtils.Throttle.html"><span class="signature-new">new&nbsp;</span><span class="name">Throttle</span><span class="signature-params">( [&nbsp;<span class="signature-param">idle</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
-				<div class="summary"><p>A timer to throttle the execution of code.</p></div></dt>
+			<h4 id="EventClass" class="class"><a href="FooUtils.EventClass.html"><span class="signature-new">new&nbsp;</span><span class="name">EventClass</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A base class that implements a basic events interface.</p></div></dt>
+<dd class="symbol-details class">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title class">
+			<h4 id="Factory" class="class"><a href="FooUtils.Factory.html"><span class="signature-new">new&nbsp;</span><span class="name">Factory</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A factory for classes allowing them to be registered and created using a friendly name.</p></div></dt>
 <dd class="symbol-details class">
 	<div class="symbol-details-inner">
 	</div>
@@ -611,6 +620,215 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".selectify" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">selectify</span><span class="signature-params">( <span class="signature-param">classes</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{object|string}</span></h4>
+				<div class="summary"><p>Convert CSS class names into CSS selectors.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>classes</code></td>
+							<td><span class="param-type">string</span> | <span class="param-type">Array.&lt;string></span> | <span class="param-type">object</span></td>
+							<td class="last">
+									<p>A space delimited string of CSS class names or an array of them with each item being included in the selector using the OR (<code>,</code>) syntax as a separator. If an object is supplied the result will be an object with the same property names but the values converted to selectors.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span> | <span class="param-type">string</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Shows how the method can be used.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils namespacevar _ &#x3D; FooUtils;console.log( _.selectify(&quot;my-class&quot;) ); // &#x3D;&gt; &quot;.my-class&quot;console.log( _.selectify(&quot;my-class my-other-class&quot;) ); // &#x3D;&gt; &quot;.my-class.my-other-class&quot;console.log( _.selectify([&quot;my-class&quot;, &quot;my-other-class&quot;]) ); // &#x3D;&gt; &quot;.my-class,.my-other-class&quot;console.log( _.selectify({	class1: &quot;my-class&quot;,	class2: &quot;my-class my-other-class&quot;,	class3: [&quot;my-class&quot;, &quot;my-other-class&quot;]}) ); // &#x3D;&gt; { class1: &quot;.my-class&quot;, class2: &quot;.my-class.my-other-class&quot;, class3: &quot;.my-class,.my-other-class&quot; }</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-94">line 94</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".src" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">src</span><span class="signature-params">( <span class="signature-param">src</span>, <span class="signature-param">srcset</span>, <span class="signature-param">srcWidth</span>, <span class="signature-param">srcHeight</span>, <span class="signature-param">renderWidth</span>, <span class="signature-param">renderHeight</span> [,&nbsp;<span class="signature-param">devicePixelRatio</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string|null}</span></h4>
+				<div class="summary"><p>Parses the supplied <code>src</code> and <code>srcset</code> values and returns the best matching URL for the supplied render size.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This can be used to parse the correct src to use when loading an image through JavaScript.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>src</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The default src for the image.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>srcset</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The srcset containing additional image sizes.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>srcWidth</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The width of the <code>src</code> image.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>srcHeight</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The height of the <code>src</code> image.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>renderWidth</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The rendered width of the image element.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>renderHeight</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The rendered height of the image element.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>devicePixelRatio</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The device pixel ratio to use while parsing. Defaults to the current device pixel ratio.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span> | <span class="param-type">null</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>Returns the parsed responsive src or null if no src is provided.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The following shows using the method with the srcset w-descriptor.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 480w, test-720x360.jpg 720w, test-960x480.jpg 960w&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 480w, test-720x360.jpg 720w, test-960x480.jpg 960w&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+					<div class="example-caption"><p>The following shows using the method with the srcset h-descriptor.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 240h, test-720x360.jpg 360h, test-960x480.jpg 480h&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 240h, test-720x360.jpg 360h, test-960x480.jpg 480h&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+					<div class="example-caption"><p>The following shows using the method with the srcset x-descriptor.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 2x, test-720x360.jpg 3x, test-960x480.jpg 4x&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 2x, test-720x360.jpg 3x, test-960x480.jpg 4x&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-135">line 135</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
 			<h4 id=".getViewportBounds" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">getViewportBounds</span><span class="signature-params">( [&nbsp;<span class="signature-param">inflate</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
 				<div class="summary"><p>Gets the bounding rectangle of the current viewport.</p></div></dt>
 <dd class="symbol-details function  collapsible-symbol">
@@ -826,7 +1044,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 11th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 26th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

@@ -39,8 +39,9 @@
 										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
 										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+										<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+										<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
 										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
@@ -216,7 +217,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-514">line 514</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-562">line 562</a></p>
 								</div>
 							</div>
 			
@@ -259,7 +260,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-522">line 522</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-570">line 570</a></p>
 								</div>
 							</div>
 			
@@ -522,6 +523,152 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".debounce" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">debounce</span><span class="signature-params">( <span class="signature-param">fn</span>, <span class="signature-param">time</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+				<div class="summary"><p>Debounces the <code>fn</code> by the supplied <code>time</code>.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This returns a wrapped version of the <code>fn</code> which delays its' execution by the supplied <code>time</code>. Additional calls to the function will extend the delay until the <code>time</code> expires.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>fn</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>The function to debounce.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>time</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+									<p>The time in milliseconds to delay execution.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-166">line 166</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".throttle" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">throttle</span><span class="signature-params">( <span class="signature-param">fn</span>, <span class="signature-param">time</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+				<div class="summary"><p>Throttles the <code>fn</code> by the supplied <code>time</code>.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This returns a wrapped version of the <code>fn</code> which ensures it's executed only once every <code>time</code> milliseconds. The first call to the function will be executed, after that only the last of any additional calls will be executed once the <code>time</code> expires.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>fn</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>The function to throttle.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>time</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+									<p>The time in milliseconds to delay execution.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-186">line 186</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
 			<h4 id=".check" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">check</span><span class="signature-params">( <span class="signature-param">thisArg</span>, <span class="signature-param">value</span> [,&nbsp;<span class="signature-param">def</span> [,&nbsp;<span class="signature-param">ctx</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
 				<div class="summary"><p>Checks the given <code>value</code> and ensures a function is returned.</p></div></dt>
 <dd class="symbol-details function  collapsible-symbol">
@@ -616,7 +763,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-166">line 166</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-214">line 214</a></p>
 								</div>
 							</div>
 			
@@ -701,7 +848,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-238">line 238</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-286">line 286</a></p>
 								</div>
 							</div>
 			
@@ -811,7 +958,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-279">line 279</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-327">line 327</a></p>
 								</div>
 							</div>
 			
@@ -876,7 +1023,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-467">line 467</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-515">line 515</a></p>
 								</div>
 							</div>
 			
@@ -951,7 +1098,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-488">line 488</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-536">line 536</a></p>
 								</div>
 							</div>
 			
@@ -1026,7 +1173,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-501">line 501</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-549">line 549</a></p>
 								</div>
 							</div>
 			
@@ -1047,7 +1194,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 11th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 26th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

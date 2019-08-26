@@ -2,7 +2,7 @@
 * FooUtils - Contains common utility methods and classes used in our plugins.
 * @version 0.0.8
 * @link https://github.com/steveush/foo-utils#readme
-* @copyright Steve Usher 2018
+* @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
 */
 /**
@@ -664,6 +664,54 @@
 	 */
 	_.fn.arg2arr = function(args){
 		return Array.prototype.slice.call(args);
+	};
+
+	/**
+	 * @summary Debounces the `fn` by the supplied `time`.
+	 * @memberof FooUtils.fn
+	 * @function debounce
+	 * @param {function} fn - The function to debounce.
+	 * @param {number} time - The time in milliseconds to delay execution.
+	 * @returns {function}
+	 * @description This returns a wrapped version of the `fn` which delays its' execution by the supplied `time`. Additional calls to the function will extend the delay until the `time` expires.
+	 */
+	_.fn.debounce = function (fn, time) {
+		var timeout;
+		return function () {
+			var args = _.fn.arg2arr(arguments);
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				fn.apply(this, args);
+			}, time);
+		};
+	};
+
+	/**
+	 * @summary Throttles the `fn` by the supplied `time`.
+	 * @memberof FooUtils.fn
+	 * @function throttle
+	 * @param {function} fn - The function to throttle.
+	 * @param {number} time - The time in milliseconds to delay execution.
+	 * @returns {function}
+	 * @description This returns a wrapped version of the `fn` which ensures it's executed only once every `time` milliseconds. The first call to the function will be executed, after that only the last of any additional calls will be executed once the `time` expires.
+	 */
+	_.fn.throttle = function (fn, time) {
+		var last, timeout;
+		return function () {
+			var ctx = this, args = _.fn.arg2arr(arguments);
+			if (!last){
+				fn.apply(ctx, args);
+				last = Date.now();
+			} else {
+				clearTimeout(timeout);
+				timeout = setTimeout(function () {
+					if (Date.now() - last >= time) {
+						fn.apply(ctx, args);
+						last = Date.now();
+					}
+				}, time - (Date.now() - last));
+			}
+		}
 	};
 
 	/**
@@ -1911,6 +1959,160 @@
 		}
 	};
 
+	/**
+	 * @summary Convert CSS class names into CSS selectors.
+	 * @memberof FooUtils
+	 * @function selectify
+	 * @param {(string|string[]|object)} classes - A space delimited string of CSS class names or an array of them with each item being included in the selector using the OR (`,`) syntax as a separator. If an object is supplied the result will be an object with the same property names but the values converted to selectors.
+	 * @returns {(object|string)}
+	 * @example {@caption Shows how the method can be used.}
+	 * // alias the FooUtils namespace
+	 * var _ = FooUtils;
+	 *
+	 * console.log( _.selectify("my-class") ); // => ".my-class"
+	 * console.log( _.selectify("my-class my-other-class") ); // => ".my-class.my-other-class"
+	 * console.log( _.selectify(["my-class", "my-other-class"]) ); // => ".my-class,.my-other-class"
+	 * console.log( _.selectify({
+	 * 	class1: "my-class",
+	 * 	class2: "my-class my-other-class",
+	 * 	class3: ["my-class", "my-other-class"]
+	 * }) ); // => { class1: ".my-class", class2: ".my-class.my-other-class", class3: ".my-class,.my-other-class" }
+	 */
+	_.selectify = function (classes) {
+		if (_is.empty(classes)) return null;
+		if (_is.hash(classes)) {
+			var result = {}, selector;
+			for (var name in classes) {
+				if (!classes.hasOwnProperty(name)) continue;
+				selector = _.selectify(classes[name]);
+				if (selector) {
+					result[name] = selector;
+				}
+			}
+			return result;
+		}
+		if (_is.string(classes) || _is.array(classes)) {
+			if (_is.string(classes)) classes = [classes];
+			return $.map(classes, function (str) {
+				return _is.string(str) ? "." + str.split(/\s/g).join(".") : null;
+			}).join(",");
+		}
+		return null;
+	};
+
+	/**
+	 * @summary Parses the supplied `src` and `srcset` values and returns the best matching URL for the supplied render size.
+	 * @memberof FooUtils
+	 * @function src
+	 * @param {string} src - The default src for the image.
+	 * @param {string} srcset - The srcset containing additional image sizes.
+	 * @param {number} srcWidth - The width of the `src` image.
+	 * @param {number} srcHeight - The height of the `src` image.
+	 * @param {number} renderWidth - The rendered width of the image element.
+	 * @param {number} renderHeight - The rendered height of the image element.
+	 * @param {number} [devicePixelRatio] - The device pixel ratio to use while parsing. Defaults to the current device pixel ratio.
+	 * @returns {(string|null)} Returns the parsed responsive src or null if no src is provided.
+	 * @description This can be used to parse the correct src to use when loading an image through JavaScript.
+	 * @example {@caption The following shows using the method with the srcset w-descriptor.}{@run true}
+	 * var src = "test-240x120.jpg",
+	 * 	width = 240, // the naturalWidth of the 'src' image
+	 * 	height = 120, // the naturalHeight of the 'src' image
+	 * 	srcset = "test-480x240.jpg 480w, test-720x360.jpg 720w, test-960x480.jpg 960w";
+	 *
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // => "test-240x120.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // => "test-960x480.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // => "test-720x360.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // => "test-960x480.jpg"
+	 * @example {@caption The following shows using the method with the srcset h-descriptor.}{@run true}
+	 * var src = "test-240x120.jpg",
+	 * 	width = 240, // the naturalWidth of the 'src' image
+	 * 	height = 120, // the naturalHeight of the 'src' image
+	 * 	srcset = "test-480x240.jpg 240h, test-720x360.jpg 360h, test-960x480.jpg 480h";
+	 *
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // => "test-240x120.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // => "test-960x480.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // => "test-720x360.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // => "test-960x480.jpg"
+	 * @example {@caption The following shows using the method with the srcset x-descriptor.}{@run true}
+	 * var src = "test-240x120.jpg",
+	 * 	width = 240, // the naturalWidth of the 'src' image
+	 * 	height = 120, // the naturalHeight of the 'src' image
+	 * 	srcset = "test-480x240.jpg 2x, test-720x360.jpg 3x, test-960x480.jpg 4x";
+	 *
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // => "test-240x120.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // => "test-240x120.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // => "test-480x240.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // => "test-240x120.jpg"
+	 * console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // => "test-240x120.jpg"
+	 */
+	_.src = function(src, srcset, srcWidth, srcHeight, renderWidth, renderHeight, devicePixelRatio){
+		if (!_is.string(src)) return null;
+		// if there is no srcset just return the src
+		if (!_is.string(srcset)) return src;
+
+		// parse the srcset into objects containing the url, width, height and pixel density for each supplied source
+		var list = $.map(srcset.replace(/(\s[\d.]+[whx]),/g, '$1 @,@ ').split(' @,@ '), function (val) {
+			return {
+				url: /^\s*(\S*)/.exec(val)[1],
+				w: parseFloat((/\S\s+(\d+)w/.exec(val) || [0, Infinity])[1]),
+				h: parseFloat((/\S\s+(\d+)h/.exec(val) || [0, Infinity])[1]),
+				x: parseFloat((/\S\s+([\d.]+)x/.exec(val) || [0, 1])[1])
+			};
+		});
+
+		// if there is no items parsed from the srcset then just return the src
+		if (!list.length) return src;
+
+		// add the current src into the mix by inspecting the first parsed item to figure out how to handle it
+		list.unshift({
+			url: src,
+			w: list[0].w !== Infinity && list[0].h === Infinity ? srcWidth : Infinity,
+			h: list[0].h !== Infinity && list[0].w === Infinity ? srcHeight : Infinity,
+			x: 1
+		});
+
+		// get the current viewport info and use it to determine the correct src to load
+		var dpr = _is.number(devicePixelRatio) ? devicePixelRatio : (window.devicePixelRatio || 1),
+			area = {w: renderWidth * dpr, h: renderHeight * dpr, x: dpr},
+			property, min, max;
+
+		// first check each of the viewport properties against the max values of the same properties in our src array
+		// only src's with a property greater than the viewport or equal to the max are kept
+		for (property in area) {
+			if (!area.hasOwnProperty(property)) continue;
+			max = Math.max.apply(null, $.map(list, function (item) {
+				return item[property];
+			}));
+			list = $.grep(list, (function (prop, limit) {
+				return function (item) {
+					return item[prop] >= area[prop] || item[prop] === limit;
+				};
+			})(property, max));
+		}
+
+		// next reduce our src array by comparing the viewport properties against the minimum values of the same properties of each src
+		// only src's with a property equal to the minimum are kept
+		for (property in area) {
+			if (!area.hasOwnProperty(property)) continue;
+			min = Math.min.apply(null, $.map(list, function (item) {
+				return item[property];
+			}));
+			list = $.grep(list, (function (prop, limit) {
+				return function (item) {
+					return item[prop] === limit;
+				};
+			})(property, min));
+		}
+
+		// return the first url as it is the best match for the current viewport
+		return list[0].url;
+	};
+
 })(
 	// dependencies
 	FooUtils.$,
@@ -2229,6 +2431,180 @@
 	FooUtils.is,
 	FooUtils.obj,
 	FooUtils.fn
+);
+(function (_, _is) {
+    // only register methods if this version is the current version
+    if (_.version !== '0.0.8') return;
+
+    _.Event = _.Class.extend(/** @lends FooUtils.Class */{
+        /**
+         * @summary A base event class providing just a type and defaultPrevented properties.
+         * @memberof FooUtils
+         * @constructs Event
+         * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
+         *
+         * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
+         * @example {@caption The following shows how to use this class to create a custom event.}
+         * var MyEvent = FooUtils.Event.extend({
+         * 	construct: function(type, customProp){
+         * 	    this._super(type);
+         * 	    this.myCustomProp = customProp;
+         * 	}
+         * });
+         *
+         * // to use the class you would then instantiate it and pass it as the first argument to a FooUtils.EventClass's trigger method
+         * var eventClass = ...; // any class inheriting from FooUtils.EventClass
+         * var event = new MyEvent( "my-event-type", true );
+         * eventClass.trigger(event);
+         */
+        construct: function(type){
+            /**
+             * @summary The type of event.
+             * @memberof FooUtils.Event#
+             * @name type
+             * @type {string}
+             */
+            this.type = type;
+            /**
+             * @summary Whether or not to prevent the default behavior following this event.
+             * @memberof FooUtils.Event#
+             * @name defaultPrevented
+             * @type {boolean}
+             */
+            this.defaultPrevented = false;
+        },
+        /**
+         * @summary Informs the class that raised this event that its default action should not be taken.
+         * @memberof FooUtils.Event#
+         * @function preventDefault
+         */
+        preventDefault: function(){
+            this.defaultPrevented = true;
+        }
+    });
+
+    _.EventClass = _.Class.extend(/** @lends FooUtils.Class */{
+        /**
+         * @summary A base class that implements a basic events interface.
+         * @memberof FooUtils
+         * @constructs EventClass
+         * @description This is a very basic events implementation that provides just enough to cover most needs.
+         */
+        construct: function(){
+            /**
+             * @summary The object used internally to register event handlers.
+             * @memberof FooUtils.EventClass#
+             * @name __handlers
+             * @type {Object}
+             * @private
+             */
+            this.__handlers = {};
+        },
+        /**
+         * @summary Destroy the current instance releasing used resources.
+         * @memberof FooUtils.EventClass#
+         * @function destroy
+         */
+        destroy: function(){
+            this.__handlers = {};
+        },
+        /**
+         * @summary Attach an event handler function for one or more events to the class.
+         * @memberof FooUtils.EventClass#
+         * @function on
+         * @param {string} events - One or more space-separated event types.
+         * @param {function} handler - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @returns {this}
+         */
+        on: function(events, handler, thisArg){
+            if (!_is.string(events) || !_is.fn(handler)) return this;
+            thisArg = _is.undef(thisArg) ? this : thisArg;
+            var self = this, handlers = self.__handlers, exists;
+            events.split(" ").forEach(function(type){
+                if (!_is.array(handlers[type])){
+                    handlers[type] = [];
+                }
+                exists = handlers[type].some(function(h){
+                    return h.fn === handler && h.thisArg === thisArg;
+                });
+                if (!exists){
+                    handlers[type].push({
+                        fn: handler,
+                        thisArg: thisArg
+                    });
+                }
+            });
+            return self;
+        },
+        /**
+         * @summary Remove an event handler function for one or more events from the class.
+         * @memberof FooUtils.EventClass#
+         * @function off
+         * @param {string} events - One or more space-separated event types.
+         * @param {function} handler - The handler to remove.
+         * @param {*} [thisArg] - The value of `this` within the `handler` function.
+         * @returns {FooUtils.EventClass}
+         */
+        off: function(events, handler, thisArg){
+            if (!_is.string(events)) return this;
+            handler = _is.fn(handler) ? handler : null;
+            thisArg = _is.undef(thisArg) ? this : thisArg;
+            var self = this, handlers = self.__handlers;
+            events.split(" ").forEach(function(type){
+                if (_is.array(handlers[type])){
+                    if (handler != null){
+                        handlers[type] = handlers[type].filter(function(h){
+                            return !(h.fn === handler && h.thisArg === thisArg);
+                        });
+                        if (handlers[type].length === 0){
+                            delete handlers[type];
+                        }
+                    } else {
+                        delete handlers[type];
+                    }
+                }
+            });
+            return self;
+        },
+        /**
+         * @summary Trigger an event on the current class.
+         * @memberof FooUtils.EventClass#
+         * @function trigger
+         * @param {(string|FooUtils.Event)} event - Either a space-separated string of event types or a custom event object to raise.
+         * @param {Array} [args] - An array of additional arguments to supply to the handlers after the event object.
+         * @returns {(FooUtils.Event|FooUtils.Event[]|null)} Returns the {@link FooUtils.Event|event object} of the triggered event. If more than one event was triggered an array of {@link FooUtils.Event|event objects} is returned. If no `event` was supplied or triggered `null` is returned.
+         */
+        trigger: function(event, args){
+            var instance = event instanceof _.Event;
+            if (!instance && !_is.string(event)) return null;
+            args = _is.array(args) ? args : [];
+            var self = this,
+                handlers = self.__handlers,
+                result = [],
+                _trigger = function(e){
+                    result.push(e);
+                    if (!_is.array(handlers[e.type])) return;
+                    handlers[e.type].forEach(function (h) {
+                        h.fn.apply(h.thisArg, [e].concat(args));
+                    });
+                };
+
+            if (instance){
+                _trigger(event);
+            } else {
+                event.split(" ").forEach(function(type){
+                    _trigger(new _.Event(type));
+                });
+            }
+            return _is.empty(result) ? null : (result.length === 1 ? result[0] : result);
+        }
+    });
+
+})(
+    // dependencies
+    FooUtils,
+    FooUtils.is
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
@@ -2762,118 +3138,4 @@
 	FooUtils,
 	FooUtils.fn,
 	FooUtils.str
-);
-(function($, _, _is){
-	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
-
-	_.Throttle = _.Class.extend(/** @lends FooUtils.Throttle */{
-		/**
-		 * @summary A timer to throttle the execution of code.
-		 * @memberof FooUtils
-		 * @constructs
-		 * @param {number} [idle=0] - The idle time, in milliseconds, that must pass before executing the callback supplied to the {@link FooUtils.Throttle#limit|limit} method.
-		 * @augments FooUtils.Class
-		 * @borrows FooUtils.Class.extend as extend
-		 * @borrows FooUtils.Class.override as override
-		 * @description This class is basically a wrapper around the {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|window.setTimeout} and {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout|window.clearTimeout} functions. It was created to help throttle the execution of code in event handlers that could be called multiple times per second such as the window resize event. It is meant to limit the execution of expensive code until the specified idle time has lapsed.
-		 *
-		 * Take a look at the examples for the {@link FooUtils.Throttle#limit|limit} and {@link FooUtils.Throttle#clear|clear} methods for basic usage.
-		 * @example <caption>The below shows how you can use this class to prevent expensive code being executed with every call to your window resize handler. If you run this example resize your browser to see when the messages are logged.</caption>{@run true}
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * $(window).on("resize", function(){
-		 *
-		 * 	throttle.limit(function(){
-		 * 		console.log( "Only called when resizing has stopped for at least 50 milliseconds." );
-		 * 	});
-		 *
-		 * });
-		 * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|WindowTimers.setTimeout() - Web APIs | MDN}
-		 * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearTimeout|WindowTimers.clearTimeout() - Web APIs | MDN}
-		 */
-		construct: function(idle){
-			/**
-			 * @summary The id from the last call to {@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout|window.setTimeout}.
-			 * @type {?number}
-			 * @readonly
-			 * @default null
-			 */
-			this.id = null;
-			/**
-			 * @summary Whether or not there is an active timer.
-			 * @type {boolean}
-			 * @readonly
-			 * @default false
-			 */
-			this.active = false;
-			/**
-			 * @summary The idle time, in milliseconds, the timer should wait before executing the callback supplied to the {@link FooUtils.Throttle#limit|limit} method.
-			 * @type {number}
-			 * @readonly
-			 * @default 0
-			 */
-			this.idle = _is.number(idle) ? idle : 0;
-		},
-		/**
-		 * @summary Starts a new timer clearing any previously set and executes the <code>callback</code> once it expires.
-		 * @instance
-		 * @param {function} callback - The function to call once the timer expires.
-		 * @example <caption>In the below example the <code>callback</code> function will only be executed once despite the repeated calls to the {@link FooUtils.Throttle#limit|limit} method as each call resets the idle timer.</caption>{@run true}
-		 * // create a new throttle
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * // this `for` loop represents something like the window resize event that could call your handler multiple times a second
-		 * for (var i = 0, max = 5; i < max; i++){
-		 *
-		 * 	throttle.limit( function(){
-		 * 		console.log( "Only called once, after the idle timer lapses" );
-		 * 	} );
-		 *
-		 * }
-		 */
-		limit: function(callback){
-			if (!_is.fn(callback)) return;
-			this.clear();
-			var self = this;
-			this.active = true;
-			this.id = setTimeout(function(){
-				self.active = false;
-				self.id = null;
-				callback();
-			}, this.idle);
-		},
-		/**
-		 * @summary Clear any previously set timer and prevent the execution of its' callback.
-		 * @instance
-		 * @example <caption>The below shows how to cancel an active throttle and prevent the execution of it's callback.</caption>{@run true}
-		 * // create a new throttle
-		 * var throttle = new FooUtils.Throttle( 50 );
-		 *
-		 * // this `for` loop represents something like the window resize event that could call your handler multiple times a second
-		 * for (var i = 0, max = 5; i < max; i++){
-		 *
-		 * 	throttle.limit( function(){
-		 * 		console.log( "I'm never called" );
-		 * 	} );
-		 *
-		 * }
-		 *
-		 * // cancel the current throttle timer
-		 * throttle.clear();
-		 */
-		clear: function(){
-			if (_is.number(this.id)){
-				clearTimeout(this.id);
-				this.active = false;
-				this.id = null;
-			}
-		}
-	});
-
-})(
-	// dependencies
-	FooUtils.$,
-	FooUtils,
-	FooUtils.is
 );

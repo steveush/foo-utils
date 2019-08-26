@@ -39,8 +39,9 @@
 										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
 										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+										<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+										<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
 										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
@@ -285,6 +286,87 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function collapsible-symbol">
+			<h4 id=".merge" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">merge</span><span class="signature-params">( <span class="signature-param">target</span>, <span class="signature-param">object</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Object}</span></h4>
+				<div class="summary"><p>Merge the contents of two objects together into the first <code>target</code> object.</p></div></dt>
+<dd class="symbol-details function  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This does not merge arrays by index as jQuery does, it treats them as a single property and replaces the array with a shallow copy of the new one.</p>
+			<p>This method is used internally by the <a href="FooUtils.obj.html#.extend">FooUtils.obj.extend</a> method.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>target</code></td>
+							<td><span class="param-type">Object</span></td>
+							<td class="last">
+									<p>The object to merge properties into.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>object</code></td>
+							<td><span class="param-type">Object</span></td>
+							<td class="last">
+									<p>The object containing properties to merge.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Object</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>The <code>target</code> merged with the contents from the <code>object</code>.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.obj namespacevar _obj &#x3D; FooUtils.obj,	// create some objects to merge	target &#x3D; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: false, &quot;arr&quot;: [1,2,3]},	object &#x3D; {&quot;enabled&quot;: true, &quot;something&quot;: 123, &quot;arr&quot;: [4,5,6]};console.log( _obj.merge( target, object ) ); // &#x3D;&gt; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: true, &quot;arr&quot;: [4,5,6], &quot;something&quot;: 123}</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="// alias the FooUtils.obj namespacevar _obj &#x3D; FooUtils.obj,	// create some objects to merge	target &#x3D; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: false, &quot;arr&quot;: [1,2,3]},	object &#x3D; {&quot;enabled&quot;: true, &quot;something&quot;: 123, &quot;arr&quot;: [4,5,6]};console.log( _obj.merge( target, object ) ); // &#x3D;&gt; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: true, &quot;arr&quot;: [4,5,6], &quot;something&quot;: 123}">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line-66">line 66</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function collapsible-symbol">
 			<h4 id=".mergeValid" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">mergeValid</span><span class="signature-params">( <span class="signature-param">target</span>, <span class="signature-param">validators</span>, <span class="signature-param">object</span> [,&nbsp;<span class="signature-param">mappings</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Object}</span></h4>
 				<div class="summary"><p>Merge the validated properties of the <code>object</code> into the <code>target</code> using the optional <code>mappings</code>.</p></div></dt>
 <dd class="symbol-details function  collapsible-symbol">
@@ -495,87 +577,6 @@
 					</form>
 			</div>	</div>
 </dd>
-											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".merge" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">merge</span><span class="signature-params">( <span class="signature-param">target</span>, <span class="signature-param">object</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Object}</span></h4>
-				<div class="summary"><p>Merge the contents of two objects together into the first <code>target</code> object.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This does not merge arrays by index as jQuery does, it treats them as a single property and replaces the array with a shallow copy of the new one.</p>
-			<p>This method is used internally by the <a href="FooUtils.obj.html#.extend">FooUtils.obj.extend</a> method.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>target</code></td>
-							<td><span class="param-type">Object</span></td>
-							<td class="last">
-									<p>The object to merge properties into.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>object</code></td>
-							<td><span class="param-type">Object</span></td>
-							<td class="last">
-									<p>The object containing properties to merge.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Object</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>The <code>target</code> merged with the contents from the <code>object</code>.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.obj namespacevar _obj &#x3D; FooUtils.obj,	// create some objects to merge	target &#x3D; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: false, &quot;arr&quot;: [1,2,3]},	object &#x3D; {&quot;enabled&quot;: true, &quot;something&quot;: 123, &quot;arr&quot;: [4,5,6]};console.log( _obj.merge( target, object ) ); // &#x3D;&gt; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: true, &quot;arr&quot;: [4,5,6], &quot;something&quot;: 123}</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.obj namespacevar _obj &#x3D; FooUtils.obj,	// create some objects to merge	target &#x3D; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: false, &quot;arr&quot;: [1,2,3]},	object &#x3D; {&quot;enabled&quot;: true, &quot;something&quot;: 123, &quot;arr&quot;: [4,5,6]};console.log( _obj.merge( target, object ) ); // &#x3D;&gt; {&quot;name&quot;: &quot;My Object&quot;, &quot;enabled&quot;: true, &quot;arr&quot;: [4,5,6], &quot;something&quot;: 123}">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line-66">line 66</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
 									</dl>
 									<h3>Type Definitions</h3>
 									<dl class="symbol">
@@ -711,7 +712,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 11th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 26th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
