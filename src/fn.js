@@ -164,6 +164,54 @@
 	};
 
 	/**
+	 * @summary Debounces the `fn` by the supplied `time`.
+	 * @memberof FooUtils.fn
+	 * @function debounce
+	 * @param {function} fn - The function to debounce.
+	 * @param {number} time - The time in milliseconds to delay execution.
+	 * @returns {function}
+	 * @description This returns a wrapped version of the `fn` which delays its' execution by the supplied `time`. Additional calls to the function will extend the delay until the `time` expires.
+	 */
+	_.fn.debounce = function (fn, time) {
+		var timeout;
+		return function () {
+			var args = _.fn.arg2arr(arguments);
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				fn.apply(this, args);
+			}, time);
+		};
+	};
+
+	/**
+	 * @summary Throttles the `fn` by the supplied `time`.
+	 * @memberof FooUtils.fn
+	 * @function throttle
+	 * @param {function} fn - The function to throttle.
+	 * @param {number} time - The time in milliseconds to delay execution.
+	 * @returns {function}
+	 * @description This returns a wrapped version of the `fn` which ensures it's executed only once every `time` milliseconds. The first call to the function will be executed, after that only the last of any additional calls will be executed once the `time` expires.
+	 */
+	_.fn.throttle = function (fn, time) {
+		var last, timeout;
+		return function () {
+			var ctx = this, args = _.fn.arg2arr(arguments);
+			if (!last){
+				fn.apply(ctx, args);
+				last = Date.now();
+			} else {
+				clearTimeout(timeout);
+				timeout = setTimeout(function () {
+					if (Date.now() - last >= time) {
+						fn.apply(ctx, args);
+						last = Date.now();
+					}
+				}, time - (Date.now() - last));
+			}
+		}
+	};
+
+	/**
 	 * @summary Checks the given `value` and ensures a function is returned.
 	 * @memberof FooUtils.fn
 	 * @function check
