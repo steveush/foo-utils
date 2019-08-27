@@ -9,3 +9,6 @@ Thumbs.db
 
 #ignore local test folder
 node_modules/
+
+#ignore local test file
+tests/my-api-utils.js

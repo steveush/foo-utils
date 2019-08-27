@@ -69,7 +69,7 @@
 	_.is.element = function (value) {
 		return typeof HTMLElement === 'object'
 			? value instanceof HTMLElement
-			: !!value && typeof value === 'object' && value !== null && value.nodeType === 1 && typeof value.nodeName === 'string';
+			: !!value && typeof value === 'object' && value.nodeType === 1 && typeof value.nodeName === 'string';
 	};
 
 	/**
@@ -110,7 +110,7 @@
 	 */
 	_.is.empty = function(value){
 		if (_.is.undef(value) || value === null) return true;
-		if (_.is.number(value) && value == 0) return true;
+		if (_.is.number(value) && value === 0) return true;
 		if (_.is.boolean(value) && value === false) return true;
 		if (_.is.string(value) && value.length === 0) return true;
 		if (_.is.array(value) && value.length === 0) return true;
@@ -306,7 +306,7 @@
 	 */
 	_.is.size = function(value){
 		if (!(_.is.string(value) && !_.is.empty(value)) && !_.is.number(value)) return false;
-		return /^(auto|none|(?:[\d\.]*)+?(?:%|px|mm|q|cm|in|pt|pc|em|ex|ch|rem|vh|vw|vmin|vmax)?)$/.test(value);
+		return /^(auto|none|(?:[\d.]*)+?(?:%|px|mm|q|cm|in|pt|pc|em|ex|ch|rem|vh|vw|vmin|vmax)?)$/.test(value);
 	};
 
 	/**

@@ -71,6 +71,66 @@ QUnit.test(".arg2arr", function(assert){
 	test("arg1", "arg2", "arg3");
 });
 
+QUnit.test(".debounce", function(assert){
+
+	assert.expect(5);
+	var done = assert.async(), iterations = 8, every = 10, current = 0;
+	var debounced = FooUtils.fn.debounce(function(arg1, arg2, arg3, arg4, arg5){
+		assert.equal( arg1, true, "arg1 == true" );
+		assert.equal( arg2, false, "arg2 == false" );
+		assert.equal( arg3, 0, "arg3 == 0" );
+		assert.equal( arg4, 1, "arg4 == 1" );
+		assert.equal( arg5, "string", "arg5 == 'string'" );
+	}, 50);
+
+	function spam(finished, wait){
+		current++;
+		debounced(true, false, 0, 1, "string");
+		if (current < iterations){
+			setTimeout(function(){
+				spam(finished, wait);
+			}, every);
+		} else {
+			setTimeout(finished, wait);
+		}
+	}
+
+	spam(function(){
+		done();
+	}, 100);
+
+});
+
+QUnit.test(".throttle", function(assert){
+
+	assert.expect(15);
+	var done = assert.async(), iterations = 8, every = 10, current = 0;
+	var throttled = FooUtils.fn.throttle(function(arg1, arg2, arg3, arg4, arg5){
+		assert.equal( arg1, true, "arg1 == true" );
+		assert.equal( arg2, false, "arg2 == false" );
+		assert.equal( arg3, 0, "arg3 == 0" );
+		assert.equal( arg4, 1, "arg4 == 1" );
+		assert.equal( arg5, "string", "arg5 == 'string'" );
+	}, 50);
+
+	function spam(finished, wait){
+		current++;
+		throttled(true, false, 0, 1, "string");
+		if (current < iterations){
+			setTimeout(function(){
+				spam(finished, wait);
+			}, every);
+		} else {
+			setTimeout(finished, wait);
+		}
+	}
+
+	spam(function(){
+		done();
+	}, 100);
+
+});
+
 QUnit.test(".check", function(assert){
 
 	// a simple `api` with a `testString` function

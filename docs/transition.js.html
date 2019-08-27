@@ -13,8 +13,9 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"readmeTargets":[],"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
 			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -34,28 +35,29 @@
 			</div>
 			<div class="navbar-collapse collapse" id="topNavigation">
 				<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
-										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
-										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
-										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.html">FooUtils</a></li>
-										<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
-										<li><a href="FooUtils.is.html">FooUtils.is</a></li>
-										<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
-										<li><a href="FooUtils.str.html">FooUtils.str</a></li>
-										<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
-										<li><a href="FooUtils.url.html">FooUtils.url</a></li>
-								</ul>
-							</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
 					<form class="navbar-form navbar-right" role="search">
@@ -180,20 +182,27 @@
 	};
 
 	/**
+	 * @summary The callback function to execute when starting a transition.
+	 * @callback FooUtils.transition~startCallback
+	 * @param {jQuery} $element - The element to start the transition on.
+	 * @this Element
+	 */
+
+	/**
 	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
 	 * @memberof FooUtils.transition
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the transition on.
-	 * @param {string} className - One or more class names (separated by spaces) to be toggled that starts the transition.
+	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
 	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
-	 * @returns {jQuery.Deferred}
+	 * @returns {Promise}
 	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
-	_.transition.start = function($element, className, state, timeout){
+	_.transition.start = function($element, classNameOrFunc, state, timeout){
 		var deferred = $.Deferred();
 
 		$element = $element.first();
@@ -206,7 +215,7 @@
 				safety.deferred.reject();
 			}
 			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
-			safety = $element.data('transition_safety', {
+			safety = {
 				deferred: deferred,
 				timer: setTimeout(function(){
 					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
@@ -214,7 +223,8 @@
 					$element.removeData('transition_safety').off(_.transition.end + '.utils');
 					deferred.resolve();
 				}, timeout)
-			});
+			};
+			$element.data('transition_safety', safety);
 
 			$element.on(_.transition.end + '.utils', function(e){
 				if ($element.is(e.target)){
@@ -226,15 +236,19 @@
 		}
 
 		setTimeout(function(){
-			// This is executed inside of a 1ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
-			$element.toggleClass(className, state);
+			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+			if (_is.fn(classNameOrFunc)){
+				classNameOrFunc.apply($element.get(0), [$element]);
+			} else {
+				$element.toggleClass(classNameOrFunc, state);
+			}
 			if (!_.transition.supported){
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 1);
+		}, 20);
 
-		return deferred;
+		return deferred.promise();
 	};
 
 })(
@@ -249,7 +263,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 11th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 27th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -274,5 +288,7 @@
 		</div>
 		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
 		<script src="../dist/foo-utils.js"></script>
+	
 </body>
-</html><!-- end:source.tmpl.hbs -->
+</html>
+<!-- end:source.tmpl.hbs -->

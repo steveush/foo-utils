@@ -12,8 +12,9 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"readmeTargets":[],"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
 			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -33,28 +34,29 @@
 			</div>
 			<div class="navbar-collapse collapse" id="topNavigation">
 				<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
-										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
-										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
-										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-										<li><a href="FooUtils.Throttle.html">FooUtils.Throttle</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.html">FooUtils</a></li>
-										<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
-										<li><a href="FooUtils.is.html">FooUtils.is</a></li>
-										<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
-										<li><a href="FooUtils.str.html">FooUtils.str</a></li>
-										<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
-										<li><a href="FooUtils.url.html">FooUtils.url</a></li>
-								</ul>
-							</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
 					<form class="navbar-form navbar-right" role="search">
@@ -118,7 +120,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-14">line 14</a></p>
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-13">line 13</a></p>
 								</div>
 							</div>
 			
@@ -133,10 +135,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="inflate" class="function"><span class="name">inflate</span><span class="signature-params">( <span class="signature-param">amount</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="inflate" class="function public"><span class="name">inflate</span><span class="signature-params">( <span class="signature-param">amount</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
 				<div class="summary"><p>Inflate the bounds by the specified amount.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -187,7 +189,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-23">line 23</a></p>
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-22">line 22</a></p>
 								</div>
 							</div>
 			
@@ -198,10 +200,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id="intersects" class="function"><span class="name">intersects</span><span class="signature-params">( <span class="signature-param">bounds</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="intersects" class="function public"><span class="name">intersects</span><span class="signature-params">( <span class="signature-param">bounds</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the supplied bounds object intersects with this one.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -252,7 +254,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-42">line 42</a></p>
+									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-41">line 41</a></p>
 								</div>
 							</div>
 			
@@ -263,10 +265,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".extend" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".extend" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
 				<div class="summary"><p>Creates a new class that inherits from this one which in turn allows itself to be extended.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Every class created using this method has both the <a href="FooUtils.Class.html#.extend">extend</a> and <a href="FooUtils.Class.html#.override">override</a> static methods added to it to allow it to be extended.</p></div>
 			</div>			<div class="callout callout-info">
@@ -328,7 +330,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-34">line 34</a></p>
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-33">line 33</a></p>
 								</div>
 							</div>
 			
@@ -339,10 +341,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".override" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">override</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".override" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">override</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>Overrides a single method on this class.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a helper method for overriding a single function of a <a href="FooUtils.Class.html">FooUtils.Class</a> or one of its child classes. This uses the <a href="FooUtils.fn.html#.addOrOverride">FooUtils.fn.addOrOverride</a> method internally and simply provides the correct prototype.</p></div>
 			</div>			<div class="callout callout-info">
@@ -401,7 +403,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-102">line 102</a></p>
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-101">line 101</a></p>
 								</div>
 							</div>
 			
@@ -422,7 +424,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 11th Jun 2017 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 27th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -447,5 +449,6 @@
 		</div>
 		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
 		<script src="../dist/foo-utils.js"></script>
+	
 </body>
 </html>

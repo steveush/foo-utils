@@ -36,10 +36,10 @@ module.exports = function(grunt) {
 					"./src/_utils.js",
 					"./src/transition.js",
 					"./src/Class.js",
+					"./src/EventClass.js",
 					"./src/Bounds.js",
 					"./src/Factory.js",
-					"./src/Debugger.js",
-					"./src/Throttle.js"
+					"./src/Debugger.js"
 				],
 				dest: "./dist/foo-utils.js"
 			}
@@ -71,8 +71,14 @@ module.exports = function(grunt) {
 		},
 		qunit: {
 			options : {
-				'--web-security': false,
-				'--local-to-remote-url-access': true
+				puppeteer: {
+					headless: true,
+					args: [
+						"--disable-web-security",
+						"--allow-file-access-from-files"
+					]
+				},
+				timeout: 30000
 			},
 			all: ['tests/*.html']
 		}

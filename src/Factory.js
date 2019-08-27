@@ -5,8 +5,7 @@
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
 		 * @summary A factory for classes allowing them to be registered and created using a friendly name.
-		 * @memberof FooUtils
-		 * @constructs Factory
+		 * @constructs
 		 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
 		 * @augments FooUtils.Class
 		 * @borrows FooUtils.Class.extend as extend
