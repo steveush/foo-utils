@@ -2,11 +2,11 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
-    _.Event = _.Class.extend(/** @lends FooUtils.Class */{
+    _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
          * @summary A base event class providing just a type and defaultPrevented properties.
-         * @memberof FooUtils
-         * @constructs Event
+         * @constructs
+         * @param {string} type - The type for this event.
          * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
          *
          * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
@@ -29,13 +29,15 @@
              * @memberof FooUtils.Event#
              * @name type
              * @type {string}
+             * @readonly
              */
             this.type = type;
             /**
-             * @summary Whether or not to prevent the default behavior following this event.
+             * @summary Whether the default action should be taken or not.
              * @memberof FooUtils.Event#
              * @name defaultPrevented
              * @type {boolean}
+             * @readonly
              */
             this.defaultPrevented = false;
         },
@@ -49,11 +51,10 @@
         }
     });
 
-    _.EventClass = _.Class.extend(/** @lends FooUtils.Class */{
+    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass */{
         /**
          * @summary A base class that implements a basic events interface.
-         * @memberof FooUtils
-         * @constructs EventClass
+         * @constructs
          * @description This is a very basic events implementation that provides just enough to cover most needs.
          */
         construct: function(){

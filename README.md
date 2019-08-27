@@ -48,3 +48,4 @@ Start of changelog. Older versions have no breaking changes.
 * Added new `FooUtils.EventClass` base class and `FooUtils.Event` classes to allow objects to be subscribed to and emit events through the supplied `.on( eventName, callback [, thisArg] )`, `.off( eventName [, callback] )` and `.trigger( eventName, args )` methods.
 * Added new `FooUtils.selectify( classes )` method.
 * Added new `FooUtils.src( src, srcset, srcWidth, srcHeight, renderWidth, renderHeight, devicePixelRatio )` method.
+* Added new `FooUtils.scrollParent( element, axis, def )` method.

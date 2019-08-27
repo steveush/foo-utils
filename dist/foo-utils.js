@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.0.8
+* @version 0.1.0
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.0.8',
+		version: '0.1.0'
 	};
 
 	/**
@@ -94,12 +94,12 @@
 		 * @ignore
 		 */
 		function split(version){
-			var res = version.split('.');
-			for(var i = 0, len = res.length; i < len; i++){
-				res[i] = parseInt(res[i]);
-				if (isNaN(res[i])) res[i] = 0;
+			var parts = version.split('.'), result = [];
+			for(var i = 0, len = parts.length; i < len; i++){
+				result[i] = parseInt(parts[i]);
+				if (isNaN(result[i])) result[i] = 0;
 			}
-			return res;
+			return result;
 		}
 
 		// get the base numeric arrays for each version
@@ -112,12 +112,12 @@
 
 		// perform the actual comparison
 		for (var i = 0; i < v1parts.length; ++i) {
-			if (v2parts.length == i) return 1;
-			if (v1parts[i] == v2parts[i]) continue;
+			if (v2parts.length === i) return 1;
+			if (v1parts[i] === v2parts[i]) continue;
 			if (v1parts[i] > v2parts[i]) return 1;
 			else return -1;
 		}
-		if (v1parts.length != v2parts.length) return -1;
+		if (v1parts.length !== v2parts.length) return -1;
 		return 0;
 	};
 
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -218,7 +218,7 @@
 	_.is.element = function (value) {
 		return typeof HTMLElement === 'object'
 			? value instanceof HTMLElement
-			: !!value && typeof value === 'object' && value !== null && value.nodeType === 1 && typeof value.nodeName === 'string';
+			: !!value && typeof value === 'object' && value.nodeType === 1 && typeof value.nodeName === 'string';
 	};
 
 	/**
@@ -259,7 +259,7 @@
 	 */
 	_.is.empty = function(value){
 		if (_.is.undef(value) || value === null) return true;
-		if (_.is.number(value) && value == 0) return true;
+		if (_.is.number(value) && value === 0) return true;
 		if (_.is.boolean(value) && value === false) return true;
 		if (_.is.string(value) && value.length === 0) return true;
 		if (_.is.array(value) && value.length === 0) return true;
@@ -455,7 +455,7 @@
 	 */
 	_.is.size = function(value){
 		if (!(_.is.string(value) && !_.is.empty(value)) && !_.is.number(value)) return false;
-		return /^(auto|none|(?:[\d\.]*)+?(?:%|px|mm|q|cm|in|pt|pc|em|ex|ch|rem|vh|vw|vmin|vmax)?)$/.test(value);
+		return /^(auto|none|(?:[\d.]*)+?(?:%|px|mm|q|cm|in|pt|pc|em|ex|ch|rem|vh|vw|vmin|vmax)?)$/.test(value);
 	};
 
 	/**
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1221,7 +1221,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1536,7 +1536,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1868,7 +1868,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1993,7 +1993,7 @@
 		}
 		if (_is.string(classes) || _is.array(classes)) {
 			if (_is.string(classes)) classes = [classes];
-			return $.map(classes, function (str) {
+			return classes.map(function(str){
 				return _is.string(str) ? "." + str.split(/\s/g).join(".") : null;
 			}).join(",");
 		}
@@ -2055,8 +2055,10 @@
 		// if there is no srcset just return the src
 		if (!_is.string(srcset)) return src;
 
-		// parse the srcset into objects containing the url, width, height and pixel density for each supplied source
-		var list = $.map(srcset.replace(/(\s[\d.]+[whx]),/g, '$1 @,@ ').split(' @,@ '), function (val) {
+		// first split the srcset into its individual sources
+		var sources = srcset.replace(/(\s[\d.]+[whx]),/g, '$1 @,@ ').split(' @,@ ');
+		// then parse those sources into objects containing the url, width, height and pixel density
+		var list = sources.map(function (val) {
 			return {
 				url: /^\s*(\S*)/.exec(val)[1],
 				w: parseFloat((/\S\s+(\d+)w/.exec(val) || [0, Infinity])[1]),
@@ -2079,38 +2081,62 @@
 		// get the current viewport info and use it to determine the correct src to load
 		var dpr = _is.number(devicePixelRatio) ? devicePixelRatio : (window.devicePixelRatio || 1),
 			area = {w: renderWidth * dpr, h: renderHeight * dpr, x: dpr},
-			property, min, max;
+			props = ['w','h','x'];
 
 		// first check each of the viewport properties against the max values of the same properties in our src array
 		// only src's with a property greater than the viewport or equal to the max are kept
-		for (property in area) {
-			if (!area.hasOwnProperty(property)) continue;
-			max = Math.max.apply(null, $.map(list, function (item) {
-				return item[property];
+		props.forEach(function (prop) {
+			var max = Math.max.apply(null, list.map(function (item) {
+				return item[prop];
 			}));
-			list = $.grep(list, (function (prop, limit) {
-				return function (item) {
-					return item[prop] >= area[prop] || item[prop] === limit;
-				};
-			})(property, max));
-		}
+			list = list.filter(function (item) {
+				return item[prop] >= area[prop] || item[prop] === max;
+			});
+		});
 
 		// next reduce our src array by comparing the viewport properties against the minimum values of the same properties of each src
 		// only src's with a property equal to the minimum are kept
-		for (property in area) {
-			if (!area.hasOwnProperty(property)) continue;
-			min = Math.min.apply(null, $.map(list, function (item) {
-				return item[property];
+		props.forEach(function (prop) {
+			var min = Math.min.apply(null, list.map(function (item) {
+				return item[prop];
 			}));
-			list = $.grep(list, (function (prop, limit) {
-				return function (item) {
-					return item[prop] === limit;
-				};
-			})(property, min));
-		}
+			list = list.filter(function (item) {
+				return item[prop] === min;
+			});
+		});
 
 		// return the first url as it is the best match for the current viewport
 		return list[0].url;
+	};
+
+	/**
+	 * @summary Get the scroll parent for the supplied element optionally filtering by axis.
+	 * @memberof FooUtils
+	 * @function scrollParent
+	 * @param {(string|Element|jQuery)} element - The selector, element or jQuery element to find the scroll parent of.
+	 * @param {string} [axis="xy"] - The axis to check. By default this method will check both the X and Y axis.
+	 * @param {jQuery} [def] - The default jQuery element to return if no result was found. Defaults to the supplied elements document.
+	 * @returns {jQuery}
+	 */
+	_.scrollParent = function(element, axis, def){
+		element = _is.jq(element) ? element : $(element);
+		axis = _is.string(axis) && /^(x|y|xy|yx)$/i.test(axis) ? axis : "xy";
+		def = _is.jq(def) ? def : $(!!element.length && element[0].ownerDocument || document);
+
+		if (!element.length) return def;
+
+		var position = element.css("position"),
+			excludeStaticParent = position === "absolute",
+			hidden = /hidden/i, axisX = /x/i, axisY = /y/i,
+			$parent = element.parentsUntil(def).filter(function(i, el){
+				var $el = $(this);
+				if (excludeStaticParent && $el.css("position") === "static") return false;
+				var scrollY = axisY.test(axis) && el.scrollHeight > el.clientHeight && !hidden.test($el.css("overflow-y")),
+					scrollX = axisX.test(axis) && el.scrollWidth > el.clientWidth && !hidden.test($el.css("overflow-x"));
+				return scrollY || scrollX;
+			}).eq(0);
+
+		return position === "fixed" || !$parent.length ? def : $parent;
 	};
 
 })(
@@ -2121,7 +2147,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2294,12 +2320,11 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
-	 * @memberof FooUtils
-	 * @constructs Class
+	 * @constructs FooUtils.Class
 	 * @description This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a `_super` method within the scope of any overriding methods that allows a simple way to execute the overridden function.
 	 *
 	 * Have a look at the {@link FooUtils.Class.extend|extend} and {@link FooUtils.Class.override|override} method examples to see some basic usage.
@@ -2434,13 +2459,13 @@
 );
 (function (_, _is) {
     // only register methods if this version is the current version
-    if (_.version !== '0.0.8') return;
+    if (_.version !== '0.1.0') return;
 
-    _.Event = _.Class.extend(/** @lends FooUtils.Class */{
+    _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
          * @summary A base event class providing just a type and defaultPrevented properties.
-         * @memberof FooUtils
-         * @constructs Event
+         * @constructs
+         * @param {string} type - The type for this event.
          * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
          *
          * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
@@ -2463,13 +2488,15 @@
              * @memberof FooUtils.Event#
              * @name type
              * @type {string}
+             * @readonly
              */
             this.type = type;
             /**
-             * @summary Whether or not to prevent the default behavior following this event.
+             * @summary Whether the default action should be taken or not.
              * @memberof FooUtils.Event#
              * @name defaultPrevented
              * @type {boolean}
+             * @readonly
              */
             this.defaultPrevented = false;
         },
@@ -2483,11 +2510,10 @@
         }
     });
 
-    _.EventClass = _.Class.extend(/** @lends FooUtils.Class */{
+    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass */{
         /**
          * @summary A base class that implements a basic events interface.
-         * @memberof FooUtils
-         * @constructs EventClass
+         * @constructs
          * @description This is a very basic events implementation that provides just enough to cover most needs.
          */
         construct: function(){
@@ -2608,13 +2634,12 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
 		 * @summary A simple bounding rectangle class.
-		 * @memberof FooUtils
-		 * @constructs Bounds
+		 * @constructs
 		 * @augments FooUtils.Class
 		 * @borrows FooUtils.Class.extend as extend
 		 * @borrows FooUtils.Class.override as override
@@ -2710,13 +2735,12 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
 		 * @summary A factory for classes allowing them to be registered and created using a friendly name.
-		 * @memberof FooUtils
-		 * @constructs Factory
+		 * @constructs
 		 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
 		 * @augments FooUtils.Class
 		 * @borrows FooUtils.Class.extend as extend
@@ -3034,7 +3058,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.0.8') return;
+	if (_.version !== '0.1.0') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -3045,8 +3069,7 @@
 	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
 		/**
 		 * @summary A debug utility class that can be enabled across sessions using the given `key` by storing its state in `localStorage`.
-		 * @memberof FooUtils
-		 * @constructs Debugger
+		 * @constructs
 		 * @param {string} key - The key to use to store the debug state in `localStorage`.
 		 * @description This class allows you to write additional debug info to the console within your code which by default is not actually output. You can then enable the debugger and it will start to output the results to the console.
 		 *

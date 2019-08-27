@@ -5,8 +5,7 @@
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
 		 * @summary A simple bounding rectangle class.
-		 * @memberof FooUtils
-		 * @constructs Bounds
+		 * @constructs
 		 * @augments FooUtils.Class
 		 * @borrows FooUtils.Class.extend as extend
 		 * @borrows FooUtils.Class.override as override

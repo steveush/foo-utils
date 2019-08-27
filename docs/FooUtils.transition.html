@@ -12,8 +12,9 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"readmeTargets":[],"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
 			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -33,29 +34,29 @@
 			</div>
 			<div class="navbar-collapse collapse" id="topNavigation">
 				<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
-										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
-										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
-										<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
-										<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.html">FooUtils</a></li>
-										<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
-										<li><a href="FooUtils.is.html">FooUtils.is</a></li>
-										<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
-										<li><a href="FooUtils.str.html">FooUtils.str</a></li>
-										<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
-										<li><a href="FooUtils.url.html">FooUtils.url</a></li>
-								</ul>
-							</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
 					<form class="navbar-form navbar-right" role="search">
@@ -127,10 +128,10 @@
 									<h3>Members</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".supported" class="member"><span class="signature-attribs">&lt;static> </span><span class="name">supported</span><span class="signature-type"> :boolean</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".supported" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">supported</span><span class="signature-type"> :boolean</span></h4>
 				<div class="summary"><p>Whether or not transitions are supported by the current browser.</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -170,18 +171,18 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member collapsible-symbol">
-			<h4 id=".end" class="member"><span class="signature-attribs">&lt;static> </span><span class="name">end</span><span class="signature-type"> :string</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".end" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">end</span><span class="signature-type"> :string</span></h4>
 				<div class="summary"><p>The <code>transitionend</code> event name for the current browser.</p></div></dt>
-<dd class="symbol-details member  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Depending on the browser this returns one of the following values:</p>
 			<ul><!--
-			--><li><code>&quot;transitionend&quot;</code></li><!--
-			--><li><code>&quot;webkitTransitionEnd&quot;</code></li><!--
-			--><li><code>&quot;msTransitionEnd&quot;</code></li><!--
-			--><li><code>&quot;oTransitionEnd&quot;</code></li><!--
-			--><li><code>null</code> - If the browser doesn't support transitions</li><!--
+			--><li>`"transitionend"`</li><!--
+			--><li>`"webkitTransitionEnd"`</li><!--
+			--><li>`"msTransitionEnd"`</li><!--
+			--><li>`"oTransitionEnd"`</li><!--
+			--><li>`null` - If the browser doesn't support transitions</li><!--
 			--></ul></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
@@ -224,10 +225,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".duration" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">duration</span><span class="signature-params">( <span class="signature-param">$element</span> [,&nbsp;<span class="signature-param">def</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".duration" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">duration</span><span class="signature-params">( <span class="signature-param">$element</span> [,&nbsp;<span class="signature-param">def</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
 				<div class="summary"><p>Gets the <code>transition-duration</code> value for the supplied jQuery element.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -302,10 +303,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".start" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">start</span><span class="signature-params">( <span class="signature-param">$element</span>, <span class="signature-param">classNameOrFunc</span> [,&nbsp;<span class="signature-param">state</span> [,&nbsp;<span class="signature-param">timeout</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".start" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">start</span><span class="signature-params">( <span class="signature-param">$element</span>, <span class="signature-param">classNameOrFunc</span> [,&nbsp;<span class="signature-param">state</span> [,&nbsp;<span class="signature-param">timeout</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Start a transition by toggling the supplied <code>className</code> on the <code>$element</code>.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This method lets us use CSS transitions by toggling a class and using the <code>transitionend</code> event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's <code>.toggleClass</code> method.</p>
 			<p>The last parameter <code>timeout</code> is used to create a timer that behaves as a safety net in case the <code>transitionend</code> event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.</p></div>
@@ -405,10 +406,10 @@
 									<h3>Type Definitions</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title typedef collapsible-symbol">
-			<h4 id="~startCallback" class="typedef"><span class="name">startCallback</span><span class="signature-params">( <span class="signature-param">$element</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~startCallback" class="typedef public"><span class="name">startCallback</span><span class="signature-params">( <span class="signature-param">$element</span>&nbsp;)</span><span class="signature-type"></span></h4>
 				<div class="summary"><p>The callback function to execute when starting a transition.</p></div></dt>
-<dd class="symbol-details typedef  collapsible-symbol">
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -479,7 +480,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 26th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 27th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -504,5 +505,6 @@
 		</div>
 		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
 		<script src="../dist/foo-utils.js"></script>
+	
 </body>
 </html>

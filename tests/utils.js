@@ -119,3 +119,71 @@ QUnit.test('src:x-descriptor', function(assert){
 	assert.equal( FooUtils.src(src, srcset, srcWidth, srcHeight, 480, 240, 4), "960x480.src" );
 
 });
+
+QUnit.test('scrollParent', function(assert){
+	var $fixture = $("#qunit-fixture"),
+		$wrap = $("<div/>")
+			.css({
+				"overflow-x": "scroll",
+				"overflow-y": "scroll",
+				"max-width": "100px",
+				"max-height": "100px"
+			}).appendTo($fixture),
+		$element = $("<div/>")
+			.css({
+				"width": "150px",
+				"height": "150px"
+			}).appendTo($wrap),
+		$parent = FooUtils.scrollParent($element, 'xy', $fixture);
+	assert.ok($parent.is($wrap));
+	$parent = FooUtils.scrollParent(null, 'xy', $fixture);
+	assert.ok($parent.is($fixture));
+	$parent = FooUtils.scrollParent($element, 'abc', $fixture);
+	assert.ok($parent.is($wrap));
+	$parent = FooUtils.scrollParent(null, null, $fixture);
+	assert.ok($parent.is($fixture));
+	$parent = FooUtils.scrollParent(null, null, null);
+	assert.ok($parent.is(document));
+});
+
+QUnit.test('scrollParent:axisY', function(assert){
+	var $fixture = $("#qunit-fixture"),
+		$wrap = $("<div/>")
+			.css({
+				"overflow-x": "hidden",
+				"overflow-y": "scroll",
+				"max-height": "100px"
+			}).appendTo($fixture),
+		$element = $("<div/>")
+			.css({
+				"width": "150px",
+				"height": "150px"
+			}).appendTo($wrap),
+		$parent = FooUtils.scrollParent($element, 'xy', $fixture);
+	assert.ok($parent.is($wrap));
+	$parent = FooUtils.scrollParent($element, 'x', $fixture);
+	assert.ok($parent.is($fixture));
+	$parent = FooUtils.scrollParent($element, 'y', $fixture);
+	assert.ok($parent.is($wrap));
+});
+
+QUnit.test('scrollParent:axisX', function(assert){
+	var $fixture = $("#qunit-fixture"),
+		$wrap = $("<div/>")
+			.css({
+				"overflow-x": "scroll",
+				"overflow-y": "hidden",
+				"max-width": "100px"
+			}).appendTo($fixture),
+		$element = $("<div/>")
+			.css({
+				"width": "150px",
+				"height": "150px"
+			}).appendTo($wrap),
+		$parent = FooUtils.scrollParent($element, 'xy', $fixture);
+	assert.ok($parent.is($wrap));
+	$parent = FooUtils.scrollParent($element, 'x', $fixture);
+	assert.ok($parent.is($wrap));
+	$parent = FooUtils.scrollParent($element, 'y', $fixture);
+	assert.ok($parent.is($fixture));
+});

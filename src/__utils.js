@@ -46,7 +46,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '@@version',
+		version: '@@version'
 	};
 
 	/**
@@ -87,12 +87,12 @@
 		 * @ignore
 		 */
 		function split(version){
-			var res = version.split('.');
-			for(var i = 0, len = res.length; i < len; i++){
-				res[i] = parseInt(res[i]);
-				if (isNaN(res[i])) res[i] = 0;
+			var parts = version.split('.'), result = [];
+			for(var i = 0, len = parts.length; i < len; i++){
+				result[i] = parseInt(parts[i]);
+				if (isNaN(result[i])) result[i] = 0;
 			}
-			return res;
+			return result;
 		}
 
 		// get the base numeric arrays for each version
@@ -105,12 +105,12 @@
 
 		// perform the actual comparison
 		for (var i = 0; i < v1parts.length; ++i) {
-			if (v2parts.length == i) return 1;
-			if (v1parts[i] == v2parts[i]) continue;
+			if (v2parts.length === i) return 1;
+			if (v1parts[i] === v2parts[i]) continue;
 			if (v1parts[i] > v2parts[i]) return 1;
 			else return -1;
 		}
-		if (v1parts.length != v2parts.length) return -1;
+		if (v1parts.length !== v2parts.length) return -1;
 		return 0;
 	};
 
