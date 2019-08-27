@@ -1,6 +1,6 @@
 window.lunrData = {
   "index": {
-    "version": "0.7.2",
+    "version": "1.0.0",
     "fields": [
       {
         "name": "longname",
@@ -50,6 +50,10 @@ window.lunrData = {
           "readm",
           "us",
           "util"
+        ],
+        "global.html": [
+          "document",
+          "global"
         ],
         "list_class.html": [
           "class",
@@ -376,21 +380,21 @@ window.lunrData = {
           "event",
           "event#typ",
           "fooutils.event#typ",
+          "lt;readonly&gt",
           "member",
           "string",
           "type"
         ],
         "FooUtils.Event.html#defaultPrevented": [
-          "behavior",
+          "action",
           "boolean",
           "default",
           "defaultprev",
-          "event",
           "event#defaultprev",
-          "follow",
           "fooutils.event#defaultprev",
+          "lt;readonly&gt",
           "member",
-          "prevent",
+          "taken",
           "whether"
         ],
         "FooUtils.Event.html#preventDefault": [
@@ -743,9 +747,9 @@ window.lunrData = {
           "overridden",
           "pre",
           "proto",
-          "quot;somemethod&quot",
           "replac",
           "scope",
+          "somemethod",
           "suppli",
           "this._sup",
           "this._super(arg1",
@@ -1047,15 +1051,14 @@ window.lunrData = {
           "follow",
           "fooutils.is.empti",
           "function",
-          "integer0.0",
+          "integer`0.0",
           "is.empti",
           "jqueri",
           "lt;static&gt",
           "method",
           "object",
-          "objectfalsenullundefin",
-          "quot;&quot",
-          "string0",
+          "object`false``null``undefin",
+          "string`0",
           "valu"
         ],
         "FooUtils.is.html#.error": [
@@ -1068,16 +1071,6 @@ window.lunrData = {
           "lt;static&gt",
           "valu"
         ],
-        "FooUtils.is.html#.fn": [
-          "boolean",
-          "check",
-          "fn",
-          "fooutils.is.fn",
-          "function",
-          "is.fn",
-          "lt;static&gt",
-          "valu"
-        ],
         "FooUtils.is.html#.hash": [
           "boolean",
           "check",
@@ -1086,6 +1079,18 @@ window.lunrData = {
           "hash",
           "is.hash",
           "lt;static&gt",
+          "valu"
+        ],
+        "FooUtils.is.html#.jq": [
+          "boolean",
+          "check",
+          "fooutils.is.jq",
+          "function",
+          "is.jq",
+          "jq",
+          "jqueri",
+          "lt;static&gt",
+          "object",
           "valu"
         ],
         "FooUtils.is.html#.number": [
@@ -1174,16 +1179,14 @@ window.lunrData = {
           "undefin",
           "valu"
         ],
-        "FooUtils.is.html#.jq": [
+        "FooUtils.is.html#.fn": [
           "boolean",
           "check",
-          "fooutils.is.jq",
+          "fn",
+          "fooutils.is.fn",
           "function",
-          "is.jq",
-          "jq",
-          "jqueri",
+          "is.fn",
           "lt;static&gt",
-          "object",
           "valu"
         ],
         "FooUtils.html": [
@@ -1342,6 +1345,21 @@ window.lunrData = {
           "us",
           "valu"
         ],
+        "FooUtils.html#.scrollParent": [
+          "axi",
+          "def",
+          "element",
+          "filter",
+          "fooutils.scrollpar",
+          "function",
+          "jqueri",
+          "lt;static&gt",
+          "option",
+          "parent",
+          "scroll",
+          "scrollpar",
+          "suppli"
+        ],
         "FooUtils.html#.getViewportBounds": [
           "bound",
           "current",
@@ -1487,74 +1505,6 @@ window.lunrData = {
           "properti",
           "set",
           "valu"
-        ],
-        "FooUtils.obj.html#~Mappings": [
-          "below",
-          "child",
-          "exampl",
-          "fooutils.obj~map",
-          "from/to",
-          "level",
-          "map",
-          "mergevalid",
-          "method",
-          "name",
-          "new",
-          "notat",
-          "object",
-          "obj~map",
-          "onto",
-          "properti",
-          "quot;name.first&quot",
-          "quot;name.short&quot",
-          "seen",
-          "singl",
-          "sourc",
-          "suppli",
-          "target",
-          "typedef",
-          "us",
-          "valu",
-          "want"
-        ],
-        "FooUtils.obj.html#~Validators": [
-          "accept",
-          "argument",
-          "below",
-          "boolean",
-          "child",
-          "directli",
-          "exampl",
-          "first",
-          "fooutils.i",
-          "fooutils.obj~valid",
-          "function",
-          "level",
-          "major",
-          "mean",
-          "mergevalid",
-          "method",
-          "multipl",
-          "name",
-          "notat",
-          "object",
-          "obj~valid",
-          "properti",
-          "provid",
-          "quot;name.first&quot",
-          "quot;name.last&quot",
-          "return",
-          "seen",
-          "singl",
-          "suppli",
-          "support",
-          "test",
-          "type",
-          "typedef",
-          "us",
-          "valid",
-          "valu",
-          "want"
         ],
         "FooUtils.str.html": [
           "common",
@@ -1814,13 +1764,13 @@ window.lunrData = {
           "member",
           "name",
           "on",
-          "quot;transitionend&quot;&quot;webkittransitionend&quot;&quot;mstransitionend&quot;&quot;otransitionend&quot;nul",
           "return",
           "string",
           "support",
           "transit",
           "transition.end",
           "transitionend",
+          "transitionend\"``\"webkittransitionend\"``\"mstransitionend\"``\"otransitionend\"``nul",
           "valu"
         ],
         "FooUtils.transition.html#.duration": [
@@ -1960,21 +1910,9 @@ window.lunrData = {
           "string",
           "url.param",
           "valu"
-        ],
-        "FooUtils.url.html#~Parts": [
-          "fooutils.url.part",
-          "fooutils.url~part",
-          "javascript",
-          "method",
-          "object",
-          "part",
-          "plain",
-          "return",
-          "typedef",
-          "url~part"
         ]
       },
-      "length": 108
+      "length": 107
     },
     "tokenStore": {
       "root": {
@@ -1982,7 +1920,7 @@ window.lunrData = {
           "docs": {
             "FooUtils.is.html#.empty": {
               "ref": "FooUtils.is.html#.empty",
-              "tf": 5.263157894736842
+              "tf": 5.555555555555555
             }
           }
         },
@@ -2636,7 +2574,7 @@ window.lunrData = {
                     "docs": {
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
-                        "tf": 2.631578947368421
+                        "tf": 2.7777777777777777
                       }
                     }
                   }
@@ -2818,13 +2756,13 @@ window.lunrData = {
                       "ref": "FooUtils.is.html#.error",
                       "tf": 23.333333333333332
                     },
-                    "FooUtils.is.html#.fn": {
-                      "ref": "FooUtils.is.html#.fn",
-                      "tf": 23.333333333333332
-                    },
                     "FooUtils.is.html#.hash": {
                       "ref": "FooUtils.is.html#.hash",
                       "tf": 23.333333333333332
+                    },
+                    "FooUtils.is.html#.jq": {
+                      "ref": "FooUtils.is.html#.jq",
+                      "tf": 17.5
                     },
                     "FooUtils.is.html#.number": {
                       "ref": "FooUtils.is.html#.number",
@@ -2850,9 +2788,9 @@ window.lunrData = {
                       "ref": "FooUtils.is.html#.undef",
                       "tf": 23.333333333333332
                     },
-                    "FooUtils.is.html#.jq": {
-                      "ref": "FooUtils.is.html#.jq",
-                      "tf": 17.5
+                    "FooUtils.is.html#.fn": {
+                      "ref": "FooUtils.is.html#.fn",
+                      "tf": 23.333333333333332
                     },
                     "FooUtils.str.html#.contains": {
                       "ref": "FooUtils.str.html#.contains",
@@ -2895,14 +2833,6 @@ window.lunrData = {
                     "FooUtils.Factory.html#.override": {
                       "ref": "FooUtils.Factory.html#.override",
                       "tf": 2.941176470588235
-                    },
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -4414,10 +4344,6 @@ window.lunrData = {
                               "FooUtils.is.html": {
                                 "ref": "FooUtils.is.html",
                                 "tf": 1400
-                              },
-                              "FooUtils.obj.html#~Validators": {
-                                "ref": "FooUtils.obj.html#~Validators",
-                                "tf": 1.0869565217391304
                               }
                             },
                             "s": {
@@ -4515,17 +4441,6 @@ window.lunrData = {
                                     }
                                   }
                                 },
-                                "f": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {
-                                      "FooUtils.is.html#.fn": {
-                                        "ref": "FooUtils.is.html#.fn",
-                                        "tf": 1100
-                                      }
-                                    }
-                                  }
-                                },
                                 "h": {
                                   "docs": {},
                                   "a": {
@@ -4539,6 +4454,17 @@ window.lunrData = {
                                             "tf": 1100
                                           }
                                         }
+                                      }
+                                    }
+                                  }
+                                },
+                                "j": {
+                                  "docs": {},
+                                  "q": {
+                                    "docs": {
+                                      "FooUtils.is.html#.jq": {
+                                        "ref": "FooUtils.is.html#.jq",
+                                        "tf": 1100
                                       }
                                     }
                                   }
@@ -4645,12 +4571,12 @@ window.lunrData = {
                                     }
                                   }
                                 },
-                                "j": {
+                                "f": {
                                   "docs": {},
-                                  "q": {
+                                  "n": {
                                     "docs": {
-                                      "FooUtils.is.html#.jq": {
-                                        "ref": "FooUtils.is.html#.jq",
+                                      "FooUtils.is.html#.fn": {
+                                        "ref": "FooUtils.is.html#.fn",
                                         "tf": 1100
                                       }
                                     }
@@ -4823,10 +4749,6 @@ window.lunrData = {
                                             "FooUtils.url.html#.parts": {
                                               "ref": "FooUtils.url.html#.parts",
                                               "tf": 1100
-                                            },
-                                            "FooUtils.url.html#~Parts": {
-                                              "ref": "FooUtils.url.html#~Parts",
-                                              "tf": 11.666666666666666
                                             }
                                           }
                                         },
@@ -4872,10 +4794,6 @@ window.lunrData = {
                                             "FooUtils.url.html#.parts": {
                                               "ref": "FooUtils.url.html#.parts",
                                               "tf": 25
-                                            },
-                                            "FooUtils.url.html#~Parts": {
-                                              "ref": "FooUtils.url.html#~Parts",
-                                              "tf": 1150
                                             }
                                           }
                                         }
@@ -4924,6 +4842,35 @@ window.lunrData = {
                                   "FooUtils.html#.src": {
                                     "ref": "FooUtils.html#.src",
                                     "tf": 1150
+                                  }
+                                }
+                              }
+                            },
+                            "c": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "l": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {
+                                              "FooUtils.html#.scrollParent": {
+                                                "ref": "FooUtils.html#.scrollParent",
+                                                "tf": 1150
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -5409,43 +5356,6 @@ window.lunrData = {
                                       }
                                     }
                                   }
-                                },
-                                "~": {
-                                  "docs": {},
-                                  "m": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "p": {
-                                        "docs": {
-                                          "FooUtils.obj.html#~Mappings": {
-                                            "ref": "FooUtils.obj.html#~Mappings",
-                                            "tf": 1150
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "v": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "l": {
-                                        "docs": {},
-                                        "i": {
-                                          "docs": {},
-                                          "d": {
-                                            "docs": {
-                                              "FooUtils.obj.html#~Validators": {
-                                                "ref": "FooUtils.obj.html#~Validators",
-                                                "tf": 1150
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
                                 }
                               }
                             }
@@ -5701,17 +5611,13 @@ window.lunrData = {
                   "docs": {},
                   "w": {
                     "docs": {
-                      "FooUtils.Event.html#defaultPrevented": {
-                        "ref": "FooUtils.Event.html#defaultPrevented",
-                        "tf": 11.666666666666666
-                      },
                       "FooUtils.fn.html#.addOrOverride": {
                         "ref": "FooUtils.fn.html#.addOrOverride",
                         "tf": 1.9230769230769231
                       },
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
-                        "tf": 2.631578947368421
+                        "tf": 2.7777777777777777
                       },
                       "FooUtils.transition.html#.end": {
                         "ref": "FooUtils.transition.html#.end",
@@ -5901,12 +5807,12 @@ window.lunrData = {
                             "ref": "FooUtils.is.html#.error",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.fn": {
-                            "ref": "FooUtils.is.html#.fn",
-                            "tf": 133.33333333333334
-                          },
                           "FooUtils.is.html#.hash": {
                             "ref": "FooUtils.is.html#.hash",
+                            "tf": 110
+                          },
+                          "FooUtils.is.html#.jq": {
+                            "ref": "FooUtils.is.html#.jq",
                             "tf": 110
                           },
                           "FooUtils.is.html#.number": {
@@ -5933,9 +5839,9 @@ window.lunrData = {
                             "ref": "FooUtils.is.html#.undef",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.jq": {
-                            "ref": "FooUtils.is.html#.jq",
-                            "tf": 110
+                          "FooUtils.is.html#.fn": {
+                            "ref": "FooUtils.is.html#.fn",
+                            "tf": 133.33333333333334
                           },
                           "FooUtils.html#.versionCompare": {
                             "ref": "FooUtils.html#.versionCompare",
@@ -5959,6 +5865,10 @@ window.lunrData = {
                           },
                           "FooUtils.html#.src": {
                             "ref": "FooUtils.html#.src",
+                            "tf": 110
+                          },
+                          "FooUtils.html#.scrollParent": {
+                            "ref": "FooUtils.html#.scrollParent",
                             "tf": 110
                           },
                           "FooUtils.html#.getViewportBounds": {
@@ -5988,10 +5898,6 @@ window.lunrData = {
                           "FooUtils.obj.html#.prop": {
                             "ref": "FooUtils.obj.html#.prop",
                             "tf": 110
-                          },
-                          "FooUtils.obj.html#~Validators": {
-                            "ref": "FooUtils.obj.html#~Validators",
-                            "tf": 2.1739130434782608
                           },
                           "FooUtils.str.html#.camel": {
                             "ref": "FooUtils.str.html#.camel",
@@ -6600,10 +6506,6 @@ window.lunrData = {
                       "ref": "FooUtils.obj.html#.merge",
                       "tf": 8.75
                     },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
-                    },
                     "FooUtils.str.html#.from": {
                       "ref": "FooUtils.str.html#.from",
                       "tf": 8.75
@@ -6612,6 +6514,31 @@ window.lunrData = {
                       "ref": "FooUtils.str.html#.until",
                       "tf": 15.555555555555555
                     }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 10
+                      }
+                    }
+                  }
+                }
+              },
+              "l": {
+                "docs": {
+                  "FooUtils.url.html#.full": {
+                    "ref": "FooUtils.url.html#.full",
+                    "tf": 3.125
                   }
                 }
               }
@@ -6626,17 +6553,6 @@ window.lunrData = {
                       "ref": "FooUtils.str.html#.join",
                       "tf": 2
                     }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "l": {
-                "docs": {
-                  "FooUtils.url.html#.full": {
-                    "ref": "FooUtils.url.html#.full",
-                    "tf": 3.125
                   }
                 }
               }
@@ -6870,26 +6786,6 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "o": {
-              "docs": {},
-              "m": {
-                "docs": {},
-                "/": {
-                  "docs": {},
-                  "t": {
-                    "docs": {},
-                    "o": {
-                      "docs": {
-                        "FooUtils.obj.html#~Mappings": {
-                          "ref": "FooUtils.obj.html#~Mappings",
-                          "tf": 2.083333333333333
-                        }
-                      }
-                    }
-                  }
-                }
-              }
             }
           },
           "l": {
@@ -6902,7 +6798,7 @@ window.lunrData = {
                   "docs": {
                     "FooUtils.is.html#.empty": {
                       "ref": "FooUtils.is.html#.empty",
-                      "tf": 2.631578947368421
+                      "tf": 2.7777777777777777
                     }
                   }
                 }
@@ -7118,21 +7014,24 @@ window.lunrData = {
                   "e": {
                     "docs": {},
                     "r": {
-                      "0": {
-                        "docs": {},
-                        ".": {
-                          "0": {
-                            "docs": {
-                              "FooUtils.is.html#.empty": {
-                                "ref": "FooUtils.is.html#.empty",
-                                "tf": 2.631578947368421
+                      "docs": {},
+                      "`": {
+                        "0": {
+                          "docs": {},
+                          ".": {
+                            "0": {
+                              "docs": {
+                                "FooUtils.is.html#.empty": {
+                                  "ref": "FooUtils.is.html#.empty",
+                                  "tf": 2.7777777777777777
+                                }
                               }
-                            }
-                          },
-                          "docs": {}
-                        }
-                      },
-                      "docs": {}
+                            },
+                            "docs": {}
+                          }
+                        },
+                        "docs": {}
+                      }
                     }
                   }
                 }
@@ -7449,17 +7348,6 @@ window.lunrData = {
                   }
                 }
               },
-              "f": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "FooUtils.is.html#.fn": {
-                      "ref": "FooUtils.is.html#.fn",
-                      "tf": 100
-                    }
-                  }
-                }
-              },
               "h": {
                 "docs": {},
                 "a": {
@@ -7473,6 +7361,17 @@ window.lunrData = {
                           "tf": 100
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "j": {
+                "docs": {},
+                "q": {
+                  "docs": {
+                    "FooUtils.is.html#.jq": {
+                      "ref": "FooUtils.is.html#.jq",
+                      "tf": 100
                     }
                   }
                 }
@@ -7585,12 +7484,12 @@ window.lunrData = {
                   }
                 }
               },
-              "j": {
+              "f": {
                 "docs": {},
-                "q": {
+                "n": {
                   "docs": {
-                    "FooUtils.is.html#.jq": {
-                      "ref": "FooUtils.is.html#.jq",
+                    "FooUtils.is.html#.fn": {
+                      "ref": "FooUtils.is.html#.fn",
                       "tf": 100
                     }
                   }
@@ -7758,7 +7657,7 @@ window.lunrData = {
                       },
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
-                        "tf": 2.631578947368421
+                        "tf": 2.7777777777777777
                       },
                       "FooUtils.is.html#.promise": {
                         "ref": "FooUtils.is.html#.promise",
@@ -7796,14 +7695,6 @@ window.lunrData = {
                         "ref": "FooUtils.obj.html#.merge",
                         "tf": 5.555555555555555
                       },
-                      "FooUtils.obj.html#~Mappings": {
-                        "ref": "FooUtils.obj.html#~Mappings",
-                        "tf": 7
-                      },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 12.753623188405797
-                      },
                       "FooUtils.str.html": {
                         "ref": "FooUtils.str.html",
                         "tf": 14
@@ -7831,10 +7722,6 @@ window.lunrData = {
                       "FooUtils.url.html": {
                         "ref": "FooUtils.url.html",
                         "tf": 14
-                      },
-                      "FooUtils.url.html#~Parts": {
-                        "ref": "FooUtils.url.html#~Parts",
-                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -7955,14 +7842,6 @@ window.lunrData = {
                               "FooUtils.obj.html#.mergeValid": {
                                 "ref": "FooUtils.obj.html#.mergeValid",
                                 "tf": 614.2857142857143
-                              },
-                              "FooUtils.obj.html#~Mappings": {
-                                "ref": "FooUtils.obj.html#~Mappings",
-                                "tf": 7
-                              },
-                              "FooUtils.obj.html#~Validators": {
-                                "ref": "FooUtils.obj.html#~Validators",
-                                "tf": 11.666666666666666
                               }
                             }
                           }
@@ -7977,10 +7856,6 @@ window.lunrData = {
               "docs": {},
               "n": {
                 "docs": {
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
-                  },
                   "FooUtils.str.html#.format": {
                     "ref": "FooUtils.str.html#.format",
                     "tf": 1.3888888888888888
@@ -8041,12 +7916,7 @@ window.lunrData = {
               "o": {
                 "docs": {},
                 "r": {
-                  "docs": {
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
-                    }
-                  },
+                  "docs": {},
                   ".": {
                     "docs": {},
                     "m": {
@@ -8096,10 +7966,6 @@ window.lunrData = {
                 "FooUtils.obj.html#.mergeValid": {
                   "ref": "FooUtils.obj.html#.mergeValid",
                   "tf": 23.035714285714285
-                },
-                "FooUtils.obj.html#~Mappings": {
-                  "ref": "FooUtils.obj.html#~Mappings",
-                  "tf": 613.25
                 }
               }
             }
@@ -8271,10 +8137,6 @@ window.lunrData = {
                         "FooUtils.html#.$": {
                           "ref": "FooUtils.html#.$",
                           "tf": 3.571428571428571
-                        },
-                        "FooUtils.obj.html#~Validators": {
-                          "ref": "FooUtils.obj.html#~Validators",
-                          "tf": 1.0869565217391304
                         }
                       }
                     }
@@ -8334,17 +8196,6 @@ window.lunrData = {
                           }
                         }
                       }
-                    }
-                  }
-                }
-              },
-              "i": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "FooUtils.url.html#~Parts": {
-                      "ref": "FooUtils.url.html#~Parts",
-                      "tf": 11.666666666666666
                     }
                   }
                 }
@@ -8433,10 +8284,6 @@ window.lunrData = {
                       "FooUtils.Factory.html#.override": {
                         "ref": "FooUtils.Factory.html#.override",
                         "tf": 2.941176470588235
-                      },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -8493,14 +8340,6 @@ window.lunrData = {
                           "FooUtils.obj.html#.prop": {
                             "ref": "FooUtils.obj.html#.prop",
                             "tf": 14
-                          },
-                          "FooUtils.obj.html#~Mappings": {
-                            "ref": "FooUtils.obj.html#~Mappings",
-                            "tf": 2.083333333333333
-                          },
-                          "FooUtils.obj.html#~Validators": {
-                            "ref": "FooUtils.obj.html#~Validators",
-                            "tf": 14.927536231884057
                           },
                           "FooUtils.transition.html": {
                             "ref": "FooUtils.transition.html",
@@ -8565,12 +8404,7 @@ window.lunrData = {
                   "n": {
                     "docs": {},
                     "t": {
-                      "docs": {
-                        "FooUtils.Event.html#defaultPrevented": {
-                          "ref": "FooUtils.Event.html#defaultPrevented",
-                          "tf": 11.666666666666666
-                        }
-                      },
+                      "docs": {},
                       "d": {
                         "docs": {},
                         "e": {
@@ -8800,6 +8634,20 @@ window.lunrData = {
                   }
                 }
               },
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 10
+                      }
+                    }
+                  }
+                }
+              },
               "t": {
                 "docs": {
                   "FooUtils.str.html#.containsWord": {
@@ -8817,10 +8665,6 @@ window.lunrData = {
                   "FooUtils.url.html#.parts": {
                     "ref": "FooUtils.url.html#.parts",
                     "tf": 633.75
-                  },
-                  "FooUtils.url.html#~Parts": {
-                    "ref": "FooUtils.url.html#~Parts",
-                    "tf": 600
                   }
                 },
                 "n": {
@@ -9421,10 +9265,6 @@ window.lunrData = {
                         "ref": "FooUtils.html#.src",
                         "tf": 5.833333333333333
                       },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 1.0869565217391304
-                      },
                       "FooUtils.str.html#.from": {
                         "ref": "FooUtils.str.html#.from",
                         "tf": 8.75
@@ -9444,10 +9284,6 @@ window.lunrData = {
                       "FooUtils.url.html#.full": {
                         "ref": "FooUtils.url.html#.full",
                         "tf": 11.875
-                      },
-                      "FooUtils.url.html#~Parts": {
-                        "ref": "FooUtils.url.html#~Parts",
-                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -9730,14 +9566,6 @@ window.lunrData = {
                 "ref": "FooUtils.obj.html#.mergeValid",
                 "tf": 8.75
               },
-              "FooUtils.obj.html#~Mappings": {
-                "ref": "FooUtils.obj.html#~Mappings",
-                "tf": 9.083333333333332
-              },
-              "FooUtils.obj.html#~Validators": {
-                "ref": "FooUtils.obj.html#~Validators",
-                "tf": 14.927536231884057
-              },
               "FooUtils.str.html#.escapeRegExp": {
                 "ref": "FooUtils.str.html#.escapeRegExp",
                 "tf": 14
@@ -9964,26 +9792,6 @@ window.lunrData = {
                     }
                   }
                 }
-              },
-              "~": {
-                "docs": {},
-                "p": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "t": {
-                        "docs": {
-                          "FooUtils.url.html#~Parts": {
-                            "ref": "FooUtils.url.html#~Parts",
-                            "tf": 150
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           },
@@ -10012,6 +9820,10 @@ window.lunrData = {
                       "docs": {},
                       "t": {
                         "docs": {
+                          "global.html": {
+                            "ref": "global.html",
+                            "tf": 35
+                          },
                           "list_class.html": {
                             "ref": "list_class.html",
                             "tf": 35
@@ -10064,6 +9876,10 @@ window.lunrData = {
                   "ref": "FooUtils.fn.html#.check",
                   "tf": 14.285714285714285
                 },
+                "FooUtils.html#.scrollParent": {
+                  "ref": "FooUtils.html#.scrollParent",
+                  "tf": 16.666666666666664
+                },
                 "FooUtils.transition.html#.duration": {
                   "ref": "FooUtils.transition.html#.duration",
                   "tf": 20
@@ -10113,7 +9929,7 @@ window.lunrData = {
                         },
                         "FooUtils.Event.html#defaultPrevented": {
                           "ref": "FooUtils.Event.html#defaultPrevented",
-                          "tf": 11.666666666666666
+                          "tf": 17.5
                         },
                         "FooUtils.Event.html#preventDefault": {
                           "ref": "FooUtils.Event.html#preventDefault",
@@ -10142,7 +9958,7 @@ window.lunrData = {
                                 },
                                 "FooUtils.Event.html#defaultPrevented": {
                                   "ref": "FooUtils.Event.html#defaultPrevented",
-                                  "tf": 650
+                                  "tf": 633.3333333333334
                                 }
                               }
                             }
@@ -10517,29 +10333,6 @@ window.lunrData = {
                 }
               }
             },
-            "r": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "t": {
-                    "docs": {},
-                    "l": {
-                      "docs": {},
-                      "i": {
-                        "docs": {
-                          "FooUtils.obj.html#~Validators": {
-                            "ref": "FooUtils.obj.html#~Validators",
-                            "tf": 1.0869565217391304
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "f": {
               "docs": {},
               "f": {
@@ -10587,6 +10380,248 @@ window.lunrData = {
                     "FooUtils.transition.html#.duration": {
                       "ref": "FooUtils.transition.html#.duration",
                       "tf": 630
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "g": {
+          "docs": {},
+          "l": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "b": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "global.html": {
+                        "ref": "global.html",
+                        "tf": 2045
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "i": {
+            "docs": {},
+            "v": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "n": {
+                  "docs": {
+                    "FooUtils.Debugger.html": {
+                      "ref": "FooUtils.Debugger.html",
+                      "tf": 6.363636363636364
+                    },
+                    "FooUtils.Factory.html#register": {
+                      "ref": "FooUtils.Factory.html#register",
+                      "tf": 10
+                    },
+                    "FooUtils.fn.html#.addOrOverride": {
+                      "ref": "FooUtils.fn.html#.addOrOverride",
+                      "tf": 7.777777777777778
+                    },
+                    "FooUtils.fn.html#.check": {
+                      "ref": "FooUtils.fn.html#.check",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.fn.html#.fetch": {
+                      "ref": "FooUtils.fn.html#.fetch",
+                      "tf": 17.5
+                    },
+                    "FooUtils.fn.html#.enqueue": {
+                      "ref": "FooUtils.fn.html#.enqueue",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.html#.uniqueId": {
+                      "ref": "FooUtils.html#.uniqueId",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.html#.removeUniqueId": {
+                      "ref": "FooUtils.html#.removeUniqueId",
+                      "tf": 8.75
+                    },
+                    "FooUtils.obj.html#.prop": {
+                      "ref": "FooUtils.obj.html#.prop",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.camel": {
+                      "ref": "FooUtils.str.html#.camel",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.contains": {
+                      "ref": "FooUtils.str.html#.contains",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.containsWord": {
+                      "ref": "FooUtils.str.html#.containsWord",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.endsWith": {
+                      "ref": "FooUtils.str.html#.endsWith",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.fnv1a": {
+                      "ref": "FooUtils.str.html#.fnv1a",
+                      "tf": 8.75
+                    },
+                    "FooUtils.str.html#.from": {
+                      "ref": "FooUtils.str.html#.from",
+                      "tf": 8.75
+                    },
+                    "FooUtils.str.html#.join": {
+                      "ref": "FooUtils.str.html#.join",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.str.html#.startsWith": {
+                      "ref": "FooUtils.str.html#.startsWith",
+                      "tf": 14
+                    },
+                    "FooUtils.str.html#.until": {
+                      "ref": "FooUtils.str.html#.until",
+                      "tf": 7.777777777777778
+                    },
+                    "FooUtils.url.html#.full": {
+                      "ref": "FooUtils.url.html#.full",
+                      "tf": 15
+                    },
+                    "FooUtils.url.html#.param": {
+                      "ref": "FooUtils.url.html#.param",
+                      "tf": 11.666666666666666
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "t": {
+              "docs": {
+                "FooUtils.Factory.html#names": {
+                  "ref": "FooUtils.Factory.html#names",
+                  "tf": 17.5
+                },
+                "FooUtils.html#.getViewportBounds": {
+                  "ref": "FooUtils.html#.getViewportBounds",
+                  "tf": 14
+                },
+                "FooUtils.transition.html#.duration": {
+                  "ref": "FooUtils.transition.html#.duration",
+                  "tf": 10
+                },
+                "FooUtils.url.html#.param": {
+                  "ref": "FooUtils.url.html#.param",
+                  "tf": 11.666666666666666
+                }
+              },
+              "v": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "w": {
+                      "docs": {},
+                      "p": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "b": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {
+                                          "FooUtils.html#.getViewportBounds": {
+                                            "ref": "FooUtils.html#.getViewportBounds",
+                                            "tf": 675
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "m": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "b": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "u": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "d": {
+                                      "docs": {
+                                        "FooUtils.html#.getElementBounds": {
+                                          "ref": "FooUtils.html#.getElementBounds",
+                                          "tf": 675
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.html#.uniqueId": {
+                      "ref": "FooUtils.html#.uniqueId",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.str.html#.fnv1a": {
+                      "ref": "FooUtils.str.html#.fnv1a",
+                      "tf": 8.75
                     }
                   }
                 }
@@ -10834,12 +10869,12 @@ window.lunrData = {
                                     "ref": "FooUtils.is.html#.error",
                                     "tf": 25
                                   },
-                                  "FooUtils.is.html#.fn": {
-                                    "ref": "FooUtils.is.html#.fn",
-                                    "tf": 25
-                                  },
                                   "FooUtils.is.html#.hash": {
                                     "ref": "FooUtils.is.html#.hash",
+                                    "tf": 25
+                                  },
+                                  "FooUtils.is.html#.jq": {
+                                    "ref": "FooUtils.is.html#.jq",
                                     "tf": 25
                                   },
                                   "FooUtils.is.html#.number": {
@@ -10866,8 +10901,8 @@ window.lunrData = {
                                     "ref": "FooUtils.is.html#.undef",
                                     "tf": 25
                                   },
-                                  "FooUtils.is.html#.jq": {
-                                    "ref": "FooUtils.is.html#.jq",
+                                  "FooUtils.is.html#.fn": {
+                                    "ref": "FooUtils.is.html#.fn",
                                     "tf": 25
                                   },
                                   "FooUtils.html#.$": {
@@ -10901,6 +10936,10 @@ window.lunrData = {
                                   "FooUtils.html#.src": {
                                     "ref": "FooUtils.html#.src",
                                     "tf": 10
+                                  },
+                                  "FooUtils.html#.scrollParent": {
+                                    "ref": "FooUtils.html#.scrollParent",
+                                    "tf": 16.666666666666664
                                   },
                                   "FooUtils.html#.getViewportBounds": {
                                     "ref": "FooUtils.html#.getViewportBounds",
@@ -11036,6 +11075,14 @@ window.lunrData = {
                                     "docs": {
                                       "FooUtils.Debugger.html#enabled": {
                                         "ref": "FooUtils.Debugger.html#enabled",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "FooUtils.Event.html#type": {
+                                        "ref": "FooUtils.Event.html#type",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "FooUtils.Event.html#defaultPrevented": {
+                                        "ref": "FooUtils.Event.html#defaultPrevented",
                                         "tf": 33.33333333333333
                                       },
                                       "FooUtils.Factory.html#registered": {
@@ -11258,24 +11305,6 @@ window.lunrData = {
                 }
               }
             },
-            "v": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "l": {
-                  "docs": {
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
-                    }
-                  }
-                }
-              }
-            },
             "t": {
               "docs": {
                 "FooUtils.transition.html#.start": {
@@ -11353,14 +11382,6 @@ window.lunrData = {
                   "FooUtils.obj.html#.prop": {
                     "ref": "FooUtils.obj.html#.prop",
                     "tf": 34
-                  },
-                  "FooUtils.obj.html#~Mappings": {
-                    "ref": "FooUtils.obj.html#~Mappings",
-                    "tf": 2.083333333333333
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
                   },
                   "FooUtils.str.html#.format": {
                     "ref": "FooUtils.str.html#.format",
@@ -11466,10 +11487,6 @@ window.lunrData = {
                 "FooUtils.obj.html#.merge": {
                   "ref": "FooUtils.obj.html#.merge",
                   "tf": 2.7777777777777777
-                },
-                "FooUtils.obj.html#~Mappings": {
-                  "ref": "FooUtils.obj.html#~Mappings",
-                  "tf": 7
                 }
               }
             },
@@ -11549,27 +11566,6 @@ window.lunrData = {
                         "ref": "FooUtils.transition.html#.duration",
                         "tf": 20
                       }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "o": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -11751,7 +11747,7 @@ window.lunrData = {
                         },
                         "FooUtils.Event.html#defaultPrevented": {
                           "ref": "FooUtils.Event.html#defaultPrevented",
-                          "tf": 50
+                          "tf": 33.33333333333333
                         },
                         "FooUtils.Factory.html#contains": {
                           "ref": "FooUtils.Factory.html#contains",
@@ -11781,12 +11777,12 @@ window.lunrData = {
                           "ref": "FooUtils.is.html#.error",
                           "tf": 25
                         },
-                        "FooUtils.is.html#.fn": {
-                          "ref": "FooUtils.is.html#.fn",
-                          "tf": 25
-                        },
                         "FooUtils.is.html#.hash": {
                           "ref": "FooUtils.is.html#.hash",
+                          "tf": 25
+                        },
+                        "FooUtils.is.html#.jq": {
+                          "ref": "FooUtils.is.html#.jq",
                           "tf": 25
                         },
                         "FooUtils.is.html#.number": {
@@ -11813,13 +11809,9 @@ window.lunrData = {
                           "ref": "FooUtils.is.html#.undef",
                           "tf": 25
                         },
-                        "FooUtils.is.html#.jq": {
-                          "ref": "FooUtils.is.html#.jq",
+                        "FooUtils.is.html#.fn": {
+                          "ref": "FooUtils.is.html#.fn",
                           "tf": 25
-                        },
-                        "FooUtils.obj.html#~Validators": {
-                          "ref": "FooUtils.obj.html#~Validators",
-                          "tf": 1.0869565217391304
                         },
                         "FooUtils.str.html#.contains": {
                           "ref": "FooUtils.str.html#.contains",
@@ -11981,34 +11973,6 @@ window.lunrData = {
                 }
               }
             },
-            "h": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "v": {
-                  "docs": {
-                    "FooUtils.transition.html#.start": {
-                      "ref": "FooUtils.transition.html#.start",
-                      "tf": 2
-                    }
-                  },
-                  "i": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "r": {
-                        "docs": {
-                          "FooUtils.Event.html#defaultPrevented": {
-                            "ref": "FooUtils.Event.html#defaultPrevented",
-                            "tf": 11.666666666666666
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "t": {
               "docs": {},
               "w": {
@@ -12040,19 +12004,15 @@ window.lunrData = {
                 }
               }
             },
-            "l": {
+            "h": {
               "docs": {},
-              "o": {
+              "a": {
                 "docs": {},
-                "w": {
+                "v": {
                   "docs": {
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 2.1739130434782608
+                    "FooUtils.transition.html#.start": {
+                      "ref": "FooUtils.transition.html#.start",
+                      "tf": 2
                     }
                   }
                 }
@@ -12249,14 +12209,6 @@ window.lunrData = {
                     "FooUtils.obj.html#.merge": {
                       "ref": "FooUtils.obj.html#.merge",
                       "tf": 2.7777777777777777
-                    },
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 1.0869565217391304
                     }
                   }
                 }
@@ -12409,17 +12361,13 @@ window.lunrData = {
                         "ref": "FooUtils.html#.src",
                         "tf": 11.666666666666666
                       },
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 10
+                      },
                       "FooUtils.html#.getElementBounds": {
                         "ref": "FooUtils.html#.getElementBounds",
                         "tf": 17.5
-                      },
-                      "FooUtils.obj.html#~Mappings": {
-                        "ref": "FooUtils.obj.html#~Mappings",
-                        "tf": 2.083333333333333
-                      },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 1.0869565217391304
                       },
                       "FooUtils.str.html#.join": {
                         "ref": "FooUtils.str.html#.join",
@@ -12453,10 +12401,6 @@ window.lunrData = {
                         "FooUtils.fn.html#.CONTAINS_SUPER": {
                           "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                           "tf": 3.125
-                        },
-                        "FooUtils.obj.html#~Validators": {
-                          "ref": "FooUtils.obj.html#~Validators",
-                          "tf": 1.0869565217391304
                         },
                         "FooUtils.transition.html#.supported": {
                           "ref": "FooUtils.transition.html#.supported",
@@ -12754,14 +12698,6 @@ window.lunrData = {
                 "n": {
                   "docs": {},
                   "g": {
-                    "0": {
-                      "docs": {
-                        "FooUtils.is.html#.empty": {
-                          "ref": "FooUtils.is.html#.empty",
-                          "tf": 2.631578947368421
-                        }
-                      }
-                    },
                     "docs": {
                       "FooUtils.Debugger.html#key": {
                         "ref": "FooUtils.Debugger.html#key",
@@ -12769,7 +12705,7 @@ window.lunrData = {
                       },
                       "FooUtils.Event.html#type": {
                         "ref": "FooUtils.Event.html#type",
-                        "tf": 50
+                        "tf": 33.33333333333333
                       },
                       "FooUtils.fn.html#.check": {
                         "ref": "FooUtils.fn.html#.check",
@@ -12835,6 +12771,17 @@ window.lunrData = {
                         "ref": "FooUtils.url.html#.param",
                         "tf": 28.33333333333333
                       }
+                    },
+                    "`": {
+                      "0": {
+                        "docs": {
+                          "FooUtils.is.html#.empty": {
+                            "ref": "FooUtils.is.html#.empty",
+                            "tf": 2.7777777777777777
+                          }
+                        }
+                      },
+                      "docs": {}
                     },
                     "|": {
                       "docs": {},
@@ -13152,6 +13099,34 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "o": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 10
+                      }
+                    },
+                    "p": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "r": {
+                          "docs": {
+                            "FooUtils.html#.scrollParent": {
+                              "ref": "FooUtils.html#.scrollParent",
+                              "tf": 666.6666666666666
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -13174,14 +13149,6 @@ window.lunrData = {
               },
               "n": {
                 "docs": {
-                  "FooUtils.obj.html#~Mappings": {
-                    "ref": "FooUtils.obj.html#~Mappings",
-                    "tf": 2.083333333333333
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 2.1739130434782608
-                  },
                   "FooUtils.str.html#.format": {
                     "ref": "FooUtils.str.html#.format",
                     "tf": 1.3888888888888888
@@ -13384,6 +13351,38 @@ window.lunrData = {
               }
             }
           },
+          "o": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "m": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "h": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "d": {
+                            "docs": {
+                              "FooUtils.fn.html#.addOrOverride": {
+                                "ref": "FooUtils.fn.html#.addOrOverride",
+                                "tf": 0.9615384615384616
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "r": {
             "docs": {},
             "c": {
@@ -13446,23 +13445,6 @@ window.lunrData = {
                           }
                         }
                       }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "o": {
-            "docs": {},
-            "u": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "c": {
-                  "docs": {
-                    "FooUtils.obj.html#~Mappings": {
-                      "ref": "FooUtils.obj.html#~Mappings",
-                      "tf": 2.083333333333333
                     }
                   }
                 }
@@ -13776,6 +13758,10 @@ window.lunrData = {
                   "docs": {},
                   "n": {
                     "docs": {
+                      "FooUtils.Event.html#defaultPrevented": {
+                        "ref": "FooUtils.Event.html#defaultPrevented",
+                        "tf": 17.5
+                      },
                       "FooUtils.Event.html#preventDefault": {
                         "ref": "FooUtils.Event.html#preventDefault",
                         "tf": 10
@@ -13811,17 +13797,6 @@ window.lunrData = {
                       "FooUtils.html#.ready": {
                         "ref": "FooUtils.html#.ready",
                         "tf": 11.666666666666666
-                      }
-                    }
-                  }
-                },
-                "p": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 1.0869565217391304
                       }
                     }
                   }
@@ -13978,10 +13953,6 @@ window.lunrData = {
                             "ref": "FooUtils.fn.html#.enqueue",
                             "tf": 5.833333333333333
                           },
-                          "FooUtils.obj.html#~Validators": {
-                            "ref": "FooUtils.obj.html#~Validators",
-                            "tf": 1.0869565217391304
-                          },
                           "FooUtils.str.html#.format": {
                             "ref": "FooUtils.str.html#.format",
                             "tf": 1.3888888888888888
@@ -14021,7 +13992,7 @@ window.lunrData = {
                     },
                     "FooUtils.is.html#.empty": {
                       "ref": "FooUtils.is.html#.empty",
-                      "tf": 2.631578947368421
+                      "tf": 2.7777777777777777
                     },
                     "FooUtils.obj.html#.extend": {
                       "ref": "FooUtils.obj.html#.extend",
@@ -14328,6 +14299,17 @@ window.lunrData = {
                 }
               }
             }
+          },
+          "x": {
+            "docs": {},
+            "i": {
+              "docs": {
+                "FooUtils.html#.scrollParent": {
+                  "ref": "FooUtils.html#.scrollParent",
+                  "tf": 26.666666666666664
+                }
+              }
+            }
           }
         },
         "o": {
@@ -14377,7 +14359,11 @@ window.lunrData = {
                       },
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
-                        "tf": 2.631578947368421
+                        "tf": 2.7777777777777777
+                      },
+                      "FooUtils.is.html#.jq": {
+                        "ref": "FooUtils.is.html#.jq",
+                        "tf": 17.5
                       },
                       "FooUtils.is.html#.object": {
                         "ref": "FooUtils.is.html#.object",
@@ -14386,10 +14372,6 @@ window.lunrData = {
                       "FooUtils.is.html#.promise": {
                         "ref": "FooUtils.is.html#.promise",
                         "tf": 6.756756756756757
-                      },
-                      "FooUtils.is.html#.jq": {
-                        "ref": "FooUtils.is.html#.jq",
-                        "tf": 17.5
                       },
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
@@ -14419,14 +14401,6 @@ window.lunrData = {
                         "ref": "FooUtils.obj.html#.prop",
                         "tf": 20
                       },
-                      "FooUtils.obj.html#~Mappings": {
-                        "ref": "FooUtils.obj.html#~Mappings",
-                        "tf": 22.333333333333332
-                      },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 14.927536231884057
-                      },
                       "FooUtils.str.html#.format": {
                         "ref": "FooUtils.str.html#.format",
                         "tf": 1.3888888888888888
@@ -14434,10 +14408,6 @@ window.lunrData = {
                       "FooUtils.url.html#.parts": {
                         "ref": "FooUtils.url.html#.parts",
                         "tf": 8.75
-                      },
-                      "FooUtils.url.html#~Parts": {
-                        "ref": "FooUtils.url.html#~Parts",
-                        "tf": 11.666666666666666
                       }
                     },
                     "&": {
@@ -14494,41 +14464,56 @@ window.lunrData = {
                         }
                       }
                     },
-                    "f": {
+                    "`": {
                       "docs": {},
-                      "a": {
+                      "f": {
                         "docs": {},
-                        "l": {
+                        "a": {
                           "docs": {},
-                          "s": {
+                          "l": {
                             "docs": {},
-                            "e": {
+                            "s": {
                               "docs": {},
-                              "n": {
+                              "e": {
                                 "docs": {},
-                                "u": {
+                                "`": {
                                   "docs": {},
-                                  "l": {
+                                  "`": {
                                     "docs": {},
-                                    "l": {
+                                    "n": {
                                       "docs": {},
                                       "u": {
                                         "docs": {},
-                                        "n": {
+                                        "l": {
                                           "docs": {},
-                                          "d": {
+                                          "l": {
                                             "docs": {},
-                                            "e": {
+                                            "`": {
                                               "docs": {},
-                                              "f": {
+                                              "`": {
                                                 "docs": {},
-                                                "i": {
+                                                "u": {
                                                   "docs": {},
                                                   "n": {
-                                                    "docs": {
-                                                      "FooUtils.is.html#.empty": {
-                                                        "ref": "FooUtils.is.html#.empty",
-                                                        "tf": 2.631578947368421
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "f": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {
+                                                                "FooUtils.is.html#.empty": {
+                                                                  "ref": "FooUtils.is.html#.empty",
+                                                                  "tf": 2.7777777777777777
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -14677,43 +14662,6 @@ window.lunrData = {
                     }
                   }
                 }
-              },
-              "~": {
-                "docs": {},
-                "m": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "p": {
-                      "docs": {
-                        "FooUtils.obj.html#~Mappings": {
-                          "ref": "FooUtils.obj.html#~Mappings",
-                          "tf": 150
-                        }
-                      }
-                    }
-                  }
-                },
-                "v": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "l": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "d": {
-                          "docs": {
-                            "FooUtils.obj.html#~Validators": {
-                              "ref": "FooUtils.obj.html#~Validators",
-                              "tf": 150
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           },
@@ -14789,17 +14737,6 @@ window.lunrData = {
                 "FooUtils.transition.html#.start": {
                   "ref": "FooUtils.transition.html#.start",
                   "tf": 1
-                }
-              }
-            },
-            "t": {
-              "docs": {},
-              "o": {
-                "docs": {
-                  "FooUtils.obj.html#~Mappings": {
-                    "ref": "FooUtils.obj.html#~Mappings",
-                    "tf": 7
-                  }
                 }
               }
             }
@@ -15037,6 +14974,10 @@ window.lunrData = {
                         "ref": "FooUtils.fn.html#.check",
                         "tf": 1.0638297872340425
                       },
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 10
+                      },
                       "FooUtils.obj.html#.mergeValid": {
                         "ref": "FooUtils.obj.html#.mergeValid",
                         "tf": 8.75
@@ -15119,14 +15060,6 @@ window.lunrData = {
                       "FooUtils.fn.html#.enqueue": {
                         "ref": "FooUtils.fn.html#.enqueue",
                         "tf": 0.6493506493506493
-                      },
-                      "FooUtils.obj.html#~Mappings": {
-                        "ref": "FooUtils.obj.html#~Mappings",
-                        "tf": 2.083333333333333
-                      },
-                      "FooUtils.obj.html#~Validators": {
-                        "ref": "FooUtils.obj.html#~Validators",
-                        "tf": 2.1739130434782608
                       },
                       "FooUtils.str.html#.format": {
                         "ref": "FooUtils.str.html#.format",
@@ -15459,10 +15392,6 @@ window.lunrData = {
                       "ref": "FooUtils.Event.html#type",
                       "tf": 35
                     },
-                    "FooUtils.Event.html#defaultPrevented": {
-                      "ref": "FooUtils.Event.html#defaultPrevented",
-                      "tf": 11.666666666666666
-                    },
                     "FooUtils.Event.html#preventDefault": {
                       "ref": "FooUtils.Event.html#preventDefault",
                       "tf": 10
@@ -15772,6 +15701,10 @@ window.lunrData = {
                           "ref": "FooUtils.html#.removeUniqueId",
                           "tf": 42.08333333333333
                         },
+                        "FooUtils.html#.scrollParent": {
+                          "ref": "FooUtils.html#.scrollParent",
+                          "tf": 26.666666666666664
+                        },
                         "FooUtils.html#.getElementBounds": {
                           "ref": "FooUtils.html#.getElementBounds",
                           "tf": 42.5
@@ -15805,7 +15738,7 @@ window.lunrData = {
                   "docs": {
                     "FooUtils.is.html#.empty": {
                       "ref": "FooUtils.is.html#.empty",
-                      "tf": 661.4912280701755
+                      "tf": 662.2222222222223
                     },
                     "FooUtils.str.html#.join": {
                       "ref": "FooUtils.str.html#.join",
@@ -16090,6 +16023,209 @@ window.lunrData = {
                                       "ref": "FooUtils.transition.html#.start",
                                       "tf": 2
                                     }
+                                  },
+                                  "\"": {
+                                    "docs": {},
+                                    "`": {
+                                      "docs": {},
+                                      "`": {
+                                        "docs": {},
+                                        "\"": {
+                                          "docs": {},
+                                          "w": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "b": {
+                                                "docs": {},
+                                                "k": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "s": {
+                                                                "docs": {},
+                                                                "i": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {},
+                                                                    "i": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "n": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "n": {
+                                                                              "docs": {},
+                                                                              "d": {
+                                                                                "docs": {},
+                                                                                "\"": {
+                                                                                  "docs": {},
+                                                                                  "`": {
+                                                                                    "docs": {},
+                                                                                    "`": {
+                                                                                      "docs": {},
+                                                                                      "\"": {
+                                                                                        "docs": {},
+                                                                                        "m": {
+                                                                                          "docs": {},
+                                                                                          "s": {
+                                                                                            "docs": {},
+                                                                                            "t": {
+                                                                                              "docs": {},
+                                                                                              "r": {
+                                                                                                "docs": {},
+                                                                                                "a": {
+                                                                                                  "docs": {},
+                                                                                                  "n": {
+                                                                                                    "docs": {},
+                                                                                                    "s": {
+                                                                                                      "docs": {},
+                                                                                                      "i": {
+                                                                                                        "docs": {},
+                                                                                                        "t": {
+                                                                                                          "docs": {},
+                                                                                                          "i": {
+                                                                                                            "docs": {},
+                                                                                                            "o": {
+                                                                                                              "docs": {},
+                                                                                                              "n": {
+                                                                                                                "docs": {},
+                                                                                                                "e": {
+                                                                                                                  "docs": {},
+                                                                                                                  "n": {
+                                                                                                                    "docs": {},
+                                                                                                                    "d": {
+                                                                                                                      "docs": {},
+                                                                                                                      "\"": {
+                                                                                                                        "docs": {},
+                                                                                                                        "`": {
+                                                                                                                          "docs": {},
+                                                                                                                          "`": {
+                                                                                                                            "docs": {},
+                                                                                                                            "\"": {
+                                                                                                                              "docs": {},
+                                                                                                                              "o": {
+                                                                                                                                "docs": {},
+                                                                                                                                "t": {
+                                                                                                                                  "docs": {},
+                                                                                                                                  "r": {
+                                                                                                                                    "docs": {},
+                                                                                                                                    "a": {
+                                                                                                                                      "docs": {},
+                                                                                                                                      "n": {
+                                                                                                                                        "docs": {},
+                                                                                                                                        "s": {
+                                                                                                                                          "docs": {},
+                                                                                                                                          "i": {
+                                                                                                                                            "docs": {},
+                                                                                                                                            "t": {
+                                                                                                                                              "docs": {},
+                                                                                                                                              "i": {
+                                                                                                                                                "docs": {},
+                                                                                                                                                "o": {
+                                                                                                                                                  "docs": {},
+                                                                                                                                                  "n": {
+                                                                                                                                                    "docs": {},
+                                                                                                                                                    "e": {
+                                                                                                                                                      "docs": {},
+                                                                                                                                                      "n": {
+                                                                                                                                                        "docs": {},
+                                                                                                                                                        "d": {
+                                                                                                                                                          "docs": {},
+                                                                                                                                                          "\"": {
+                                                                                                                                                            "docs": {},
+                                                                                                                                                            "`": {
+                                                                                                                                                              "docs": {},
+                                                                                                                                                              "`": {
+                                                                                                                                                                "docs": {},
+                                                                                                                                                                "n": {
+                                                                                                                                                                  "docs": {},
+                                                                                                                                                                  "u": {
+                                                                                                                                                                    "docs": {},
+                                                                                                                                                                    "l": {
+                                                                                                                                                                      "docs": {
+                                                                                                                                                                        "FooUtils.transition.html#.end": {
+                                                                                                                                                                          "ref": "FooUtils.transition.html#.end",
+                                                                                                                                                                          "tf": 4.545454545454546
+                                                                                                                                                                        }
+                                                                                                                                                                      }
+                                                                                                                                                                    }
+                                                                                                                                                                  }
+                                                                                                                                                                }
+                                                                                                                                                              }
+                                                                                                                                                            }
+                                                                                                                                                          }
+                                                                                                                                                        }
+                                                                                                                                                      }
+                                                                                                                                                    }
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -16162,7 +16298,7 @@ window.lunrData = {
                   },
                   "FooUtils.Event.html#type": {
                     "ref": "FooUtils.Event.html#type",
-                    "tf": 685
+                    "tf": 668.3333333333334
                   },
                   "FooUtils.Factory.html#load": {
                     "ref": "FooUtils.Factory.html#load",
@@ -16171,10 +16307,6 @@ window.lunrData = {
                   "FooUtils.is.html": {
                     "ref": "FooUtils.is.html",
                     "tf": 11.666666666666666
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
                   }
                 },
                 "d": {
@@ -16187,20 +16319,8 @@ window.lunrData = {
                           "ref": "FooUtils.html#~readyCallback",
                           "tf": 110
                         },
-                        "FooUtils.obj.html#~Mappings": {
-                          "ref": "FooUtils.obj.html#~Mappings",
-                          "tf": 110
-                        },
-                        "FooUtils.obj.html#~Validators": {
-                          "ref": "FooUtils.obj.html#~Validators",
-                          "tf": 110
-                        },
                         "FooUtils.transition.html#~startCallback": {
                           "ref": "FooUtils.transition.html#~startCallback",
-                          "tf": 110
-                        },
-                        "FooUtils.url.html#~Parts": {
-                          "ref": "FooUtils.url.html#~Parts",
                           "tf": 110
                         }
                       }
@@ -16218,6 +16338,10 @@ window.lunrData = {
                 "docs": {},
                 "n": {
                   "docs": {
+                    "FooUtils.Event.html#defaultPrevented": {
+                      "ref": "FooUtils.Event.html#defaultPrevented",
+                      "tf": 17.5
+                    },
                     "FooUtils.Event.html#preventDefault": {
                       "ref": "FooUtils.Event.html#preventDefault",
                       "tf": 10
@@ -16245,10 +16369,6 @@ window.lunrData = {
                       "FooUtils.obj.html#.mergeValid": {
                         "ref": "FooUtils.obj.html#.mergeValid",
                         "tf": 23.035714285714285
-                      },
-                      "FooUtils.obj.html#~Mappings": {
-                        "ref": "FooUtils.obj.html#~Mappings",
-                        "tf": 9.083333333333332
                       },
                       "FooUtils.str.html#.camel": {
                         "ref": "FooUtils.str.html#.camel",
@@ -16525,10 +16645,6 @@ window.lunrData = {
                   "FooUtils.fn.html#.CONTAINS_SUPER": {
                     "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                     "tf": 8.5625
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
                   }
                 }
               }
@@ -16791,21 +16907,6 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "n": {
-              "docs": {},
-              "t": {
-                "docs": {
-                  "FooUtils.obj.html#~Mappings": {
-                    "ref": "FooUtils.obj.html#~Mappings",
-                    "tf": 2.083333333333333
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
-                  }
-                }
-              }
             }
           },
           "i": {
@@ -16940,7 +17041,7 @@ window.lunrData = {
                         },
                         "FooUtils.Event.html#defaultPrevented": {
                           "ref": "FooUtils.Event.html#defaultPrevented",
-                          "tf": 11.666666666666666
+                          "tf": 17.5
                         },
                         "FooUtils.transition.html#.supported": {
                           "ref": "FooUtils.transition.html#.supported",
@@ -16961,228 +17062,6 @@ window.lunrData = {
                     "FooUtils.str.html#.containsWord": {
                       "ref": "FooUtils.str.html#.containsWord",
                       "tf": 3.3333333333333335
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "g": {
-          "docs": {},
-          "i": {
-            "docs": {},
-            "v": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 6.363636363636364
-                    },
-                    "FooUtils.Factory.html#register": {
-                      "ref": "FooUtils.Factory.html#register",
-                      "tf": 10
-                    },
-                    "FooUtils.fn.html#.addOrOverride": {
-                      "ref": "FooUtils.fn.html#.addOrOverride",
-                      "tf": 7.777777777777778
-                    },
-                    "FooUtils.fn.html#.check": {
-                      "ref": "FooUtils.fn.html#.check",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.fn.html#.fetch": {
-                      "ref": "FooUtils.fn.html#.fetch",
-                      "tf": 17.5
-                    },
-                    "FooUtils.fn.html#.enqueue": {
-                      "ref": "FooUtils.fn.html#.enqueue",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.html#.uniqueId": {
-                      "ref": "FooUtils.html#.uniqueId",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.html#.removeUniqueId": {
-                      "ref": "FooUtils.html#.removeUniqueId",
-                      "tf": 8.75
-                    },
-                    "FooUtils.obj.html#.prop": {
-                      "ref": "FooUtils.obj.html#.prop",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.camel": {
-                      "ref": "FooUtils.str.html#.camel",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.contains": {
-                      "ref": "FooUtils.str.html#.contains",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.containsWord": {
-                      "ref": "FooUtils.str.html#.containsWord",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.endsWith": {
-                      "ref": "FooUtils.str.html#.endsWith",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.fnv1a": {
-                      "ref": "FooUtils.str.html#.fnv1a",
-                      "tf": 8.75
-                    },
-                    "FooUtils.str.html#.from": {
-                      "ref": "FooUtils.str.html#.from",
-                      "tf": 8.75
-                    },
-                    "FooUtils.str.html#.join": {
-                      "ref": "FooUtils.str.html#.join",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.str.html#.startsWith": {
-                      "ref": "FooUtils.str.html#.startsWith",
-                      "tf": 14
-                    },
-                    "FooUtils.str.html#.until": {
-                      "ref": "FooUtils.str.html#.until",
-                      "tf": 7.777777777777778
-                    },
-                    "FooUtils.url.html#.full": {
-                      "ref": "FooUtils.url.html#.full",
-                      "tf": 15
-                    },
-                    "FooUtils.url.html#.param": {
-                      "ref": "FooUtils.url.html#.param",
-                      "tf": 11.666666666666666
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "t": {
-              "docs": {
-                "FooUtils.Factory.html#names": {
-                  "ref": "FooUtils.Factory.html#names",
-                  "tf": 17.5
-                },
-                "FooUtils.html#.getViewportBounds": {
-                  "ref": "FooUtils.html#.getViewportBounds",
-                  "tf": 14
-                },
-                "FooUtils.transition.html#.duration": {
-                  "ref": "FooUtils.transition.html#.duration",
-                  "tf": 10
-                },
-                "FooUtils.url.html#.param": {
-                  "ref": "FooUtils.url.html#.param",
-                  "tf": 11.666666666666666
-                }
-              },
-              "v": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "w": {
-                      "docs": {},
-                      "p": {
-                        "docs": {},
-                        "o": {
-                          "docs": {},
-                          "r": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "b": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "u": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "d": {
-                                        "docs": {
-                                          "FooUtils.html#.getViewportBounds": {
-                                            "ref": "FooUtils.html#.getViewportBounds",
-                                            "tf": 675
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "e": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "e": {
-                    "docs": {},
-                    "m": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "b": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "u": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {
-                                        "FooUtils.html#.getElementBounds": {
-                                          "ref": "FooUtils.html#.getElementBounds",
-                                          "tf": 675
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "n": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.html#.uniqueId": {
-                      "ref": "FooUtils.html#.uniqueId",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.str.html#.fnv1a": {
-                      "ref": "FooUtils.str.html#.fnv1a",
-                      "tf": 8.75
                     }
                   }
                 }
@@ -17311,19 +17190,19 @@ window.lunrData = {
                   },
                   "FooUtils.is.html#.empty": {
                     "ref": "FooUtils.is.html#.empty",
-                    "tf": 50.964912280701746
+                    "tf": 51.11111111111111
                   },
                   "FooUtils.is.html#.error": {
                     "ref": "FooUtils.is.html#.error",
                     "tf": 48.33333333333333
                   },
-                  "FooUtils.is.html#.fn": {
-                    "ref": "FooUtils.is.html#.fn",
-                    "tf": 48.33333333333333
-                  },
                   "FooUtils.is.html#.hash": {
                     "ref": "FooUtils.is.html#.hash",
                     "tf": 48.33333333333333
+                  },
+                  "FooUtils.is.html#.jq": {
+                    "ref": "FooUtils.is.html#.jq",
+                    "tf": 42.5
                   },
                   "FooUtils.is.html#.number": {
                     "ref": "FooUtils.is.html#.number",
@@ -17349,9 +17228,9 @@ window.lunrData = {
                     "ref": "FooUtils.is.html#.undef",
                     "tf": 48.33333333333333
                   },
-                  "FooUtils.is.html#.jq": {
-                    "ref": "FooUtils.is.html#.jq",
-                    "tf": 42.5
+                  "FooUtils.is.html#.fn": {
+                    "ref": "FooUtils.is.html#.fn",
+                    "tf": 48.33333333333333
                   },
                   "FooUtils.html#.src": {
                     "ref": "FooUtils.html#.src",
@@ -17360,14 +17239,6 @@ window.lunrData = {
                   "FooUtils.obj.html#.prop": {
                     "ref": "FooUtils.obj.html#.prop",
                     "tf": 34
-                  },
-                  "FooUtils.obj.html#~Mappings": {
-                    "ref": "FooUtils.obj.html#~Mappings",
-                    "tf": 7
-                  },
-                  "FooUtils.obj.html#~Validators": {
-                    "ref": "FooUtils.obj.html#~Validators",
-                    "tf": 1.0869565217391304
                   },
                   "FooUtils.str.html#.format": {
                     "ref": "FooUtils.str.html#.format",
@@ -17398,10 +17269,6 @@ window.lunrData = {
                     "FooUtils.obj.html#.mergeValid": {
                       "ref": "FooUtils.obj.html#.mergeValid",
                       "tf": 23.035714285714285
-                    },
-                    "FooUtils.obj.html#~Validators": {
-                      "ref": "FooUtils.obj.html#~Validators",
-                      "tf": 614.927536231884
                     }
                   }
                 }
@@ -17543,529 +17410,6 @@ window.lunrData = {
                 }
               }
             },
-            "o": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                ";": {
-                  "docs": {},
-                  "s": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "m": {
-                        "docs": {},
-                        "e": {
-                          "docs": {},
-                          "m": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "h": {
-                                  "docs": {},
-                                  "o": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {},
-                                      "&": {
-                                        "docs": {},
-                                        "q": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {
-                                                  "FooUtils.fn.html#.addOrOverride": {
-                                                    "ref": "FooUtils.fn.html#.addOrOverride",
-                                                    "tf": 0.9615384615384616
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "&": {
-                    "docs": {},
-                    "q": {
-                      "docs": {},
-                      "u": {
-                        "docs": {},
-                        "o": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "FooUtils.is.html#.empty": {
-                                "ref": "FooUtils.is.html#.empty",
-                                "tf": 2.631578947368421
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "n": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "m": {
-                        "docs": {},
-                        "e": {
-                          "docs": {},
-                          ".": {
-                            "docs": {},
-                            "f": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "s": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {},
-                                      "&": {
-                                        "docs": {},
-                                        "q": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {
-                                                  "FooUtils.obj.html#~Mappings": {
-                                                    "ref": "FooUtils.obj.html#~Mappings",
-                                                    "tf": 2.083333333333333
-                                                  },
-                                                  "FooUtils.obj.html#~Validators": {
-                                                    "ref": "FooUtils.obj.html#~Validators",
-                                                    "tf": 1.0869565217391304
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "s": {
-                              "docs": {},
-                              "h": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {},
-                                      "&": {
-                                        "docs": {},
-                                        "q": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "o": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {
-                                                  "FooUtils.obj.html#~Mappings": {
-                                                    "ref": "FooUtils.obj.html#~Mappings",
-                                                    "tf": 2.083333333333333
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "l": {
-                              "docs": {},
-                              "a": {
-                                "docs": {},
-                                "s": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "&": {
-                                      "docs": {},
-                                      "q": {
-                                        "docs": {},
-                                        "u": {
-                                          "docs": {},
-                                          "o": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "FooUtils.obj.html#~Validators": {
-                                                  "ref": "FooUtils.obj.html#~Validators",
-                                                  "tf": 2.1739130434782608
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "t": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "n": {
-                          "docs": {},
-                          "s": {
-                            "docs": {},
-                            "i": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "o": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "e": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "d": {
-                                            "docs": {},
-                                            "&": {
-                                              "docs": {},
-                                              "q": {
-                                                "docs": {},
-                                                "u": {
-                                                  "docs": {},
-                                                  "o": {
-                                                    "docs": {},
-                                                    "t": {
-                                                      "docs": {},
-                                                      ";": {
-                                                        "docs": {},
-                                                        "&": {
-                                                          "docs": {},
-                                                          "q": {
-                                                            "docs": {},
-                                                            "u": {
-                                                              "docs": {},
-                                                              "o": {
-                                                                "docs": {},
-                                                                "t": {
-                                                                  "docs": {},
-                                                                  ";": {
-                                                                    "docs": {},
-                                                                    "w": {
-                                                                      "docs": {},
-                                                                      "e": {
-                                                                        "docs": {},
-                                                                        "b": {
-                                                                          "docs": {},
-                                                                          "k": {
-                                                                            "docs": {},
-                                                                            "i": {
-                                                                              "docs": {},
-                                                                              "t": {
-                                                                                "docs": {},
-                                                                                "t": {
-                                                                                  "docs": {},
-                                                                                  "r": {
-                                                                                    "docs": {},
-                                                                                    "a": {
-                                                                                      "docs": {},
-                                                                                      "n": {
-                                                                                        "docs": {},
-                                                                                        "s": {
-                                                                                          "docs": {},
-                                                                                          "i": {
-                                                                                            "docs": {},
-                                                                                            "t": {
-                                                                                              "docs": {},
-                                                                                              "i": {
-                                                                                                "docs": {},
-                                                                                                "o": {
-                                                                                                  "docs": {},
-                                                                                                  "n": {
-                                                                                                    "docs": {},
-                                                                                                    "e": {
-                                                                                                      "docs": {},
-                                                                                                      "n": {
-                                                                                                        "docs": {},
-                                                                                                        "d": {
-                                                                                                          "docs": {},
-                                                                                                          "&": {
-                                                                                                            "docs": {},
-                                                                                                            "q": {
-                                                                                                              "docs": {},
-                                                                                                              "u": {
-                                                                                                                "docs": {},
-                                                                                                                "o": {
-                                                                                                                  "docs": {},
-                                                                                                                  "t": {
-                                                                                                                    "docs": {},
-                                                                                                                    ";": {
-                                                                                                                      "docs": {},
-                                                                                                                      "&": {
-                                                                                                                        "docs": {},
-                                                                                                                        "q": {
-                                                                                                                          "docs": {},
-                                                                                                                          "u": {
-                                                                                                                            "docs": {},
-                                                                                                                            "o": {
-                                                                                                                              "docs": {},
-                                                                                                                              "t": {
-                                                                                                                                "docs": {},
-                                                                                                                                ";": {
-                                                                                                                                  "docs": {},
-                                                                                                                                  "m": {
-                                                                                                                                    "docs": {},
-                                                                                                                                    "s": {
-                                                                                                                                      "docs": {},
-                                                                                                                                      "t": {
-                                                                                                                                        "docs": {},
-                                                                                                                                        "r": {
-                                                                                                                                          "docs": {},
-                                                                                                                                          "a": {
-                                                                                                                                            "docs": {},
-                                                                                                                                            "n": {
-                                                                                                                                              "docs": {},
-                                                                                                                                              "s": {
-                                                                                                                                                "docs": {},
-                                                                                                                                                "i": {
-                                                                                                                                                  "docs": {},
-                                                                                                                                                  "t": {
-                                                                                                                                                    "docs": {},
-                                                                                                                                                    "i": {
-                                                                                                                                                      "docs": {},
-                                                                                                                                                      "o": {
-                                                                                                                                                        "docs": {},
-                                                                                                                                                        "n": {
-                                                                                                                                                          "docs": {},
-                                                                                                                                                          "e": {
-                                                                                                                                                            "docs": {},
-                                                                                                                                                            "n": {
-                                                                                                                                                              "docs": {},
-                                                                                                                                                              "d": {
-                                                                                                                                                                "docs": {},
-                                                                                                                                                                "&": {
-                                                                                                                                                                  "docs": {},
-                                                                                                                                                                  "q": {
-                                                                                                                                                                    "docs": {},
-                                                                                                                                                                    "u": {
-                                                                                                                                                                      "docs": {},
-                                                                                                                                                                      "o": {
-                                                                                                                                                                        "docs": {},
-                                                                                                                                                                        "t": {
-                                                                                                                                                                          "docs": {},
-                                                                                                                                                                          ";": {
-                                                                                                                                                                            "docs": {},
-                                                                                                                                                                            "&": {
-                                                                                                                                                                              "docs": {},
-                                                                                                                                                                              "q": {
-                                                                                                                                                                                "docs": {},
-                                                                                                                                                                                "u": {
-                                                                                                                                                                                  "docs": {},
-                                                                                                                                                                                  "o": {
-                                                                                                                                                                                    "docs": {},
-                                                                                                                                                                                    "t": {
-                                                                                                                                                                                      "docs": {},
-                                                                                                                                                                                      ";": {
-                                                                                                                                                                                        "docs": {},
-                                                                                                                                                                                        "o": {
-                                                                                                                                                                                          "docs": {},
-                                                                                                                                                                                          "t": {
-                                                                                                                                                                                            "docs": {},
-                                                                                                                                                                                            "r": {
-                                                                                                                                                                                              "docs": {},
-                                                                                                                                                                                              "a": {
-                                                                                                                                                                                                "docs": {},
-                                                                                                                                                                                                "n": {
-                                                                                                                                                                                                  "docs": {},
-                                                                                                                                                                                                  "s": {
-                                                                                                                                                                                                    "docs": {},
-                                                                                                                                                                                                    "i": {
-                                                                                                                                                                                                      "docs": {},
-                                                                                                                                                                                                      "t": {
-                                                                                                                                                                                                        "docs": {},
-                                                                                                                                                                                                        "i": {
-                                                                                                                                                                                                          "docs": {},
-                                                                                                                                                                                                          "o": {
-                                                                                                                                                                                                            "docs": {},
-                                                                                                                                                                                                            "n": {
-                                                                                                                                                                                                              "docs": {},
-                                                                                                                                                                                                              "e": {
-                                                                                                                                                                                                                "docs": {},
-                                                                                                                                                                                                                "n": {
-                                                                                                                                                                                                                  "docs": {},
-                                                                                                                                                                                                                  "d": {
-                                                                                                                                                                                                                    "docs": {},
-                                                                                                                                                                                                                    "&": {
-                                                                                                                                                                                                                      "docs": {},
-                                                                                                                                                                                                                      "q": {
-                                                                                                                                                                                                                        "docs": {},
-                                                                                                                                                                                                                        "u": {
-                                                                                                                                                                                                                          "docs": {},
-                                                                                                                                                                                                                          "o": {
-                                                                                                                                                                                                                            "docs": {},
-                                                                                                                                                                                                                            "t": {
-                                                                                                                                                                                                                              "docs": {},
-                                                                                                                                                                                                                              ";": {
-                                                                                                                                                                                                                                "docs": {},
-                                                                                                                                                                                                                                "n": {
-                                                                                                                                                                                                                                  "docs": {},
-                                                                                                                                                                                                                                  "u": {
-                                                                                                                                                                                                                                    "docs": {},
-                                                                                                                                                                                                                                    "l": {
-                                                                                                                                                                                                                                      "docs": {
-                                                                                                                                                                                                                                        "FooUtils.transition.html#.end": {
-                                                                                                                                                                                                                                          "ref": "FooUtils.transition.html#.end",
-                                                                                                                                                                                                                                          "tf": 4.545454545454546
-                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                              }
-                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                }
-                                                                                                                                                                                                              }
-                                                                                                                                                                                                            }
-                                                                                                                                                                                                          }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                      }
-                                                                                                                                                                                                    }
-                                                                                                                                                                                                  }
-                                                                                                                                                                                                }
-                                                                                                                                                                                              }
-                                                                                                                                                                                            }
-                                                                                                                                                                                          }
-                                                                                                                                                                                        }
-                                                                                                                                                                                      }
-                                                                                                                                                                                    }
-                                                                                                                                                                                  }
-                                                                                                                                                                                }
-                                                                                                                                                                              }
-                                                                                                                                                                            }
-                                                                                                                                                                          }
-                                                                                                                                                                        }
-                                                                                                                                                                      }
-                                                                                                                                                                    }
-                                                                                                                                                                  }
-                                                                                                                                                                }
-                                                                                                                                                              }
-                                                                                                                                                            }
-                                                                                                                                                          }
-                                                                                                                                                        }
-                                                                                                                                                      }
-                                                                                                                                                    }
-                                                                                                                                                  }
-                                                                                                                                                }
-                                                                                                                                              }
-                                                                                                                                            }
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  }
-                                                                                                                }
-                                                                                                              }
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "e": {
               "docs": {},
               "u": {
@@ -18101,15 +17445,15 @@ window.lunrData = {
                     "docs": {
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
-                        "tf": 2.631578947368421
-                      },
-                      "FooUtils.is.html#.promise": {
-                        "ref": "FooUtils.is.html#.promise",
-                        "tf": 2.7027027027027026
+                        "tf": 2.7777777777777777
                       },
                       "FooUtils.is.html#.jq": {
                         "ref": "FooUtils.is.html#.jq",
                         "tf": 17.5
+                      },
+                      "FooUtils.is.html#.promise": {
+                        "ref": "FooUtils.is.html#.promise",
+                        "tf": 2.7027027027027026
                       },
                       "FooUtils.html": {
                         "ref": "FooUtils.html",
@@ -18118,6 +17462,10 @@ window.lunrData = {
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
                         "tf": 71.14285714285714
+                      },
+                      "FooUtils.html#.scrollParent": {
+                        "ref": "FooUtils.html#.scrollParent",
+                        "tf": 16.666666666666664
                       },
                       "FooUtils.obj.html#.extend": {
                         "ref": "FooUtils.obj.html#.extend",
@@ -18186,10 +17534,6 @@ window.lunrData = {
                               "FooUtils.html#.src": {
                                 "ref": "FooUtils.html#.src",
                                 "tf": 5.555555555555555
-                              },
-                              "FooUtils.url.html#~Parts": {
-                                "ref": "FooUtils.url.html#~Parts",
-                                "tf": 11.666666666666666
                               }
                             }
                           }
@@ -18217,7 +17561,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 1725
+      "length": 1665
     },
     "corpusTokens": [
       "0",
@@ -18227,7 +17571,6 @@ window.lunrData = {
       "32",
       "_super",
       "abil",
-      "accept",
       "access",
       "accur",
       "action",
@@ -18260,14 +17603,13 @@ window.lunrData = {
       "async",
       "attach",
       "attribut",
+      "axi",
       "b",
       "base",
       "basic",
       "be",
       "befor",
       "behav",
-      "behavior",
-      "below",
       "best",
       "between",
       "bit",
@@ -18346,7 +17688,6 @@ window.lunrData = {
       "determin",
       "devicepixelratio",
       "differ",
-      "directli",
       "disabl",
       "distinguish",
       "document",
@@ -18400,6 +17741,7 @@ window.lunrData = {
       "featur",
       "fetch",
       "fill",
+      "filter",
       "final",
       "first",
       "float",
@@ -18491,10 +17833,9 @@ window.lunrData = {
       "fooutils.obj.merg",
       "fooutils.obj.mergevalid",
       "fooutils.obj.prop",
-      "fooutils.obj~map",
-      "fooutils.obj~valid",
       "fooutils.readi",
       "fooutils.removeuniqueid",
+      "fooutils.scrollpar",
       "fooutils.selectifi",
       "fooutils.src",
       "fooutils.str",
@@ -18527,7 +17868,6 @@ window.lunrData = {
       "format",
       "formatt",
       "friendli",
-      "from/to",
       "full",
       "function",
       "function(arg1",
@@ -18537,6 +17877,7 @@ window.lunrData = {
       "getelementbound",
       "getviewportbound",
       "given",
+      "global",
       "handl",
       "handler",
       "hash",
@@ -18559,7 +17900,7 @@ window.lunrData = {
       "insid",
       "instanc",
       "instanti",
-      "integer0.0",
+      "integer`0.0",
       "intend",
       "interfac",
       "intern",
@@ -18594,7 +17935,6 @@ window.lunrData = {
       "later",
       "length",
       "let",
-      "level",
       "librari",
       "list",
       "list:class",
@@ -18611,7 +17951,6 @@ window.lunrData = {
       "lt;readonly&gt",
       "lt;static",
       "lt;static&gt",
-      "major",
       "major.minor.patch",
       "make",
       "map",
@@ -18633,7 +17972,6 @@ window.lunrData = {
       "net",
       "never",
       "new",
-      "notat",
       "number",
       "obj",
       "obj.creat",
@@ -18645,15 +17983,12 @@ window.lunrData = {
       "object&gt",
       "object.&lt;str",
       "object.cr",
-      "objectfalsenullundefin",
+      "object`false``null``undefin",
       "objectn",
       "object|str",
-      "obj~map",
-      "obj~valid",
       "occur",
       "on",
       "onc",
-      "onto",
       "oper",
       "option",
       "order",
@@ -18668,18 +18003,17 @@ window.lunrData = {
       "page",
       "param",
       "paramet",
+      "parent",
       "pars",
       "part",
       "partn",
       "pass",
       "perform",
       "placehold",
-      "plain",
       "plugin",
       "pre",
       "prefix",
       "preinit",
-      "prevent",
       "preventdefault",
       "previou",
       "primarili",
@@ -18695,12 +18029,6 @@ window.lunrData = {
       "provid",
       "queue",
       "quick",
-      "quot;&quot",
-      "quot;name.first&quot",
-      "quot;name.last&quot",
-      "quot;name.short&quot",
-      "quot;somemethod&quot",
-      "quot;transitionend&quot;&quot;webkittransitionend&quot;&quot;mstransitionend&quot;&quot;otransitionend&quot;nul",
       "rais",
       "readi",
       "readm",
@@ -18736,6 +18064,8 @@ window.lunrData = {
       "same",
       "scope",
       "script",
+      "scroll",
+      "scrollpar",
       "search",
       "see",
       "seen",
@@ -18753,7 +18083,7 @@ window.lunrData = {
       "simultan",
       "singl",
       "size",
-      "sourc",
+      "somemethod",
       "specifi",
       "split",
       "src",
@@ -18781,7 +18111,7 @@ window.lunrData = {
       "str.startswith",
       "str.until",
       "string",
-      "string0",
+      "string`0",
       "string|nul",
       "substr",
       "succeed",
@@ -18813,6 +18143,7 @@ window.lunrData = {
       "transition.start",
       "transition.support",
       "transitionend",
+      "transitionend\"``\"webkittransitionend\"``\"mstransitionend\"``\"otransitionend\"``nul",
       "transition~startcallback",
       "treat",
       "trigger",
@@ -18832,7 +18163,6 @@ window.lunrData = {
       "url.ful",
       "url.param",
       "url.part",
-      "url~part",
       "us",
       "usag",
       "util",
@@ -18849,7 +18179,6 @@ window.lunrData = {
       "view",
       "viewport",
       "wait",
-      "want",
       "way",
       "whether",
       "whole",
@@ -18874,6 +18203,17 @@ window.lunrData = {
       "name": "FooUtils",
       "tags": "index",
       "summary": "Contains common utility methods and classes used in our plugins.",
+      "description": "",
+      "body": ""
+    },
+    "global.html": {
+      "id": "global.html",
+      "kind": "global",
+      "title": "Globals",
+      "longname": "global",
+      "name": "Globals",
+      "tags": "global",
+      "summary": "All documented globals.",
       "description": "",
       "body": ""
     },
@@ -19066,7 +18406,7 @@ window.lunrData = {
     "FooUtils.Event.html#type": {
       "id": "FooUtils.Event.html#type",
       "kind": "member",
-      "title": "type :string",
+      "title": "&lt;readonly&gt; type :string",
       "longname": "FooUtils.Event#type",
       "name": "type",
       "tags": "FooUtils.Event#type Event#type type",
@@ -19076,11 +18416,11 @@ window.lunrData = {
     "FooUtils.Event.html#defaultPrevented": {
       "id": "FooUtils.Event.html#defaultPrevented",
       "kind": "member",
-      "title": "defaultPrevented :boolean",
+      "title": "&lt;readonly&gt; defaultPrevented :boolean",
       "longname": "FooUtils.Event#defaultPrevented",
       "name": "defaultPrevented",
       "tags": "FooUtils.Event#defaultPrevented Event#defaultPrevented defaultPrevented",
-      "summary": "Whether or not to prevent the default behavior following this event.",
+      "summary": "Whether the default action should be taken or not.",
       "description": ""
     },
     "FooUtils.Event.html#preventDefault": {
@@ -19274,7 +18614,7 @@ window.lunrData = {
       "name": "addOrOverride",
       "tags": "FooUtils.fn.addOrOverride fn.addOrOverride addOrOverride",
       "summary": "Adds or overrides the given method name on the proto using the supplied fn.",
-      "description": "If the new method overrides a pre-existing one, this function will expose the overridden method as this._super within the new methods scope. This replaces having to write out the following to override a method and call its original: var original = MyClass.prototype.someMethod; MyClass.prototype.someMethod = function(arg1, arg2){ // execute the original original.call(this, arg1, arg2); };With the following: FooUtils.fn.addOrOverride( MyClass.prototype, &quot;someMethod&quot;, function(arg1, arg2){ // execute the original this._super(arg1, arg2); });This method is used by the FooUtils.Class to implement the inheritance of individual methods."
+      "description": "If the new method overrides a pre-existing one, this function will expose the overridden method as this._super within the new methods scope. This replaces having to write out the following to override a method and call its original: var original = MyClass.prototype.someMethod; MyClass.prototype.someMethod = function(arg1, arg2){ // execute the original original.call(this, arg1, arg2); }; With the following: FooUtils.fn.addOrOverride( MyClass.prototype, \"someMethod\", function(arg1, arg2){ // execute the original this._super(arg1, arg2); }); This method is used by the FooUtils.Class to implement the inheritance of individual methods."
     },
     "FooUtils.fn.html#.apply": {
       "id": "FooUtils.fn.html#.apply",
@@ -19425,7 +18765,7 @@ window.lunrData = {
       "name": "empty",
       "tags": "FooUtils.is.empty is.empty empty",
       "summary": "Checks if the value is empty.",
-      "description": "The following values are considered to be empty by this method: &quot;&quot; - An empty string0 - 0 as an integer0.0 - 0 as a float[] - An empty array{} - An empty object$() - An empty jQuery objectfalsenullundefined"
+      "description": "The following values are considered to be empty by this method: `\"\"` - An empty string`0` - 0 as an integer`0.0` - 0 as a float`[]` - An empty array`{}` - An empty object`$()` - An empty jQuery object`false``null``undefined`"
     },
     "FooUtils.is.html#.error": {
       "id": "FooUtils.is.html#.error",
@@ -19437,16 +18777,6 @@ window.lunrData = {
       "summary": "Checks if the value is an error.",
       "description": ""
     },
-    "FooUtils.is.html#.fn": {
-      "id": "FooUtils.is.html#.fn",
-      "kind": "function",
-      "title": "&lt;static&gt; fn( value ) → {boolean}",
-      "longname": "FooUtils.is.fn",
-      "name": "fn",
-      "tags": "FooUtils.is.fn is.fn fn",
-      "summary": "Checks if the value is a function.",
-      "description": ""
-    },
     "FooUtils.is.html#.hash": {
       "id": "FooUtils.is.html#.hash",
       "kind": "function",
@@ -19455,6 +18785,16 @@ window.lunrData = {
       "name": "hash",
       "tags": "FooUtils.is.hash is.hash hash",
       "summary": "Checks if the value is a hash.",
+      "description": ""
+    },
+    "FooUtils.is.html#.jq": {
+      "id": "FooUtils.is.html#.jq",
+      "kind": "function",
+      "title": "&lt;static&gt; jq( value ) → {boolean}",
+      "longname": "FooUtils.is.jq",
+      "name": "jq",
+      "tags": "FooUtils.is.jq is.jq jq",
+      "summary": "Checks if the value is a jQuery object.",
       "description": ""
     },
     "FooUtils.is.html#.number": {
@@ -19517,14 +18857,14 @@ window.lunrData = {
       "summary": "Checks if the value is undefined.",
       "description": ""
     },
-    "FooUtils.is.html#.jq": {
-      "id": "FooUtils.is.html#.jq",
+    "FooUtils.is.html#.fn": {
+      "id": "FooUtils.is.html#.fn",
       "kind": "function",
-      "title": "&lt;static&gt; jq( value ) → {boolean}",
-      "longname": "FooUtils.is.jq",
-      "name": "jq",
-      "tags": "FooUtils.is.jq is.jq jq",
-      "summary": "Checks if the value is a jQuery object.",
+      "title": "&lt;static&gt; fn( value ) → {boolean}",
+      "longname": "FooUtils.is.fn",
+      "name": "fn",
+      "tags": "FooUtils.is.fn is.fn fn",
+      "summary": "Checks if the value is a function.",
       "description": ""
     },
     "FooUtils.html": {
@@ -19618,6 +18958,16 @@ window.lunrData = {
       "summary": "Parses the supplied src and srcset values and returns the best matching URL for the supplied render size.",
       "description": "This can be used to parse the correct src to use when loading an image through JavaScript."
     },
+    "FooUtils.html#.scrollParent": {
+      "id": "FooUtils.html#.scrollParent",
+      "kind": "function",
+      "title": "&lt;static&gt; scrollParent( element [, axis [, def ] ] ) → {jQuery}",
+      "longname": "FooUtils.scrollParent",
+      "name": "scrollParent",
+      "tags": "FooUtils.scrollParent scrollParent",
+      "summary": "Get the scroll parent for the supplied element optionally filtering by axis.",
+      "description": ""
+    },
     "FooUtils.html#.getViewportBounds": {
       "id": "FooUtils.html#.getViewportBounds",
       "kind": "function",
@@ -19708,26 +19058,6 @@ window.lunrData = {
       "tags": "FooUtils.obj.prop obj.prop prop",
       "summary": "Get or set a property value given its name.",
       "description": ""
-    },
-    "FooUtils.obj.html#~Mappings": {
-      "id": "FooUtils.obj.html#~Mappings",
-      "kind": "typedef",
-      "title": "Mappings",
-      "longname": "FooUtils.obj~Mappings",
-      "name": "Mappings",
-      "tags": "FooUtils.obj~Mappings obj~Mappings",
-      "summary": "An object used by the mergeValid method to map new values onto the target object.",
-      "description": "The mappings object is a single level object. If you want to map a property from/to a child object on either the source or target objects you must supply the name using . notation as seen in the below example with the &quot;name.first&quot; to &quot;Name.Short&quot; mapping."
-    },
-    "FooUtils.obj.html#~Validators": {
-      "id": "FooUtils.obj.html#~Validators",
-      "kind": "typedef",
-      "title": "Validators",
-      "longname": "FooUtils.obj~Validators",
-      "name": "Validators",
-      "tags": "FooUtils.obj~Validators obj~Validators",
-      "summary": "An object used by the mergeValid method to validate properties.",
-      "description": "The validators object is a single level object. If you want to validate a property of a child object you must supply the name using . notation as seen in the below example with the &quot;name.first&quot; and &quot;name.last&quot; properties. Any function that accepts a value to test as the first argument and returns a boolean can be used as a validator. This means the majority of the FooUtils.is methods can be used directly. If the property supports multiple types just provide your own function as seen with &quot;name.last&quot; in the below example."
     },
     "FooUtils.str.html": {
       "id": "FooUtils.str.html",
@@ -19879,7 +19209,7 @@ window.lunrData = {
       "name": "end",
       "tags": "FooUtils.transition.end transition.end end",
       "summary": "The transitionend event name for the current browser.",
-      "description": "Depending on the browser this returns one of the following values: &quot;transitionend&quot;&quot;webkitTransitionEnd&quot;&quot;msTransitionEnd&quot;&quot;oTransitionEnd&quot;null - If the browser doesn't support transitions"
+      "description": "Depending on the browser this returns one of the following values: `\"transitionend\"``\"webkitTransitionEnd\"``\"msTransitionEnd\"``\"oTransitionEnd\"``null` - If the browser doesn't support transitions"
     },
     "FooUtils.transition.html#.duration": {
       "id": "FooUtils.transition.html#.duration",
@@ -19950,16 +19280,6 @@ window.lunrData = {
       "name": "param",
       "tags": "FooUtils.url.param url.param param",
       "summary": "Gets or sets a parameter in the given search string.",
-      "description": ""
-    },
-    "FooUtils.url.html#~Parts": {
-      "id": "FooUtils.url.html#~Parts",
-      "kind": "typedef",
-      "title": "Parts",
-      "longname": "FooUtils.url~Parts",
-      "name": "Parts",
-      "tags": "FooUtils.url~Parts url~Parts",
-      "summary": "A plain JavaScript object returned by the FooUtils.url.parts method.",
       "description": ""
     }
   }

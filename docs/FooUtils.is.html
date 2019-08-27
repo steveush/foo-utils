@@ -12,8 +12,9 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"readmeTargets":[],"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
 			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
 </head>
 <body>
@@ -33,29 +34,29 @@
 			</div>
 			<div class="navbar-collapse collapse" id="topNavigation">
 				<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
-										<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
-										<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
-										<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
-										<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-										<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-										<li><a href="FooUtils.html">FooUtils</a></li>
-										<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
-										<li><a href="FooUtils.is.html">FooUtils.is</a></li>
-										<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
-										<li><a href="FooUtils.str.html">FooUtils.str</a></li>
-										<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
-										<li><a href="FooUtils.url.html">FooUtils.url</a></li>
-								</ul>
-							</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
 					<form class="navbar-form navbar-right" role="search">
@@ -127,10 +128,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".array" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">array</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".array" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">array</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is an array.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -199,10 +200,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".boolean" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">boolean</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".boolean" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">boolean</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a boolean.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -271,10 +272,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".element" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">element</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".element" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">element</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is an element.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -343,22 +344,22 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".empty" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">empty</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".empty" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">empty</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is empty.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The following values are considered to be empty by this method:</p>
 			<ul><!--
-			--><li><code>&quot;&quot;</code>            - An empty string</li><!--
-			--><li><code>0</code>            - 0 as an integer</li><!--
-			--><li><code>0.0</code>        - 0 as a float</li><!--
-			--><li><code>[]</code>            - An empty array</li><!--
-			--><li><code>{}</code>            - An empty object</li><!--
-			--><li><code>$()</code>        - An empty jQuery object</li><!--
-			--><li><code>false</code></li><!--
-			--><li><code>null</code></li><!--
-			--><li><code>undefined</code></li><!--
+			--><li>`""`			- An empty string</li><!--
+			--><li>`0`			- 0 as an integer</li><!--
+			--><li>`0.0`		- 0 as a float</li><!--
+			--><li>`[]`			- An empty array</li><!--
+			--><li>`{}`			- An empty object</li><!--
+			--><li>`$()`		- An empty jQuery object</li><!--
+			--><li>`false`</li><!--
+			--><li>`null`</li><!--
+			--><li>`undefined`</li><!--
 			--></ul></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -427,10 +428,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".error" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">error</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".error" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">error</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is an error.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -499,82 +500,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".fn" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">fn</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
-				<div class="summary"><p>Checks if the <code>value</code> is a function.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>value</code></td>
-							<td><span class="param-type">*</span></td>
-							<td class="last">
-									<p>The value to check.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p><code>true</code> if the supplied <code>value</code> is a function.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create a function to test	func &#x3D; function(){};console.log( _is.fn( func ) ); // &#x3D;&gt; trueconsole.log( _is.fn( null ) ); // &#x3D;&gt; falseconsole.log( _is.fn( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.fn( &quot;&quot; ) ); // &#x3D;&gt; false</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create a function to test	func &#x3D; function(){};console.log( _is.fn( func ) ); // &#x3D;&gt; trueconsole.log( _is.fn( null ) ); // &#x3D;&gt; falseconsole.log( _is.fn( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.fn( &quot;&quot; ) ); // &#x3D;&gt; false">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="is.js.html">is.js</a>, <a href="is.js.html#line-153">line 153</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".hash" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">hash</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".hash" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">hash</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a hash.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -643,10 +572,82 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".number" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">number</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".jq" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">jq</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Checks if the <code>value</code> is a jQuery object.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">*</span></td>
+							<td class="last">
+									<p>The value to check.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p><code>true</code> if the supplied <code>value</code> is a jQuery object.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create an element to test	el &#x3D; document.createElement(&quot;span&quot;);console.log( _is.jq( $(el) ) ); // &#x3D;&gt; trueconsole.log( _is.jq( $() ) ); // &#x3D;&gt; trueconsole.log( _is.jq( el ) ); // &#x3D;&gt; falseconsole.log( _is.jq( {} ) ); // &#x3D;&gt; falseconsole.log( _is.jq( null ) ); // &#x3D;&gt; falseconsole.log( _is.jq( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.jq( &quot;&quot; ) ); // &#x3D;&gt; false</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create an element to test	el &#x3D; document.createElement(&quot;span&quot;);console.log( _is.jq( $(el) ) ); // &#x3D;&gt; trueconsole.log( _is.jq( $() ) ); // &#x3D;&gt; trueconsole.log( _is.jq( el ) ); // &#x3D;&gt; falseconsole.log( _is.jq( {} ) ); // &#x3D;&gt; falseconsole.log( _is.jq( null ) ); // &#x3D;&gt; falseconsole.log( _is.jq( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.jq( &quot;&quot; ) ); // &#x3D;&gt; false">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="is.js.html">is.js</a>, <a href="is.js.html#line-195">line 195</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".number" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">number</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a number.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -715,10 +716,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".object" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">object</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".object" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">object</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is an object.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -787,10 +788,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".promise" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">promise</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".promise" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">promise</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a promise.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a simple check to determine if an object is a jQuery promise object. It simply checks the object has a <code>then</code> and <code>promise</code> function defined.</p>
 			<p>The promise object is created as an object literal inside of <code>jQuery.Deferred</code>, it has no prototype, nor any other truly unique properties that could be used to distinguish it.</p>
@@ -862,10 +863,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".size" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">size</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".size" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">size</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a valid CSS length.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -941,10 +942,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".string" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">string</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".string" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">string</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is a string.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1013,10 +1014,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".undef" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">undef</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".undef" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">undef</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
 				<div class="summary"><p>Checks if the <code>value</code> is <code>undefined</code>.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1085,10 +1086,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function collapsible-symbol">
-			<h4 id=".jq" class="function"><span class="signature-attribs">&lt;static> </span><span class="name">jq</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
-				<div class="summary"><p>Checks if the <code>value</code> is a jQuery object.</p></div></dt>
-<dd class="symbol-details function  collapsible-symbol">
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".fn" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">fn</span><span class="signature-params">( <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Checks if the <code>value</code> is a function.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -1115,15 +1116,15 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p><code>true</code> if the supplied <code>value</code> is a jQuery object.</p></div>
+									<div class="form-control-static returns-description"><p><code>true</code> if the supplied <code>value</code> is a function.</p></div>
 								</div>
 							</div>
 					</form>
 			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create an element to test	el &#x3D; document.createElement(&quot;span&quot;);console.log( _is.jq( $(el) ) ); // &#x3D;&gt; trueconsole.log( _is.jq( $() ) ); // &#x3D;&gt; trueconsole.log( _is.jq( el ) ); // &#x3D;&gt; falseconsole.log( _is.jq( {} ) ); // &#x3D;&gt; falseconsole.log( _is.jq( null ) ); // &#x3D;&gt; falseconsole.log( _is.jq( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.jq( &quot;&quot; ) ); // &#x3D;&gt; false</code></pre>
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create a function to test	func &#x3D; function(){};console.log( _is.fn( func ) ); // &#x3D;&gt; trueconsole.log( _is.fn( null ) ); // &#x3D;&gt; falseconsole.log( _is.fn( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.fn( &quot;&quot; ) ); // &#x3D;&gt; false</code></pre>
 					</div>
 					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create an element to test	el &#x3D; document.createElement(&quot;span&quot;);console.log( _is.jq( $(el) ) ); // &#x3D;&gt; trueconsole.log( _is.jq( $() ) ); // &#x3D;&gt; trueconsole.log( _is.jq( el ) ); // &#x3D;&gt; falseconsole.log( _is.jq( {} ) ); // &#x3D;&gt; falseconsole.log( _is.jq( null ) ); // &#x3D;&gt; falseconsole.log( _is.jq( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.jq( &quot;&quot; ) ); // &#x3D;&gt; false">
+						<input type="hidden" value="// alias the FooUtils.is namespacevar _is &#x3D; FooUtils.is,	// create a function to test	func &#x3D; function(){};console.log( _is.fn( func ) ); // &#x3D;&gt; trueconsole.log( _is.fn( null ) ); // &#x3D;&gt; falseconsole.log( _is.fn( 123 ) ); // &#x3D;&gt; falseconsole.log( _is.fn( &quot;&quot; ) ); // &#x3D;&gt; false">
 						<button type="button" class="btn btn-default code-run">Run</button>
 					</p>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -1146,7 +1147,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="is.js.html">is.js</a>, <a href="is.js.html#line-195">line 195</a></p>
+									<p class="form-control-static"><a href="is.js.html">is.js</a>, <a href="is.js.html#line-153">line 153</a></p>
 								</div>
 							</div>
 			
@@ -1167,7 +1168,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on 26th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 27th Aug 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -1192,5 +1193,6 @@
 		</div>
 		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
 		<script src="../dist/foo-utils.js"></script>
+	
 </body>
 </html>
