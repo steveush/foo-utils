@@ -11,8 +11,7 @@
 	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
 		/**
 		 * @summary A debug utility class that can be enabled across sessions using the given `key` by storing its state in `localStorage`.
-		 * @memberof FooUtils
-		 * @constructs Debugger
+		 * @constructs
 		 * @param {string} key - The key to use to store the debug state in `localStorage`.
 		 * @description This class allows you to write additional debug info to the console within your code which by default is not actually output. You can then enable the debugger and it will start to output the results to the console.
 		 *
