@@ -125,7 +125,7 @@
 		}
 		if (_is.string(classes) || _is.array(classes)) {
 			if (_is.string(classes)) classes = [classes];
-			return $.map(classes, function (str) {
+			return classes.map(function(str){
 				return _is.string(str) ? "." + str.split(/\s/g).join(".") : null;
 			}).join(",");
 		}
@@ -187,8 +187,10 @@
 		// if there is no srcset just return the src
 		if (!_is.string(srcset)) return src;
 
-		// parse the srcset into objects containing the url, width, height and pixel density for each supplied source
-		var list = $.map(srcset.replace(/(\s[\d.]+[whx]),/g, '$1 @,@ ').split(' @,@ '), function (val) {
+		// first split the srcset into its individual sources
+		var sources = srcset.replace(/(\s[\d.]+[whx]),/g, '$1 @,@ ').split(' @,@ ');
+		// then parse those sources into objects containing the url, width, height and pixel density
+		var list = sources.map(function (val) {
 			return {
 				url: /^\s*(\S*)/.exec(val)[1],
 				w: parseFloat((/\S\s+(\d+)w/.exec(val) || [0, Infinity])[1]),
@@ -211,38 +213,62 @@
 		// get the current viewport info and use it to determine the correct src to load
 		var dpr = _is.number(devicePixelRatio) ? devicePixelRatio : (window.devicePixelRatio || 1),
 			area = {w: renderWidth * dpr, h: renderHeight * dpr, x: dpr},
-			property, min, max;
+			props = ['w','h','x'];
 
 		// first check each of the viewport properties against the max values of the same properties in our src array
 		// only src's with a property greater than the viewport or equal to the max are kept
-		for (property in area) {
-			if (!area.hasOwnProperty(property)) continue;
-			max = Math.max.apply(null, $.map(list, function (item) {
-				return item[property];
+		props.forEach(function (prop) {
+			var max = Math.max.apply(null, list.map(function (item) {
+				return item[prop];
 			}));
-			list = $.grep(list, (function (prop, limit) {
-				return function (item) {
-					return item[prop] >= area[prop] || item[prop] === limit;
-				};
-			})(property, max));
-		}
+			list = list.filter(function (item) {
+				return item[prop] >= area[prop] || item[prop] === max;
+			});
+		});
 
 		// next reduce our src array by comparing the viewport properties against the minimum values of the same properties of each src
 		// only src's with a property equal to the minimum are kept
-		for (property in area) {
-			if (!area.hasOwnProperty(property)) continue;
-			min = Math.min.apply(null, $.map(list, function (item) {
-				return item[property];
+		props.forEach(function (prop) {
+			var min = Math.min.apply(null, list.map(function (item) {
+				return item[prop];
 			}));
-			list = $.grep(list, (function (prop, limit) {
-				return function (item) {
-					return item[prop] === limit;
-				};
-			})(property, min));
-		}
+			list = list.filter(function (item) {
+				return item[prop] === min;
+			});
+		});
 
 		// return the first url as it is the best match for the current viewport
 		return list[0].url;
+	};
+
+	/**
+	 * @summary Get the scroll parent for the supplied element optionally filtering by axis.
+	 * @memberof FooUtils
+	 * @function scrollParent
+	 * @param {(string|Element|jQuery)} element - The selector, element or jQuery element to find the scroll parent of.
+	 * @param {string} [axis="xy"] - The axis to check. By default this method will check both the X and Y axis.
+	 * @param {jQuery} [def] - The default jQuery element to return if no result was found. Defaults to the supplied elements document.
+	 * @returns {jQuery}
+	 */
+	_.scrollParent = function(element, axis, def){
+		element = _is.jq(element) ? element : $(element);
+		axis = _is.string(axis) && /^(x|y|xy|yx)$/i.test(axis) ? axis : "xy";
+		def = _is.jq(def) ? def : $(!!element.length && element[0].ownerDocument || document);
+
+		if (!element.length) return def;
+
+		var position = element.css("position"),
+			excludeStaticParent = position === "absolute",
+			hidden = /hidden/i, axisX = /x/i, axisY = /y/i,
+			$parent = element.parentsUntil(def).filter(function(i, el){
+				var $el = $(this);
+				if (excludeStaticParent && $el.css("position") === "static") return false;
+				var scrollY = axisY.test(axis) && el.scrollHeight > el.clientHeight && !hidden.test($el.css("overflow-y")),
+					scrollX = axisX.test(axis) && el.scrollWidth > el.clientWidth && !hidden.test($el.css("overflow-x"));
+				return scrollY || scrollX;
+			}).eq(0);
+
+		return position === "fixed" || !$parent.length ? def : $parent;
 	};
 
 })(
