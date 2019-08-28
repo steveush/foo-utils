@@ -346,12 +346,12 @@
 
 		var position = element.css("position"),
 			excludeStaticParent = position === "absolute",
-			hidden = /hidden/i, axisX = /x/i, axisY = /y/i,
+			scroll = /(auto|scroll)/i, axisX = /x/i, axisY = /y/i,
 			$parent = element.parentsUntil(def).filter(function(i, el){
 				var $el = $(this);
 				if (excludeStaticParent &amp;&amp; $el.css("position") === "static") return false;
-				var scrollY = axisY.test(axis) &amp;&amp; el.scrollHeight > el.clientHeight &amp;&amp; !hidden.test($el.css("overflow-y")),
-					scrollX = axisX.test(axis) &amp;&amp; el.scrollWidth > el.clientWidth &amp;&amp; !hidden.test($el.css("overflow-x"));
+				var scrollY = axisY.test(axis) &amp;&amp; el.scrollHeight > el.clientHeight &amp;&amp; scroll.test($el.css("overflow-y")),
+					scrollX = axisX.test(axis) &amp;&amp; el.scrollWidth > el.clientWidth &amp;&amp; scroll.test($el.css("overflow-x"));
 				return scrollY || scrollX;
 			}).eq(0);
 

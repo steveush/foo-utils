@@ -112,6 +112,10 @@
 </code></pre>
 <p>Ideally the above would be used as a step in a larger build process that would include the <code>my-api-utils.js</code> file as part of its own concat or uglify tasks resulting in a single file so any include order namespace issues are no longer a problem.</p>
 <h2>Changelog</h2>
+<h3>0.1.2</h3>
+<ul>
+<li>Updated <code>FooUtils.scrollParent( element, axis, def )</code> to explicitly test for <code>overflow:scroll</code> or <code>overflow:auto</code> rather than just not <code>overflow:hidden</code>.</li>
+</ul>
 <h3>0.1.1</h3>
 <ul>
 <li>Updated <code>FooUtils.scrollParent( element, axis, def )</code> to exclude <code>&lt;html/&gt;</code> from the result as its scroll events are raised on the <code>document</code>.</li>
