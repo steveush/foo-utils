@@ -253,7 +253,8 @@
 	_.scrollParent = function(element, axis, def){
 		element = _is.jq(element) ? element : $(element);
 		axis = _is.string(axis) && /^(x|y|xy|yx)$/i.test(axis) ? axis : "xy";
-		def = _is.jq(def) ? def : $(!!element.length && element[0].ownerDocument || document);
+		var $doc = $(!!element.length && element[0].ownerDocument || document);
+		def = _is.jq(def) ? def : $doc;
 
 		if (!element.length) return def;
 
@@ -268,6 +269,7 @@
 				return scrollY || scrollX;
 			}).eq(0);
 
+		if ($parent.is("html")) $parent = $doc;
 		return position === "fixed" || !$parent.length ? def : $parent;
 	};
 
