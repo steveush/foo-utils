@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.0
+* @version 0.1.1
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.0'
+		version: '0.1.1'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1221,7 +1221,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1536,7 +1536,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1868,7 +1868,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2121,7 +2121,8 @@
 	_.scrollParent = function(element, axis, def){
 		element = _is.jq(element) ? element : $(element);
 		axis = _is.string(axis) && /^(x|y|xy|yx)$/i.test(axis) ? axis : "xy";
-		def = _is.jq(def) ? def : $(!!element.length && element[0].ownerDocument || document);
+		var $doc = $(!!element.length && element[0].ownerDocument || document);
+		def = _is.jq(def) ? def : $doc;
 
 		if (!element.length) return def;
 
@@ -2136,6 +2137,7 @@
 				return scrollY || scrollX;
 			}).eq(0);
 
+		if ($parent.is("html")) $parent = $doc;
 		return position === "fixed" || !$parent.length ? def : $parent;
 	};
 
@@ -2147,7 +2149,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2320,7 +2322,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2459,7 +2461,7 @@
 );
 (function (_, _is) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.0') return;
+    if (_.version !== '0.1.1') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2634,7 +2636,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2735,7 +2737,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3058,7 +3060,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.0') return;
+	if (_.version !== '0.1.1') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
