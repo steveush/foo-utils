@@ -41,6 +41,10 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.2
+
+* Updated `FooUtils.scrollParent( element, axis, def )` to explicitly test for `overflow:scroll` or `overflow:auto` rather than just not `overflow:hidden`.
+
 ### 0.1.1
 
 * Updated `FooUtils.scrollParent( element, axis, def )` to exclude `<html/>` from the result as its scroll events are raised on the `document`.
