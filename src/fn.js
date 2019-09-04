@@ -175,10 +175,10 @@
 	_.fn.debounce = function (fn, time) {
 		var timeout;
 		return function () {
-			var args = _.fn.arg2arr(arguments);
+			var ctx = this, args = _.fn.arg2arr(arguments);
 			clearTimeout(timeout);
 			timeout = setTimeout(function () {
-				fn.apply(this, args);
+				fn.apply(ctx, args);
 			}, time);
 		};
 	};
