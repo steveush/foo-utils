@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.3
+* @version 0.1.4
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.3'
+		version: '0.1.4'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1221,7 +1221,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1536,7 +1536,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1868,7 +1868,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2149,7 +2149,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2322,7 +2322,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2459,9 +2459,9 @@
 	FooUtils.obj,
 	FooUtils.fn
 );
-(function (_, _is) {
+(function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.3') return;
+    if (_.version !== '0.1.4') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2485,6 +2485,10 @@
          * eventClass.trigger(event);
          */
         construct: function(type){
+            if (_is.empty(type))
+                throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
+
+            var namespaced = _str.contains(type, ".");
             /**
              * @summary The type of event.
              * @memberof FooUtils.Event#
@@ -2492,7 +2496,15 @@
              * @type {string}
              * @readonly
              */
-            this.type = type;
+            this.type = namespaced ? _str.until(type, ".") : type;
+            /**
+             * @summary The namespace of the event.
+             * @memberof FooUtils.Event#
+             * @name namespace
+             * @type {string}
+             * @readonly
+             */
+            this.namespace = namespaced ? _str.from(type, ".") : null;
             /**
              * @summary Whether the default action should be taken or not.
              * @memberof FooUtils.Event#
@@ -2501,6 +2513,14 @@
              * @readonly
              */
             this.defaultPrevented = false;
+            /**
+             * @summary The {@link FooUtils.EventClass} that triggered this event.
+             * @memberof FooUtils.Event#
+             * @name target
+             * @type {FooUtils.EventClass}
+             * @readonly
+             */
+            this.target = null;
         },
         /**
          * @summary Informs the class that raised this event that its default action should not be taken.
@@ -2509,6 +2529,15 @@
          */
         preventDefault: function(){
             this.defaultPrevented = true;
+        },
+        /**
+         * @summary Gets whether the default action should be taken or not.
+         * @memberof FooUtils.Event#
+         * @function isDefaultPrevented
+         * @returns {boolean}
+         */
+        isDefaultPrevented: function(){
+            return this.defaultPrevented;
         }
     });
 
@@ -2537,6 +2566,13 @@
             this.__handlers = {};
         },
         /**
+         * @summary Attach multiple event handler functions for one or more events to the class.
+         * @memberof FooUtils.EventClass#
+         * @function on
+         * @param {object} events - An object containing an event name to handler mapping.
+         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @returns {this}
+         *//**
          * @summary Attach an event handler function for one or more events to the class.
          * @memberof FooUtils.EventClass#
          * @function on
@@ -2546,54 +2582,101 @@
          * @returns {this}
          */
         on: function(events, handler, thisArg){
-            if (!_is.string(events) || !_is.fn(handler)) return this;
-            thisArg = _is.undef(thisArg) ? this : thisArg;
-            var self = this, handlers = self.__handlers, exists;
-            events.split(" ").forEach(function(type){
-                if (!_is.array(handlers[type])){
-                    handlers[type] = [];
-                }
-                exists = handlers[type].some(function(h){
-                    return h.fn === handler && h.thisArg === thisArg;
+            var self = this;
+            if (_is.object(events)){
+                thisArg = _is.undef(handler) ? this : handler;
+                Object.keys(events).forEach(function(type){
+                    self.__on(type, events[type], thisArg);
                 });
-                if (!exists){
-                    handlers[type].push({
-                        fn: handler,
-                        thisArg: thisArg
-                    });
-                }
-            });
+            } else if (_is.string(events) && _is.fn(handler)) {
+                thisArg = _is.undef(thisArg) ? this : thisArg;
+                events.split(" ").forEach(function(type){
+                    self.__on(type, handler, thisArg);
+                });
+            }
+
             return self;
         },
+        __on: function(event, handler, thisArg){
+            var self = this,
+                namespaced = _str.contains(event, "."),
+                type = namespaced ? _str.until(event, ".") : event,
+                namespace = namespaced ? _str.from(event, ".") : null;
+
+            if (!_is.array(self.__handlers[type])){
+                self.__handlers[type] = [];
+            }
+            var exists = self.__handlers[type].some(function(h){
+                return h.namespace === namespace && h.fn === handler && h.thisArg === thisArg;
+            });
+            if (!exists){
+                self.__handlers[type].push({
+                    namespace: namespace,
+                    fn: handler,
+                    thisArg: thisArg
+                });
+            }
+        },
         /**
+         * @summary Remove multiple event handler functions for one or more events from the class.
+         * @memberof FooUtils.EventClass#
+         * @function off
+         * @param {object} events - An object containing an event name to handler mapping.
+         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @returns {this}
+         *//**
          * @summary Remove an event handler function for one or more events from the class.
          * @memberof FooUtils.EventClass#
          * @function off
          * @param {string} events - One or more space-separated event types.
          * @param {function} handler - The handler to remove.
          * @param {*} [thisArg] - The value of `this` within the `handler` function.
-         * @returns {FooUtils.EventClass}
+         * @returns {this}
          */
         off: function(events, handler, thisArg){
-            if (!_is.string(events)) return this;
-            handler = _is.fn(handler) ? handler : null;
-            thisArg = _is.undef(thisArg) ? this : thisArg;
-            var self = this, handlers = self.__handlers;
-            events.split(" ").forEach(function(type){
-                if (_is.array(handlers[type])){
+            var self = this;
+            if (_is.object(events)){
+                thisArg = _is.undef(handler) ? this : handler;
+                Object.keys(events).forEach(function(type){
+                    self.__off(type, _is.fn(events[type]) ? events[type] : null, thisArg);
+                });
+            } else if (_is.string(events)) {
+                handler = _is.fn(handler) ? handler : null;
+                thisArg = _is.undef(thisArg) ? this : thisArg;
+                events.split(" ").forEach(function(type){
+                    self.__off(type, handler, thisArg);
+                });
+            }
+
+            return self;
+        },
+        __off: function(event, handler, thisArg){
+            var self = this,
+                type = _str.until(event, ".") || null,
+                namespace = _str.from(event, ".") || null,
+                types = [];
+
+            if (!_is.empty(type)){
+                types.push(type);
+            } else if (!_is.empty(namespace)){
+                types.push.apply(types, Object.keys(self.__handlers));
+            }
+
+            types.forEach(function(type){
+                if (!_is.array(self.__handlers[type])) return;
+                self.__handlers[type] = self.__handlers[type].filter(function (h) {
                     if (handler != null){
-                        handlers[type] = handlers[type].filter(function(h){
-                            return !(h.fn === handler && h.thisArg === thisArg);
-                        });
-                        if (handlers[type].length === 0){
-                            delete handlers[type];
-                        }
-                    } else {
-                        delete handlers[type];
+                        return !(h.namespace === namespace && h.fn === handler && h.thisArg === thisArg);
                     }
+                    if (namespace != null){
+                        return h.namespace !== namespace;
+                    }
+                    return false;
+                });
+                if (self.__handlers[type].length === 0){
+                    delete self.__handlers[type];
                 }
             });
-            return self;
         },
         /**
          * @summary Trigger an event on the current class.
@@ -2604,39 +2687,39 @@
          * @returns {(FooUtils.Event|FooUtils.Event[]|null)} Returns the {@link FooUtils.Event|event object} of the triggered event. If more than one event was triggered an array of {@link FooUtils.Event|event objects} is returned. If no `event` was supplied or triggered `null` is returned.
          */
         trigger: function(event, args){
-            var instance = event instanceof _.Event;
-            if (!instance && !_is.string(event)) return null;
             args = _is.array(args) ? args : [];
-            var self = this,
-                handlers = self.__handlers,
-                result = [],
-                _trigger = function(e){
-                    result.push(e);
-                    if (!_is.array(handlers[e.type])) return;
-                    handlers[e.type].forEach(function (h) {
-                        h.fn.apply(h.thisArg, [e].concat(args));
-                    });
-                };
-
-            if (instance){
-                _trigger(event);
-            } else {
+            var self = this, result = [];
+            if (event instanceof _.Event){
+                result.push(event);
+                self.__trigger(event, args);
+            } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
-                    _trigger(new _.Event(type));
+                    var index = result.push(new _.Event(type)) - 1;
+                    self.__trigger(result[index], args);
                 });
             }
             return _is.empty(result) ? null : (result.length === 1 ? result[0] : result);
+        },
+        __trigger: function(event, args){
+            var self = this;
+            event.target = self;
+            if (!_is.array(self.__handlers[event.type])) return;
+            self.__handlers[event.type].forEach(function (h) {
+                if (event.namespace != null && h.namespace !== event.namespace) return;
+                h.fn.apply(h.thisArg, [event].concat(args));
+            });
         }
     });
 
 })(
     // dependencies
     FooUtils,
-    FooUtils.is
+    FooUtils.is,
+    FooUtils.str
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2737,7 +2820,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3060,7 +3143,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.3') return;
+	if (_.version !== '0.1.4') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
