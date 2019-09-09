@@ -41,6 +41,11 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.4
+
+* Updated the `FooUtils.EventClass` and `FooUtils.Event` classes to handle namespaced events.
+* Updated the `FooUtils.EventClass`'s `on` and `off` methods to accept an object containing event type to handler mappings.
+
 ### 0.1.3
 
 * Fixed context issue with `FooUtils.fn.debounce`.
