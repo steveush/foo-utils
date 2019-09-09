@@ -385,6 +385,15 @@
           "string",
           "type"
         ],
+        "FooUtils.Event.html#namespace": [
+          "event",
+          "event#namespac",
+          "fooutils.event#namespac",
+          "lt;readonly&gt",
+          "member",
+          "namespac",
+          "string"
+        ],
         "FooUtils.Event.html#defaultPrevented": [
           "action",
           "boolean",
@@ -396,6 +405,16 @@
           "member",
           "taken",
           "whether"
+        ],
+        "FooUtils.Event.html#target": [
+          "event",
+          "event#target",
+          "fooutils.event#target",
+          "fooutils.eventclass",
+          "lt;readonly&gt",
+          "member",
+          "target",
+          "trigger"
         ],
         "FooUtils.Event.html#preventDefault": [
           "action",
@@ -409,6 +428,18 @@
           "preventdefault",
           "rais",
           "taken"
+        ],
+        "FooUtils.Event.html#isDefaultPrevented": [
+          "action",
+          "boolean",
+          "default",
+          "event#isdefaultprev",
+          "fooutils.event#isdefaultprev",
+          "function",
+          "get",
+          "isdefaultprev",
+          "taken",
+          "whether"
         ],
         "FooUtils.EventClass.html": [
           "base",
@@ -452,7 +483,6 @@
           "class",
           "event",
           "eventclass#off",
-          "fooutils.eventclass",
           "fooutils.eventclass#off",
           "function",
           "handler",
@@ -1030,16 +1060,6 @@
           "lt;static&gt",
           "valu"
         ],
-        "FooUtils.is.html#.element": [
-          "boolean",
-          "check",
-          "element",
-          "fooutils.is.el",
-          "function",
-          "is.el",
-          "lt;static&gt",
-          "valu"
-        ],
         "FooUtils.is.html#.empty": [
           "0",
           "array",
@@ -1068,6 +1088,16 @@
           "fooutils.is.error",
           "function",
           "is.error",
+          "lt;static&gt",
+          "valu"
+        ],
+        "FooUtils.is.html#.fn": [
+          "boolean",
+          "check",
+          "fn",
+          "fooutils.is.fn",
+          "function",
+          "is.fn",
           "lt;static&gt",
           "valu"
         ],
@@ -1179,13 +1209,13 @@
           "undefin",
           "valu"
         ],
-        "FooUtils.is.html#.fn": [
+        "FooUtils.is.html#.element": [
           "boolean",
           "check",
-          "fn",
-          "fooutils.is.fn",
+          "element",
+          "fooutils.is.el",
           "function",
-          "is.fn",
+          "is.el",
           "lt;static&gt",
           "valu"
         ],
@@ -1912,7 +1942,7 @@
           "valu"
         ]
       },
-      "length": 107
+      "length": 110
     },
     "tokenStore": {
       "root": {
@@ -2744,16 +2774,16 @@
                       "ref": "FooUtils.is.html#.boolean",
                       "tf": 23.333333333333332
                     },
-                    "FooUtils.is.html#.element": {
-                      "ref": "FooUtils.is.html#.element",
-                      "tf": 23.333333333333332
-                    },
                     "FooUtils.is.html#.empty": {
                       "ref": "FooUtils.is.html#.empty",
                       "tf": 23.333333333333332
                     },
                     "FooUtils.is.html#.error": {
                       "ref": "FooUtils.is.html#.error",
+                      "tf": 23.333333333333332
+                    },
+                    "FooUtils.is.html#.fn": {
+                      "ref": "FooUtils.is.html#.fn",
                       "tf": 23.333333333333332
                     },
                     "FooUtils.is.html#.hash": {
@@ -2788,8 +2818,8 @@
                       "ref": "FooUtils.is.html#.undef",
                       "tf": 23.333333333333332
                     },
-                    "FooUtils.is.html#.fn": {
-                      "ref": "FooUtils.is.html#.fn",
+                    "FooUtils.is.html#.element": {
+                      "ref": "FooUtils.is.html#.element",
                       "tf": 23.333333333333332
                     },
                     "FooUtils.str.html#.contains": {
@@ -4039,13 +4069,13 @@
                                             "docs": {},
                                             "s": {
                                               "docs": {
+                                                "FooUtils.Event.html#target": {
+                                                  "ref": "FooUtils.Event.html#target",
+                                                  "tf": 56.66666666666666
+                                                },
                                                 "FooUtils.EventClass.html": {
                                                   "ref": "FooUtils.EventClass.html",
                                                   "tf": 1250
-                                                },
-                                                "FooUtils.EventClass.html#off": {
-                                                  "ref": "FooUtils.EventClass.html#off",
-                                                  "tf": 25
                                                 }
                                               },
                                               "#": {
@@ -4142,6 +4172,55 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "a": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "g": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {
+                                                    "FooUtils.Event.html#target": {
+                                                      "ref": "FooUtils.Event.html#target",
+                                                      "tf": 1100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "n": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "m": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "c": {
+                                                      "docs": {
+                                                        "FooUtils.Event.html#namespace": {
+                                                          "ref": "FooUtils.Event.html#namespace",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
                                         }
                                       },
                                       "d": {
@@ -4214,6 +4293,50 @@
                                                                       "ref": "FooUtils.Event.html#preventDefault",
                                                                       "tf": 1100
                                                                     }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "i": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "d": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "f": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "u": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "v": {
+                                                                "docs": {
+                                                                  "FooUtils.Event.html#isDefaultPrevented": {
+                                                                    "ref": "FooUtils.Event.html#isDefaultPrevented",
+                                                                    "tf": 1100
                                                                   }
                                                                 }
                                                               }
@@ -4398,14 +4521,6 @@
                                 },
                                 "e": {
                                   "docs": {},
-                                  "l": {
-                                    "docs": {
-                                      "FooUtils.is.html#.element": {
-                                        "ref": "FooUtils.is.html#.element",
-                                        "tf": 1100
-                                      }
-                                    }
-                                  },
                                   "m": {
                                     "docs": {},
                                     "p": {
@@ -4437,6 +4552,25 @@
                                             }
                                           }
                                         }
+                                      }
+                                    }
+                                  },
+                                  "l": {
+                                    "docs": {
+                                      "FooUtils.is.html#.element": {
+                                        "ref": "FooUtils.is.html#.element",
+                                        "tf": 1100
+                                      }
+                                    }
+                                  }
+                                },
+                                "f": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {
+                                      "FooUtils.is.html#.fn": {
+                                        "ref": "FooUtils.is.html#.fn",
+                                        "tf": 1100
                                       }
                                     }
                                   }
@@ -4567,17 +4701,6 @@
                                             }
                                           }
                                         }
-                                      }
-                                    }
-                                  }
-                                },
-                                "f": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {
-                                      "FooUtils.is.html#.fn": {
-                                        "ref": "FooUtils.is.html#.fn",
-                                        "tf": 1100
                                       }
                                     }
                                   }
@@ -5691,6 +5814,10 @@
                             "ref": "FooUtils.Event.html#preventDefault",
                             "tf": 110
                           },
+                          "FooUtils.Event.html#isDefaultPrevented": {
+                            "ref": "FooUtils.Event.html#isDefaultPrevented",
+                            "tf": 110
+                          },
                           "FooUtils.EventClass.html#destroy": {
                             "ref": "FooUtils.EventClass.html#destroy",
                             "tf": 110
@@ -5795,10 +5922,6 @@
                             "ref": "FooUtils.is.html#.boolean",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.element": {
-                            "ref": "FooUtils.is.html#.element",
-                            "tf": 110
-                          },
                           "FooUtils.is.html#.empty": {
                             "ref": "FooUtils.is.html#.empty",
                             "tf": 110
@@ -5806,6 +5929,10 @@
                           "FooUtils.is.html#.error": {
                             "ref": "FooUtils.is.html#.error",
                             "tf": 110
+                          },
+                          "FooUtils.is.html#.fn": {
+                            "ref": "FooUtils.is.html#.fn",
+                            "tf": 133.33333333333334
                           },
                           "FooUtils.is.html#.hash": {
                             "ref": "FooUtils.is.html#.hash",
@@ -5839,9 +5966,9 @@
                             "ref": "FooUtils.is.html#.undef",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.fn": {
-                            "ref": "FooUtils.is.html#.fn",
-                            "tf": 133.33333333333334
+                          "FooUtils.is.html#.element": {
+                            "ref": "FooUtils.is.html#.element",
+                            "tf": 110
                           },
                           "FooUtils.html#.versionCompare": {
                             "ref": "FooUtils.html#.versionCompare",
@@ -7201,37 +7328,37 @@
               }
             }
           },
-          "m": {
+          "s": {
             "docs": {},
-            "p": {
+            "d": {
               "docs": {},
-              "l": {
+              "e": {
                 "docs": {},
-                "e": {
+                "f": {
                   "docs": {},
-                  "m": {
+                  "a": {
                     "docs": {},
-                    "e": {
+                    "u": {
                       "docs": {},
-                      "n": {
+                      "l": {
                         "docs": {},
                         "t": {
-                          "docs": {
-                            "FooUtils.EventClass.html": {
-                              "ref": "FooUtils.EventClass.html",
-                              "tf": 17.916666666666664
-                            },
-                            "FooUtils.fn.html#.addOrOverride": {
-                              "ref": "FooUtils.fn.html#.addOrOverride",
-                              "tf": 0.9615384615384616
-                            },
-                            "FooUtils.fn.html#.enqueue": {
-                              "ref": "FooUtils.fn.html#.enqueue",
-                              "tf": 0.6493506493506493
-                            },
-                            "FooUtils.obj.html#.create": {
-                              "ref": "FooUtils.obj.html#.create",
-                              "tf": 12.5
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "v": {
+                                  "docs": {
+                                    "FooUtils.Event.html#isDefaultPrevented": {
+                                      "ref": "FooUtils.Event.html#isDefaultPrevented",
+                                      "tf": 650
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -7241,20 +7368,6 @@
                 }
               }
             },
-            "a": {
-              "docs": {},
-              "g": {
-                "docs": {
-                  "FooUtils.html#.src": {
-                    "ref": "FooUtils.html#.src",
-                    "tf": 5.555555555555555
-                  }
-                }
-              }
-            }
-          },
-          "s": {
-            "docs": {},
             ".": {
               "docs": {},
               "a": {
@@ -7305,14 +7418,6 @@
               },
               "e": {
                 "docs": {},
-                "l": {
-                  "docs": {
-                    "FooUtils.is.html#.element": {
-                      "ref": "FooUtils.is.html#.element",
-                      "tf": 100
-                    }
-                  }
-                },
                 "m": {
                   "docs": {},
                   "p": {
@@ -7344,6 +7449,25 @@
                           }
                         }
                       }
+                    }
+                  }
+                },
+                "l": {
+                  "docs": {
+                    "FooUtils.is.html#.element": {
+                      "ref": "FooUtils.is.html#.element",
+                      "tf": 100
+                    }
+                  }
+                }
+              },
+              "f": {
+                "docs": {},
+                "n": {
+                  "docs": {
+                    "FooUtils.is.html#.fn": {
+                      "ref": "FooUtils.is.html#.fn",
+                      "tf": 100
                     }
                   }
                 }
@@ -7483,17 +7607,6 @@
                     }
                   }
                 }
-              },
-              "f": {
-                "docs": {},
-                "n": {
-                  "docs": {
-                    "FooUtils.is.html#.fn": {
-                      "ref": "FooUtils.is.html#.fn",
-                      "tf": 100
-                    }
-                  }
-                }
               }
             },
             "s": {
@@ -7503,6 +7616,58 @@
                   "FooUtils.html#.$": {
                     "ref": "FooUtils.html#.$",
                     "tf": 3.571428571428571
+                  }
+                }
+              }
+            }
+          },
+          "m": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "m": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "t": {
+                          "docs": {
+                            "FooUtils.EventClass.html": {
+                              "ref": "FooUtils.EventClass.html",
+                              "tf": 17.916666666666664
+                            },
+                            "FooUtils.fn.html#.addOrOverride": {
+                              "ref": "FooUtils.fn.html#.addOrOverride",
+                              "tf": 0.9615384615384616
+                            },
+                            "FooUtils.fn.html#.enqueue": {
+                              "ref": "FooUtils.fn.html#.enqueue",
+                              "tf": 0.6493506493506493
+                            },
+                            "FooUtils.obj.html#.create": {
+                              "ref": "FooUtils.obj.html#.create",
+                              "tf": 12.5
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "a": {
+              "docs": {},
+              "g": {
+                "docs": {
+                  "FooUtils.html#.src": {
+                    "ref": "FooUtils.html#.src",
+                    "tf": 5.555555555555555
                   }
                 }
               }
@@ -7748,8 +7913,16 @@
                         "ref": "FooUtils.Event.html#type",
                         "tf": 110
                       },
+                      "FooUtils.Event.html#namespace": {
+                        "ref": "FooUtils.Event.html#namespace",
+                        "tf": 110
+                      },
                       "FooUtils.Event.html#defaultPrevented": {
                         "ref": "FooUtils.Event.html#defaultPrevented",
+                        "tf": 110
+                      },
+                      "FooUtils.Event.html#target": {
+                        "ref": "FooUtils.Event.html#target",
                         "tf": 110
                       },
                       "FooUtils.Factory.html#registered": {
@@ -7996,6 +8169,37 @@
               }
             }
           },
+          "u": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "p": {
+                    "docs": {},
+                    "l": {
+                      "docs": {
+                        "FooUtils.EventClass.html#on": {
+                          "ref": "FooUtils.EventClass.html#on",
+                          "tf": 7.777777777777778
+                        },
+                        "FooUtils.EventClass.html#off": {
+                          "ref": "FooUtils.EventClass.html#off",
+                          "tf": 7.777777777777778
+                        },
+                        "FooUtils.html#.$": {
+                          "ref": "FooUtils.html#.$",
+                          "tf": 3.571428571428571
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "y": {
             "docs": {},
             "c": {
@@ -8114,29 +8318,6 @@
                               }
                             }
                           }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "u": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "p": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "FooUtils.html#.$": {
-                          "ref": "FooUtils.html#.$",
-                          "tf": 3.571428571428571
                         }
                       }
                     }
@@ -9935,6 +10116,10 @@
                           "ref": "FooUtils.Event.html#preventDefault",
                           "tf": 10
                         },
+                        "FooUtils.Event.html#isDefaultPrevented": {
+                          "ref": "FooUtils.Event.html#isDefaultPrevented",
+                          "tf": 14
+                        },
                         "FooUtils.fn.html#.apply": {
                           "ref": "FooUtils.fn.html#.apply",
                           "tf": 4.166666666666666
@@ -10506,6 +10691,10 @@
             "docs": {},
             "t": {
               "docs": {
+                "FooUtils.Event.html#isDefaultPrevented": {
+                  "ref": "FooUtils.Event.html#isDefaultPrevented",
+                  "tf": 14
+                },
                 "FooUtils.Factory.html#names": {
                   "ref": "FooUtils.Factory.html#names",
                   "tf": 17.5
@@ -10857,16 +11046,16 @@
                                     "ref": "FooUtils.is.html#.boolean",
                                     "tf": 25
                                   },
-                                  "FooUtils.is.html#.element": {
-                                    "ref": "FooUtils.is.html#.element",
-                                    "tf": 25
-                                  },
                                   "FooUtils.is.html#.empty": {
                                     "ref": "FooUtils.is.html#.empty",
                                     "tf": 25
                                   },
                                   "FooUtils.is.html#.error": {
                                     "ref": "FooUtils.is.html#.error",
+                                    "tf": 25
+                                  },
+                                  "FooUtils.is.html#.fn": {
+                                    "ref": "FooUtils.is.html#.fn",
                                     "tf": 25
                                   },
                                   "FooUtils.is.html#.hash": {
@@ -10901,8 +11090,8 @@
                                     "ref": "FooUtils.is.html#.undef",
                                     "tf": 25
                                   },
-                                  "FooUtils.is.html#.fn": {
-                                    "ref": "FooUtils.is.html#.fn",
+                                  "FooUtils.is.html#.element": {
+                                    "ref": "FooUtils.is.html#.element",
                                     "tf": 25
                                   },
                                   "FooUtils.html#.$": {
@@ -11081,8 +11270,16 @@
                                         "ref": "FooUtils.Event.html#type",
                                         "tf": 33.33333333333333
                                       },
+                                      "FooUtils.Event.html#namespace": {
+                                        "ref": "FooUtils.Event.html#namespace",
+                                        "tf": 33.33333333333333
+                                      },
                                       "FooUtils.Event.html#defaultPrevented": {
                                         "ref": "FooUtils.Event.html#defaultPrevented",
+                                        "tf": 33.33333333333333
+                                      },
+                                      "FooUtils.Event.html#target": {
+                                        "ref": "FooUtils.Event.html#target",
                                         "tf": 33.33333333333333
                                       },
                                       "FooUtils.Factory.html#registered": {
@@ -11403,6 +11600,10 @@
                           "list_namespace.html": {
                             "ref": "list_namespace.html",
                             "tf": 635
+                          },
+                          "FooUtils.Event.html#namespace": {
+                            "ref": "FooUtils.Event.html#namespace",
+                            "tf": 668.3333333333334
                           },
                           "FooUtils.fn.html": {
                             "ref": "FooUtils.fn.html",
@@ -11749,6 +11950,10 @@
                           "ref": "FooUtils.Event.html#defaultPrevented",
                           "tf": 33.33333333333333
                         },
+                        "FooUtils.Event.html#isDefaultPrevented": {
+                          "ref": "FooUtils.Event.html#isDefaultPrevented",
+                          "tf": 50
+                        },
                         "FooUtils.Factory.html#contains": {
                           "ref": "FooUtils.Factory.html#contains",
                           "tf": 33.33333333333333
@@ -11765,16 +11970,16 @@
                           "ref": "FooUtils.is.html#.boolean",
                           "tf": 673.3333333333334
                         },
-                        "FooUtils.is.html#.element": {
-                          "ref": "FooUtils.is.html#.element",
-                          "tf": 25
-                        },
                         "FooUtils.is.html#.empty": {
                           "ref": "FooUtils.is.html#.empty",
                           "tf": 25
                         },
                         "FooUtils.is.html#.error": {
                           "ref": "FooUtils.is.html#.error",
+                          "tf": 25
+                        },
+                        "FooUtils.is.html#.fn": {
+                          "ref": "FooUtils.is.html#.fn",
                           "tf": 25
                         },
                         "FooUtils.is.html#.hash": {
@@ -11809,8 +12014,8 @@
                           "ref": "FooUtils.is.html#.undef",
                           "tf": 25
                         },
-                        "FooUtils.is.html#.fn": {
-                          "ref": "FooUtils.is.html#.fn",
+                        "FooUtils.is.html#.element": {
+                          "ref": "FooUtils.is.html#.element",
                           "tf": 25
                         },
                         "FooUtils.str.html#.contains": {
@@ -12705,6 +12910,10 @@
                       },
                       "FooUtils.Event.html#type": {
                         "ref": "FooUtils.Event.html#type",
+                        "tf": 33.33333333333333
+                      },
+                      "FooUtils.Event.html#namespace": {
+                        "ref": "FooUtils.Event.html#namespace",
                         "tf": 33.33333333333333
                       },
                       "FooUtils.fn.html#.check": {
@@ -13765,6 +13974,10 @@
                       "FooUtils.Event.html#preventDefault": {
                         "ref": "FooUtils.Event.html#preventDefault",
                         "tf": 10
+                      },
+                      "FooUtils.Event.html#isDefaultPrevented": {
+                        "ref": "FooUtils.Event.html#isDefaultPrevented",
+                        "tf": 14
                       },
                       "FooUtils.transition.html#.start": {
                         "ref": "FooUtils.transition.html#.start",
@@ -15392,6 +15605,14 @@
                       "ref": "FooUtils.Event.html#type",
                       "tf": 35
                     },
+                    "FooUtils.Event.html#namespace": {
+                      "ref": "FooUtils.Event.html#namespace",
+                      "tf": 35
+                    },
+                    "FooUtils.Event.html#target": {
+                      "ref": "FooUtils.Event.html#target",
+                      "tf": 23.333333333333332
+                    },
                     "FooUtils.Event.html#preventDefault": {
                       "ref": "FooUtils.Event.html#preventDefault",
                       "tf": 10
@@ -15406,7 +15627,7 @@
                     },
                     "FooUtils.EventClass.html#off": {
                       "ref": "FooUtils.EventClass.html#off",
-                      "tf": 42.5
+                      "tf": 50.83333333333333
                     },
                     "FooUtils.EventClass.html#trigger": {
                       "ref": "FooUtils.EventClass.html#trigger",
@@ -15436,6 +15657,55 @@
                             "FooUtils.Event.html#type": {
                               "ref": "FooUtils.Event.html#type",
                               "tf": 100
+                            }
+                          }
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "g": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "t": {
+                                "docs": {
+                                  "FooUtils.Event.html#target": {
+                                    "ref": "FooUtils.Event.html#target",
+                                    "tf": 100
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "n": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "m": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "p": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "c": {
+                                    "docs": {
+                                      "FooUtils.Event.html#namespace": {
+                                        "ref": "FooUtils.Event.html#namespace",
+                                        "tf": 100
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -15511,6 +15781,50 @@
                                                     "ref": "FooUtils.Event.html#preventDefault",
                                                     "tf": 100
                                                   }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "i": {
+                      "docs": {},
+                      "s": {
+                        "docs": {},
+                        "d": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "f": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "u": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "v": {
+                                              "docs": {
+                                                "FooUtils.Event.html#isDefaultPrevented": {
+                                                  "ref": "FooUtils.Event.html#isDefaultPrevented",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -15677,6 +15991,27 @@
               }
             }
           },
+          "m": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "i": {
+                  "docs": {
+                    "FooUtils.is.html#.empty": {
+                      "ref": "FooUtils.is.html#.empty",
+                      "tf": 662.2222222222223
+                    },
+                    "FooUtils.str.html#.join": {
+                      "ref": "FooUtils.str.html#.join",
+                      "tf": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
           "l": {
             "docs": {},
             "e": {
@@ -15722,27 +16057,6 @@
                           "tf": 50
                         }
                       }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "m": {
-            "docs": {},
-            "p": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "i": {
-                  "docs": {
-                    "FooUtils.is.html#.empty": {
-                      "ref": "FooUtils.is.html#.empty",
-                      "tf": 662.2222222222223
-                    },
-                    "FooUtils.str.html#.join": {
-                      "ref": "FooUtils.str.html#.join",
-                      "tf": 2
                     }
                   }
                 }
@@ -15843,6 +16157,10 @@
                         "FooUtils.Event.html": {
                           "ref": "FooUtils.Event.html",
                           "tf": 1.7857142857142856
+                        },
+                        "FooUtils.Event.html#target": {
+                          "ref": "FooUtils.Event.html#target",
+                          "tf": 23.333333333333332
                         },
                         "FooUtils.EventClass.html#trigger": {
                           "ref": "FooUtils.EventClass.html#trigger",
@@ -16345,6 +16663,10 @@
                     "FooUtils.Event.html#preventDefault": {
                       "ref": "FooUtils.Event.html#preventDefault",
                       "tf": 10
+                    },
+                    "FooUtils.Event.html#isDefaultPrevented": {
+                      "ref": "FooUtils.Event.html#isDefaultPrevented",
+                      "tf": 14
                     }
                   }
                 }
@@ -16358,6 +16680,10 @@
                   "docs": {},
                   "t": {
                     "docs": {
+                      "FooUtils.Event.html#target": {
+                        "ref": "FooUtils.Event.html#target",
+                        "tf": 633.3333333333334
+                      },
                       "FooUtils.obj.html#.extend": {
                         "ref": "FooUtils.obj.html#.extend",
                         "tf": 24.444444444444443
@@ -16434,7 +16760,7 @@
                         },
                         "FooUtils.EventClass.html#off": {
                           "ref": "FooUtils.EventClass.html#off",
-                          "tf": 25
+                          "tf": 33.33333333333333
                         },
                         "FooUtils.fn.html#.check": {
                           "ref": "FooUtils.fn.html#.check",
@@ -16794,7 +17120,7 @@
                         },
                         "FooUtils.EventClass.html#off": {
                           "ref": "FooUtils.EventClass.html#off",
-                          "tf": 33.75
+                          "tf": 42.08333333333333
                         }
                       }
                     }
@@ -17043,6 +17369,10 @@
                           "ref": "FooUtils.Event.html#defaultPrevented",
                           "tf": 17.5
                         },
+                        "FooUtils.Event.html#isDefaultPrevented": {
+                          "ref": "FooUtils.Event.html#isDefaultPrevented",
+                          "tf": 14
+                        },
                         "FooUtils.transition.html#.supported": {
                           "ref": "FooUtils.transition.html#.supported",
                           "tf": 14
@@ -17184,16 +17514,16 @@
                     "ref": "FooUtils.is.html#.boolean",
                     "tf": 48.33333333333333
                   },
-                  "FooUtils.is.html#.element": {
-                    "ref": "FooUtils.is.html#.element",
-                    "tf": 48.33333333333333
-                  },
                   "FooUtils.is.html#.empty": {
                     "ref": "FooUtils.is.html#.empty",
                     "tf": 51.11111111111111
                   },
                   "FooUtils.is.html#.error": {
                     "ref": "FooUtils.is.html#.error",
+                    "tf": 48.33333333333333
+                  },
+                  "FooUtils.is.html#.fn": {
+                    "ref": "FooUtils.is.html#.fn",
                     "tf": 48.33333333333333
                   },
                   "FooUtils.is.html#.hash": {
@@ -17228,8 +17558,8 @@
                     "ref": "FooUtils.is.html#.undef",
                     "tf": 48.33333333333333
                   },
-                  "FooUtils.is.html#.fn": {
-                    "ref": "FooUtils.is.html#.fn",
+                  "FooUtils.is.html#.element": {
+                    "ref": "FooUtils.is.html#.element",
                     "tf": 48.33333333333333
                   },
                   "FooUtils.html#.src": {
@@ -17561,7 +17891,7 @@
           }
         }
       },
-      "length": 1665
+      "length": 1711
     },
     "corpusTokens": [
       "0",
@@ -17714,7 +18044,10 @@
       "even",
       "event",
       "event#defaultprev",
+      "event#isdefaultprev",
+      "event#namespac",
       "event#preventdefault",
+      "event#target",
       "event#typ",
       "eventclass",
       "eventclass#destroy",
@@ -17779,7 +18112,10 @@
       "fooutils.debugger#logf",
       "fooutils.ev",
       "fooutils.event#defaultprev",
+      "fooutils.event#isdefaultprev",
+      "fooutils.event#namespac",
       "fooutils.event#preventdefault",
+      "fooutils.event#target",
       "fooutils.event#typ",
       "fooutils.eventclass",
       "fooutils.eventclass#destroy",
@@ -17919,6 +18255,7 @@
       "is.siz",
       "is.str",
       "is.undef",
+      "isdefaultprev",
       "issu",
       "it'",
       "itself",
@@ -18413,6 +18750,16 @@
       "summary": "The type of event.",
       "description": ""
     },
+    "FooUtils.Event.html#namespace": {
+      "id": "FooUtils.Event.html#namespace",
+      "kind": "member",
+      "title": "&lt;readonly&gt; namespace :string",
+      "longname": "FooUtils.Event#namespace",
+      "name": "namespace",
+      "tags": "FooUtils.Event#namespace Event#namespace namespace",
+      "summary": "The namespace of the event.",
+      "description": ""
+    },
     "FooUtils.Event.html#defaultPrevented": {
       "id": "FooUtils.Event.html#defaultPrevented",
       "kind": "member",
@@ -18423,6 +18770,16 @@
       "summary": "Whether the default action should be taken or not.",
       "description": ""
     },
+    "FooUtils.Event.html#target": {
+      "id": "FooUtils.Event.html#target",
+      "kind": "member",
+      "title": "&lt;readonly&gt; target :FooUtils.EventClass",
+      "longname": "FooUtils.Event#target",
+      "name": "target",
+      "tags": "FooUtils.Event#target Event#target target",
+      "summary": "The FooUtils.EventClass that triggered this event.",
+      "description": ""
+    },
     "FooUtils.Event.html#preventDefault": {
       "id": "FooUtils.Event.html#preventDefault",
       "kind": "function",
@@ -18431,6 +18788,16 @@
       "name": "preventDefault",
       "tags": "FooUtils.Event#preventDefault Event#preventDefault preventDefault",
       "summary": "Informs the class that raised this event that its default action should not be taken.",
+      "description": ""
+    },
+    "FooUtils.Event.html#isDefaultPrevented": {
+      "id": "FooUtils.Event.html#isDefaultPrevented",
+      "kind": "function",
+      "title": "isDefaultPrevented() → {boolean}",
+      "longname": "FooUtils.Event#isDefaultPrevented",
+      "name": "isDefaultPrevented",
+      "tags": "FooUtils.Event#isDefaultPrevented Event#isDefaultPrevented isDefaultPrevented",
+      "summary": "Gets whether the default action should be taken or not.",
       "description": ""
     },
     "FooUtils.EventClass.html": {
@@ -18467,7 +18834,7 @@
     "FooUtils.EventClass.html#off": {
       "id": "FooUtils.EventClass.html#off",
       "kind": "function",
-      "title": "off( events, handler [, thisArg ] ) → {FooUtils.EventClass}",
+      "title": "off( events, handler [, thisArg ] ) → {this}",
       "longname": "FooUtils.EventClass#off",
       "name": "off",
       "tags": "FooUtils.EventClass#off EventClass#off off",
@@ -18747,16 +19114,6 @@
       "summary": "Checks if the value is a boolean.",
       "description": ""
     },
-    "FooUtils.is.html#.element": {
-      "id": "FooUtils.is.html#.element",
-      "kind": "function",
-      "title": "&lt;static&gt; element( value ) → {boolean}",
-      "longname": "FooUtils.is.element",
-      "name": "element",
-      "tags": "FooUtils.is.element is.element element",
-      "summary": "Checks if the value is an element.",
-      "description": ""
-    },
     "FooUtils.is.html#.empty": {
       "id": "FooUtils.is.html#.empty",
       "kind": "function",
@@ -18775,6 +19132,16 @@
       "name": "error",
       "tags": "FooUtils.is.error is.error error",
       "summary": "Checks if the value is an error.",
+      "description": ""
+    },
+    "FooUtils.is.html#.fn": {
+      "id": "FooUtils.is.html#.fn",
+      "kind": "function",
+      "title": "&lt;static&gt; fn( value ) → {boolean}",
+      "longname": "FooUtils.is.fn",
+      "name": "fn",
+      "tags": "FooUtils.is.fn is.fn fn",
+      "summary": "Checks if the value is a function.",
       "description": ""
     },
     "FooUtils.is.html#.hash": {
@@ -18857,14 +19224,14 @@
       "summary": "Checks if the value is undefined.",
       "description": ""
     },
-    "FooUtils.is.html#.fn": {
-      "id": "FooUtils.is.html#.fn",
+    "FooUtils.is.html#.element": {
+      "id": "FooUtils.is.html#.element",
       "kind": "function",
-      "title": "&lt;static&gt; fn( value ) → {boolean}",
-      "longname": "FooUtils.is.fn",
-      "name": "fn",
-      "tags": "FooUtils.is.fn is.fn fn",
-      "summary": "Checks if the value is a function.",
+      "title": "&lt;static&gt; element( value ) → {boolean}",
+      "longname": "FooUtils.is.element",
+      "name": "element",
+      "tags": "FooUtils.is.element is.element element",
+      "summary": "Checks if the value is an element.",
       "description": ""
     },
     "FooUtils.html": {
