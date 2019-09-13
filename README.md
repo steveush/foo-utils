@@ -41,6 +41,10 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.5
+
+* Fixed issue with the `FooUtils.EventClass`'s `on` and `off` methods when using an object with space separated event names.
+
 ### 0.1.4
 
 * Updated the `FooUtils.EventClass` and `FooUtils.Event` classes to handle namespaced events.

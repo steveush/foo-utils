@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.4
+* @version 0.1.5
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.4'
+		version: '0.1.5'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1221,7 +1221,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1536,7 +1536,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1868,7 +1868,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2149,7 +2149,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2322,7 +2322,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2461,7 +2461,7 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.4') return;
+    if (_.version !== '0.1.5') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2585,8 +2585,10 @@
             var self = this;
             if (_is.object(events)){
                 thisArg = _is.undef(handler) ? this : handler;
-                Object.keys(events).forEach(function(type){
-                    self.__on(type, events[type], thisArg);
+                Object.keys(events).forEach(function(key){
+                    key.split(" ").forEach(function(type){
+                        self.__on(type, events[key], thisArg);
+                    });
                 });
             } else if (_is.string(events) && _is.fn(handler)) {
                 thisArg = _is.undef(thisArg) ? this : thisArg;
@@ -2637,8 +2639,10 @@
             var self = this;
             if (_is.object(events)){
                 thisArg = _is.undef(handler) ? this : handler;
-                Object.keys(events).forEach(function(type){
-                    self.__off(type, _is.fn(events[type]) ? events[type] : null, thisArg);
+                Object.keys(events).forEach(function(key){
+                    key.split(" ").forEach(function(type){
+                        self.__off(type, _is.fn(events[key]) ? events[key] : null, thisArg);
+                    });
                 });
             } else if (_is.string(events)) {
                 handler = _is.fn(handler) ? handler : null;
@@ -2719,7 +2723,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2820,7 +2824,7 @@
 );
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3143,7 +3147,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.4') return;
+	if (_.version !== '0.1.5') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
