@@ -118,6 +118,13 @@ QUnit.test('on:object', function (assert) {
     assert.ok(FooUtils.is.array(obj.__handlers["test"]) && obj.__handlers["test"].length === 2, "Object.__handlers['test'] does not contain all the handlers.");
     assert.ok(FooUtils.is.array(obj.__handlers["test2"]) && obj.__handlers["test2"].length === 2, "Object.__handlers['test2'] does not contain all the handlers.");
 
+    obj.on({
+        "test test2": function() {}
+    });
+    assert.equal(Object.keys(obj.__handlers).length, 2, "Object.__handlers.keys length is not 2.");
+    assert.ok(FooUtils.is.array(obj.__handlers["test"]) && obj.__handlers["test"].length === 3, "Object.__handlers['test'] does not contain all the handlers.");
+    assert.ok(FooUtils.is.array(obj.__handlers["test2"]) && obj.__handlers["test2"].length === 3, "Object.__handlers['test2'] does not contain all the handlers.");
+
 });
 
 QUnit.test('off', function (assert) {
@@ -196,6 +203,32 @@ QUnit.test('off:object', function (assert) {
     obj.off({
         "test": handler,
         "test2": handler
+    });
+    assert.equal(Object.keys(obj.__handlers).length, 0, "Object.__handlers.keys length is not 0.");
+
+    obj.on({
+        "test test2": handler
+    });
+    obj.off({
+        "test": handler,
+        "test2": handler
+    });
+    assert.equal(Object.keys(obj.__handlers).length, 0, "Object.__handlers.keys length is not 0.");
+
+    obj.on({
+        "test test2": handler
+    });
+    obj.off({
+        "test test2": handler
+    });
+    assert.equal(Object.keys(obj.__handlers).length, 0, "Object.__handlers.keys length is not 0.");
+
+    obj.on({
+        "test": handler,
+        "test2": handler
+    });
+    obj.off({
+        "test test2": handler
     });
     assert.equal(Object.keys(obj.__handlers).length, 0, "Object.__handlers.keys length is not 0.");
 

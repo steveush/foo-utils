@@ -124,8 +124,10 @@
             var self = this;
             if (_is.object(events)){
                 thisArg = _is.undef(handler) ? this : handler;
-                Object.keys(events).forEach(function(type){
-                    self.__on(type, events[type], thisArg);
+                Object.keys(events).forEach(function(key){
+                    key.split(" ").forEach(function(type){
+                        self.__on(type, events[key], thisArg);
+                    });
                 });
             } else if (_is.string(events) && _is.fn(handler)) {
                 thisArg = _is.undef(thisArg) ? this : thisArg;
@@ -176,8 +178,10 @@
             var self = this;
             if (_is.object(events)){
                 thisArg = _is.undef(handler) ? this : handler;
-                Object.keys(events).forEach(function(type){
-                    self.__off(type, _is.fn(events[type]) ? events[type] : null, thisArg);
+                Object.keys(events).forEach(function(key){
+                    key.split(" ").forEach(function(type){
+                        self.__off(type, _is.fn(events[key]) ? events[key] : null, thisArg);
+                    });
                 });
             } else if (_is.string(events)) {
                 handler = _is.fn(handler) ? handler : null;
