@@ -88,7 +88,7 @@
 			return false;
 		var parts = target.split(/\W/);
 		for (var i = 0, len = parts.length; i < len; i++){
-			if (ignoreCase ? parts[i].toUpperCase() == word.toUpperCase() : parts[i] == word) return true;
+			if (ignoreCase ? parts[i].toUpperCase() === word.toUpperCase() : parts[i] === word) return true;
 		}
 		return false;
 	};
@@ -109,8 +109,8 @@
 	 * console.log( _str.endsWith( "something", "no" ) ); // => false
 	 */
 	_.str.endsWith = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target == substr;
-		return target.slice(target.length - substr.length) == substr;
+		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target === substr;
+		return target.slice(target.length - substr.length) === substr;
 	};
 
 	/**
@@ -228,7 +228,7 @@
 	 */
 	_.str.startsWith = function (target, substr) {
 		if (_is.empty(target) || _is.empty(substr)) return false;
-		return target.slice(0, substr.length) == substr;
+		return target.slice(0, substr.length) === substr;
 	};
 
 	/**

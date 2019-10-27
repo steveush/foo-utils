@@ -67,7 +67,7 @@
 	 * @function param
 	 * @param {string} search - The search string to use (usually `location.search`).
 	 * @param {string} key - The key of the parameter.
-	 * @param {string} [value] - The value to set for the parameter. If not provided the current value for the `key` is returned.
+	 * @param {?string} [value] - The value to set for the parameter. If not provided the current value for the `key` is returned.
 	 * @returns {?string} The value of the `key` in the given `search` string if no `value` is supplied or `null` if the `key` does not exist.
 	 * @returns {string} A modified `search` string if a `value` is supplied.
 	 * @example <caption>Shows how to retrieve a parameter value from a search string.</caption>{@run true}
@@ -94,11 +94,11 @@
 		var regex, match, result, param;
 		if (_is.undef(value)){
 			regex = new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)'); // regex to match the key and it's value but only capture the value
-			match = regex.exec(search) || [,""]; // match the param otherwise return an empty string match
+			match = regex.exec(search) || ["",""]; // match the param otherwise return an empty string match
 			result = match[1].replace(/\+/g, '%20'); // replace any + character's with spaces
 			return _is.string(result) && !_is.empty(result) ? decodeURIComponent(result) : null; // decode the result otherwise return null
 		}
-		if (value === "" || value === null){
+		if (_is.empty(value)){
 			regex = new RegExp('^([^#]*\?)(([^#]*)&)?' + key + '(\=[^&#]*)?(&|#|$)');
 			result = search.replace(regex, '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/,'$1$3$4');
 		} else {
