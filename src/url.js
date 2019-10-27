@@ -26,9 +26,13 @@
 	 */
 	_.url.parts = function(url){
 		_a.href = url;
+		var port = _a.port ? _a.port : (["http:","https:"].indexOf(_a.protocol) !== -1 ? (_a.protocol === "https:" ? "443" : "80") : ""),
+			host = _a.hostname + (port ? ":" + port : ""),
+			origin = _a.origin ? _a.origin : _a.protocol + "//" + host,
+			pathname = _a.pathname.slice(0, 1) === "/" ? _a.pathname : "/" + _a.pathname;
 		return {
-			hash: _a.hash, host: _a.host, hostname: _a.hostname, href: _a.href,
-			origin: _a.origin, pathname: _a.pathname, port: _a.port,
+			hash: _a.hash, host: host, hostname: _a.hostname, href: _a.href,
+			origin: origin, pathname: pathname, port: port,
 			protocol: _a.protocol, search: _a.search
 		};
 	};
