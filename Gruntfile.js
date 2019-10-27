@@ -34,12 +34,15 @@ module.exports = function(grunt) {
 					"./src/str.js",
 					"./src/obj.js",
 					"./src/_utils.js",
+					"./src/animation.js",
 					"./src/transition.js",
 					"./src/Class.js",
 					"./src/EventClass.js",
 					"./src/Bounds.js",
+					"./src/Timer.js",
 					"./src/Factory.js",
-					"./src/Debugger.js"
+					"./src/Debugger.js",
+					"./src/fullscreen.js"
 				],
 				dest: "./dist/foo-utils.js"
 			}

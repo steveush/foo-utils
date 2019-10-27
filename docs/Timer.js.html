@@ -1,0 +1,415 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Timer.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					FooUtils
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">Timer.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">(function($, _, _is, _fn, _obj){
+
+    _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
+        /**
+         * @summary A simple timer that triggers events.
+         * @constructs
+         * @param {number} [interval=1000] - The internal tick interval of the timer.
+         */
+        construct: function(interval){
+            this._super();
+            /**
+             * @summary The internal tick interval of the timer in milliseconds.
+             * @memberof FooUtils.Timer#
+             * @name interval
+             * @type {number}
+             * @default 1000
+             * @readonly
+             */
+            this.interval = _is.number(interval) ? interval : 1000;
+            /**
+             * @summary Whether the timer is currently running or not.
+             * @memberof FooUtils.Timer#
+             * @name isRunning
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.isRunning = false;
+            /**
+             * @summary Whether the timer is currently paused or not.
+             * @memberof FooUtils.Timer#
+             * @name isPaused
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.isPaused = false;
+            /**
+             * @summary Whether the timer can resume from a previous state or not.
+             * @memberof FooUtils.Timer#
+             * @name canResume
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.canResume = false;
+            /**
+             * @summary Whether the timer can restart or not.
+             * @memberof FooUtils.Timer#
+             * @name canRestart
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.canRestart = false;
+            /**
+             * @summary The internal tick timeout ID.
+             * @memberof FooUtils.Timer#
+             * @name __timeout
+             * @type {?number}
+             * @default null
+             * @private
+             */
+            this.__timeout = null;
+            /**
+             * @summary Whether the timer is incrementing or decrementing.
+             * @memberof FooUtils.Timer#
+             * @name __decrement
+             * @type {boolean}
+             * @default false
+             * @private
+             */
+            this.__decrement = false;
+            /**
+             * @summary The total time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __time
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__time = 0;
+            /**
+             * @summary The remaining time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __remaining
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__remaining = 0;
+            /**
+             * @summary The current time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __current
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__current = 0;
+            /**
+             * @summary The final time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __finish
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__finish = 0;
+            /**
+             * @summary The last arguments supplied to the {@link FooUtils.Timer#start|start} method.
+             * @memberof FooUtils.Timer#
+             * @name __restart
+             * @type {Array}
+             * @default []
+             * @private
+             */
+            this.__restart = [];
+        },
+        /**
+         * @summary Resets the timer back to a fresh starting state.
+         * @memberof FooUtils.Timer#
+         * @function __reset
+         * @private
+         */
+        __reset: function(){
+            clearTimeout(this.__timeout);
+            this.__timeout = null;
+            this.__decrement = false;
+            this.__time = 0;
+            this.__remaining = 0;
+            this.__current = 0;
+            this.__finish = 0;
+            this.isRunning = false;
+            this.isPaused = false;
+            this.canResume = false;
+        },
+        /**
+         * @summary Generates event args to be passed to listeners of the timer events.
+         * @memberof FooUtils.Timer#
+         * @function __eventArgs
+         * @param {...*} [args] - Any number of additional arguments to pass to an event listener.
+         * @return {Array} - The first 3 values of the result will always be the current time, the total time and boolean indicating if the timer is decremental.
+         * @private
+         */
+        __eventArgs: function(args){
+            return [
+                this.__current,
+                this.__time,
+                this.__decrement
+            ].concat(_fn.arg2arr(arguments));
+        },
+        /**
+         * @summary Performs the tick for the timer checking and modifying the various internal states.
+         * @memberof FooUtils.Timer#
+         * @function __tick
+         * @private
+         */
+        __tick: function(){
+            var self = this;
+            self.trigger("tick", self.__eventArgs());
+            if (self.__current === self.__finish){
+                self.trigger("complete", self.__eventArgs());
+                self.__reset();
+            } else {
+                if (self.__decrement){
+                    self.__current--;
+                } else {
+                    self.__current++;
+                }
+                self.__remaining--;
+                self.canResume = self.__remaining > 0;
+                self.__timeout = setTimeout(function () {
+                    self.__tick();
+                }, self.interval);
+            }
+        },
+        /**
+         * @summary Starts the timer using the supplied `time` and whether or not to increment or decrement from the value.
+         * @memberof FooUtils.Timer#
+         * @function start
+         * @param {number} time - The total time in seconds for the timer.
+         * @param {boolean} [decrement=false] - Whether the timer should increment or decrement from or to the supplied time.
+         */
+        start: function(time, decrement){
+            var self = this;
+            if (self.isRunning) return;
+            decrement = _is.boolean(decrement) ? decrement : false;
+            self.__restart = [time, decrement];
+            self.__decrement = decrement;
+            self.__time = time;
+            self.__remaining = time;
+            self.__current = decrement ? time : 0;
+            self.__finish = decrement ? 0 : time;
+            self.canRestart = true;
+            self.isRunning = true;
+            self.isPaused = false;
+            self.trigger("start", self.__eventArgs());
+            self.__tick();
+        },
+        /**
+         * @summary Starts the timer counting down to `0` from the supplied `time`.
+         * @memberof FooUtils.Timer#
+         * @function countdown
+         * @param {number} time - The total time in seconds for the timer.
+         */
+        countdown: function(time){
+            this.start(time, true);
+        },
+        /**
+         * @summary Starts the timer counting up from `0` to the supplied `time`.
+         * @memberof FooUtils.Timer#
+         * @function countup
+         * @param {number} time - The total time in seconds for the timer.
+         */
+        countup: function(time){
+            this.start(time, false);
+        },
+        /**
+         * @summary Stops and then restarts the timer using the last arguments supplied to the {@link FooUtils.Timer#start|start} method.
+         * @memberof FooUtils.Timer#
+         * @function restart
+         */
+        restart: function(){
+            this.stop();
+            if (this.canRestart){
+                this.start.apply(this, this.__restart);
+            }
+        },
+        /**
+         * @summary Stops the timer.
+         * @memberof FooUtils.Timer#
+         * @function stop
+         */
+        stop: function(){
+            if (this.isRunning || this.isPaused){
+                this.__reset();
+                this.trigger("stop", this.__eventArgs());
+            }
+        },
+        /**
+         * @summary Pauses the timer and returns the remaining seconds.
+         * @memberof FooUtils.Timer#
+         * @function pause
+         * @return {number} - The number of seconds remaining for the timer.
+         */
+        pause: function(){
+            var self = this;
+            if (self.__timeout != null){
+                clearTimeout(self.__timeout);
+                self.__timeout = null;
+            }
+            if (self.isRunning){
+                self.isRunning = false;
+                self.isPaused = true;
+                self.trigger("pause", self.__eventArgs());
+            }
+            return self.__remaining;
+        },
+        /**
+         * @summary Resumes the timer from a previously paused state.
+         * @memberof FooUtils.Timer#
+         * @function resume
+         */
+        resume: function(){
+            var self = this;
+            if (self.canResume){
+                self.isRunning = true;
+                self.isPaused = false;
+                self.trigger("resume", self.__eventArgs());
+                self.__tick();
+            }
+        },
+        /**
+         * @summary Resets the timer back to a fresh starting state.
+         * @memberof FooUtils.Timer#
+         * @function reset
+         */
+        reset: function(){
+            this.__reset();
+            this.trigger("reset", this.__eventArgs());
+        }
+    });
+
+})(
+    FooUtils.$,
+    FooUtils,
+    FooUtils.is,
+    FooUtils.fn,
+    FooUtils.obj
+);
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 22nd Oct 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="../dist/foo-utils.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
