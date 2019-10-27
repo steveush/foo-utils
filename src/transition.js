@@ -1,4 +1,4 @@
-(function($, _, _is){
+(function($, _, _is, _animation){
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
@@ -22,7 +22,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to see if transitions are supported
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {boolean} `true` if transitions are supported.
 		 */
 		function(el){
@@ -54,7 +54,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to determine which `transitionend` event to use for the current browser.
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {?string} The correct `transitionend` event for the current browser, `null` if the browser doesn't support transitions.
 		 */
 		function(el){
@@ -81,9 +81,9 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('transition-duration');
-		if (/^([\d\.]*)+?(ms|s)$/i.test(duration)){
+		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
 			// if we have a valid time value
-			var match = duration.match(/^([\d\.]*)+?(ms|s)$/i),
+			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
 				value = parseFloat(match[1]),
 				unit = match[2].toLowerCase();
 			if (unit === 's'){
@@ -117,7 +117,7 @@
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
 	_.transition.start = function($element, classNameOrFunc, state, timeout){
-		var deferred = $.Deferred();
+		var deferred = $.Deferred(), promise = deferred.promise();
 
 		$element = $element.first();
 
@@ -149,8 +149,7 @@
 			});
 		}
 
-		setTimeout(function(){
-			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+		_animation.requestFrame(function() {
 			if (_is.fn(classNameOrFunc)){
 				classNameOrFunc.apply($element.get(0), [$element]);
 			} else {
@@ -160,14 +159,15 @@
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 20);
+		});
 
-		return deferred.promise();
+		return promise;
 	};
 
 })(
 	// dependencies
 	FooUtils.$,
 	FooUtils,
-	FooUtils.is
+	FooUtils.is,
+	FooUtils.animation
 );

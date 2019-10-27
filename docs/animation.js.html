@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>transition.js</title>
+		<title>animation.js</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -78,7 +78,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">source</span>
-				<h1><span class="name">transition.js</span></h1>
+				<h1><span class="name">animation.js</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -91,84 +91,84 @@
 	if (_.version !== '@@version') return;
 
 	/**
-	 * @summary Contains common utility methods and members for the CSS transition property.
+	 * @summary Contains common utility methods and members for the CSS animation property.
 	 * @memberof FooUtils
-	 * @namespace transition
+	 * @namespace animation
 	 */
-	_.transition = {};
+	_.animation = {};
 
-	// create a test element to check for the existence of the various transition properties
+	// create a test element to check for the existence of the various animation properties
 	var testElement = document.createElement('div');
 
 	/**
-	 * @summary Whether or not transitions are supported by the current browser.
-	 * @memberof FooUtils.transition
+	 * @summary Whether or not animations are supported by the current browser.
+	 * @memberof FooUtils.animation
 	 * @name supported
 	 * @type {boolean}
 	 */
-	_.transition.supported = (
+	_.animation.supported = (
 		/**
 		 * @ignore
-		 * @summary Performs a one time test to see if transitions are supported
+		 * @summary Performs a one time test to see if animations are supported
 		 * @param {Element} el - An element to test with.
-		 * @returns {boolean} `true` if transitions are supported.
+		 * @returns {boolean} `true` if animations are supported.
 		 */
 		function(el){
 			var style = el.style;
-			return _is.string(style['transition'])
-				|| _is.string(style['WebkitTransition'])
-				|| _is.string(style['MozTransition'])
-				|| _is.string(style['msTransition'])
-				|| _is.string(style['OTransition']);
+			return _is.string(style['animation'])
+				|| _is.string(style['WebkitAnimation'])
+				|| _is.string(style['MozAnimation'])
+				|| _is.string(style['msAnimation'])
+				|| _is.string(style['OAnimation']);
 		}
 	)(testElement);
 
 	/**
-	 * @summary The `transitionend` event name for the current browser.
-	 * @memberof FooUtils.transition
+	 * @summary The `animationend` event name for the current browser.
+	 * @memberof FooUtils.animation
 	 * @name end
 	 * @type {string}
 	 * @description Depending on the browser this returns one of the following values:
 	 *
 	 * &lt;ul>&lt;!--
-	 * -->&lt;li>`"transitionend"`&lt;/li>&lt;!--
-	 * -->&lt;li>`"webkitTransitionEnd"`&lt;/li>&lt;!--
-	 * -->&lt;li>`"msTransitionEnd"`&lt;/li>&lt;!--
-	 * -->&lt;li>`"oTransitionEnd"`&lt;/li>&lt;!--
-	 * -->&lt;li>`null` - If the browser doesn't support transitions&lt;/li>&lt;!--
+	 * -->&lt;li>`"animationend"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"webkitAnimationEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"msAnimationEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`"oAnimationEnd"`&lt;/li>&lt;!--
+	 * -->&lt;li>`null` - If the browser doesn't support animations&lt;/li>&lt;!--
 	 * -->&lt;/ul>
 	 */
-	_.transition.end = (
+	_.animation.end = (
 		/**
 		 * @ignore
-		 * @summary Performs a one time test to determine which `transitionend` event to use for the current browser.
+		 * @summary Performs a one time test to determine which `animationend` event to use for the current browser.
 		 * @param {Element} el - An element to test with.
-		 * @returns {?string} The correct `transitionend` event for the current browser, `null` if the browser doesn't support transitions.
+		 * @returns {?string} The correct `animationend` event for the current browser, `null` if the browser doesn't support animations.
 		 */
 		function(el){
 			var style = el.style;
-			if (_is.string(style['transition'])) return 'transitionend';
-			if (_is.string(style['WebkitTransition'])) return 'webkitTransitionEnd';
-			if (_is.string(style['MozTransition'])) return 'transitionend';
-			if (_is.string(style['msTransition'])) return 'msTransitionEnd';
-			if (_is.string(style['OTransition'])) return 'oTransitionEnd';
+			if (_is.string(style['animation'])) return 'animationend';
+			if (_is.string(style['WebkitAnimation'])) return 'webkitAnimationEnd';
+			if (_is.string(style['MozAnimation'])) return 'animationend';
+			if (_is.string(style['msAnimation'])) return 'msAnimationEnd';
+			if (_is.string(style['OAnimation'])) return 'oAnimationEnd';
 			return null;
 		}
 	)(testElement);
 
 	/**
-	 * @summary Gets the `transition-duration` value for the supplied jQuery element.
-	 * @memberof FooUtils.transition
+	 * @summary Gets the `animation-duration` value for the supplied jQuery element.
+	 * @memberof FooUtils.animation
 	 * @function duration
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=0] - The default value to return if no duration is set.
-	 * @returns {number} The value of the `transition-duration` property converted to a millisecond value.
+	 * @returns {number} The value of the `animation-duration` property converted to a millisecond value.
 	 */
-	_.transition.duration = function($element, def){
+	_.animation.duration = function($element, def){
 		def = _is.number(def) ? def : 0;
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
-		var duration = $element.css('transition-duration');
+		var duration = $element.css('animation-duration');
 		if (/^([\d\.]*)+?(ms|s)$/i.test(duration)){
 			// if we have a valid time value
 			var match = duration.match(/^([\d\.]*)+?(ms|s)$/i),
@@ -184,54 +184,54 @@
 	};
 
 	/**
-	 * @summary The callback function to execute when starting a transition.
-	 * @callback FooUtils.transition~startCallback
-	 * @param {jQuery} $element - The element to start the transition on.
+	 * @summary The callback function to execute when starting a animation.
+	 * @callback FooUtils.animation~startCallback
+	 * @param {jQuery} $element - The element to start the animation on.
 	 * @this Element
 	 */
 
 	/**
-	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
-	 * @memberof FooUtils.transition
+	 * @summary Start a animation by toggling the supplied `className` on the `$element`.
+	 * @memberof FooUtils.animation
 	 * @function start
-	 * @param {jQuery} $element - The jQuery element to start the transition on.
-	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
+	 * @param {jQuery} $element - The jQuery element to start the animation on.
+	 * @param {(string|FooUtils.animation~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the animation.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
-	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
+	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `animationend` event to be raised. If not provided this will be automatically set to the elements `animation-duration` property plus an extra 50 milliseconds.
 	 * @returns {Promise}
-	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
+	 * @description This method lets us use CSS animations by toggling a class and using the `animationend` event to perform additional actions once the animation has completed across all browsers. In browsers that do not support animations this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
-	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
-	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
+	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `animationend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
+	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/animation-duration|animation-duration - CSS | MDN} for more information on the `animation-duration` CSS property.
 	 */
-	_.transition.start = function($element, classNameOrFunc, state, timeout){
+	_.animation.start = function($element, classNameOrFunc, state, timeout){
 		var deferred = $.Deferred();
 
 		$element = $element.first();
 
-		if (_.transition.supported){
-			var safety = $element.data('transition_safety');
+		if (_.animation.supported){
+			var safety = $element.data('animation_safety');
 			if (_is.hash(safety) &amp;&amp; _is.number(safety.timer)){
 				clearTimeout(safety.timer);
-				$element.removeData('transition_safety').off(_.transition.end + '.utils');
+				$element.removeData('animation_safety').off(_.animation.end + '.utils');
 				safety.deferred.reject();
 			}
-			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
+			timeout = _is.number(timeout) ? timeout : _.animation.duration($element) + 50;
 			safety = {
 				deferred: deferred,
 				timer: setTimeout(function(){
-					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
+					// This is the safety net in case a animation fails for some reason and the animationend event is never raised.
 					// This will remove the bound event and resolve the deferred
-					$element.removeData('transition_safety').off(_.transition.end + '.utils');
+					$element.removeData('animation_safety').off(_.animation.end + '.utils');
 					deferred.resolve();
 				}, timeout)
 			};
-			$element.data('transition_safety', safety);
+			$element.data('animation_safety', safety);
 
-			$element.on(_.transition.end + '.utils', function(e){
+			$element.on(_.animation.end + '.utils', function(e){
 				if ($element.is(e.target)){
 					clearTimeout(safety.timer);
-					$element.removeData('transition_safety').off(_.transition.end + '.utils');
+					$element.removeData('animation_safety').off(_.animation.end + '.utils');
 					deferred.resolve();
 				}
 			});
@@ -244,8 +244,8 @@
 			} else {
 				$element.toggleClass(classNameOrFunc, state);
 			}
-			if (!_.transition.supported){
-				// If the browser doesn't support transitions then just resolve the deferred
+			if (!_.animation.supported){
+				// If the browser doesn't support animations then just resolve the deferred
 				deferred.resolve();
 			}
 		}, 20);
