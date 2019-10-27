@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.5
+* @version 0.1.6
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2019
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.5'
+		version: '0.1.6'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1112,9 +1112,13 @@
 	 */
 	_.url.parts = function(url){
 		_a.href = url;
+		var port = _a.port ? _a.port : (["http:","https:"].indexOf(_a.protocol) !== -1 ? (_a.protocol === "https:" ? "443" : "80") : ""),
+			host = _a.hostname + (port ? ":" + port : ""),
+			origin = _a.origin ? _a.origin : _a.protocol + "//" + host,
+			pathname = _a.pathname.slice(0, 1) === "/" ? _a.pathname : "/" + _a.pathname;
 		return {
-			hash: _a.hash, host: _a.host, hostname: _a.hostname, href: _a.href,
-			origin: _a.origin, pathname: _a.pathname, port: _a.port,
+			hash: _a.hash, host: host, hostname: _a.hostname, href: _a.href,
+			origin: origin, pathname: pathname, port: port,
 			protocol: _a.protocol, search: _a.search
 		};
 	};
@@ -1149,7 +1153,7 @@
 	 * @function param
 	 * @param {string} search - The search string to use (usually `location.search`).
 	 * @param {string} key - The key of the parameter.
-	 * @param {string} [value] - The value to set for the parameter. If not provided the current value for the `key` is returned.
+	 * @param {?string} [value] - The value to set for the parameter. If not provided the current value for the `key` is returned.
 	 * @returns {?string} The value of the `key` in the given `search` string if no `value` is supplied or `null` if the `key` does not exist.
 	 * @returns {string} A modified `search` string if a `value` is supplied.
 	 * @example <caption>Shows how to retrieve a parameter value from a search string.</caption>{@run true}
@@ -1176,11 +1180,11 @@
 		var regex, match, result, param;
 		if (_is.undef(value)){
 			regex = new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)'); // regex to match the key and it's value but only capture the value
-			match = regex.exec(search) || [,""]; // match the param otherwise return an empty string match
+			match = regex.exec(search) || ["",""]; // match the param otherwise return an empty string match
 			result = match[1].replace(/\+/g, '%20'); // replace any + character's with spaces
 			return _is.string(result) && !_is.empty(result) ? decodeURIComponent(result) : null; // decode the result otherwise return null
 		}
-		if (value === "" || value === null){
+		if (_is.empty(value)){
 			regex = new RegExp('^([^#]*\?)(([^#]*)&)?' + key + '(\=[^&#]*)?(&|#|$)');
 			result = search.replace(regex, '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/,'$1$3$4');
 		} else {
@@ -1221,7 +1225,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1309,7 +1313,7 @@
 			return false;
 		var parts = target.split(/\W/);
 		for (var i = 0, len = parts.length; i < len; i++){
-			if (ignoreCase ? parts[i].toUpperCase() == word.toUpperCase() : parts[i] == word) return true;
+			if (ignoreCase ? parts[i].toUpperCase() === word.toUpperCase() : parts[i] === word) return true;
 		}
 		return false;
 	};
@@ -1330,8 +1334,8 @@
 	 * console.log( _str.endsWith( "something", "no" ) ); // => false
 	 */
 	_.str.endsWith = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target == substr;
-		return target.slice(target.length - substr.length) == substr;
+		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target === substr;
+		return target.slice(target.length - substr.length) === substr;
 	};
 
 	/**
@@ -1449,7 +1453,7 @@
 	 */
 	_.str.startsWith = function (target, substr) {
 		if (_is.empty(target) || _is.empty(substr)) return false;
-		return target.slice(0, substr.length) == substr;
+		return target.slice(0, substr.length) === substr;
 	};
 
 	/**
@@ -1536,7 +1540,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1868,7 +1872,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2149,7 +2153,232 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
+
+	/**
+	 * @summary Contains common utility methods and members for the CSS animation property.
+	 * @memberof FooUtils
+	 * @namespace animation
+	 */
+	_.animation = {};
+
+	function raf(callback){
+		return setTimeout(callback, 1);
+	}
+
+	function caf(requestID){
+		clearTimeout(requestID);
+	}
+
+	/**
+	 * @summary A cross browser wrapper for the `requestAnimationFrame` method.
+	 * @memberof FooUtils.animation
+	 * @function requestFrame
+	 * @param {function} callback - The function to call when it's time to update your animation for the next repaint.
+	 * @return {number} - The request id that uniquely identifies the entry in the callback list.
+	 */
+	_.animation.requestFrame = (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || raf).bind(window);
+
+	/**
+	 * @summary A cross browser wrapper for the `cancelAnimationFrame` method.
+	 * @memberof FooUtils.animation
+	 * @function cancelFrame
+	 * @param {number} requestID - The ID value returned by the call to {@link FooUtils.animation.requestFrame|requestFrame} that requested the callback.
+	 */
+	_.animation.cancelFrame = (window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || caf).bind(window);
+
+	// create a test element to check for the existence of the various animation properties
+	var testElement = document.createElement('div');
+
+	/**
+	 * @summary Whether or not animations are supported by the current browser.
+	 * @memberof FooUtils.animation
+	 * @name supported
+	 * @type {boolean}
+	 */
+	_.animation.supported = (
+		/**
+		 * @ignore
+		 * @summary Performs a one time test to see if animations are supported
+		 * @param {HTMLElement} el - An element to test with.
+		 * @returns {boolean} `true` if animations are supported.
+		 */
+		function(el){
+			var style = el.style;
+			return _is.string(style['animation'])
+				|| _is.string(style['WebkitAnimation'])
+				|| _is.string(style['MozAnimation'])
+				|| _is.string(style['msAnimation'])
+				|| _is.string(style['OAnimation']);
+		}
+	)(testElement);
+
+	/**
+	 * @summary The `animationend` event name for the current browser.
+	 * @memberof FooUtils.animation
+	 * @name end
+	 * @type {string}
+	 * @description Depending on the browser this returns one of the following values:
+	 *
+	 * <ul><!--
+	 * --><li>`"animationend"`</li><!--
+	 * --><li>`"webkitAnimationEnd"`</li><!--
+	 * --><li>`"msAnimationEnd"`</li><!--
+	 * --><li>`"oAnimationEnd"`</li><!--
+	 * --><li>`null` - If the browser doesn't support animations</li><!--
+	 * --></ul>
+	 */
+	_.animation.end = (
+		/**
+		 * @ignore
+		 * @summary Performs a one time test to determine which `animationend` event to use for the current browser.
+		 * @param {HTMLElement} el - An element to test with.
+		 * @returns {?string} The correct `animationend` event for the current browser, `null` if the browser doesn't support animations.
+		 */
+		function(el){
+			var style = el.style;
+			if (_is.string(style['animation'])) return 'animationend';
+			if (_is.string(style['WebkitAnimation'])) return 'webkitAnimationEnd';
+			if (_is.string(style['MozAnimation'])) return 'animationend';
+			if (_is.string(style['msAnimation'])) return 'msAnimationEnd';
+			if (_is.string(style['OAnimation'])) return 'oAnimationEnd';
+			return null;
+		}
+	)(testElement);
+
+	/**
+	 * @summary Gets the `animation-duration` value for the supplied jQuery element.
+	 * @memberof FooUtils.animation
+	 * @function duration
+	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
+	 * @param {number} [def=0] - The default value to return if no duration is set.
+	 * @returns {number} The value of the `animation-duration` property converted to a millisecond value.
+	 */
+	_.animation.duration = function($element, def){
+		def = _is.number(def) ? def : 0;
+		if (!_is.jq($element)) return def;
+		// we can use jQuery.css() method to retrieve the value cross browser
+		var duration = $element.css('animation-duration');
+		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
+			// if we have a valid time value
+			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
+				value = parseFloat(match[1]),
+				unit = match[2].toLowerCase();
+			if (unit === 's'){
+				// convert seconds to milliseconds
+				value = value * 1000;
+			}
+			return value;
+		}
+		return def;
+	};
+
+	/**
+	 * @summary Gets the `animation-iteration-count` value for the supplied jQuery element.
+	 * @memberof FooUtils.animation
+	 * @function iterations
+	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
+	 * @param {number} [def=1] - The default value to return if no iteration count is set.
+	 * @returns {number} The value of the `animation-iteration-count` property.
+	 */
+	_.animation.iterations = function($element, def){
+		def = _is.number(def) ? def : 1;
+		if (!_is.jq($element)) return def;
+		// we can use jQuery.css() method to retrieve the value cross browser
+		var iterations = $element.css('animation-iteration-count');
+		if (/^(\d+|infinite)$/i.test(iterations)){
+			return iterations === "infinite" ? Infinity : parseInt(iterations);
+		}
+		return def;
+	};
+
+	/**
+	 * @summary The callback function to execute when starting a animation.
+	 * @callback FooUtils.animation~startCallback
+	 * @param {jQuery} $element - The element to start the animation on.
+	 * @this Element
+	 */
+
+	/**
+	 * @summary Start a animation by toggling the supplied `className` on the `$element`.
+	 * @memberof FooUtils.animation
+	 * @function start
+	 * @param {jQuery} $element - The jQuery element to start the animation on.
+	 * @param {(string|FooUtils.animation~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the animation.
+	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
+	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `animationend` event to be raised. If not provided this will be automatically set to the elements `animation-duration` multiplied by the `animation-iteration-count` property plus an extra 50 milliseconds.
+	 * @returns {Promise}
+	 * @description This method lets us use CSS animations by toggling a class and using the `animationend` event to perform additional actions once the animation has completed across all browsers. In browsers that do not support animations this method would behave the same as if just calling jQuery's `.toggleClass` method.
+	 *
+	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `animationend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
+	 *
+	 * If no `timeout` is supplied the `animation-duration` and `animation-iterations-count` must be set on the `$element` before this method is called so one can be generated.
+	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/animation-duration|animation-duration - CSS | MDN} for more information on the `animation-duration` CSS property.
+	 */
+	_.animation.start = function($element, classNameOrFunc, state, timeout){
+		var deferred = $.Deferred(), promise = deferred.promise();
+
+		$element = $element.first();
+
+		if (_.animation.supported){
+			var safety = $element.data('animation_safety');
+			if (_is.hash(safety) && _is.number(safety.timer)){
+				clearTimeout(safety.timer);
+				$element.removeData('animation_safety').off(_.animation.end + '.utils');
+				safety.deferred.reject();
+			}
+			if (!_is.number(timeout)){
+				var iterations = _.animation.iterations($element);
+				if (iterations === Infinity){
+					deferred.reject("No timeout supplied with an infinite animation.");
+					return promise;
+				}
+				timeout = (_.animation.duration($element) * iterations) + 50;
+			}
+			safety = {
+				deferred: deferred,
+				timer: setTimeout(function(){
+					// This is the safety net in case a animation fails for some reason and the animationend event is never raised.
+					// This will remove the bound event and resolve the deferred
+					$element.removeData('animation_safety').off(_.animation.end + '.utils');
+					deferred.resolve();
+				}, timeout)
+			};
+			$element.data('animation_safety', safety);
+
+			$element.on(_.animation.end + '.utils', function(e){
+				if ($element.is(e.target)){
+					clearTimeout(safety.timer);
+					$element.removeData('animation_safety').off(_.animation.end + '.utils');
+					deferred.resolve();
+				}
+			});
+		}
+
+		_.animation.requestFrame(function(){
+			if (_is.fn(classNameOrFunc)){
+				classNameOrFunc.apply($element.get(0), [$element]);
+			} else {
+				$element.toggleClass(classNameOrFunc, state);
+			}
+			if (!_.animation.supported){
+				// If the browser doesn't support animations then just resolve the deferred
+				deferred.resolve();
+			}
+		});
+
+		return promise;
+	};
+
+})(
+	// dependencies
+	FooUtils.$,
+	FooUtils,
+	FooUtils.is
+);
+(function($, _, _is, _animation){
+	// only register methods if this version is the current version
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2171,7 +2400,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to see if transitions are supported
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {boolean} `true` if transitions are supported.
 		 */
 		function(el){
@@ -2203,7 +2432,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to determine which `transitionend` event to use for the current browser.
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {?string} The correct `transitionend` event for the current browser, `null` if the browser doesn't support transitions.
 		 */
 		function(el){
@@ -2230,9 +2459,9 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('transition-duration');
-		if (/^([\d\.]*)+?(ms|s)$/i.test(duration)){
+		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
 			// if we have a valid time value
-			var match = duration.match(/^([\d\.]*)+?(ms|s)$/i),
+			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
 				value = parseFloat(match[1]),
 				unit = match[2].toLowerCase();
 			if (unit === 's'){
@@ -2266,7 +2495,7 @@
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
 	_.transition.start = function($element, classNameOrFunc, state, timeout){
-		var deferred = $.Deferred();
+		var deferred = $.Deferred(), promise = deferred.promise();
 
 		$element = $element.first();
 
@@ -2298,8 +2527,7 @@
 			});
 		}
 
-		setTimeout(function(){
-			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+		_animation.requestFrame(function() {
 			if (_is.fn(classNameOrFunc)){
 				classNameOrFunc.apply($element.get(0), [$element]);
 			} else {
@@ -2309,20 +2537,21 @@
 				// If the browser doesn't support transitions then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 20);
+		});
 
-		return deferred.promise();
+		return promise;
 	};
 
 })(
 	// dependencies
 	FooUtils.$,
 	FooUtils,
-	FooUtils.is
+	FooUtils.is,
+	FooUtils.animation
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2461,7 +2690,7 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.5') return;
+    if (_.version !== '0.1.6') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2723,7 +2952,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -2822,9 +3051,303 @@
 	FooUtils,
 	FooUtils.is
 );
+(function($, _, _is, _fn, _obj){
+    // only register methods if this version is the current version
+    if (_.version !== '0.1.6') return;
+
+    _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
+        /**
+         * @summary A simple timer that triggers events.
+         * @constructs
+         * @param {number} [interval=1000] - The internal tick interval of the timer.
+         */
+        construct: function(interval){
+            this._super();
+            /**
+             * @summary The internal tick interval of the timer in milliseconds.
+             * @memberof FooUtils.Timer#
+             * @name interval
+             * @type {number}
+             * @default 1000
+             * @readonly
+             */
+            this.interval = _is.number(interval) ? interval : 1000;
+            /**
+             * @summary Whether the timer is currently running or not.
+             * @memberof FooUtils.Timer#
+             * @name isRunning
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.isRunning = false;
+            /**
+             * @summary Whether the timer is currently paused or not.
+             * @memberof FooUtils.Timer#
+             * @name isPaused
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.isPaused = false;
+            /**
+             * @summary Whether the timer can resume from a previous state or not.
+             * @memberof FooUtils.Timer#
+             * @name canResume
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.canResume = false;
+            /**
+             * @summary Whether the timer can restart or not.
+             * @memberof FooUtils.Timer#
+             * @name canRestart
+             * @type {boolean}
+             * @default false
+             * @readonly
+             */
+            this.canRestart = false;
+            /**
+             * @summary The internal tick timeout ID.
+             * @memberof FooUtils.Timer#
+             * @name __timeout
+             * @type {?number}
+             * @default null
+             * @private
+             */
+            this.__timeout = null;
+            /**
+             * @summary Whether the timer is incrementing or decrementing.
+             * @memberof FooUtils.Timer#
+             * @name __decrement
+             * @type {boolean}
+             * @default false
+             * @private
+             */
+            this.__decrement = false;
+            /**
+             * @summary The total time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __time
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__time = 0;
+            /**
+             * @summary The remaining time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __remaining
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__remaining = 0;
+            /**
+             * @summary The current time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __current
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__current = 0;
+            /**
+             * @summary The final time for the timer.
+             * @memberof FooUtils.Timer#
+             * @name __finish
+             * @type {number}
+             * @default 0
+             * @private
+             */
+            this.__finish = 0;
+            /**
+             * @summary The last arguments supplied to the {@link FooUtils.Timer#start|start} method.
+             * @memberof FooUtils.Timer#
+             * @name __restart
+             * @type {Array}
+             * @default []
+             * @private
+             */
+            this.__restart = [];
+        },
+        /**
+         * @summary Resets the timer back to a fresh starting state.
+         * @memberof FooUtils.Timer#
+         * @function __reset
+         * @private
+         */
+        __reset: function(){
+            clearTimeout(this.__timeout);
+            this.__timeout = null;
+            this.__decrement = false;
+            this.__time = 0;
+            this.__remaining = 0;
+            this.__current = 0;
+            this.__finish = 0;
+            this.isRunning = false;
+            this.isPaused = false;
+            this.canResume = false;
+        },
+        /**
+         * @summary Generates event args to be passed to listeners of the timer events.
+         * @memberof FooUtils.Timer#
+         * @function __eventArgs
+         * @param {...*} [args] - Any number of additional arguments to pass to an event listener.
+         * @return {Array} - The first 3 values of the result will always be the current time, the total time and boolean indicating if the timer is decremental.
+         * @private
+         */
+        __eventArgs: function(args){
+            return [
+                this.__current,
+                this.__time,
+                this.__decrement
+            ].concat(_fn.arg2arr(arguments));
+        },
+        /**
+         * @summary Performs the tick for the timer checking and modifying the various internal states.
+         * @memberof FooUtils.Timer#
+         * @function __tick
+         * @private
+         */
+        __tick: function(){
+            var self = this;
+            self.trigger("tick", self.__eventArgs());
+            if (self.__current === self.__finish){
+                self.trigger("complete", self.__eventArgs());
+                self.__reset();
+            } else {
+                if (self.__decrement){
+                    self.__current--;
+                } else {
+                    self.__current++;
+                }
+                self.__remaining--;
+                self.canResume = self.__remaining > 0;
+                self.__timeout = setTimeout(function () {
+                    self.__tick();
+                }, self.interval);
+            }
+        },
+        /**
+         * @summary Starts the timer using the supplied `time` and whether or not to increment or decrement from the value.
+         * @memberof FooUtils.Timer#
+         * @function start
+         * @param {number} time - The total time in seconds for the timer.
+         * @param {boolean} [decrement=false] - Whether the timer should increment or decrement from or to the supplied time.
+         */
+        start: function(time, decrement){
+            var self = this;
+            if (self.isRunning) return;
+            decrement = _is.boolean(decrement) ? decrement : false;
+            self.__restart = [time, decrement];
+            self.__decrement = decrement;
+            self.__time = time;
+            self.__remaining = time;
+            self.__current = decrement ? time : 0;
+            self.__finish = decrement ? 0 : time;
+            self.canRestart = true;
+            self.isRunning = true;
+            self.isPaused = false;
+            self.trigger("start", self.__eventArgs());
+            self.__tick();
+        },
+        /**
+         * @summary Starts the timer counting down to `0` from the supplied `time`.
+         * @memberof FooUtils.Timer#
+         * @function countdown
+         * @param {number} time - The total time in seconds for the timer.
+         */
+        countdown: function(time){
+            this.start(time, true);
+        },
+        /**
+         * @summary Starts the timer counting up from `0` to the supplied `time`.
+         * @memberof FooUtils.Timer#
+         * @function countup
+         * @param {number} time - The total time in seconds for the timer.
+         */
+        countup: function(time){
+            this.start(time, false);
+        },
+        /**
+         * @summary Stops and then restarts the timer using the last arguments supplied to the {@link FooUtils.Timer#start|start} method.
+         * @memberof FooUtils.Timer#
+         * @function restart
+         */
+        restart: function(){
+            this.stop();
+            if (this.canRestart){
+                this.start.apply(this, this.__restart);
+            }
+        },
+        /**
+         * @summary Stops the timer.
+         * @memberof FooUtils.Timer#
+         * @function stop
+         */
+        stop: function(){
+            if (this.isRunning || this.isPaused){
+                this.__reset();
+                this.trigger("stop", this.__eventArgs());
+            }
+        },
+        /**
+         * @summary Pauses the timer and returns the remaining seconds.
+         * @memberof FooUtils.Timer#
+         * @function pause
+         * @return {number} - The number of seconds remaining for the timer.
+         */
+        pause: function(){
+            var self = this;
+            if (self.__timeout != null){
+                clearTimeout(self.__timeout);
+                self.__timeout = null;
+            }
+            if (self.isRunning){
+                self.isRunning = false;
+                self.isPaused = true;
+                self.trigger("pause", self.__eventArgs());
+            }
+            return self.__remaining;
+        },
+        /**
+         * @summary Resumes the timer from a previously paused state.
+         * @memberof FooUtils.Timer#
+         * @function resume
+         */
+        resume: function(){
+            var self = this;
+            if (self.canResume){
+                self.isRunning = true;
+                self.isPaused = false;
+                self.trigger("resume", self.__eventArgs());
+                self.__tick();
+            }
+        },
+        /**
+         * @summary Resets the timer back to a fresh starting state.
+         * @memberof FooUtils.Timer#
+         * @function reset
+         */
+        reset: function(){
+            this.__reset();
+            this.trigger("reset", this.__eventArgs());
+        }
+    });
+
+})(
+    FooUtils.$,
+    FooUtils,
+    FooUtils.is,
+    FooUtils.fn,
+    FooUtils.obj
+);
+
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3147,7 +3670,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.5') return;
+	if (_.version !== '0.1.6') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -3250,4 +3773,248 @@
 	FooUtils,
 	FooUtils.fn,
 	FooUtils.str
+);
+(function($, _, _fn){
+    // only register methods if this version is the current version
+    if (_.version !== '0.1.6') return;
+
+    _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
+        /**
+         * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+         * @constructs
+         */
+        construct: function(){
+            this._super();
+            /**
+             * @summary An object containing a single browsers various methods and events needed for this wrapper.
+             * @typedef {Object} FooUtils.FullscreenAPI~BrowserAPI
+             * @property {string} enabled
+             * @property {string} element
+             * @property {string} request
+             * @property {string} exit
+             * @property {Object} events
+             * @property {string} events.change
+             * @property {string} events.error
+             */
+
+            /**
+             * @summary Contains the various browser specific method and event names.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name apis
+             * @type {{w3: BrowserAPI, ms: BrowserAPI, moz: BrowserAPI, webkit: BrowserAPI}}
+             */
+            this.apis = {
+                w3: {
+                    enabled: "fullscreenEnabled",
+                    element: "fullscreenElement",
+                    request: "requestFullscreen",
+                    exit:    "exitFullscreen",
+                    events: {
+                        change: "fullscreenchange",
+                        error:  "fullscreenerror"
+                    }
+                },
+                webkit: {
+                    enabled: "webkitFullscreenEnabled",
+                    element: "webkitCurrentFullScreenElement",
+                    request: "webkitRequestFullscreen",
+                    exit:    "webkitExitFullscreen",
+                    events: {
+                        change: "webkitfullscreenchange",
+                        error:  "webkitfullscreenerror"
+                    }
+                },
+                moz: {
+                    enabled: "mozFullScreenEnabled",
+                    element: "mozFullScreenElement",
+                    request: "mozRequestFullScreen",
+                    exit:    "mozCancelFullScreen",
+                    events: {
+                        change: "mozfullscreenchange",
+                        error:  "mozfullscreenerror"
+                    }
+                },
+                ms: {
+                    enabled: "msFullscreenEnabled",
+                    element: "msFullscreenElement",
+                    request: "msRequestFullscreen",
+                    exit:    "msExitFullscreen",
+                    events: {
+                        change: "MSFullscreenChange",
+                        error:  "MSFullscreenError"
+                    }
+                }
+            };
+            /**
+             * @summary The current browsers specific method and event names.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name api
+             * @type {?BrowserAPI}
+             */
+            this.api = this.getAPI();
+            /**
+             * @summary Whether or not the fullscreen API is supported in the current browser.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name supported
+             * @type {boolean}
+             */
+            this.supported = this.api != null;
+            this.__listen();
+        },
+        /**
+         * @summary Destroys the current wrapper unbinding events and freeing up resources.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function destroy
+         * @returns {boolean}
+         */
+        destroy: function(){
+            this.__stopListening();
+            return this._super();
+        },
+        /**
+         * @summary Fetches the correct API for the current browser.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function getAPI
+         * @return {?BrowserAPI} If the fullscreen API is not supported `null` is returned.
+         */
+        getAPI: function(){
+            for (var vendor in this.apis) {
+                if (!this.apis.hasOwnProperty(vendor)) continue;
+                // Check if document has the "enabled" property
+                if (this.apis[vendor].enabled in document) {
+                    // It seems this browser supports the fullscreen API
+                    return this.apis[vendor];
+                }
+            }
+            return null;
+        },
+        /**
+         * @summary Gets the current fullscreen element or null.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function element
+         * @returns {?Element}
+         */
+        element: function(){
+            return this.supported ? document[this.api.element] : null;
+        },
+        /**
+         * @summary Requests the browser to place the specified element into fullscreen mode.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function request
+         * @param {Element} element - The element to place into fullscreen mode.
+         * @returns {Promise} A Promise which is resolved once the element is placed into fullscreen mode.
+         */
+        request: function(element){
+            if (this.supported && !!element[this.api.request]){
+                var result = element[this.api.request]();
+                return !result ? $.Deferred(this.__resolver(this.api.request)).promise() : result;
+            }
+            return _fn.rejected;
+        },
+        /**
+         * @summary Requests that the browser switch from fullscreen mode back to windowed mode.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function exit
+         * @returns {Promise} A Promise which is resolved once fullscreen mode is exited.
+         */
+        exit: function(){
+            if (this.supported && !!this.element()){
+                var result = document[this.api.exit]();
+                return !result ? $.Deferred(this.__resolver(this.api.exit)).promise() : result;
+            }
+            return _fn.rejected;
+        },
+        /**
+         * @summary Toggles the supplied element between fullscreen and windowed modes.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function toggle
+         * @param {Element} element - The element to switch between modes.
+         * @returns {Promise} A Promise that is resolved once fullscreen mode is either entered or exited.
+         */
+        toggle: function(element){
+            return !!this.element() ? this.exit() : this.request(element);
+        },
+        /**
+         * @summary Starts listening to the document level fullscreen events and triggers an abbreviated version on this class.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __listen
+         * @private
+         */
+        __listen: function(){
+            var self = this;
+            if (!self.supported) return;
+            $(document).on(self.api.events.change + ".utils", function() {
+                self.trigger("change");
+            }).on(self.api.events.error + ".utils", function() {
+                self.trigger("error");
+            });
+        },
+        /**
+         * @summary Stops listening to the document level fullscreen events.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __stopListening
+         * @private
+         */
+        __stopListening: function(){
+            var self = this;
+            if (!self.supported) return;
+            $(document).off(self.api.events.change + ".utils")
+                .off(self.api.events.error + ".utils");
+        },
+        /**
+         * @summary Creates a resolver function to patch browsers which do not return a Promise from there request and exit methods.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __resolver
+         * @param {string} method - The request or exit method the resolver is being created for.
+         * @returns {resolver}
+         * @private
+         */
+        __resolver: function(method){
+            var self = this;
+            /**
+             * @summary Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.
+             * @callback FooUtils.FullscreenAPI~resolver
+             * @param {jQuery.Deferred} def - The jQuery.Deferred object to resolve.
+             */
+            return function resolver(def) {
+                // Reject the promise if asked to exitFullscreen and there is no element currently in fullscreen
+                if (method === self.api.exit && !!self.element()) {
+                    setTimeout(function() {
+                        def.reject(new TypeError());
+                    }, 1);
+                    return;
+                }
+
+                // When receiving an internal fullscreenchange event, fulfill the promise
+                function change() {
+                    def.resolve();
+                    $(document).off(self.api.events.change, change)
+                        .off(self.api.events.error, error);
+                }
+
+                // When receiving an internal fullscreenerror event, reject the promise
+                function error() {
+                    def.reject(new TypeError());
+                    $(document).off(self.api.events.change, change)
+                        .off(self.api.events.error, error);
+                }
+
+                $(document).on(self.api.events.change, change)
+                    .on(self.api.events.error, error);
+            };
+        }
+    });
+
+    /**
+     * @summary A cross browser wrapper for the fullscreen API.
+     * @memberof FooUtils
+     * @name fullscreen
+     * @type {FooUtils.FullscreenAPI}
+     */
+    _.fullscreen = new _.FullscreenAPI();
+
+})(
+    FooUtils.$,
+    FooUtils,
+    FooUtils.fn
 );

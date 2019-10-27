@@ -97,7 +97,7 @@ QUnit.test(".debounce", function(assert){
 
 	spam(function(){
 		done();
-	}, 100);
+	}, 200);
 
 });
 
@@ -127,7 +127,7 @@ QUnit.test(".throttle", function(assert){
 
 	spam(function(){
 		done();
-	}, 100);
+	}, 200);
 
 });
 

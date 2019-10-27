@@ -41,6 +41,13 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.6
+
+* Fixed inconsistent results across browsers when using the `FooUtils.url.parts` method.
+* Added new `FooUtils.animation` namespace containing various properties and methods to help with CSS animations.
+* Added new `FooUtils.FullscreenAPI` class, exposed as the `FooUtils.fullscreen` instance, to provide a cross browser fullscreen API.
+* Added new `FooUtils.Timer` class to provide a simple event based timer. 
+
 ### 0.1.5
 
 * Fixed issue with the `FooUtils.EventClass`'s `on` and `off` methods when using an object with space separated event names.

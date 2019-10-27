@@ -62,21 +62,22 @@ QUnit.test('duration', function (assert) {
 QUnit.test('start', function (assert) {
 
 	assert.expect(2);
-	var done = assert.async();
+	var done = assert.async(), wait = [];
 
-	FooUtils.transition.start( $('.trans-1'), 'start-transition', true ).then(function(){
+	var t1 = FooUtils.transition.start( $('.trans-1'), 'start-transition', true ).then(function(){
 		assert.ok(true, "Class triggered transition.");
 	});
+	wait.push(t1);
 
-	FooUtils.transition.start( $('.trans-2'), function($el){
+	var t2 = FooUtils.transition.start( $('.trans-2'), function($el){
 		$el.css("opacity", 1);
 	} ).then(function(){
 		assert.ok(true, "Function triggered transition.");
 	});
+	wait.push(t2);
 
-	// all transitions should be completed within 500ms so trigger the done after 700ms.
-	setTimeout(function(){
+	jQuery.when.apply($, wait).then(function(){
 		done();
-	}, 700);
+	});
 
 });
