@@ -1,0 +1,368 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>fullscreen.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					FooUtils
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
+											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.Debugger.html">FooUtils.Debugger</a></li>
+											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
+											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
+											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
+											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="FooUtils.html">FooUtils</a></li>
+											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
+											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
+											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
+											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
+											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
+											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
+											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">fullscreen.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">(function($, _, _fn){
+    // only register methods if this version is the current version
+    if (_.version !== '@@version') return;
+
+    _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
+        /**
+         * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+         * @constructs
+         */
+        construct: function(){
+            this._super();
+            /**
+             * @summary An object containing a single browsers various methods and events needed for this wrapper.
+             * @typedef {Object} FooUtils.FullscreenAPI~BrowserAPI
+             * @property {string} enabled
+             * @property {string} element
+             * @property {string} request
+             * @property {string} exit
+             * @property {Object} events
+             * @property {string} events.change
+             * @property {string} events.error
+             */
+
+            /**
+             * @summary Contains the various browser specific method and event names.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name apis
+             * @type {{w3: BrowserAPI, ms: BrowserAPI, moz: BrowserAPI, webkit: BrowserAPI}}
+             */
+            this.apis = {
+                w3: {
+                    enabled: "fullscreenEnabled",
+                    element: "fullscreenElement",
+                    request: "requestFullscreen",
+                    exit:    "exitFullscreen",
+                    events: {
+                        change: "fullscreenchange",
+                        error:  "fullscreenerror"
+                    }
+                },
+                webkit: {
+                    enabled: "webkitFullscreenEnabled",
+                    element: "webkitCurrentFullScreenElement",
+                    request: "webkitRequestFullscreen",
+                    exit:    "webkitExitFullscreen",
+                    events: {
+                        change: "webkitfullscreenchange",
+                        error:  "webkitfullscreenerror"
+                    }
+                },
+                moz: {
+                    enabled: "mozFullScreenEnabled",
+                    element: "mozFullScreenElement",
+                    request: "mozRequestFullScreen",
+                    exit:    "mozCancelFullScreen",
+                    events: {
+                        change: "mozfullscreenchange",
+                        error:  "mozfullscreenerror"
+                    }
+                },
+                ms: {
+                    enabled: "msFullscreenEnabled",
+                    element: "msFullscreenElement",
+                    request: "msRequestFullscreen",
+                    exit:    "msExitFullscreen",
+                    events: {
+                        change: "MSFullscreenChange",
+                        error:  "MSFullscreenError"
+                    }
+                }
+            };
+            /**
+             * @summary The current browsers specific method and event names.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name api
+             * @type {?BrowserAPI}
+             */
+            this.api = this.getAPI();
+            /**
+             * @summary Whether or not the fullscreen API is supported in the current browser.
+             * @memberof FooUtils.FullscreenAPI#
+             * @name supported
+             * @type {boolean}
+             */
+            this.supported = this.api != null;
+            this.__listen();
+        },
+        /**
+         * @summary Destroys the current wrapper unbinding events and freeing up resources.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function destroy
+         * @returns {boolean}
+         */
+        destroy: function(){
+            this.__stopListening();
+            return this._super();
+        },
+        /**
+         * @summary Fetches the correct API for the current browser.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function getAPI
+         * @return {?BrowserAPI} If the fullscreen API is not supported `null` is returned.
+         */
+        getAPI: function(){
+            for (var vendor in this.apis) {
+                if (!this.apis.hasOwnProperty(vendor)) continue;
+                // Check if document has the "enabled" property
+                if (this.apis[vendor].enabled in document) {
+                    // It seems this browser supports the fullscreen API
+                    return this.apis[vendor];
+                }
+            }
+            return null;
+        },
+        /**
+         * @summary Gets the current fullscreen element or null.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function element
+         * @returns {?Element}
+         */
+        element: function(){
+            return this.supported ? document[this.api.element] : null;
+        },
+        /**
+         * @summary Requests the browser to place the specified element into fullscreen mode.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function request
+         * @param {Element} element - The element to place into fullscreen mode.
+         * @returns {Promise} A Promise which is resolved once the element is placed into fullscreen mode.
+         */
+        request: function(element){
+            if (this.supported &amp;&amp; !!element[this.api.request]){
+                var result = element[this.api.request]();
+                return !result ? $.Deferred(this.__resolver(this.api.request)).promise() : result;
+            }
+            return _fn.rejected;
+        },
+        /**
+         * @summary Requests that the browser switch from fullscreen mode back to windowed mode.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function exit
+         * @returns {Promise} A Promise which is resolved once fullscreen mode is exited.
+         */
+        exit: function(){
+            if (this.supported &amp;&amp; !!this.element()){
+                var result = document[this.api.exit]();
+                return !result ? $.Deferred(this.__resolver(this.api.exit)).promise() : result;
+            }
+            return _fn.rejected;
+        },
+        /**
+         * @summary Toggles the supplied element between fullscreen and windowed modes.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function toggle
+         * @param {Element} element - The element to switch between modes.
+         * @returns {Promise} A Promise that is resolved once fullscreen mode is either entered or exited.
+         */
+        toggle: function(element){
+            return !!this.element() ? this.exit() : this.request(element);
+        },
+        /**
+         * @summary Starts listening to the document level fullscreen events and triggers an abbreviated version on this class.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __listen
+         * @private
+         */
+        __listen: function(){
+            var self = this;
+            if (!self.supported) return;
+            $(document).on(self.api.events.change + ".utils", function() {
+                self.trigger("change");
+            }).on(self.api.events.error + ".utils", function() {
+                self.trigger("error");
+            });
+        },
+        /**
+         * @summary Stops listening to the document level fullscreen events.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __stopListening
+         * @private
+         */
+        __stopListening: function(){
+            var self = this;
+            if (!self.supported) return;
+            $(document).off(self.api.events.change + ".utils")
+                .off(self.api.events.error + ".utils");
+        },
+        /**
+         * @summary Creates a resolver function to patch browsers which do not return a Promise from there request and exit methods.
+         * @memberof FooUtils.FullscreenAPI#
+         * @function __resolver
+         * @param {string} method - The request or exit method the resolver is being created for.
+         * @returns {resolver}
+         * @private
+         */
+        __resolver: function(method){
+            var self = this;
+            /**
+             * @summary Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.
+             * @callback FooUtils.FullscreenAPI~resolver
+             * @param {jQuery.Deferred} def - The jQuery.Deferred object to resolve.
+             */
+            return function resolver(def) {
+                // Reject the promise if asked to exitFullscreen and there is no element currently in fullscreen
+                if (method === self.api.exit &amp;&amp; !!self.element()) {
+                    setTimeout(function() {
+                        def.reject(new TypeError());
+                    }, 1);
+                    return;
+                }
+
+                // When receiving an internal fullscreenchange event, fulfill the promise
+                function change() {
+                    def.resolve();
+                    $(document).off(self.api.events.change, change)
+                        .off(self.api.events.error, error);
+                }
+
+                // When receiving an internal fullscreenerror event, reject the promise
+                function error() {
+                    def.reject(new TypeError());
+                    $(document).off(self.api.events.change, change)
+                        .off(self.api.events.error, error);
+                }
+
+                $(document).on(self.api.events.change, change)
+                    .on(self.api.events.error, error);
+            };
+        }
+    });
+
+    /**
+     * @summary A cross browser wrapper for the fullscreen API.
+     * @memberof FooUtils
+     * @name fullscreen
+     * @type {FooUtils.FullscreenAPI}
+     */
+    _.fullscreen = new _.FullscreenAPI();
+
+})(
+    FooUtils.$,
+    FooUtils,
+    FooUtils.fn
+);</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 17th Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="../dist/foo-utils.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

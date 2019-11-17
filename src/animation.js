@@ -168,6 +168,7 @@
 		$element = $element.first();
 
 		if (_.animation.supported){
+			$element.prop('offsetTop');
 			var safety = $element.data('animation_safety');
 			if (_is.hash(safety) && _is.number(safety.timer)){
 				clearTimeout(safety.timer);

@@ -44,6 +44,7 @@
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
 											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
+											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
 								</li>
@@ -97,6 +98,31 @@
 	 */
 	_.animation = {};
 
+	function raf(callback){
+		return setTimeout(callback, 1);
+	}
+
+	function caf(requestID){
+		clearTimeout(requestID);
+	}
+
+	/**
+	 * @summary A cross browser wrapper for the `requestAnimationFrame` method.
+	 * @memberof FooUtils.animation
+	 * @function requestFrame
+	 * @param {function} callback - The function to call when it's time to update your animation for the next repaint.
+	 * @return {number} - The request id that uniquely identifies the entry in the callback list.
+	 */
+	_.animation.requestFrame = (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || raf).bind(window);
+
+	/**
+	 * @summary A cross browser wrapper for the `cancelAnimationFrame` method.
+	 * @memberof FooUtils.animation
+	 * @function cancelFrame
+	 * @param {number} requestID - The ID value returned by the call to {@link FooUtils.animation.requestFrame|requestFrame} that requested the callback.
+	 */
+	_.animation.cancelFrame = (window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || caf).bind(window);
+
 	// create a test element to check for the existence of the various animation properties
 	var testElement = document.createElement('div');
 
@@ -110,7 +136,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to see if animations are supported
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {boolean} `true` if animations are supported.
 		 */
 		function(el){
@@ -142,7 +168,7 @@
 		/**
 		 * @ignore
 		 * @summary Performs a one time test to determine which `animationend` event to use for the current browser.
-		 * @param {Element} el - An element to test with.
+		 * @param {HTMLElement} el - An element to test with.
 		 * @returns {?string} The correct `animationend` event for the current browser, `null` if the browser doesn't support animations.
 		 */
 		function(el){
@@ -169,9 +195,9 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('animation-duration');
-		if (/^([\d\.]*)+?(ms|s)$/i.test(duration)){
+		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
 			// if we have a valid time value
-			var match = duration.match(/^([\d\.]*)+?(ms|s)$/i),
+			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
 				value = parseFloat(match[1]),
 				unit = match[2].toLowerCase();
 			if (unit === 's'){
@@ -179,6 +205,25 @@
 				value = value * 1000;
 			}
 			return value;
+		}
+		return def;
+	};
+
+	/**
+	 * @summary Gets the `animation-iteration-count` value for the supplied jQuery element.
+	 * @memberof FooUtils.animation
+	 * @function iterations
+	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
+	 * @param {number} [def=1] - The default value to return if no iteration count is set.
+	 * @returns {number} The value of the `animation-iteration-count` property.
+	 */
+	_.animation.iterations = function($element, def){
+		def = _is.number(def) ? def : 1;
+		if (!_is.jq($element)) return def;
+		// we can use jQuery.css() method to retrieve the value cross browser
+		var iterations = $element.css('animation-iteration-count');
+		if (/^(\d+|infinite)$/i.test(iterations)){
+			return iterations === "infinite" ? Infinity : parseInt(iterations);
 		}
 		return def;
 	};
@@ -197,26 +242,36 @@
 	 * @param {jQuery} $element - The jQuery element to start the animation on.
 	 * @param {(string|FooUtils.animation~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the animation.
 	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
-	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `animationend` event to be raised. If not provided this will be automatically set to the elements `animation-duration` property plus an extra 50 milliseconds.
+	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `animationend` event to be raised. If not provided this will be automatically set to the elements `animation-duration` multiplied by the `animation-iteration-count` property plus an extra 50 milliseconds.
 	 * @returns {Promise}
 	 * @description This method lets us use CSS animations by toggling a class and using the `animationend` event to perform additional actions once the animation has completed across all browsers. In browsers that do not support animations this method would behave the same as if just calling jQuery's `.toggleClass` method.
 	 *
 	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `animationend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
+	 *
+	 * If no `timeout` is supplied the `animation-duration` and `animation-iterations-count` must be set on the `$element` before this method is called so one can be generated.
 	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/animation-duration|animation-duration - CSS | MDN} for more information on the `animation-duration` CSS property.
 	 */
 	_.animation.start = function($element, classNameOrFunc, state, timeout){
-		var deferred = $.Deferred();
+		var deferred = $.Deferred(), promise = deferred.promise();
 
 		$element = $element.first();
 
 		if (_.animation.supported){
+			$element.prop('offsetTop');
 			var safety = $element.data('animation_safety');
 			if (_is.hash(safety) &amp;&amp; _is.number(safety.timer)){
 				clearTimeout(safety.timer);
 				$element.removeData('animation_safety').off(_.animation.end + '.utils');
 				safety.deferred.reject();
 			}
-			timeout = _is.number(timeout) ? timeout : _.animation.duration($element) + 50;
+			if (!_is.number(timeout)){
+				var iterations = _.animation.iterations($element);
+				if (iterations === Infinity){
+					deferred.reject("No timeout supplied with an infinite animation.");
+					return promise;
+				}
+				timeout = (_.animation.duration($element) * iterations) + 50;
+			}
 			safety = {
 				deferred: deferred,
 				timer: setTimeout(function(){
@@ -237,8 +292,7 @@
 			});
 		}
 
-		setTimeout(function(){
-			// This is executed inside of a 20ms timeout to allow the binding of the event handler above to actually happen before the class is toggled
+		_.animation.requestFrame(function(){
 			if (_is.fn(classNameOrFunc)){
 				classNameOrFunc.apply($element.get(0), [$element]);
 			} else {
@@ -248,9 +302,9 @@
 				// If the browser doesn't support animations then just resolve the deferred
 				deferred.resolve();
 			}
-		}, 20);
+		});
 
-		return deferred.promise();
+		return promise;
 	};
 
 })(
@@ -265,7 +319,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 22nd Oct 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 17th Nov 2019 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
