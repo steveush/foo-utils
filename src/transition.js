@@ -122,6 +122,7 @@
 		$element = $element.first();
 
 		if (_.transition.supported){
+			$element.prop('offsetTop');
 			var safety = $element.data('transition_safety');
 			if (_is.hash(safety) && _is.number(safety.timer)){
 				clearTimeout(safety.timer);
