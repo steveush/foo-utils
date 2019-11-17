@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>FooUtils.Timer</title>
+		<title>FooUtils.FullscreenAPI</title>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -78,8 +78,8 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="ancestors"><a href="FooUtils.html">FooUtils</a>.</span><span class="name">Timer</span></h1>
-				<div class="summary"><p>A simple timer that triggers events.</p></div>			</div>
+				<h1><span class="ancestors"><a href="FooUtils.html">FooUtils</a>.</span><span class="name">FullscreenAPI</span></h1>
+				<div class="summary"><p>A wrapper around the fullscreen API to ensure cross browser compatibility.</p></div>			</div>
 		</div>
 	<div class="container content">
 		<div class="row">
@@ -87,40 +87,15 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="FooUtils.html">FooUtils</a>.Timer</li>
+							<li class="active"><a href="FooUtils.html">FooUtils</a>.FullscreenAPI</li>
 						</ol>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Timer</span><span class="signature-params">( [&nbsp;<span class="signature-param">interval</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
-		<div class="summary"><p>A simple timer that triggers events.</p></div></dt>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">FullscreenAPI</span><span class="signature-params">()</span><span class="signature-type"></span></h2>
+		<div class="summary"><p>A wrapper around the fullscreen API to ensure cross browser compatibility.</p></div></dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>interval</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>1000</td>
-							<td class="last">
-									<p>The internal tick interval of the timer.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -141,7 +116,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-11">line 11</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-10">line 10</a></p>
 								</div>
 							</div>
 			
@@ -157,8 +132,8 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="interval" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">interval</span><span class="signature-type"> :number</span></h4>
-				<div class="summary"><p>The internal tick interval of the timer in milliseconds.</p></div></dt>
+			<h4 id="apis" class="member public"><span class="name">apis</span><span class="signature-type"> :Object</span></h4>
+				<div class="summary"><p>Contains the various browser specific method and event names.</p></div></dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -167,17 +142,10 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+									<div class="form-control-static type-names"><span class="param-type">Object</span></div>
 								</div>
 							</div>
 			
-							<!-- defaultvalue -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Default Value</label>
-								<div class="col-sm-9">
-									<p class="form-control-static">1000</p>
-								</div>
-							</div>
 			
 			
 			
@@ -195,7 +163,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-13">line 13</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-24">line 24</a></p>
 								</div>
 							</div>
 			
@@ -207,8 +175,51 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="isRunning" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isRunning</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Whether the timer is currently running or not.</p></div></dt>
+			<h4 id="api" class="member public"><span class="signature-attribs">&lt;nullable> </span><span class="name">api</span><span class="signature-type"> :BrowserAPI</span></h4>
+				<div class="summary"><p>The current browsers specific method and event names.</p></div></dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">BrowserAPI</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-72">line 72</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="supported" class="member public"><span class="name">supported</span><span class="signature-type"> :boolean</span></h4>
+				<div class="summary"><p>Whether or not the fullscreen API is supported in the current browser.</p></div></dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -221,13 +232,6 @@
 								</div>
 							</div>
 			
-							<!-- defaultvalue -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Default Value</label>
-								<div class="col-sm-9">
-									<p class="form-control-static">false</p>
-								</div>
-							</div>
 			
 			
 			
@@ -245,157 +249,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-22">line 22</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="isPaused" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isPaused</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Whether the timer is currently paused or not.</p></div></dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-							<!-- defaultvalue -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Default Value</label>
-								<div class="col-sm-9">
-									<p class="form-control-static">false</p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-31">line 31</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="canResume" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">canResume</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Whether the timer can resume from a previous state or not.</p></div></dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-							<!-- defaultvalue -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Default Value</label>
-								<div class="col-sm-9">
-									<p class="form-control-static">false</p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-40">line 40</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="canRestart" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">canRestart</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Whether the timer can restart or not.</p></div></dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-							<!-- defaultvalue -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Default Value</label>
-								<div class="col-sm-9">
-									<p class="form-control-static">false</p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-49">line 49</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-79">line 79</a></p>
 								</div>
 							</div>
 			
@@ -410,273 +264,15 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="start" class="function public"><span class="name">start</span><span class="signature-params">( <span class="signature-param">time</span> [,&nbsp;<span class="signature-param">decrement</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Starts the timer using the supplied <code>time</code> and whether or not to increment or decrement from the value.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>time</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The total time in seconds for the timer.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>decrement</code></td>
-							<td><span class="param-type">boolean</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>false</td>
-							<td class="last">
-									<p>Whether the timer should increment or decrement from or to the supplied time.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-180">line 180</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="countdown" class="function public"><span class="name">countdown</span><span class="signature-params">( <span class="signature-param">time</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Starts the timer counting down to <code>0</code> from the supplied <code>time</code>.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>time</code></td>
-							<td><span class="param-type">number</span></td>
-							<td class="last">
-									<p>The total time in seconds for the timer.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-203">line 203</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="countup" class="function public"><span class="name">countup</span><span class="signature-params">( <span class="signature-param">time</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Starts the timer counting up from <code>0</code> to the supplied <code>time</code>.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>time</code></td>
-							<td><span class="param-type">number</span></td>
-							<td class="last">
-									<p>The total time in seconds for the timer.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-212">line 212</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="restart" class="function public"><span class="name">restart</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Stops and then restarts the timer using the last arguments supplied to the <a href="FooUtils.Timer.html#start">start</a> method.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-221">line 221</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="stop" class="function public"><span class="name">stop</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Stops the timer.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-232">line 232</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="pause" class="function public"><span class="name">pause</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
-				<div class="summary"><p>Pauses the timer and returns the remaining seconds.</p></div></dt>
+			<h4 id="destroy" class="function public"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Destroys the current wrapper unbinding events and freeing up resources.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><ul>
-			<li>The number of seconds remaining for the timer.</li>
-			</ul></div>
+									<div class="form-control-static returns-description"></div>
 								</div>
 							</div>
 					</form>
@@ -700,7 +296,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-243">line 243</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-88">line 88</a></p>
 								</div>
 							</div>
 			
@@ -712,11 +308,19 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="resume" class="function public"><span class="name">resume</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Resumes the timer from a previously paused state.</p></div></dt>
+			<h4 id="getAPI" class="function public"><span class="name">getAPI</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{BrowserAPI}</span></h4>
+				<div class="summary"><p>Fetches the correct API for the current browser.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">BrowserAPI</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>If the fullscreen API is not supported <code>null</code> is returned.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -736,7 +340,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-262">line 262</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-98">line 98</a></p>
 								</div>
 							</div>
 			
@@ -748,11 +352,19 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="reset" class="function public"><span class="name">reset</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Resets the timer back to a fresh starting state.</p></div></dt>
+			<h4 id="element" class="function public"><span class="name">element</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{Element}</span></h4>
+				<div class="summary"><p>Gets the current fullscreen element or null.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Element</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -772,7 +384,358 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Timer.js.html">Timer.js</a>, <a href="Timer.js.html#line-276">line 276</a></p>
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-115">line 115</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="request" class="function public"><span class="name">request</span><span class="signature-params">( <span class="signature-param">element</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Requests the browser to place the specified element into fullscreen mode.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">Element</span></td>
+							<td class="last">
+									<p>The element to place into fullscreen mode.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>A Promise which is resolved once the element is placed into fullscreen mode.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-124">line 124</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="exit" class="function public"><span class="name">exit</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Requests that the browser switch from fullscreen mode back to windowed mode.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>A Promise which is resolved once fullscreen mode is exited.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-138">line 138</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="toggle" class="function public"><span class="name">toggle</span><span class="signature-params">( <span class="signature-param">element</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Toggles the supplied element between fullscreen and windowed modes.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">Element</span></td>
+							<td class="last">
+									<p>The element to switch between modes.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>A Promise that is resolved once fullscreen mode is either entered or exited.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-151">line 151</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Type Definitions</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~BrowserAPI" class="typedef public"><span class="name">BrowserAPI</span></h4>
+				<div class="summary"><p>An object containing a single browsers various methods and events needed for this wrapper.</p></div></dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Properties</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>enabled</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>request</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>exit</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>events</code></td>
+							<td><span class="param-type">Object</span></td>
+							<td class="last">
+										<table class="params table table-striped">
+											<thead>
+											<tr>
+													<th>Name</th>
+												<th>Type</th>
+												<th class="last">Description</th>
+											</tr>
+											</thead>
+											<tbody>
+												<tr>
+														<td><code>change</code></td>
+													<td><span class="param-type">string</span></td>
+													<td class="last">
+													</td>
+												</tr>
+												<tr>
+														<td><code>error</code></td>
+													<td><span class="param-type">string</span></td>
+													<td class="last">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Object</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-12">line 12</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~resolver" class="typedef public"><span class="name">resolver</span><span class="signature-params">( <span class="signature-param">def</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.</p></div></dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>def</code></td>
+							<td><span class="param-type">jQuery.Deferred</span></td>
+							<td class="last">
+									<p>The jQuery.Deferred object to resolve.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">function</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fullscreen.js.html">fullscreen.js</a>, <a href="fullscreen.js.html#line-198">line 198</a></p>
 								</div>
 							</div>
 			
