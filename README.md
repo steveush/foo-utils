@@ -41,6 +41,10 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.7
+
+* Fixed issue with transitions/animations not firing on newly appended elements.
+
 ### 0.1.6
 
 * Fixed inconsistent results across browsers when using the `FooUtils.url.parts` method.

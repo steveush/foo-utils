@@ -683,6 +683,166 @@ window.lunrData = {
           "singl",
           "us"
         ],
+        "FooUtils.FullscreenAPI.html": [
+          "api",
+          "around",
+          "browser",
+          "class",
+          "compat",
+          "cross",
+          "ensur",
+          "fooutils.fullscreenapi",
+          "fullscreen",
+          "fullscreenapi",
+          "wrapper"
+        ],
+        "FooUtils.FullscreenAPI.html#apis": [
+          "api",
+          "browser",
+          "contain",
+          "event",
+          "fooutils.fullscreenapi#api",
+          "fullscreenapi#api",
+          "member",
+          "method",
+          "name",
+          "object",
+          "specif",
+          "variou"
+        ],
+        "FooUtils.FullscreenAPI.html#api": [
+          "api",
+          "browser",
+          "browserapi",
+          "current",
+          "event",
+          "fooutils.fullscreenapi#api",
+          "fullscreenapi#api",
+          "lt;nullable&gt",
+          "member",
+          "method",
+          "name",
+          "specif"
+        ],
+        "FooUtils.FullscreenAPI.html#supported": [
+          "api",
+          "boolean",
+          "browser",
+          "current",
+          "fooutils.fullscreenapi#support",
+          "fullscreen",
+          "fullscreenapi#support",
+          "member",
+          "support",
+          "whether"
+        ],
+        "FooUtils.FullscreenAPI.html#destroy": [
+          "boolean",
+          "current",
+          "destroy",
+          "event",
+          "fooutils.fullscreenapi#destroy",
+          "free",
+          "fullscreenapi#destroy",
+          "function",
+          "resourc",
+          "unbind",
+          "up",
+          "wrapper"
+        ],
+        "FooUtils.FullscreenAPI.html#getAPI": [
+          "api",
+          "browser",
+          "browserapi",
+          "correct",
+          "current",
+          "fetch",
+          "fooutils.fullscreenapi#getapi",
+          "fullscreenapi#getapi",
+          "function",
+          "getapi"
+        ],
+        "FooUtils.FullscreenAPI.html#element": [
+          "current",
+          "element",
+          "fooutils.fullscreenapi#el",
+          "fullscreen",
+          "fullscreenapi#el",
+          "function",
+          "get",
+          "null"
+        ],
+        "FooUtils.FullscreenAPI.html#request": [
+          "browser",
+          "element",
+          "fooutils.fullscreenapi#request",
+          "fullscreen",
+          "fullscreenapi#request",
+          "function",
+          "mode",
+          "place",
+          "promis",
+          "request",
+          "specifi"
+        ],
+        "FooUtils.FullscreenAPI.html#exit": [
+          "back",
+          "browser",
+          "exit",
+          "fooutils.fullscreenapi#exit",
+          "fullscreen",
+          "fullscreenapi#exit",
+          "function",
+          "mode",
+          "promis",
+          "request",
+          "switch",
+          "window"
+        ],
+        "FooUtils.FullscreenAPI.html#toggle": [
+          "between",
+          "element",
+          "fooutils.fullscreenapi#toggl",
+          "fullscreen",
+          "fullscreenapi#toggl",
+          "function",
+          "mode",
+          "promis",
+          "suppli",
+          "toggl",
+          "window"
+        ],
+        "FooUtils.FullscreenAPI.html#~BrowserAPI": [
+          "browser",
+          "browserapi",
+          "contain",
+          "event",
+          "fooutils.fullscreenapi~browserapi",
+          "fullscreenapi~browserapi",
+          "method",
+          "need",
+          "object",
+          "singl",
+          "typedef",
+          "variou",
+          "wrapper"
+        ],
+        "FooUtils.FullscreenAPI.html#~resolver": [
+          "accordingli",
+          "bind",
+          "chang",
+          "def",
+          "defer",
+          "error",
+          "event",
+          "fooutils.fullscreenapi~resolv",
+          "fullscreen",
+          "fullscreenapi~resolv",
+          "reject",
+          "resolv",
+          "suppli",
+          "typedef"
+        ],
         "FooUtils.Timer.html": [
           "class",
           "event",
@@ -890,6 +1050,33 @@ window.lunrData = {
           "support",
           "valu"
         ],
+        "FooUtils.animation.html#.requestFrame": [
+          "animation.requestfram",
+          "browser",
+          "callback",
+          "cross",
+          "fooutils.animation.requestfram",
+          "function",
+          "lt;static&gt",
+          "method",
+          "number",
+          "requestanimationfram",
+          "requestfram",
+          "wrapper"
+        ],
+        "FooUtils.animation.html#.cancelFrame": [
+          "animation.cancelfram",
+          "browser",
+          "cancelanimationfram",
+          "cancelfram",
+          "cross",
+          "fooutils.animation.cancelfram",
+          "function",
+          "lt;static&gt",
+          "method",
+          "requestid",
+          "wrapper"
+        ],
         "FooUtils.animation.html#.duration": [
           "anim",
           "animation.dur",
@@ -905,12 +1092,29 @@ window.lunrData = {
           "suppli",
           "valu"
         ],
+        "FooUtils.animation.html#.iterations": [
+          "anim",
+          "animation.iter",
+          "count",
+          "def",
+          "element",
+          "fooutils.animation.iter",
+          "function",
+          "get",
+          "iter",
+          "jqueri",
+          "lt;static&gt",
+          "number",
+          "suppli",
+          "valu"
+        ],
         "FooUtils.animation.html#.start": [
           "action",
           "addit",
           "anim",
           "animation.start",
           "animationend",
+          "befor",
           "behav",
           "browser",
           "call",
@@ -919,14 +1123,18 @@ window.lunrData = {
           "classnam",
           "classnameorfunc",
           "complet",
+          "count",
           "creat",
           "css",
           "defer",
+          "durat",
           "element",
           "ensur",
           "event",
           "fooutils.animation.start",
           "function",
+          "gener",
+          "iter",
           "jquery'",
           "last",
           "let",
@@ -934,6 +1142,7 @@ window.lunrData = {
           "method",
           "net",
           "never",
+          "on",
           "onc",
           "paramet",
           "perform",
@@ -944,6 +1153,7 @@ window.lunrData = {
           "return",
           "safeti",
           "same",
+          "set",
           "specifi",
           "start",
           "state",
@@ -1327,16 +1537,6 @@ window.lunrData = {
           "type",
           "util"
         ],
-        "FooUtils.is.html#.array": [
-          "array",
-          "boolean",
-          "check",
-          "fooutils.is.array",
-          "function",
-          "is.array",
-          "lt;static&gt",
-          "valu"
-        ],
         "FooUtils.is.html#.boolean": [
           "boolean",
           "check",
@@ -1405,6 +1605,18 @@ window.lunrData = {
           "hash",
           "is.hash",
           "lt;static&gt",
+          "valu"
+        ],
+        "FooUtils.is.html#.jq": [
+          "boolean",
+          "check",
+          "fooutils.is.jq",
+          "function",
+          "is.jq",
+          "jq",
+          "jqueri",
+          "lt;static&gt",
+          "object",
           "valu"
         ],
         "FooUtils.is.html#.number": [
@@ -1493,16 +1705,14 @@ window.lunrData = {
           "undefin",
           "valu"
         ],
-        "FooUtils.is.html#.jq": [
+        "FooUtils.is.html#.array": [
+          "array",
           "boolean",
           "check",
-          "fooutils.is.jq",
+          "fooutils.is.array",
           "function",
-          "is.jq",
-          "jq",
-          "jqueri",
+          "is.array",
           "lt;static&gt",
-          "object",
           "valu"
         ],
         "FooUtils.html": [
@@ -1552,6 +1762,17 @@ window.lunrData = {
           "member",
           "string",
           "version"
+        ],
+        "FooUtils.html#.fullscreen": [
+          "api",
+          "browser",
+          "cross",
+          "fooutils.fullscreen",
+          "fooutils.fullscreenapi",
+          "fullscreen",
+          "lt;static&gt",
+          "member",
+          "wrapper"
         ],
         "FooUtils.html#.versionCompare": [
           "1.0",
@@ -2228,7 +2449,7 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 130
+      "length": 146
     },
     "tokenStore": {
       "root": {
@@ -2399,13 +2620,17 @@ window.lunrData = {
                       "ref": "FooUtils.Factory.html#.override",
                       "tf": 20.441176470588236
                     },
+                    "FooUtils.FullscreenAPI.html": {
+                      "ref": "FooUtils.FullscreenAPI.html",
+                      "tf": 110
+                    },
                     "FooUtils.Timer.html": {
                       "ref": "FooUtils.Timer.html",
                       "tf": 110
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.fn.html#.apply": {
                       "ref": "FooUtils.fn.html#.apply",
@@ -2584,6 +2809,46 @@ window.lunrData = {
               },
               "p": {
                 "docs": {},
+                "a": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html": {
+                        "ref": "FooUtils.FullscreenAPI.html",
+                        "tf": 8.75
+                      }
+                    }
+                  },
+                  "r": {
+                    "docs": {
+                      "FooUtils.html#.versionCompare": {
+                        "ref": "FooUtils.html#.versionCompare",
+                        "tf": 19.67391304347826
+                      },
+                      "FooUtils.str.html#.containsWord": {
+                        "ref": "FooUtils.str.html#.containsWord",
+                        "tf": 3.3333333333333335
+                      }
+                    },
+                    "i": {
+                      "docs": {},
+                      "s": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "n": {
+                            "docs": {
+                              "FooUtils.html#.versionCompare": {
+                                "ref": "FooUtils.html#.versionCompare",
+                                "tf": 2.1739130434782608
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "l": {
                   "docs": {},
                   "e": {
@@ -2592,7 +2857,7 @@ window.lunrData = {
                       "docs": {
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.fn.html#.enqueue": {
                           "ref": "FooUtils.fn.html#.enqueue",
@@ -2661,38 +2926,6 @@ window.lunrData = {
                       }
                     }
                   }
-                },
-                "a": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "FooUtils.html#.versionCompare": {
-                        "ref": "FooUtils.html#.versionCompare",
-                        "tf": 19.67391304347826
-                      },
-                      "FooUtils.str.html#.containsWord": {
-                        "ref": "FooUtils.str.html#.containsWord",
-                        "tf": 3.3333333333333335
-                      }
-                    },
-                    "i": {
-                      "docs": {},
-                      "s": {
-                        "docs": {},
-                        "o": {
-                          "docs": {},
-                          "n": {
-                            "docs": {
-                              "FooUtils.html#.versionCompare": {
-                                "ref": "FooUtils.html#.versionCompare",
-                                "tf": 2.1739130434782608
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             },
@@ -2717,6 +2950,14 @@ window.lunrData = {
                         "FooUtils.Factory.html#contains": {
                           "ref": "FooUtils.Factory.html#contains",
                           "tf": 642.0833333333334
+                        },
+                        "FooUtils.FullscreenAPI.html#apis": {
+                          "ref": "FooUtils.FullscreenAPI.html#apis",
+                          "tf": 10
+                        },
+                        "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                          "tf": 7.777777777777778
                         },
                         "FooUtils.animation.html": {
                           "ref": "FooUtils.animation.html",
@@ -2997,6 +3238,10 @@ window.lunrData = {
                           "ref": "FooUtils.Factory.html#.override",
                           "tf": 2.941176470588235
                         },
+                        "FooUtils.FullscreenAPI.html#getAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                          "tf": 14
+                        },
                         "FooUtils.fn.html#.check": {
                           "ref": "FooUtils.fn.html#.check",
                           "tf": 1.0638297872340425
@@ -3053,6 +3298,14 @@ window.lunrData = {
                     "FooUtils.Timer.html#countup": {
                       "ref": "FooUtils.Timer.html#countup",
                       "tf": 10
+                    },
+                    "FooUtils.animation.html#.iterations": {
+                      "ref": "FooUtils.animation.html#.iterations",
+                      "tf": 8.75
+                    },
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
                     }
                   },
                   "d": {
@@ -3134,10 +3387,6 @@ window.lunrData = {
                       "ref": "FooUtils.is.html",
                       "tf": 11.666666666666666
                     },
-                    "FooUtils.is.html#.array": {
-                      "ref": "FooUtils.is.html#.array",
-                      "tf": 23.333333333333332
-                    },
                     "FooUtils.is.html#.boolean": {
                       "ref": "FooUtils.is.html#.boolean",
                       "tf": 23.333333333333332
@@ -3161,6 +3410,10 @@ window.lunrData = {
                     "FooUtils.is.html#.hash": {
                       "ref": "FooUtils.is.html#.hash",
                       "tf": 23.333333333333332
+                    },
+                    "FooUtils.is.html#.jq": {
+                      "ref": "FooUtils.is.html#.jq",
+                      "tf": 17.5
                     },
                     "FooUtils.is.html#.number": {
                       "ref": "FooUtils.is.html#.number",
@@ -3186,9 +3439,9 @@ window.lunrData = {
                       "ref": "FooUtils.is.html#.undef",
                       "tf": 23.333333333333332
                     },
-                    "FooUtils.is.html#.jq": {
-                      "ref": "FooUtils.is.html#.jq",
-                      "tf": 17.5
+                    "FooUtils.is.html#.array": {
+                      "ref": "FooUtils.is.html#.array",
+                      "tf": 23.333333333333332
                     },
                     "FooUtils.str.html#.contains": {
                       "ref": "FooUtils.str.html#.contains",
@@ -3235,6 +3488,20 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "a": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "g": {
+                  "docs": {
+                    "FooUtils.FullscreenAPI.html#~resolver": {
+                      "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                      "tf": 7
+                    }
+                  }
+                }
+              }
             }
           },
           "r": {
@@ -3275,7 +3542,7 @@ window.lunrData = {
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.fn.html#.arg2arr": {
                       "ref": "FooUtils.fn.html#.arg2arr",
@@ -3296,6 +3563,32 @@ window.lunrData = {
                     "FooUtils.url.html#.full": {
                       "ref": "FooUtils.url.html#.full",
                       "tf": 3.125
+                    }
+                  }
+                }
+              }
+            },
+            "o": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "s": {
+                  "docs": {
+                    "FooUtils.FullscreenAPI.html": {
+                      "ref": "FooUtils.FullscreenAPI.html",
+                      "tf": 8.75
+                    },
+                    "FooUtils.animation.html#.requestFrame": {
+                      "ref": "FooUtils.animation.html#.requestFrame",
+                      "tf": 14
+                    },
+                    "FooUtils.animation.html#.cancelFrame": {
+                      "ref": "FooUtils.animation.html#.cancelFrame",
+                      "tf": 14
+                    },
+                    "FooUtils.html#.fullscreen": {
+                      "ref": "FooUtils.html#.fullscreen",
+                      "tf": 14
                     }
                   }
                 }
@@ -3325,6 +3618,26 @@ window.lunrData = {
                         "FooUtils.EventClass.html#trigger": {
                           "ref": "FooUtils.EventClass.html#trigger",
                           "tf": 17.5
+                        },
+                        "FooUtils.FullscreenAPI.html#api": {
+                          "ref": "FooUtils.FullscreenAPI.html#api",
+                          "tf": 11.666666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#supported": {
+                          "ref": "FooUtils.FullscreenAPI.html#supported",
+                          "tf": 11.666666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#destroy": {
+                          "ref": "FooUtils.FullscreenAPI.html#destroy",
+                          "tf": 8.75
+                        },
+                        "FooUtils.FullscreenAPI.html#getAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                          "tf": 14
+                        },
+                        "FooUtils.FullscreenAPI.html#element": {
+                          "ref": "FooUtils.FullscreenAPI.html#element",
+                          "tf": 14
                         },
                         "FooUtils.Timer.html#isRunning": {
                           "ref": "FooUtils.Timer.html#isRunning",
@@ -3405,7 +3718,7 @@ window.lunrData = {
                   },
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 0.78125
                   },
                   "FooUtils.str.html#.camel": {
                     "ref": "FooUtils.str.html#.camel",
@@ -3457,6 +3770,76 @@ window.lunrData = {
                   }
                 }
               },
+              "c": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "l": {
+                    "docs": {},
+                    "a": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "m": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "f": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "a": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {
+                                                "FooUtils.animation.html#.cancelFrame": {
+                                                  "ref": "FooUtils.animation.html#.cancelFrame",
+                                                  "tf": 14
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "f": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "m": {
+                            "docs": {
+                              "FooUtils.animation.html#.cancelFrame": {
+                                "ref": "FooUtils.animation.html#.cancelFrame",
+                                "tf": 633.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "'": {
                 "docs": {},
                 "t": {
@@ -3475,7 +3858,7 @@ window.lunrData = {
                 "docs": {
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 1.5625
                   },
                   "FooUtils.fn.html#.addOrOverride": {
                     "ref": "FooUtils.fn.html#.addOrOverride",
@@ -3514,6 +3897,10 @@ window.lunrData = {
                       "docs": {},
                       "k": {
                         "docs": {
+                          "FooUtils.animation.html#.requestFrame": {
+                            "ref": "FooUtils.animation.html#.requestFrame",
+                            "tf": 25
+                          },
                           "FooUtils.animation.html#~startCallback": {
                             "ref": "FooUtils.animation.html#~startCallback",
                             "tf": 14
@@ -3566,7 +3953,7 @@ window.lunrData = {
                 },
                 "FooUtils.animation.html#.start": {
                   "ref": "FooUtils.animation.html#.start",
-                  "tf": 1
+                  "tf": 0.78125
                 },
                 "FooUtils.is.html#.size": {
                   "ref": "FooUtils.is.html#.size",
@@ -4375,6 +4762,284 @@ window.lunrData = {
                                                           "FooUtils.Factory.html#.override": {
                                                             "ref": "FooUtils.Factory.html#.override",
                                                             "tf": 1100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "u": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {
+                                                "FooUtils.html#.fullscreen": {
+                                                  "ref": "FooUtils.html#.fullscreen",
+                                                  "tf": 1150
+                                                }
+                                              },
+                                              "a": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {
+                                                      "FooUtils.FullscreenAPI.html": {
+                                                        "ref": "FooUtils.FullscreenAPI.html",
+                                                        "tf": 1250
+                                                      },
+                                                      "FooUtils.html#.fullscreen": {
+                                                        "ref": "FooUtils.html#.fullscreen",
+                                                        "tf": 33.33333333333333
+                                                      }
+                                                    },
+                                                    "#": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {
+                                                              "FooUtils.FullscreenAPI.html#apis": {
+                                                                "ref": "FooUtils.FullscreenAPI.html#apis",
+                                                                "tf": 1100
+                                                              },
+                                                              "FooUtils.FullscreenAPI.html#api": {
+                                                                "ref": "FooUtils.FullscreenAPI.html#api",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "s": {
+                                                        "docs": {},
+                                                        "u": {
+                                                          "docs": {},
+                                                          "p": {
+                                                            "docs": {},
+                                                            "p": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "r": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {
+                                                                      "FooUtils.FullscreenAPI.html#supported": {
+                                                                        "ref": "FooUtils.FullscreenAPI.html#supported",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "d": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "s": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "y": {
+                                                                    "docs": {
+                                                                      "FooUtils.FullscreenAPI.html#destroy": {
+                                                                        "ref": "FooUtils.FullscreenAPI.html#destroy",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "g": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "a": {
+                                                              "docs": {},
+                                                              "p": {
+                                                                "docs": {},
+                                                                "i": {
+                                                                  "docs": {
+                                                                    "FooUtils.FullscreenAPI.html#getAPI": {
+                                                                      "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "e": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {
+                                                            "FooUtils.FullscreenAPI.html#element": {
+                                                              "ref": "FooUtils.FullscreenAPI.html#element",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        },
+                                                        "x": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {
+                                                                "FooUtils.FullscreenAPI.html#exit": {
+                                                                  "ref": "FooUtils.FullscreenAPI.html#exit",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "r": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "q": {
+                                                            "docs": {},
+                                                            "u": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "s": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {
+                                                                      "FooUtils.FullscreenAPI.html#request": {
+                                                                        "ref": "FooUtils.FullscreenAPI.html#request",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "t": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "g": {
+                                                            "docs": {},
+                                                            "g": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {
+                                                                  "FooUtils.FullscreenAPI.html#toggle": {
+                                                                    "ref": "FooUtils.FullscreenAPI.html#toggle",
+                                                                    "tf": 1100
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "~": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "w": {
+                                                              "docs": {},
+                                                              "s": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "r": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "p": {
+                                                                        "docs": {},
+                                                                        "i": {
+                                                                          "docs": {
+                                                                            "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                                                                              "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                                                                              "tf": 1150
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "r": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "s": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "v": {
+                                                                  "docs": {
+                                                                    "FooUtils.FullscreenAPI.html#~resolver": {
+                                                                      "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                                                                      "tf": 1150
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -5404,6 +6069,79 @@ window.lunrData = {
                                                   }
                                                 }
                                               },
+                                              "r": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "q": {
+                                                    "docs": {},
+                                                    "u": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "s": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "f": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "a": {
+                                                                  "docs": {},
+                                                                  "m": {
+                                                                    "docs": {
+                                                                      "FooUtils.animation.html#.requestFrame": {
+                                                                        "ref": "FooUtils.animation.html#.requestFrame",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "c": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "c": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "f": {
+                                                            "docs": {},
+                                                            "r": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "m": {
+                                                                  "docs": {
+                                                                    "FooUtils.animation.html#.cancelFrame": {
+                                                                      "ref": "FooUtils.animation.html#.cancelFrame",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
                                               "d": {
                                                 "docs": {},
                                                 "u": {
@@ -5413,6 +6151,23 @@ window.lunrData = {
                                                       "FooUtils.animation.html#.duration": {
                                                         "ref": "FooUtils.animation.html#.duration",
                                                         "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "i": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {
+                                                        "FooUtils.animation.html#.iterations": {
+                                                          "ref": "FooUtils.animation.html#.iterations",
+                                                          "tf": 1100
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -5486,26 +6241,6 @@ window.lunrData = {
                               "docs": {},
                               ".": {
                                 "docs": {},
-                                "a": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {},
-                                    "r": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "y": {
-                                          "docs": {
-                                            "FooUtils.is.html#.array": {
-                                              "ref": "FooUtils.is.html#.array",
-                                              "tf": 1100
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
                                 "b": {
                                   "docs": {},
                                   "o": {
@@ -5601,6 +6336,17 @@ window.lunrData = {
                                             "tf": 1100
                                           }
                                         }
+                                      }
+                                    }
+                                  }
+                                },
+                                "j": {
+                                  "docs": {},
+                                  "q": {
+                                    "docs": {
+                                      "FooUtils.is.html#.jq": {
+                                        "ref": "FooUtils.is.html#.jq",
+                                        "tf": 1100
                                       }
                                     }
                                   }
@@ -5707,13 +6453,22 @@ window.lunrData = {
                                     }
                                   }
                                 },
-                                "j": {
+                                "a": {
                                   "docs": {},
-                                  "q": {
-                                    "docs": {
-                                      "FooUtils.is.html#.jq": {
-                                        "ref": "FooUtils.is.html#.jq",
-                                        "tf": 1100
+                                  "r": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "y": {
+                                          "docs": {
+                                            "FooUtils.is.html#.array": {
+                                              "ref": "FooUtils.is.html#.array",
+                                              "tf": 1100
+                                            }
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -6723,6 +7478,30 @@ window.lunrData = {
                             "ref": "FooUtils.Factory.html#.override",
                             "tf": 112.94117647058823
                           },
+                          "FooUtils.FullscreenAPI.html#destroy": {
+                            "ref": "FooUtils.FullscreenAPI.html#destroy",
+                            "tf": 110
+                          },
+                          "FooUtils.FullscreenAPI.html#getAPI": {
+                            "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                            "tf": 110
+                          },
+                          "FooUtils.FullscreenAPI.html#element": {
+                            "ref": "FooUtils.FullscreenAPI.html#element",
+                            "tf": 110
+                          },
+                          "FooUtils.FullscreenAPI.html#request": {
+                            "ref": "FooUtils.FullscreenAPI.html#request",
+                            "tf": 110
+                          },
+                          "FooUtils.FullscreenAPI.html#exit": {
+                            "ref": "FooUtils.FullscreenAPI.html#exit",
+                            "tf": 110
+                          },
+                          "FooUtils.FullscreenAPI.html#toggle": {
+                            "ref": "FooUtils.FullscreenAPI.html#toggle",
+                            "tf": 110
+                          },
                           "FooUtils.Timer.html#start": {
                             "ref": "FooUtils.Timer.html#start",
                             "tf": 110
@@ -6755,8 +7534,20 @@ window.lunrData = {
                             "ref": "FooUtils.Timer.html#reset",
                             "tf": 110
                           },
+                          "FooUtils.animation.html#.requestFrame": {
+                            "ref": "FooUtils.animation.html#.requestFrame",
+                            "tf": 110
+                          },
+                          "FooUtils.animation.html#.cancelFrame": {
+                            "ref": "FooUtils.animation.html#.cancelFrame",
+                            "tf": 110
+                          },
                           "FooUtils.animation.html#.duration": {
                             "ref": "FooUtils.animation.html#.duration",
+                            "tf": 110
+                          },
+                          "FooUtils.animation.html#.iterations": {
+                            "ref": "FooUtils.animation.html#.iterations",
                             "tf": 110
                           },
                           "FooUtils.animation.html#.start": {
@@ -6819,10 +7610,6 @@ window.lunrData = {
                             "ref": "FooUtils.fn.html#.resolveWith",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.array": {
-                            "ref": "FooUtils.is.html#.array",
-                            "tf": 110
-                          },
                           "FooUtils.is.html#.boolean": {
                             "ref": "FooUtils.is.html#.boolean",
                             "tf": 110
@@ -6845,6 +7632,10 @@ window.lunrData = {
                           },
                           "FooUtils.is.html#.hash": {
                             "ref": "FooUtils.is.html#.hash",
+                            "tf": 110
+                          },
+                          "FooUtils.is.html#.jq": {
+                            "ref": "FooUtils.is.html#.jq",
                             "tf": 110
                           },
                           "FooUtils.is.html#.number": {
@@ -6871,8 +7662,8 @@ window.lunrData = {
                             "ref": "FooUtils.is.html#.undef",
                             "tf": 110
                           },
-                          "FooUtils.is.html#.jq": {
-                            "ref": "FooUtils.is.html#.jq",
+                          "FooUtils.is.html#.array": {
+                            "ref": "FooUtils.is.html#.array",
                             "tf": 110
                           },
                           "FooUtils.html#.versionCompare": {
@@ -7090,6 +7881,299 @@ window.lunrData = {
                   "FooUtils.url.html#.full": {
                     "ref": "FooUtils.url.html#.full",
                     "tf": 648.75
+                  }
+                },
+                "s": {
+                  "docs": {},
+                  "c": {
+                    "docs": {},
+                    "r": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "n": {
+                            "docs": {
+                              "FooUtils.FullscreenAPI.html": {
+                                "ref": "FooUtils.FullscreenAPI.html",
+                                "tf": 8.75
+                              },
+                              "FooUtils.FullscreenAPI.html#supported": {
+                                "ref": "FooUtils.FullscreenAPI.html#supported",
+                                "tf": 11.666666666666666
+                              },
+                              "FooUtils.FullscreenAPI.html#element": {
+                                "ref": "FooUtils.FullscreenAPI.html#element",
+                                "tf": 14
+                              },
+                              "FooUtils.FullscreenAPI.html#request": {
+                                "ref": "FooUtils.FullscreenAPI.html#request",
+                                "tf": 10
+                              },
+                              "FooUtils.FullscreenAPI.html#exit": {
+                                "ref": "FooUtils.FullscreenAPI.html#exit",
+                                "tf": 8.75
+                              },
+                              "FooUtils.FullscreenAPI.html#toggle": {
+                                "ref": "FooUtils.FullscreenAPI.html#toggle",
+                                "tf": 10
+                              },
+                              "FooUtils.FullscreenAPI.html#~resolver": {
+                                "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                                "tf": 7
+                              },
+                              "FooUtils.html#.fullscreen": {
+                                "ref": "FooUtils.html#.fullscreen",
+                                "tf": 697.3333333333334
+                              }
+                            },
+                            "a": {
+                              "docs": {},
+                              "p": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {
+                                    "FooUtils.FullscreenAPI.html": {
+                                      "ref": "FooUtils.FullscreenAPI.html",
+                                      "tf": 650
+                                    }
+                                  },
+                                  "#": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {
+                                            "FooUtils.FullscreenAPI.html#apis": {
+                                              "ref": "FooUtils.FullscreenAPI.html#apis",
+                                              "tf": 100
+                                            },
+                                            "FooUtils.FullscreenAPI.html#api": {
+                                              "ref": "FooUtils.FullscreenAPI.html#api",
+                                              "tf": 100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "s": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "p": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {
+                                                    "FooUtils.FullscreenAPI.html#supported": {
+                                                      "ref": "FooUtils.FullscreenAPI.html#supported",
+                                                      "tf": 100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "d": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "y": {
+                                                  "docs": {
+                                                    "FooUtils.FullscreenAPI.html#destroy": {
+                                                      "ref": "FooUtils.FullscreenAPI.html#destroy",
+                                                      "tf": 100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "g": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "a": {
+                                            "docs": {},
+                                            "p": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {
+                                                  "FooUtils.FullscreenAPI.html#getAPI": {
+                                                    "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                                                    "tf": 100
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "e": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {
+                                          "FooUtils.FullscreenAPI.html#element": {
+                                            "ref": "FooUtils.FullscreenAPI.html#element",
+                                            "tf": 100
+                                          }
+                                        }
+                                      },
+                                      "x": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "FooUtils.FullscreenAPI.html#exit": {
+                                                "ref": "FooUtils.FullscreenAPI.html#exit",
+                                                "tf": 100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "r": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "q": {
+                                          "docs": {},
+                                          "u": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {
+                                                    "FooUtils.FullscreenAPI.html#request": {
+                                                      "ref": "FooUtils.FullscreenAPI.html#request",
+                                                      "tf": 100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "t": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "g": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "FooUtils.FullscreenAPI.html#toggle": {
+                                                  "ref": "FooUtils.FullscreenAPI.html#toggle",
+                                                  "tf": 100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "~": {
+                                    "docs": {},
+                                    "b": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "w": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "r": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "p": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {
+                                                          "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                                                            "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                                                            "tf": 150
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "r": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "v": {
+                                                "docs": {
+                                                  "FooUtils.FullscreenAPI.html#~resolver": {
+                                                    "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                                                    "tf": 150
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -7501,6 +8585,10 @@ window.lunrData = {
                 "docs": {},
                 "h": {
                   "docs": {
+                    "FooUtils.FullscreenAPI.html#getAPI": {
+                      "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                      "tf": 14
+                    },
                     "FooUtils.fn.html#.fetch": {
                       "ref": "FooUtils.fn.html#.fetch",
                       "tf": 637.5
@@ -7821,6 +8909,14 @@ window.lunrData = {
             },
             "e": {
               "docs": {},
+              "e": {
+                "docs": {
+                  "FooUtils.FullscreenAPI.html#destroy": {
+                    "ref": "FooUtils.FullscreenAPI.html#destroy",
+                    "tf": 8.75
+                  }
+                }
+              },
               "s": {
                 "docs": {},
                 "h": {
@@ -8261,6 +9357,21 @@ window.lunrData = {
                 }
               }
             },
+            "e": {
+              "docs": {},
+              "r": {
+                "docs": {
+                  "FooUtils.animation.html#.iterations": {
+                    "ref": "FooUtils.animation.html#.iterations",
+                    "tf": 628.75
+                  },
+                  "FooUtils.animation.html#.start": {
+                    "ref": "FooUtils.animation.html#.start",
+                    "tf": 0.78125
+                  }
+                }
+              }
+            },
             "'": {
               "docs": {
                 "FooUtils.fn.html#.throttle": {
@@ -8355,26 +9466,6 @@ window.lunrData = {
             },
             ".": {
               "docs": {},
-              "a": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "y": {
-                        "docs": {
-                          "FooUtils.is.html#.array": {
-                            "ref": "FooUtils.is.html#.array",
-                            "tf": 100
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "b": {
                 "docs": {},
                 "o": {
@@ -8470,6 +9561,17 @@ window.lunrData = {
                           "tf": 100
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "j": {
+                "docs": {},
+                "q": {
+                  "docs": {
+                    "FooUtils.is.html#.jq": {
+                      "ref": "FooUtils.is.html#.jq",
+                      "tf": 100
                     }
                   }
                 }
@@ -8582,13 +9684,22 @@ window.lunrData = {
                   }
                 }
               },
-              "j": {
+              "a": {
                 "docs": {},
-                "q": {
-                  "docs": {
-                    "FooUtils.is.html#.jq": {
-                      "ref": "FooUtils.is.html#.jq",
-                      "tf": 100
+                "r": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "a": {
+                      "docs": {},
+                      "y": {
+                        "docs": {
+                          "FooUtils.is.html#.array": {
+                            "ref": "FooUtils.is.html#.array",
+                            "tf": 100
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -8773,6 +9884,18 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#.override",
                         "tf": 23.38235294117647
                       },
+                      "FooUtils.FullscreenAPI.html#apis": {
+                        "ref": "FooUtils.FullscreenAPI.html#apis",
+                        "tf": 10
+                      },
+                      "FooUtils.FullscreenAPI.html#api": {
+                        "ref": "FooUtils.FullscreenAPI.html#api",
+                        "tf": 11.666666666666666
+                      },
+                      "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                        "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                        "tf": 7.777777777777778
+                      },
                       "FooUtils.Timer.html#restart": {
                         "ref": "FooUtils.Timer.html#restart",
                         "tf": 7.777777777777778
@@ -8781,9 +9904,17 @@ window.lunrData = {
                         "ref": "FooUtils.animation.html",
                         "tf": 8.75
                       },
+                      "FooUtils.animation.html#.requestFrame": {
+                        "ref": "FooUtils.animation.html#.requestFrame",
+                        "tf": 14
+                      },
+                      "FooUtils.animation.html#.cancelFrame": {
+                        "ref": "FooUtils.animation.html#.cancelFrame",
+                        "tf": 14
+                      },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 4
+                        "tf": 3.90625
                       },
                       "FooUtils.fn.html": {
                         "ref": "FooUtils.fn.html",
@@ -8926,6 +10057,18 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#registered",
                         "tf": 110
                       },
+                      "FooUtils.FullscreenAPI.html#apis": {
+                        "ref": "FooUtils.FullscreenAPI.html#apis",
+                        "tf": 110
+                      },
+                      "FooUtils.FullscreenAPI.html#api": {
+                        "ref": "FooUtils.FullscreenAPI.html#api",
+                        "tf": 110
+                      },
+                      "FooUtils.FullscreenAPI.html#supported": {
+                        "ref": "FooUtils.FullscreenAPI.html#supported",
+                        "tf": 110
+                      },
                       "FooUtils.Timer.html#interval": {
                         "ref": "FooUtils.Timer.html#interval",
                         "tf": 110
@@ -8972,6 +10115,10 @@ window.lunrData = {
                       },
                       "FooUtils.html#.version": {
                         "ref": "FooUtils.html#.version",
+                        "tf": 110
+                      },
+                      "FooUtils.html#.fullscreen": {
+                        "ref": "FooUtils.html#.fullscreen",
                         "tf": 110
                       },
                       "FooUtils.transition.html": {
@@ -9196,6 +10343,25 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "d": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "FooUtils.FullscreenAPI.html#request": {
+                    "ref": "FooUtils.FullscreenAPI.html#request",
+                    "tf": 10
+                  },
+                  "FooUtils.FullscreenAPI.html#exit": {
+                    "ref": "FooUtils.FullscreenAPI.html#exit",
+                    "tf": 17.5
+                  },
+                  "FooUtils.FullscreenAPI.html#toggle": {
+                    "ref": "FooUtils.FullscreenAPI.html#toggle",
+                    "tf": 10
+                  }
+                }
+              }
             }
           },
           "u": {
@@ -9394,7 +10560,12 @@ window.lunrData = {
               "c": {
                 "docs": {},
                 "e": {
-                  "docs": {},
+                  "docs": {
+                    "FooUtils.FullscreenAPI.html#request": {
+                      "ref": "FooUtils.FullscreenAPI.html#request",
+                      "tf": 10
+                    }
+                  },
                   "h": {
                     "docs": {},
                     "o": {
@@ -9575,6 +10746,18 @@ window.lunrData = {
                   "docs": {},
                   "s": {
                     "docs": {
+                      "FooUtils.FullscreenAPI.html#request": {
+                        "ref": "FooUtils.FullscreenAPI.html#request",
+                        "tf": 33.33333333333333
+                      },
+                      "FooUtils.FullscreenAPI.html#exit": {
+                        "ref": "FooUtils.FullscreenAPI.html#exit",
+                        "tf": 50
+                      },
+                      "FooUtils.FullscreenAPI.html#toggle": {
+                        "ref": "FooUtils.FullscreenAPI.html#toggle",
+                        "tf": 33.33333333333333
+                      },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
                         "tf": 14.285714285714285
@@ -9845,7 +11028,7 @@ window.lunrData = {
                         },
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.transition.html#.start": {
                           "ref": "FooUtils.transition.html#.start",
@@ -9949,7 +11132,7 @@ window.lunrData = {
                       "docs": {
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.fn.html#.CONTAINS_SUPER": {
                           "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
@@ -10180,6 +11363,10 @@ window.lunrData = {
                         "FooUtils.EventClass.html#destroy": {
                           "ref": "FooUtils.EventClass.html#destroy",
                           "tf": 11.666666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#destroy": {
+                          "ref": "FooUtils.FullscreenAPI.html#destroy",
+                          "tf": 8.75
                         }
                       }
                     }
@@ -10189,9 +11376,13 @@ window.lunrData = {
                   "docs": {},
                   "v": {
                     "docs": {
+                      "FooUtils.FullscreenAPI.html#~resolver": {
+                        "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                        "tf": 557
+                      },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
+                        "tf": 0.78125
                       },
                       "FooUtils.fn.html#.resolved": {
                         "ref": "FooUtils.fn.html#.resolved",
@@ -10535,6 +11726,163 @@ window.lunrData = {
                 }
               }
             },
+            "q": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "s": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "FooUtils.FullscreenAPI.html#request": {
+                          "ref": "FooUtils.FullscreenAPI.html#request",
+                          "tf": 643.3333333333334
+                        },
+                        "FooUtils.FullscreenAPI.html#exit": {
+                          "ref": "FooUtils.FullscreenAPI.html#exit",
+                          "tf": 8.75
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "m": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {},
+                                        "f": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "m": {
+                                                "docs": {
+                                                  "FooUtils.animation.html#.requestFrame": {
+                                                    "ref": "FooUtils.animation.html#.requestFrame",
+                                                    "tf": 14
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "f": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "m": {
+                              "docs": {
+                                "FooUtils.animation.html#.requestFrame": {
+                                  "ref": "FooUtils.animation.html#.requestFrame",
+                                  "tf": 625
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "i": {
+                        "docs": {},
+                        "d": {
+                          "docs": {
+                            "FooUtils.animation.html#.cancelFrame": {
+                              "ref": "FooUtils.animation.html#.cancelFrame",
+                              "tf": 33.33333333333333
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "i": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "FooUtils.fn.html#.apply": {
+                        "ref": "FooUtils.fn.html#.apply",
+                        "tf": 4.166666666666666
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "j": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#~resolver": {
+                        "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                        "tf": 7
+                      },
+                      "FooUtils.animation.html#.start": {
+                        "ref": "FooUtils.animation.html#.start",
+                        "tf": 0.78125
+                      },
+                      "FooUtils.fn.html#.resolved": {
+                        "ref": "FooUtils.fn.html#.resolved",
+                        "tf": 23.333333333333332
+                      },
+                      "FooUtils.fn.html#.rejectWith": {
+                        "ref": "FooUtils.fn.html#.rejectWith",
+                        "tf": 11.666666666666666
+                      },
+                      "FooUtils.transition.html#.start": {
+                        "ref": "FooUtils.transition.html#.start",
+                        "tf": 1
+                      }
+                    },
+                    "w": {
+                      "docs": {},
+                      "i": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "h": {
+                            "docs": {
+                              "FooUtils.fn.html#.rejectWith": {
+                                "ref": "FooUtils.fn.html#.rejectWith",
+                                "tf": 620
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {},
               "u": {
@@ -10553,7 +11901,7 @@ window.lunrData = {
                       },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
+                        "tf": 0.78125
                       },
                       "FooUtils.fn.html#.CONTAINS_SUPER": {
                         "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
@@ -10633,69 +11981,6 @@ window.lunrData = {
                 }
               }
             },
-            "j": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "FooUtils.animation.html#.start": {
-                        "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
-                      },
-                      "FooUtils.fn.html#.resolved": {
-                        "ref": "FooUtils.fn.html#.resolved",
-                        "tf": 23.333333333333332
-                      },
-                      "FooUtils.fn.html#.rejectWith": {
-                        "ref": "FooUtils.fn.html#.rejectWith",
-                        "tf": 11.666666666666666
-                      },
-                      "FooUtils.transition.html#.start": {
-                        "ref": "FooUtils.transition.html#.start",
-                        "tf": 1
-                      }
-                    },
-                    "w": {
-                      "docs": {},
-                      "i": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          "h": {
-                            "docs": {
-                              "FooUtils.fn.html#.rejectWith": {
-                                "ref": "FooUtils.fn.html#.rejectWith",
-                                "tf": 620
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "q": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "FooUtils.fn.html#.apply": {
-                        "ref": "FooUtils.fn.html#.apply",
-                        "tf": 4.166666666666666
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "n": {
               "docs": {},
               "d": {
@@ -10769,7 +12054,7 @@ window.lunrData = {
                   },
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 0.78125
                   },
                   "FooUtils.transition.html#.start": {
                     "ref": "FooUtils.transition.html#.start",
@@ -10865,7 +12150,7 @@ window.lunrData = {
               },
               "FooUtils.animation.html#.start": {
                 "ref": "FooUtils.animation.html#.start",
-                "tf": 3
+                "tf": 2.34375
               },
               "FooUtils.fn.html#.CONTAINS_SUPER": {
                 "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
@@ -11006,20 +12291,25 @@ window.lunrData = {
               }
             }
           },
-          "p": {
-            "docs": {
-              "FooUtils.Timer.html#countup": {
-                "ref": "FooUtils.Timer.html#countup",
-                "tf": 10
-              },
-              "FooUtils.str.html#.format": {
-                "ref": "FooUtils.str.html#.format",
-                "tf": 1.3888888888888888
-              }
-            }
-          },
           "n": {
             "docs": {},
+            "b": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "n": {
+                  "docs": {},
+                  "d": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#destroy": {
+                        "ref": "FooUtils.FullscreenAPI.html#destroy",
+                        "tf": 8.75
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {},
               "i": {
@@ -11097,6 +12387,22 @@ window.lunrData = {
                     }
                   }
                 }
+              }
+            }
+          },
+          "p": {
+            "docs": {
+              "FooUtils.FullscreenAPI.html#destroy": {
+                "ref": "FooUtils.FullscreenAPI.html#destroy",
+                "tf": 8.75
+              },
+              "FooUtils.Timer.html#countup": {
+                "ref": "FooUtils.Timer.html#countup",
+                "tf": 10
+              },
+              "FooUtils.str.html#.format": {
+                "ref": "FooUtils.str.html#.format",
+                "tf": 1.3888888888888888
               }
             }
           },
@@ -11252,8 +12558,16 @@ window.lunrData = {
             "docs": {},
             "f": {
               "docs": {
+                "FooUtils.FullscreenAPI.html#~resolver": {
+                  "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                  "tf": 50
+                },
                 "FooUtils.animation.html#.duration": {
                   "ref": "FooUtils.animation.html#.duration",
+                  "tf": 20
+                },
+                "FooUtils.animation.html#.iterations": {
+                  "ref": "FooUtils.animation.html#.iterations",
                   "tf": 20
                 },
                 "FooUtils.fn.html#.check": {
@@ -11361,9 +12675,13 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
+                    "FooUtils.FullscreenAPI.html#~resolver": {
+                      "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                      "tf": 7
+                    },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.transition.html#.start": {
                       "ref": "FooUtils.transition.html#.start",
@@ -11519,6 +12837,10 @@ window.lunrData = {
                         "FooUtils.EventClass.html#destroy": {
                           "ref": "FooUtils.EventClass.html#destroy",
                           "tf": 711.6666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#destroy": {
+                          "ref": "FooUtils.FullscreenAPI.html#destroy",
+                          "tf": 658.75
                         }
                       }
                     }
@@ -11786,6 +13108,10 @@ window.lunrData = {
                       "ref": "FooUtils.animation.html#.duration",
                       "tf": 630
                     },
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
                     "FooUtils.transition.html#.duration": {
                       "ref": "FooUtils.transition.html#.duration",
                       "tf": 630
@@ -11937,9 +13263,17 @@ window.lunrData = {
                   "ref": "FooUtils.Factory.html#names",
                   "tf": 17.5
                 },
+                "FooUtils.FullscreenAPI.html#element": {
+                  "ref": "FooUtils.FullscreenAPI.html#element",
+                  "tf": 14
+                },
                 "FooUtils.animation.html#.duration": {
                   "ref": "FooUtils.animation.html#.duration",
                   "tf": 10
+                },
+                "FooUtils.animation.html#.iterations": {
+                  "ref": "FooUtils.animation.html#.iterations",
+                  "tf": 8.75
                 },
                 "FooUtils.html#.getViewportBounds": {
                   "ref": "FooUtils.html#.getViewportBounds",
@@ -11952,6 +13286,20 @@ window.lunrData = {
                 "FooUtils.url.html#.param": {
                   "ref": "FooUtils.url.html#.param",
                   "tf": 11.666666666666666
+                }
+              },
+              "a": {
+                "docs": {},
+                "p": {
+                  "docs": {},
+                  "i": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#getAPI": {
+                        "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                        "tf": 650
+                      }
+                    }
+                  }
                 }
               },
               "v": {
@@ -12046,6 +13394,10 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
                     "FooUtils.html#.uniqueId": {
                       "ref": "FooUtils.html#.uniqueId",
                       "tf": 11.666666666666666
@@ -12240,8 +13592,20 @@ window.lunrData = {
                                     "ref": "FooUtils.animation.html#.end",
                                     "tf": 33.33333333333333
                                   },
+                                  "FooUtils.animation.html#.requestFrame": {
+                                    "ref": "FooUtils.animation.html#.requestFrame",
+                                    "tf": 25
+                                  },
+                                  "FooUtils.animation.html#.cancelFrame": {
+                                    "ref": "FooUtils.animation.html#.cancelFrame",
+                                    "tf": 33.33333333333333
+                                  },
                                   "FooUtils.animation.html#.duration": {
                                     "ref": "FooUtils.animation.html#.duration",
+                                    "tf": 20
+                                  },
+                                  "FooUtils.animation.html#.iterations": {
+                                    "ref": "FooUtils.animation.html#.iterations",
                                     "tf": 20
                                   },
                                   "FooUtils.animation.html#.start": {
@@ -12296,10 +13660,6 @@ window.lunrData = {
                                     "ref": "FooUtils.fn.html#.resolveWith",
                                     "tf": 20
                                   },
-                                  "FooUtils.is.html#.array": {
-                                    "ref": "FooUtils.is.html#.array",
-                                    "tf": 25
-                                  },
                                   "FooUtils.is.html#.boolean": {
                                     "ref": "FooUtils.is.html#.boolean",
                                     "tf": 25
@@ -12322,6 +13682,10 @@ window.lunrData = {
                                   },
                                   "FooUtils.is.html#.hash": {
                                     "ref": "FooUtils.is.html#.hash",
+                                    "tf": 25
+                                  },
+                                  "FooUtils.is.html#.jq": {
+                                    "ref": "FooUtils.is.html#.jq",
                                     "tf": 25
                                   },
                                   "FooUtils.is.html#.number": {
@@ -12348,8 +13712,8 @@ window.lunrData = {
                                     "ref": "FooUtils.is.html#.undef",
                                     "tf": 25
                                   },
-                                  "FooUtils.is.html#.jq": {
-                                    "ref": "FooUtils.is.html#.jq",
+                                  "FooUtils.is.html#.array": {
+                                    "ref": "FooUtils.is.html#.array",
                                     "tf": 25
                                   },
                                   "FooUtils.html#.$": {
@@ -12358,6 +13722,10 @@ window.lunrData = {
                                   },
                                   "FooUtils.html#.version": {
                                     "ref": "FooUtils.html#.version",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "FooUtils.html#.fullscreen": {
+                                    "ref": "FooUtils.html#.fullscreen",
                                     "tf": 33.33333333333333
                                   },
                                   "FooUtils.html#.versionCompare": {
@@ -12575,6 +13943,44 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "n": {
+                "docs": {},
+                "u": {
+                  "docs": {},
+                  "l": {
+                    "docs": {},
+                    "l": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "b": {
+                          "docs": {},
+                          "l": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "&": {
+                                "docs": {},
+                                "g": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {
+                                      "FooUtils.FullscreenAPI.html#api": {
+                                        "ref": "FooUtils.FullscreenAPI.html#api",
+                                        "tf": 33.33333333333333
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -12751,7 +14157,7 @@ window.lunrData = {
                   },
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 0.78125
                   },
                   "FooUtils.fn.html#.throttle": {
                     "ref": "FooUtils.fn.html#.throttle",
@@ -12775,7 +14181,7 @@ window.lunrData = {
               "docs": {
                 "FooUtils.animation.html#.start": {
                   "ref": "FooUtils.animation.html#.start",
-                  "tf": 1
+                  "tf": 0.78125
                 },
                 "FooUtils.transition.html#.start": {
                   "ref": "FooUtils.transition.html#.start",
@@ -12845,6 +14251,14 @@ window.lunrData = {
                   "FooUtils.Factory.html#.override": {
                     "ref": "FooUtils.Factory.html#.override",
                     "tf": 25
+                  },
+                  "FooUtils.FullscreenAPI.html#apis": {
+                    "ref": "FooUtils.FullscreenAPI.html#apis",
+                    "tf": 10
+                  },
+                  "FooUtils.FullscreenAPI.html#api": {
+                    "ref": "FooUtils.FullscreenAPI.html#api",
+                    "tf": 11.666666666666666
                   },
                   "FooUtils.animation.html#.end": {
                     "ref": "FooUtils.animation.html#.end",
@@ -13001,7 +14415,7 @@ window.lunrData = {
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.transition.html#.start": {
                       "ref": "FooUtils.transition.html#.start",
@@ -13022,6 +14436,10 @@ window.lunrData = {
                   "FooUtils.EventClass.html": {
                     "ref": "FooUtils.EventClass.html",
                     "tf": 6.25
+                  },
+                  "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                    "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                    "tf": 7.777777777777778
                   }
                 }
               }
@@ -13030,7 +14448,7 @@ window.lunrData = {
               "docs": {
                 "FooUtils.animation.html#.start": {
                   "ref": "FooUtils.animation.html#.start",
-                  "tf": 1
+                  "tf": 0.78125
                 },
                 "FooUtils.transition.html#.start": {
                   "ref": "FooUtils.transition.html#.start",
@@ -13041,6 +14459,17 @@ window.lunrData = {
           },
           "u": {
             "docs": {},
+            "l": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "FooUtils.FullscreenAPI.html#element": {
+                    "ref": "FooUtils.FullscreenAPI.html#element",
+                    "tf": 14
+                  }
+                }
+              }
+            },
             "m": {
               "docs": {},
               "b": {
@@ -13057,8 +14486,16 @@ window.lunrData = {
                         "ref": "FooUtils.Timer.html#pause",
                         "tf": 50
                       },
+                      "FooUtils.animation.html#.requestFrame": {
+                        "ref": "FooUtils.animation.html#.requestFrame",
+                        "tf": 25
+                      },
                       "FooUtils.animation.html#.duration": {
                         "ref": "FooUtils.animation.html#.duration",
+                        "tf": 20
+                      },
+                      "FooUtils.animation.html#.iterations": {
+                        "ref": "FooUtils.animation.html#.iterations",
                         "tf": 20
                       },
                       "FooUtils.is.html#.number": {
@@ -13280,6 +14717,14 @@ window.lunrData = {
                           "ref": "FooUtils.Factory.html#register",
                           "tf": 20
                         },
+                        "FooUtils.FullscreenAPI.html#supported": {
+                          "ref": "FooUtils.FullscreenAPI.html#supported",
+                          "tf": 50
+                        },
+                        "FooUtils.FullscreenAPI.html#destroy": {
+                          "ref": "FooUtils.FullscreenAPI.html#destroy",
+                          "tf": 50
+                        },
                         "FooUtils.Timer.html#isRunning": {
                           "ref": "FooUtils.Timer.html#isRunning",
                           "tf": 33.33333333333333
@@ -13299,10 +14744,6 @@ window.lunrData = {
                         "FooUtils.animation.html#.supported": {
                           "ref": "FooUtils.animation.html#.supported",
                           "tf": 33.33333333333333
-                        },
-                        "FooUtils.is.html#.array": {
-                          "ref": "FooUtils.is.html#.array",
-                          "tf": 25
                         },
                         "FooUtils.is.html#.boolean": {
                           "ref": "FooUtils.is.html#.boolean",
@@ -13326,6 +14767,10 @@ window.lunrData = {
                         },
                         "FooUtils.is.html#.hash": {
                           "ref": "FooUtils.is.html#.hash",
+                          "tf": 25
+                        },
+                        "FooUtils.is.html#.jq": {
+                          "ref": "FooUtils.is.html#.jq",
                           "tf": 25
                         },
                         "FooUtils.is.html#.number": {
@@ -13352,8 +14797,8 @@ window.lunrData = {
                           "ref": "FooUtils.is.html#.undef",
                           "tf": 25
                         },
-                        "FooUtils.is.html#.jq": {
-                          "ref": "FooUtils.is.html#.jq",
+                        "FooUtils.is.html#.array": {
+                          "ref": "FooUtils.is.html#.array",
                           "tf": 25
                         },
                         "FooUtils.str.html#.contains": {
@@ -13474,6 +14919,10 @@ window.lunrData = {
               "docs": {},
               "k": {
                 "docs": {
+                  "FooUtils.FullscreenAPI.html#exit": {
+                    "ref": "FooUtils.FullscreenAPI.html#exit",
+                    "tf": 8.75
+                  },
                   "FooUtils.Timer.html#reset": {
                     "ref": "FooUtils.Timer.html#reset",
                     "tf": 11.666666666666666
@@ -13515,30 +14964,16 @@ window.lunrData = {
                       "ref": "FooUtils.Debugger.html#log",
                       "tf": 3.3333333333333335
                     },
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
                     "FooUtils.fn.html#.enqueue": {
                       "ref": "FooUtils.fn.html#.enqueue",
                       "tf": 0.6493506493506493
                     },
                     "FooUtils.str.html#.join": {
                       "ref": "FooUtils.str.html#.join",
-                      "tf": 2
-                    }
-                  }
-                }
-              }
-            },
-            "h": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "v": {
-                  "docs": {
-                    "FooUtils.animation.html#.start": {
-                      "ref": "FooUtils.animation.html#.start",
-                      "tf": 2
-                    },
-                    "FooUtils.transition.html#.start": {
-                      "ref": "FooUtils.transition.html#.start",
                       "tf": 2
                     }
                   }
@@ -13555,11 +14990,33 @@ window.lunrData = {
                     "docs": {},
                     "n": {
                       "docs": {
+                        "FooUtils.FullscreenAPI.html#toggle": {
+                          "ref": "FooUtils.FullscreenAPI.html#toggle",
+                          "tf": 10
+                        },
                         "FooUtils.html": {
                           "ref": "FooUtils.html",
                           "tf": 7.777777777777778
                         }
                       }
+                    }
+                  }
+                }
+              }
+            },
+            "h": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "v": {
+                  "docs": {
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 1.5625
+                    },
+                    "FooUtils.transition.html#.start": {
+                      "ref": "FooUtils.transition.html#.start",
+                      "tf": 2
                     }
                   }
                 }
@@ -13589,6 +15046,38 @@ window.lunrData = {
                     "docs": {},
                     "r": {
                       "docs": {
+                        "FooUtils.FullscreenAPI.html": {
+                          "ref": "FooUtils.FullscreenAPI.html",
+                          "tf": 8.75
+                        },
+                        "FooUtils.FullscreenAPI.html#apis": {
+                          "ref": "FooUtils.FullscreenAPI.html#apis",
+                          "tf": 10
+                        },
+                        "FooUtils.FullscreenAPI.html#api": {
+                          "ref": "FooUtils.FullscreenAPI.html#api",
+                          "tf": 11.666666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#supported": {
+                          "ref": "FooUtils.FullscreenAPI.html#supported",
+                          "tf": 11.666666666666666
+                        },
+                        "FooUtils.FullscreenAPI.html#getAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                          "tf": 14
+                        },
+                        "FooUtils.FullscreenAPI.html#request": {
+                          "ref": "FooUtils.FullscreenAPI.html#request",
+                          "tf": 10
+                        },
+                        "FooUtils.FullscreenAPI.html#exit": {
+                          "ref": "FooUtils.FullscreenAPI.html#exit",
+                          "tf": 8.75
+                        },
+                        "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                          "tf": 7.777777777777778
+                        },
                         "FooUtils.animation.html#.supported": {
                           "ref": "FooUtils.animation.html#.supported",
                           "tf": 14
@@ -13597,13 +15086,25 @@ window.lunrData = {
                           "ref": "FooUtils.animation.html#.end",
                           "tf": 23.090909090909093
                         },
+                        "FooUtils.animation.html#.requestFrame": {
+                          "ref": "FooUtils.animation.html#.requestFrame",
+                          "tf": 14
+                        },
+                        "FooUtils.animation.html#.cancelFrame": {
+                          "ref": "FooUtils.animation.html#.cancelFrame",
+                          "tf": 14
+                        },
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 2
+                          "tf": 1.5625
                         },
                         "FooUtils.fn.html#.CONTAINS_SUPER": {
                           "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                           "tf": 1.5625
+                        },
+                        "FooUtils.html#.fullscreen": {
+                          "ref": "FooUtils.html#.fullscreen",
+                          "tf": 14
                         },
                         "FooUtils.transition.html#.supported": {
                           "ref": "FooUtils.transition.html#.supported",
@@ -13617,6 +15118,28 @@ window.lunrData = {
                           "ref": "FooUtils.transition.html#.start",
                           "tf": 2
                         }
+                      },
+                      "a": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "i": {
+                            "docs": {
+                              "FooUtils.FullscreenAPI.html#api": {
+                                "ref": "FooUtils.FullscreenAPI.html#api",
+                                "tf": 33.33333333333333
+                              },
+                              "FooUtils.FullscreenAPI.html#getAPI": {
+                                "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                                "tf": 50
+                              },
+                              "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                                "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                                "tf": 600
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -13626,6 +15149,17 @@ window.lunrData = {
           },
           "i": {
             "docs": {},
+            "n": {
+              "docs": {},
+              "d": {
+                "docs": {
+                  "FooUtils.FullscreenAPI.html#~resolver": {
+                    "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                    "tf": 7
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {
                 "FooUtils.str.html#.fnv1a": {
@@ -13772,6 +15306,10 @@ window.lunrData = {
                       "ref": "FooUtils.Factory.html#.override",
                       "tf": 20.441176470588236
                     },
+                    "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                      "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                      "tf": 7.777777777777778
+                    },
                     "FooUtils.html#.$": {
                       "ref": "FooUtils.html#.$",
                       "tf": 3.571428571428571
@@ -13813,7 +15351,16 @@ window.lunrData = {
                 "i": {
                   "docs": {},
                   "f": {
-                    "docs": {},
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#apis": {
+                        "ref": "FooUtils.FullscreenAPI.html#apis",
+                        "tf": 10
+                      },
+                      "FooUtils.FullscreenAPI.html#api": {
+                        "ref": "FooUtils.FullscreenAPI.html#api",
+                        "tf": 11.666666666666666
+                      }
+                    },
                     "i": {
                       "docs": {
                         "FooUtils.Bounds.html#inflate": {
@@ -13824,9 +15371,13 @@ window.lunrData = {
                           "ref": "FooUtils.Factory.html",
                           "tf": 2.272727272727273
                         },
+                        "FooUtils.FullscreenAPI.html#request": {
+                          "ref": "FooUtils.FullscreenAPI.html#request",
+                          "tf": 10
+                        },
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.obj.html#.create": {
                           "ref": "FooUtils.obj.html#.create",
@@ -13899,6 +15450,14 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#make",
                         "tf": 8.75
                       },
+                      "FooUtils.FullscreenAPI.html#toggle": {
+                        "ref": "FooUtils.FullscreenAPI.html#toggle",
+                        "tf": 10
+                      },
+                      "FooUtils.FullscreenAPI.html#~resolver": {
+                        "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                        "tf": 7
+                      },
                       "FooUtils.Timer.html#start": {
                         "ref": "FooUtils.Timer.html#start",
                         "tf": 7.777777777777778
@@ -13919,9 +15478,13 @@ window.lunrData = {
                         "ref": "FooUtils.animation.html#.duration",
                         "tf": 10
                       },
+                      "FooUtils.animation.html#.iterations": {
+                        "ref": "FooUtils.animation.html#.iterations",
+                        "tf": 8.75
+                      },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 11.666666666666666
+                        "tf": 12.447916666666666
                       },
                       "FooUtils.fn.html#.addOrOverride": {
                         "ref": "FooUtils.fn.html#.addOrOverride",
@@ -14000,6 +15563,10 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
+                        "FooUtils.FullscreenAPI.html#supported": {
+                          "ref": "FooUtils.FullscreenAPI.html#supported",
+                          "tf": 661.6666666666666
+                        },
                         "FooUtils.animation.html#.supported": {
                           "ref": "FooUtils.animation.html#.supported",
                           "tf": 647.3333333333334
@@ -14010,7 +15577,7 @@ window.lunrData = {
                         },
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.fn.html#.CONTAINS_SUPER": {
                           "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
@@ -14860,6 +16427,10 @@ window.lunrData = {
                   "ref": "FooUtils.Debugger.html#enabled",
                   "tf": 4.545454545454546
                 },
+                "FooUtils.animation.html#.start": {
+                  "ref": "FooUtils.animation.html#.start",
+                  "tf": 0.78125
+                },
                 "FooUtils.fn.html#.CONTAINS_SUPER": {
                   "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                   "tf": 3.125
@@ -15046,6 +16617,26 @@ window.lunrData = {
               }
             }
           },
+          "w": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "c": {
+                  "docs": {},
+                  "h": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#exit": {
+                        "ref": "FooUtils.FullscreenAPI.html#exit",
+                        "tf": 8.75
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "a": {
             "docs": {},
             "f": {
@@ -15058,7 +16649,7 @@ window.lunrData = {
                     "docs": {
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
+                        "tf": 0.78125
                       },
                       "FooUtils.transition.html#.start": {
                         "ref": "FooUtils.transition.html#.start",
@@ -15075,7 +16666,7 @@ window.lunrData = {
                 "docs": {
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 0.78125
                   },
                   "FooUtils.transition.html#.start": {
                     "ref": "FooUtils.transition.html#.start",
@@ -15256,7 +16847,7 @@ window.lunrData = {
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.fn.html#.debounce": {
                       "ref": "FooUtils.fn.html#.debounce",
@@ -15428,9 +17019,13 @@ window.lunrData = {
                     "ref": "FooUtils.animation.html#.duration",
                     "tf": 10
                   },
+                  "FooUtils.animation.html#.iterations": {
+                    "ref": "FooUtils.animation.html#.iterations",
+                    "tf": 8.75
+                  },
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 14.666666666666666
+                    "tf": 15.572916666666666
                   },
                   "FooUtils.animation.html#~startCallback": {
                     "ref": "FooUtils.animation.html#~startCallback",
@@ -15506,6 +17101,79 @@ window.lunrData = {
                                 }
                               }
                             },
+                            "r": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "q": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "f": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "m": {
+                                                  "docs": {
+                                                    "FooUtils.animation.html#.requestFrame": {
+                                                      "ref": "FooUtils.animation.html#.requestFrame",
+                                                      "tf": 100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "c": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "n": {
+                                  "docs": {},
+                                  "c": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "f": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "m": {
+                                                "docs": {
+                                                  "FooUtils.animation.html#.cancelFrame": {
+                                                    "ref": "FooUtils.animation.html#.cancelFrame",
+                                                    "tf": 100
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             "d": {
                               "docs": {},
                               "u": {
@@ -15515,6 +17183,23 @@ window.lunrData = {
                                     "FooUtils.animation.html#.duration": {
                                       "ref": "FooUtils.animation.html#.duration",
                                       "tf": 100
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "i": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {
+                                      "FooUtils.animation.html#.iterations": {
+                                        "ref": "FooUtils.animation.html#.iterations",
+                                        "tf": 100
+                                      }
                                     }
                                   }
                                 }
@@ -15533,7 +17218,7 @@ window.lunrData = {
                                   },
                                   "FooUtils.animation.html#.start": {
                                     "ref": "FooUtils.animation.html#.start",
-                                    "tf": 2
+                                    "tf": 1.5625
                                   }
                                 },
                                 "\"": {
@@ -15858,7 +17543,7 @@ window.lunrData = {
                       },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
+                        "tf": 0.78125
                       },
                       "FooUtils.transition.html#.start": {
                         "ref": "FooUtils.transition.html#.start",
@@ -15871,6 +17556,35 @@ window.lunrData = {
             },
             "c": {
               "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "d": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "g": {
+                          "docs": {},
+                          "l": {
+                            "docs": {},
+                            "i": {
+                              "docs": {
+                                "FooUtils.FullscreenAPI.html#~resolver": {
+                                  "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                                  "tf": 7
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "u": {
                 "docs": {},
                 "r": {
@@ -16084,13 +17798,13 @@ window.lunrData = {
                       "ref": "FooUtils.fn.html#.enqueue",
                       "tf": 0.6493506493506493
                     },
-                    "FooUtils.is.html#.array": {
-                      "ref": "FooUtils.is.html#.array",
-                      "tf": 648.3333333333334
-                    },
                     "FooUtils.is.html#.empty": {
                       "ref": "FooUtils.is.html#.empty",
                       "tf": 2.7777777777777777
+                    },
+                    "FooUtils.is.html#.array": {
+                      "ref": "FooUtils.is.html#.array",
+                      "tf": 648.3333333333334
                     },
                     "FooUtils.obj.html#.extend": {
                       "ref": "FooUtils.obj.html#.extend",
@@ -16274,6 +17988,10 @@ window.lunrData = {
                   "docs": {},
                   "d": {
                     "docs": {
+                      "FooUtils.FullscreenAPI.html": {
+                        "ref": "FooUtils.FullscreenAPI.html",
+                        "tf": 8.75
+                      },
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
                         "tf": 3.571428571428571
@@ -16326,6 +18044,34 @@ window.lunrData = {
           },
           "p": {
             "docs": {},
+            "i": {
+              "docs": {
+                "FooUtils.FullscreenAPI.html": {
+                  "ref": "FooUtils.FullscreenAPI.html",
+                  "tf": 8.75
+                },
+                "FooUtils.FullscreenAPI.html#apis": {
+                  "ref": "FooUtils.FullscreenAPI.html#apis",
+                  "tf": 650
+                },
+                "FooUtils.FullscreenAPI.html#api": {
+                  "ref": "FooUtils.FullscreenAPI.html#api",
+                  "tf": 633.3333333333334
+                },
+                "FooUtils.FullscreenAPI.html#supported": {
+                  "ref": "FooUtils.FullscreenAPI.html#supported",
+                  "tf": 11.666666666666666
+                },
+                "FooUtils.FullscreenAPI.html#getAPI": {
+                  "ref": "FooUtils.FullscreenAPI.html#getAPI",
+                  "tf": 14
+                },
+                "FooUtils.html#.fullscreen": {
+                  "ref": "FooUtils.html#.fullscreen",
+                  "tf": 14
+                }
+              }
+            },
             "p": {
               "docs": {},
               "l": {
@@ -16443,6 +18189,14 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#make",
                         "tf": 20
                       },
+                      "FooUtils.FullscreenAPI.html#apis": {
+                        "ref": "FooUtils.FullscreenAPI.html#apis",
+                        "tf": 50
+                      },
+                      "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                        "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                        "tf": 7.777777777777778
+                      },
                       "FooUtils.fn.html#.resolved": {
                         "ref": "FooUtils.fn.html#.resolved",
                         "tf": 23.333333333333332
@@ -16459,6 +18213,10 @@ window.lunrData = {
                         "ref": "FooUtils.is.html#.empty",
                         "tf": 2.7777777777777777
                       },
+                      "FooUtils.is.html#.jq": {
+                        "ref": "FooUtils.is.html#.jq",
+                        "tf": 17.5
+                      },
                       "FooUtils.is.html#.object": {
                         "ref": "FooUtils.is.html#.object",
                         "tf": 648.3333333333334
@@ -16466,10 +18224,6 @@ window.lunrData = {
                       "FooUtils.is.html#.promise": {
                         "ref": "FooUtils.is.html#.promise",
                         "tf": 6.756756756756757
-                      },
-                      "FooUtils.is.html#.jq": {
-                        "ref": "FooUtils.is.html#.jq",
-                        "tf": 17.5
                       },
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
@@ -16805,6 +18559,10 @@ window.lunrData = {
                 "ref": "FooUtils.animation.html#.end",
                 "tf": 4.545454545454546
               },
+              "FooUtils.animation.html#.start": {
+                "ref": "FooUtils.animation.html#.start",
+                "tf": 0.78125
+              },
               "FooUtils.fn.html#.addOrOverride": {
                 "ref": "FooUtils.fn.html#.addOrOverride",
                 "tf": 0.9615384615384616
@@ -16834,7 +18592,7 @@ window.lunrData = {
                 },
                 "FooUtils.animation.html#.start": {
                   "ref": "FooUtils.animation.html#.start",
-                  "tf": 1
+                  "tf": 0.78125
                 },
                 "FooUtils.fn.html#.throttle": {
                   "ref": "FooUtils.fn.html#.throttle",
@@ -17295,6 +19053,14 @@ window.lunrData = {
             },
             "i": {
               "docs": {},
+              "t": {
+                "docs": {
+                  "FooUtils.FullscreenAPI.html#exit": {
+                    "ref": "FooUtils.FullscreenAPI.html#exit",
+                    "tf": 650
+                  }
+                }
+              },
               "s": {
                 "docs": {},
                 "t": {
@@ -17397,6 +19163,44 @@ window.lunrData = {
                 }
               }
             },
+            "s": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.FullscreenAPI.html": {
+                      "ref": "FooUtils.FullscreenAPI.html",
+                      "tf": 8.75
+                    },
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
+                    "FooUtils.fn.html#.throttle": {
+                      "ref": "FooUtils.fn.html#.throttle",
+                      "tf": 2.380952380952381
+                    },
+                    "FooUtils.fn.html#.check": {
+                      "ref": "FooUtils.fn.html#.check",
+                      "tf": 12.73049645390071
+                    },
+                    "FooUtils.fn.html#.enqueue": {
+                      "ref": "FooUtils.fn.html#.enqueue",
+                      "tf": 0.6493506493506493
+                    },
+                    "FooUtils.transition.html#.start": {
+                      "ref": "FooUtils.transition.html#.start",
+                      "tf": 1
+                    },
+                    "FooUtils.url.html#.full": {
+                      "ref": "FooUtils.url.html#.full",
+                      "tf": 8.75
+                    }
+                  }
+                }
+              }
+            },
             "d": {
               "docs": {
                 "FooUtils.animation.html#.end": {
@@ -17432,40 +19236,6 @@ window.lunrData = {
                           }
                         }
                       }
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.animation.html#.start": {
-                      "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
-                    },
-                    "FooUtils.fn.html#.throttle": {
-                      "ref": "FooUtils.fn.html#.throttle",
-                      "tf": 2.380952380952381
-                    },
-                    "FooUtils.fn.html#.check": {
-                      "ref": "FooUtils.fn.html#.check",
-                      "tf": 12.73049645390071
-                    },
-                    "FooUtils.fn.html#.enqueue": {
-                      "ref": "FooUtils.fn.html#.enqueue",
-                      "tf": 0.6493506493506493
-                    },
-                    "FooUtils.transition.html#.start": {
-                      "ref": "FooUtils.transition.html#.start",
-                      "tf": 1
-                    },
-                    "FooUtils.url.html#.full": {
-                      "ref": "FooUtils.url.html#.full",
-                      "tf": 8.75
                     }
                   }
                 }
@@ -17538,6 +19308,26 @@ window.lunrData = {
                       "ref": "FooUtils.EventClass.html#trigger",
                       "tf": 42.5
                     },
+                    "FooUtils.FullscreenAPI.html#apis": {
+                      "ref": "FooUtils.FullscreenAPI.html#apis",
+                      "tf": 10
+                    },
+                    "FooUtils.FullscreenAPI.html#api": {
+                      "ref": "FooUtils.FullscreenAPI.html#api",
+                      "tf": 11.666666666666666
+                    },
+                    "FooUtils.FullscreenAPI.html#destroy": {
+                      "ref": "FooUtils.FullscreenAPI.html#destroy",
+                      "tf": 8.75
+                    },
+                    "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                      "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                      "tf": 7.777777777777778
+                    },
+                    "FooUtils.FullscreenAPI.html#~resolver": {
+                      "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                      "tf": 7
+                    },
                     "FooUtils.Timer.html": {
                       "ref": "FooUtils.Timer.html",
                       "tf": 17.5
@@ -17548,7 +19338,7 @@ window.lunrData = {
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 2
+                      "tf": 1.5625
                     },
                     "FooUtils.fn.html#.enqueue": {
                       "ref": "FooUtils.fn.html#.enqueue",
@@ -17879,13 +19669,29 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
+                        "FooUtils.FullscreenAPI.html#element": {
+                          "ref": "FooUtils.FullscreenAPI.html#element",
+                          "tf": 714
+                        },
+                        "FooUtils.FullscreenAPI.html#request": {
+                          "ref": "FooUtils.FullscreenAPI.html#request",
+                          "tf": 43.33333333333333
+                        },
+                        "FooUtils.FullscreenAPI.html#toggle": {
+                          "ref": "FooUtils.FullscreenAPI.html#toggle",
+                          "tf": 43.33333333333333
+                        },
                         "FooUtils.animation.html#.duration": {
                           "ref": "FooUtils.animation.html#.duration",
                           "tf": 30
                         },
+                        "FooUtils.animation.html#.iterations": {
+                          "ref": "FooUtils.animation.html#.iterations",
+                          "tf": 28.75
+                        },
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 25.95238095238095
+                          "tf": 26.73363095238095
                         },
                         "FooUtils.animation.html#~startCallback": {
                           "ref": "FooUtils.animation.html#~startCallback",
@@ -17930,6 +19736,31 @@ window.lunrData = {
               }
             }
           },
+          "r": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.FullscreenAPI.html#~resolver": {
+                      "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                      "tf": 7
+                    },
+                    "FooUtils.fn.html#.enqueue": {
+                      "ref": "FooUtils.fn.html#.enqueue",
+                      "tf": 0.6493506493506493
+                    },
+                    "FooUtils.is.html#.error": {
+                      "ref": "FooUtils.is.html#.error",
+                      "tf": 648.3333333333334
+                    }
+                  }
+                }
+              }
+            }
+          },
           "f": {
             "docs": {},
             "f": {
@@ -17944,27 +19775,6 @@ window.lunrData = {
                         "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                         "tf": 1.5625
                       }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "r": {
-            "docs": {},
-            "r": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.fn.html#.enqueue": {
-                      "ref": "FooUtils.fn.html#.enqueue",
-                      "tf": 0.6493506493506493
-                    },
-                    "FooUtils.is.html#.error": {
-                      "ref": "FooUtils.is.html#.error",
-                      "tf": 648.3333333333334
                     }
                   }
                 }
@@ -18566,6 +20376,14 @@ window.lunrData = {
                     "docs": {},
                     "f": {
                       "docs": {
+                        "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                          "tf": 110
+                        },
+                        "FooUtils.FullscreenAPI.html#~resolver": {
+                          "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                          "tf": 110
+                        },
                         "FooUtils.animation.html#~startCallback": {
                           "ref": "FooUtils.animation.html#~startCallback",
                           "tf": 110
@@ -18875,7 +20693,7 @@ window.lunrData = {
                   },
                   "FooUtils.animation.html#.start": {
                     "ref": "FooUtils.animation.html#.start",
-                    "tf": 1
+                    "tf": 0.78125
                   },
                   "FooUtils.fn.html#.debounce": {
                     "ref": "FooUtils.fn.html#.debounce",
@@ -18950,7 +20768,7 @@ window.lunrData = {
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 1
+                      "tf": 0.78125
                     },
                     "FooUtils.transition.html#.start": {
                       "ref": "FooUtils.transition.html#.start",
@@ -19208,7 +21026,7 @@ window.lunrData = {
                       "docs": {
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 15.285714285714285
+                          "tf": 15.848214285714285
                         },
                         "FooUtils.transition.html#.start": {
                           "ref": "FooUtils.transition.html#.start",
@@ -19240,9 +21058,13 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {
+                    "FooUtils.FullscreenAPI.html#toggle": {
+                      "ref": "FooUtils.FullscreenAPI.html#toggle",
+                      "tf": 643.3333333333334
+                    },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
-                      "tf": 12.666666666666666
+                      "tf": 12.447916666666666
                     },
                     "FooUtils.transition.html#.start": {
                       "ref": "FooUtils.transition.html#.start",
@@ -19263,7 +21085,7 @@ window.lunrData = {
                               "docs": {
                                 "FooUtils.animation.html#.start": {
                                   "ref": "FooUtils.animation.html#.start",
-                                  "tf": 1
+                                  "tf": 0.78125
                                 },
                                 "FooUtils.transition.html#.start": {
                                   "ref": "FooUtils.transition.html#.start",
@@ -19537,7 +21359,7 @@ window.lunrData = {
                       },
                       "FooUtils.animation.html#.start": {
                         "ref": "FooUtils.animation.html#.start",
-                        "tf": 1
+                        "tf": 0.78125
                       },
                       "FooUtils.fn.html#.addOrOverride": {
                         "ref": "FooUtils.fn.html#.addOrOverride",
@@ -19554,6 +21376,27 @@ window.lunrData = {
                       "FooUtils.transition.html#.start": {
                         "ref": "FooUtils.transition.html#.start",
                         "tf": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "n": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "w": {
+                    "docs": {
+                      "FooUtils.FullscreenAPI.html#exit": {
+                        "ref": "FooUtils.FullscreenAPI.html#exit",
+                        "tf": 8.75
+                      },
+                      "FooUtils.FullscreenAPI.html#toggle": {
+                        "ref": "FooUtils.FullscreenAPI.html#toggle",
+                        "tf": 10
                       }
                     }
                   }
@@ -19627,6 +21470,40 @@ window.lunrData = {
                     "ref": "FooUtils.fn.html#.check",
                     "tf": 1.0638297872340425
                   }
+                },
+                "p": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "FooUtils.FullscreenAPI.html": {
+                          "ref": "FooUtils.FullscreenAPI.html",
+                          "tf": 8.75
+                        },
+                        "FooUtils.FullscreenAPI.html#destroy": {
+                          "ref": "FooUtils.FullscreenAPI.html#destroy",
+                          "tf": 8.75
+                        },
+                        "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                          "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                          "tf": 7.777777777777778
+                        },
+                        "FooUtils.animation.html#.requestFrame": {
+                          "ref": "FooUtils.animation.html#.requestFrame",
+                          "tf": 14
+                        },
+                        "FooUtils.animation.html#.cancelFrame": {
+                          "ref": "FooUtils.animation.html#.cancelFrame",
+                          "tf": 14
+                        },
+                        "FooUtils.html#.fullscreen": {
+                          "ref": "FooUtils.html#.fullscreen",
+                          "tf": 14
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -19654,6 +21531,10 @@ window.lunrData = {
                         "FooUtils.Event.html#isDefaultPrevented": {
                           "ref": "FooUtils.Event.html#isDefaultPrevented",
                           "tf": 14
+                        },
+                        "FooUtils.FullscreenAPI.html#supported": {
+                          "ref": "FooUtils.FullscreenAPI.html#supported",
+                          "tf": 11.666666666666666
                         },
                         "FooUtils.Timer.html#isRunning": {
                           "ref": "FooUtils.Timer.html#isRunning",
@@ -19820,13 +21701,13 @@ window.lunrData = {
                     "ref": "FooUtils.animation.html#.duration",
                     "tf": 10
                   },
+                  "FooUtils.animation.html#.iterations": {
+                    "ref": "FooUtils.animation.html#.iterations",
+                    "tf": 8.75
+                  },
                   "FooUtils.fn.html#.check": {
                     "ref": "FooUtils.fn.html#.check",
                     "tf": 27.01621073961499
-                  },
-                  "FooUtils.is.html#.array": {
-                    "ref": "FooUtils.is.html#.array",
-                    "tf": 48.33333333333333
                   },
                   "FooUtils.is.html#.boolean": {
                     "ref": "FooUtils.is.html#.boolean",
@@ -19852,6 +21733,10 @@ window.lunrData = {
                     "ref": "FooUtils.is.html#.hash",
                     "tf": 48.33333333333333
                   },
+                  "FooUtils.is.html#.jq": {
+                    "ref": "FooUtils.is.html#.jq",
+                    "tf": 42.5
+                  },
                   "FooUtils.is.html#.number": {
                     "ref": "FooUtils.is.html#.number",
                     "tf": 48.33333333333333
@@ -19876,9 +21761,9 @@ window.lunrData = {
                     "ref": "FooUtils.is.html#.undef",
                     "tf": 48.33333333333333
                   },
-                  "FooUtils.is.html#.jq": {
-                    "ref": "FooUtils.is.html#.jq",
-                    "tf": 42.5
+                  "FooUtils.is.html#.array": {
+                    "ref": "FooUtils.is.html#.array",
+                    "tf": 48.33333333333333
                   },
                   "FooUtils.html#.src": {
                     "ref": "FooUtils.html#.src",
@@ -19935,6 +21820,14 @@ window.lunrData = {
                   "docs": {},
                   "u": {
                     "docs": {
+                      "FooUtils.FullscreenAPI.html#apis": {
+                        "ref": "FooUtils.FullscreenAPI.html#apis",
+                        "tf": 10
+                      },
+                      "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+                        "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+                        "tf": 7.777777777777778
+                      },
                       "FooUtils.fn.html#.enqueue": {
                         "ref": "FooUtils.fn.html#.enqueue",
                         "tf": 0.6493506493506493
@@ -20061,17 +21954,21 @@ window.lunrData = {
                         "ref": "FooUtils.animation.html#.duration",
                         "tf": 10
                       },
+                      "FooUtils.animation.html#.iterations": {
+                        "ref": "FooUtils.animation.html#.iterations",
+                        "tf": 8.75
+                      },
                       "FooUtils.is.html#.empty": {
                         "ref": "FooUtils.is.html#.empty",
                         "tf": 2.7777777777777777
                       },
-                      "FooUtils.is.html#.promise": {
-                        "ref": "FooUtils.is.html#.promise",
-                        "tf": 2.7027027027027026
-                      },
                       "FooUtils.is.html#.jq": {
                         "ref": "FooUtils.is.html#.jq",
                         "tf": 17.5
+                      },
+                      "FooUtils.is.html#.promise": {
+                        "ref": "FooUtils.is.html#.promise",
+                        "tf": 2.7027027027027026
                       },
                       "FooUtils.html": {
                         "ref": "FooUtils.html",
@@ -20105,7 +22002,7 @@ window.lunrData = {
                       "docs": {
                         "FooUtils.animation.html#.start": {
                           "ref": "FooUtils.animation.html#.start",
-                          "tf": 1
+                          "tf": 0.78125
                         },
                         "FooUtils.transition.html#.start": {
                           "ref": "FooUtils.transition.html#.start",
@@ -20217,7 +22114,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 1957
+      "length": 2146
     },
     "corpusTokens": [
       "0",
@@ -20228,6 +22125,7 @@ window.lunrData = {
       "_super",
       "abil",
       "access",
+      "accordingli",
       "accur",
       "action",
       "actual",
@@ -20240,8 +22138,11 @@ window.lunrData = {
       "alway",
       "amount",
       "anim",
+      "animation.cancelfram",
       "animation.dur",
       "animation.end",
+      "animation.iter",
+      "animation.requestfram",
       "animation.start",
       "animation.support",
       "animationend",
@@ -20249,6 +22150,7 @@ window.lunrData = {
       "animation~startcallback",
       "anoth",
       "anyth",
+      "api",
       "append",
       "appli",
       "arg",
@@ -20277,6 +22179,7 @@ window.lunrData = {
       "behav",
       "best",
       "between",
+      "bind",
       "bit",
       "blank",
       "boolean",
@@ -20288,14 +22191,18 @@ window.lunrData = {
       "bounds.extend",
       "bounds.overrid",
       "browser",
+      "browserapi",
       "call",
       "callback",
       "camel",
       "can't",
+      "cancelanimationfram",
+      "cancelfram",
       "canrestart",
       "canresum",
       "case",
       "caus",
+      "chang",
       "check",
       "child",
       "class",
@@ -20307,6 +22214,7 @@ window.lunrData = {
       "common",
       "compar",
       "comparison",
+      "compat",
       "complet",
       "compon",
       "componenta",
@@ -20331,6 +22239,7 @@ window.lunrData = {
       "countup",
       "cover",
       "creat",
+      "cross",
       "css",
       "ctx",
       "current",
@@ -20399,6 +22308,7 @@ window.lunrData = {
       "exampl",
       "execut",
       "exist",
+      "exit",
       "expect",
       "expir",
       "expos",
@@ -20439,8 +22349,11 @@ window.lunrData = {
       "follow",
       "fooutil",
       "fooutils.anim",
+      "fooutils.animation.cancelfram",
       "fooutils.animation.dur",
       "fooutils.animation.end",
+      "fooutils.animation.iter",
+      "fooutils.animation.requestfram",
       "fooutils.animation.start",
       "fooutils.animation.support",
       "fooutils.animation~startcallback",
@@ -20494,6 +22407,18 @@ window.lunrData = {
       "fooutils.fn.resolvewith",
       "fooutils.fn.throttl",
       "fooutils.fn.when",
+      "fooutils.fullscreen",
+      "fooutils.fullscreenapi",
+      "fooutils.fullscreenapi#api",
+      "fooutils.fullscreenapi#destroy",
+      "fooutils.fullscreenapi#el",
+      "fooutils.fullscreenapi#exit",
+      "fooutils.fullscreenapi#getapi",
+      "fooutils.fullscreenapi#request",
+      "fooutils.fullscreenapi#support",
+      "fooutils.fullscreenapi#toggl",
+      "fooutils.fullscreenapi~browserapi",
+      "fooutils.fullscreenapi~resolv",
       "fooutils.getelementbound",
       "fooutils.getviewportbound",
       "fooutils.i",
@@ -20565,14 +22490,28 @@ window.lunrData = {
       "fooutils~readycallback",
       "format",
       "formatt",
+      "free",
       "fresh",
       "friendli",
       "full",
+      "fullscreen",
+      "fullscreenapi",
+      "fullscreenapi#api",
+      "fullscreenapi#destroy",
+      "fullscreenapi#el",
+      "fullscreenapi#exit",
+      "fullscreenapi#getapi",
+      "fullscreenapi#request",
+      "fullscreenapi#support",
+      "fullscreenapi#toggl",
+      "fullscreenapi~browserapi",
+      "fullscreenapi~resolv",
       "function",
       "function(arg1",
       "function.prototype.appli",
       "gener",
       "get",
+      "getapi",
       "getelementbound",
       "getviewportbound",
       "given",
@@ -20625,6 +22564,7 @@ window.lunrData = {
       "isrun",
       "issu",
       "it'",
+      "iter",
       "itself",
       "javascript",
       "join",
@@ -20652,6 +22592,7 @@ window.lunrData = {
       "logf",
       "look",
       "lower",
+      "lt;nullable&gt",
       "lt;readonly&gt",
       "lt;static",
       "lt;static&gt",
@@ -20666,6 +22607,7 @@ window.lunrData = {
       "messag",
       "method",
       "millisecond",
+      "mode",
       "more",
       "multipl",
       "myclass.prototyp",
@@ -20676,6 +22618,7 @@ window.lunrData = {
       "net",
       "never",
       "new",
+      "null",
       "number",
       "obj",
       "obj.creat",
@@ -20714,6 +22657,7 @@ window.lunrData = {
       "pass",
       "paus",
       "perform",
+      "place",
       "placehold",
       "plugin",
       "pre",
@@ -20760,6 +22704,10 @@ window.lunrData = {
       "renderheight",
       "renderwidth",
       "replac",
+      "request",
+      "requestanimationfram",
+      "requestfram",
+      "requestid",
       "requir",
       "reset",
       "resolv",
@@ -20796,6 +22744,7 @@ window.lunrData = {
       "singl",
       "size",
       "somemethod",
+      "specif",
       "specifi",
       "split",
       "src",
@@ -20831,6 +22780,7 @@ window.lunrData = {
       "successfulli",
       "suppli",
       "support",
+      "switch",
       "sync",
       "taken",
       "target",
@@ -20879,6 +22829,7 @@ window.lunrData = {
       "two",
       "type",
       "typedef",
+      "unbind",
       "undef",
       "undefin",
       "uniqu",
@@ -20908,10 +22859,12 @@ window.lunrData = {
       "way",
       "whether",
       "whole",
+      "window",
       "within",
       "word",
       "work",
       "wrap",
+      "wrapper",
       "write"
     ],
     "pipeline": [
@@ -21331,6 +23284,127 @@ window.lunrData = {
       "summary": "Overrides a single method on this class.",
       "description": "This is a helper method for overriding a single function of a FooUtils.Class or one of its child classes. This uses the FooUtils.fn.addOrOverride method internally and simply provides the correct prototype."
     },
+    "FooUtils.FullscreenAPI.html": {
+      "id": "FooUtils.FullscreenAPI.html",
+      "kind": "class",
+      "title": "FooUtils.FullscreenAPI",
+      "longname": "FooUtils.FullscreenAPI",
+      "name": "FullscreenAPI",
+      "tags": "FooUtils.FullscreenAPI FullscreenAPI",
+      "summary": "A wrapper around the fullscreen API to ensure cross browser compatibility.",
+      "description": "",
+      "body": ""
+    },
+    "FooUtils.FullscreenAPI.html#apis": {
+      "id": "FooUtils.FullscreenAPI.html#apis",
+      "kind": "member",
+      "title": "apis :Object",
+      "longname": "FooUtils.FullscreenAPI#apis",
+      "name": "apis",
+      "tags": "FooUtils.FullscreenAPI#apis FullscreenAPI#apis apis",
+      "summary": "Contains the various browser specific method and event names.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#api": {
+      "id": "FooUtils.FullscreenAPI.html#api",
+      "kind": "member",
+      "title": "&lt;nullable&gt; api :BrowserAPI",
+      "longname": "FooUtils.FullscreenAPI#api",
+      "name": "api",
+      "tags": "FooUtils.FullscreenAPI#api FullscreenAPI#api api",
+      "summary": "The current browsers specific method and event names.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#supported": {
+      "id": "FooUtils.FullscreenAPI.html#supported",
+      "kind": "member",
+      "title": "supported :boolean",
+      "longname": "FooUtils.FullscreenAPI#supported",
+      "name": "supported",
+      "tags": "FooUtils.FullscreenAPI#supported FullscreenAPI#supported supported",
+      "summary": "Whether or not the fullscreen API is supported in the current browser.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#destroy": {
+      "id": "FooUtils.FullscreenAPI.html#destroy",
+      "kind": "function",
+      "title": "destroy() → {boolean}",
+      "longname": "FooUtils.FullscreenAPI#destroy",
+      "name": "destroy",
+      "tags": "FooUtils.FullscreenAPI#destroy FullscreenAPI#destroy destroy",
+      "summary": "Destroys the current wrapper unbinding events and freeing up resources.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#getAPI": {
+      "id": "FooUtils.FullscreenAPI.html#getAPI",
+      "kind": "function",
+      "title": "getAPI() → {BrowserAPI}",
+      "longname": "FooUtils.FullscreenAPI#getAPI",
+      "name": "getAPI",
+      "tags": "FooUtils.FullscreenAPI#getAPI FullscreenAPI#getAPI getAPI",
+      "summary": "Fetches the correct API for the current browser.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#element": {
+      "id": "FooUtils.FullscreenAPI.html#element",
+      "kind": "function",
+      "title": "element() → {Element}",
+      "longname": "FooUtils.FullscreenAPI#element",
+      "name": "element",
+      "tags": "FooUtils.FullscreenAPI#element FullscreenAPI#element element",
+      "summary": "Gets the current fullscreen element or null.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#request": {
+      "id": "FooUtils.FullscreenAPI.html#request",
+      "kind": "function",
+      "title": "request( element ) → {Promise}",
+      "longname": "FooUtils.FullscreenAPI#request",
+      "name": "request",
+      "tags": "FooUtils.FullscreenAPI#request FullscreenAPI#request request",
+      "summary": "Requests the browser to place the specified element into fullscreen mode.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#exit": {
+      "id": "FooUtils.FullscreenAPI.html#exit",
+      "kind": "function",
+      "title": "exit() → {Promise}",
+      "longname": "FooUtils.FullscreenAPI#exit",
+      "name": "exit",
+      "tags": "FooUtils.FullscreenAPI#exit FullscreenAPI#exit exit",
+      "summary": "Requests that the browser switch from fullscreen mode back to windowed mode.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#toggle": {
+      "id": "FooUtils.FullscreenAPI.html#toggle",
+      "kind": "function",
+      "title": "toggle( element ) → {Promise}",
+      "longname": "FooUtils.FullscreenAPI#toggle",
+      "name": "toggle",
+      "tags": "FooUtils.FullscreenAPI#toggle FullscreenAPI#toggle toggle",
+      "summary": "Toggles the supplied element between fullscreen and windowed modes.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#~BrowserAPI": {
+      "id": "FooUtils.FullscreenAPI.html#~BrowserAPI",
+      "kind": "typedef",
+      "title": "BrowserAPI",
+      "longname": "FooUtils.FullscreenAPI~BrowserAPI",
+      "name": "BrowserAPI",
+      "tags": "FooUtils.FullscreenAPI~BrowserAPI FullscreenAPI~BrowserAPI",
+      "summary": "An object containing a single browsers various methods and events needed for this wrapper.",
+      "description": ""
+    },
+    "FooUtils.FullscreenAPI.html#~resolver": {
+      "id": "FooUtils.FullscreenAPI.html#~resolver",
+      "kind": "typedef",
+      "title": "resolver( def )",
+      "longname": "FooUtils.FullscreenAPI~resolver",
+      "name": "resolver",
+      "tags": "FooUtils.FullscreenAPI~resolver FullscreenAPI~resolver",
+      "summary": "Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.",
+      "description": ""
+    },
     "FooUtils.Timer.html": {
       "id": "FooUtils.Timer.html",
       "kind": "class",
@@ -21503,6 +23577,26 @@ window.lunrData = {
       "summary": "The animationend event name for the current browser.",
       "description": "Depending on the browser this returns one of the following values: `\"animationend\"``\"webkitAnimationEnd\"``\"msAnimationEnd\"``\"oAnimationEnd\"``null` - If the browser doesn't support animations"
     },
+    "FooUtils.animation.html#.requestFrame": {
+      "id": "FooUtils.animation.html#.requestFrame",
+      "kind": "function",
+      "title": "&lt;static&gt; requestFrame( callback ) → {number}",
+      "longname": "FooUtils.animation.requestFrame",
+      "name": "requestFrame",
+      "tags": "FooUtils.animation.requestFrame animation.requestFrame requestFrame",
+      "summary": "A cross browser wrapper for the requestAnimationFrame method.",
+      "description": ""
+    },
+    "FooUtils.animation.html#.cancelFrame": {
+      "id": "FooUtils.animation.html#.cancelFrame",
+      "kind": "function",
+      "title": "&lt;static&gt; cancelFrame( requestID )",
+      "longname": "FooUtils.animation.cancelFrame",
+      "name": "cancelFrame",
+      "tags": "FooUtils.animation.cancelFrame animation.cancelFrame cancelFrame",
+      "summary": "A cross browser wrapper for the cancelAnimationFrame method.",
+      "description": ""
+    },
     "FooUtils.animation.html#.duration": {
       "id": "FooUtils.animation.html#.duration",
       "kind": "function",
@@ -21513,6 +23607,16 @@ window.lunrData = {
       "summary": "Gets the animation-duration value for the supplied jQuery element.",
       "description": ""
     },
+    "FooUtils.animation.html#.iterations": {
+      "id": "FooUtils.animation.html#.iterations",
+      "kind": "function",
+      "title": "&lt;static&gt; iterations( $element [, def ] ) → {number}",
+      "longname": "FooUtils.animation.iterations",
+      "name": "iterations",
+      "tags": "FooUtils.animation.iterations animation.iterations iterations",
+      "summary": "Gets the animation-iteration-count value for the supplied jQuery element.",
+      "description": ""
+    },
     "FooUtils.animation.html#.start": {
       "id": "FooUtils.animation.html#.start",
       "kind": "function",
@@ -21521,7 +23625,7 @@ window.lunrData = {
       "name": "start",
       "tags": "FooUtils.animation.start animation.start start",
       "summary": "Start a animation by toggling the supplied className on the $element.",
-      "description": "This method lets us use CSS animations by toggling a class and using the animationend event to perform additional actions once the animation has completed across all browsers. In browsers that do not support animations this method would behave the same as if just calling jQuery's .toggleClass method. The last parameter timeout is used to create a timer that behaves as a safety net in case the animationend event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time."
+      "description": "This method lets us use CSS animations by toggling a class and using the animationend event to perform additional actions once the animation has completed across all browsers. In browsers that do not support animations this method would behave the same as if just calling jQuery's .toggleClass method. The last parameter timeout is used to create a timer that behaves as a safety net in case the animationend event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time. If no timeout is supplied the animation-duration and animation-iterations-count must be set on the $element before this method is called so one can be generated."
     },
     "FooUtils.animation.html#~startCallback": {
       "id": "FooUtils.animation.html#~startCallback",
@@ -21685,16 +23789,6 @@ window.lunrData = {
       "description": "",
       "body": ""
     },
-    "FooUtils.is.html#.array": {
-      "id": "FooUtils.is.html#.array",
-      "kind": "function",
-      "title": "&lt;static&gt; array( value ) → {boolean}",
-      "longname": "FooUtils.is.array",
-      "name": "array",
-      "tags": "FooUtils.is.array is.array array",
-      "summary": "Checks if the value is an array.",
-      "description": ""
-    },
     "FooUtils.is.html#.boolean": {
       "id": "FooUtils.is.html#.boolean",
       "kind": "function",
@@ -21753,6 +23847,16 @@ window.lunrData = {
       "name": "hash",
       "tags": "FooUtils.is.hash is.hash hash",
       "summary": "Checks if the value is a hash.",
+      "description": ""
+    },
+    "FooUtils.is.html#.jq": {
+      "id": "FooUtils.is.html#.jq",
+      "kind": "function",
+      "title": "&lt;static&gt; jq( value ) → {boolean}",
+      "longname": "FooUtils.is.jq",
+      "name": "jq",
+      "tags": "FooUtils.is.jq is.jq jq",
+      "summary": "Checks if the value is a jQuery object.",
       "description": ""
     },
     "FooUtils.is.html#.number": {
@@ -21815,14 +23919,14 @@ window.lunrData = {
       "summary": "Checks if the value is undefined.",
       "description": ""
     },
-    "FooUtils.is.html#.jq": {
-      "id": "FooUtils.is.html#.jq",
+    "FooUtils.is.html#.array": {
+      "id": "FooUtils.is.html#.array",
       "kind": "function",
-      "title": "&lt;static&gt; jq( value ) → {boolean}",
-      "longname": "FooUtils.is.jq",
-      "name": "jq",
-      "tags": "FooUtils.is.jq is.jq jq",
-      "summary": "Checks if the value is a jQuery object.",
+      "title": "&lt;static&gt; array( value ) → {boolean}",
+      "longname": "FooUtils.is.array",
+      "name": "array",
+      "tags": "FooUtils.is.array is.array array",
+      "summary": "Checks if the value is an array.",
       "description": ""
     },
     "FooUtils.html": {
@@ -21854,6 +23958,16 @@ window.lunrData = {
       "name": "version",
       "tags": "FooUtils.version version",
       "summary": "The version of this library.",
+      "description": ""
+    },
+    "FooUtils.html#.fullscreen": {
+      "id": "FooUtils.html#.fullscreen",
+      "kind": "member",
+      "title": "&lt;static&gt; fullscreen :FooUtils.FullscreenAPI",
+      "longname": "FooUtils.fullscreen",
+      "name": "fullscreen",
+      "tags": "FooUtils.fullscreen fullscreen",
+      "summary": "A cross browser wrapper for the fullscreen API.",
       "description": ""
     },
     "FooUtils.html#.versionCompare": {
