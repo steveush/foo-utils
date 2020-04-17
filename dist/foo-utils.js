@@ -1,8 +1,8 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.7
+* @version 0.1.8
 * @link https://github.com/steveush/foo-utils#readme
-* @copyright Steve Usher 2019
+* @copyright Steve Usher 2020
 * @license Released under the GPL-3.0 license.
 */
 /**
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.7'
+		version: '0.1.8'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1225,7 +1225,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1258,6 +1258,32 @@
 			if (_is.string(p2)) return p2.toUpperCase();
 			return p1.toLowerCase();
 		});
+	};
+
+	/**
+	 * @summary Converts the given `target` to kebab case. Non-alphanumeric characters are converted to `-`.
+	 * @memberof FooUtils.str
+	 * @function kebab
+	 * @param {string} target - The string to kebab case.
+	 * @returns {string}
+	 * @example {@run true}
+	 * // alias the FooUtils.str namespace
+	 * var _str = FooUtils.str;
+	 *
+	 * console.log( _str.kebab( "max-width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "max--width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "max Width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "Max_width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "MaxWidth" ) ); // => "max-width"
+	 * console.log( _str.kebab( "Non-alphanumeric ch@racters are converted to dashes!" ) ); // => "non-alphanumeric-ch-racters-are-converted-to-dashes"
+	 */
+	_.str.kebab = function(target){
+		if (_is.empty(target)) return target;
+		return target
+			.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)
+			.filter(Boolean)
+			.map(function(x){ return x.toLowerCase(); })
+			.join('-');
 	};
 
 	/**
@@ -1540,7 +1566,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1872,7 +1898,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2153,7 +2179,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS animation property.
@@ -2379,7 +2405,7 @@
 );
 (function($, _, _is, _animation){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2553,7 +2579,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2692,7 +2718,7 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.7') return;
+    if (_.version !== '0.1.8') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2954,7 +2980,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -3055,7 +3081,7 @@
 );
 (function($, _, _is, _fn, _obj){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.7') return;
+    if (_.version !== '0.1.8') return;
 
     _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
         /**
@@ -3349,7 +3375,7 @@
 
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3672,7 +3698,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.7') return;
+	if (_.version !== '0.1.8') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -3778,7 +3804,7 @@
 );
 (function($, _, _fn){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.7') return;
+    if (_.version !== '0.1.8') return;
 
     _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
         /**
