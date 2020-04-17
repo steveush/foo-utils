@@ -11,6 +11,17 @@ QUnit.test('camel', function (assert) {
 
 });
 
+QUnit.test('kebab', function (assert) {
+
+	assert.equal( FooUtils.str.kebab( "max-width" ), "max-width" );
+	assert.equal( FooUtils.str.kebab( "max--width" ), "max-width" );
+	assert.equal( FooUtils.str.kebab( "max Width" ), "max-width" );
+	assert.equal( FooUtils.str.kebab( "Max_width" ), "max-width" );
+	assert.equal( FooUtils.str.kebab( "MaxWidth" ), "max-width" );
+	assert.equal( FooUtils.str.kebab( "Non-alphanumeric ch@racters are converted to dashes!" ), "non-alphanumeric-ch-racters-are-converted-to-dashes" );
+
+});
+
 QUnit.test('contains', function (assert) {
 
 	// create a string to test

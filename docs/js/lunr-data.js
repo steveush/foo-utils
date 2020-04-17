@@ -2065,6 +2065,21 @@ window.lunrData = {
           "string",
           "target"
         ],
+        "FooUtils.str.html#.kebab": [
+          "alphanumer",
+          "case",
+          "charact",
+          "convert",
+          "fooutils.str.kebab",
+          "function",
+          "given",
+          "kebab",
+          "lt;static&gt",
+          "non",
+          "str.kebab",
+          "string",
+          "target"
+        ],
         "FooUtils.str.html#.contains": [
           "boolean",
           "check",
@@ -2449,7 +2464,7 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 146
+      "length": 147
     },
     "tokenStore": {
       "root": {
@@ -3192,6 +3207,10 @@ window.lunrData = {
                         "FooUtils.str.html#.camel": {
                           "ref": "FooUtils.str.html#.camel",
                           "tf": 14
+                        },
+                        "FooUtils.str.html#.kebab": {
+                          "ref": "FooUtils.str.html#.kebab",
+                          "tf": 15.555555555555555
                         }
                       }
                     }
@@ -3501,6 +3520,23 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "r": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "c": {
+                    "docs": {},
+                    "t": {
+                      "docs": {
+                        "FooUtils.str.html#.kebab": {
+                          "ref": "FooUtils.str.html#.kebab",
+                          "tf": 7.777777777777778
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -3723,6 +3759,10 @@ window.lunrData = {
                   "FooUtils.str.html#.camel": {
                     "ref": "FooUtils.str.html#.camel",
                     "tf": 14
+                  },
+                  "FooUtils.str.html#.kebab": {
+                    "ref": "FooUtils.str.html#.kebab",
+                    "tf": 7.777777777777778
                   },
                   "FooUtils.transition.html#.start": {
                     "ref": "FooUtils.transition.html#.start",
@@ -6844,6 +6884,26 @@ window.lunrData = {
                                       }
                                     }
                                   },
+                                  "k": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "b": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "b": {
+                                            "docs": {
+                                              "FooUtils.str.html#.kebab": {
+                                                "ref": "FooUtils.str.html#.kebab",
+                                                "tf": 1100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
                                   "e": {
                                     "docs": {},
                                     "n": {
@@ -7724,6 +7784,10 @@ window.lunrData = {
                           },
                           "FooUtils.str.html#.camel": {
                             "ref": "FooUtils.str.html#.camel",
+                            "tf": 110
+                          },
+                          "FooUtils.str.html#.kebab": {
+                            "ref": "FooUtils.str.html#.kebab",
                             "tf": 110
                           },
                           "FooUtils.str.html#.contains": {
@@ -13206,6 +13270,10 @@ window.lunrData = {
                       "ref": "FooUtils.str.html#.camel",
                       "tf": 14
                     },
+                    "FooUtils.str.html#.kebab": {
+                      "ref": "FooUtils.str.html#.kebab",
+                      "tf": 7.777777777777778
+                    },
                     "FooUtils.str.html#.contains": {
                       "ref": "FooUtils.str.html#.contains",
                       "tf": 14
@@ -13786,6 +13854,10 @@ window.lunrData = {
                                   },
                                   "FooUtils.str.html#.camel": {
                                     "ref": "FooUtils.str.html#.camel",
+                                    "tf": 25
+                                  },
+                                  "FooUtils.str.html#.kebab": {
+                                    "ref": "FooUtils.str.html#.kebab",
                                     "tf": 25
                                   },
                                   "FooUtils.str.html#.contains": {
@@ -14524,6 +14596,17 @@ window.lunrData = {
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "n": {
+              "docs": {
+                "FooUtils.str.html#.kebab": {
+                  "ref": "FooUtils.str.html#.kebab",
+                  "tf": 7.777777777777778
                 }
               }
             }
@@ -15980,6 +16063,10 @@ window.lunrData = {
                         "ref": "FooUtils.str.html#.camel",
                         "tf": 25
                       },
+                      "FooUtils.str.html#.kebab": {
+                        "ref": "FooUtils.str.html#.kebab",
+                        "tf": 25
+                      },
                       "FooUtils.str.html#.containsWord": {
                         "ref": "FooUtils.str.html#.containsWord",
                         "tf": 3.3333333333333335
@@ -16106,6 +16193,26 @@ window.lunrData = {
                                   }
                                 }
                               }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "k": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "b": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "b": {
+                          "docs": {
+                            "FooUtils.str.html#.kebab": {
+                              "ref": "FooUtils.str.html#.kebab",
+                              "tf": 100
                             }
                           }
                         }
@@ -16977,6 +17084,35 @@ window.lunrData = {
                     "FooUtils.fn.html#.CONTAINS_SUPER": {
                       "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                       "tf": 1.5625
+                    }
+                  }
+                }
+              }
+            },
+            "p": {
+              "docs": {},
+              "h": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "u": {
+                      "docs": {},
+                      "m": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "r": {
+                            "docs": {
+                              "FooUtils.str.html#.kebab": {
+                                "ref": "FooUtils.str.html#.kebab",
+                                "tf": 7.777777777777778
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -20455,6 +20591,10 @@ window.lunrData = {
                         "ref": "FooUtils.str.html#.camel",
                         "tf": 39
                       },
+                      "FooUtils.str.html#.kebab": {
+                        "ref": "FooUtils.str.html#.kebab",
+                        "tf": 32.77777777777778
+                      },
                       "FooUtils.str.html#.contains": {
                         "ref": "FooUtils.str.html#.contains",
                         "tf": 30.666666666666664
@@ -21622,6 +21762,20 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "b": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "b": {
+                  "docs": {
+                    "FooUtils.str.html#.kebab": {
+                      "ref": "FooUtils.str.html#.kebab",
+                      "tf": 632.7777777777778
+                    }
+                  }
+                }
+              }
             }
           },
           "l": {
@@ -22114,7 +22268,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2146
+      "length": 2159
     },
     "corpusTokens": [
       "0",
@@ -22135,6 +22289,7 @@ window.lunrData = {
       "addoroverrid",
       "allow",
       "along",
+      "alphanumer",
       "alway",
       "amount",
       "anim",
@@ -22203,6 +22358,7 @@ window.lunrData = {
       "case",
       "caus",
       "chang",
+      "charact",
       "check",
       "child",
       "class",
@@ -22457,6 +22613,7 @@ window.lunrData = {
       "fooutils.str.format",
       "fooutils.str.from",
       "fooutils.str.join",
+      "fooutils.str.kebab",
       "fooutils.str.startswith",
       "fooutils.str.until",
       "fooutils.tim",
@@ -22572,6 +22729,7 @@ window.lunrData = {
       "jqueri",
       "jquery'",
       "jquery.def",
+      "kebab",
       "key",
       "keyword",
       "klass",
@@ -22618,6 +22776,7 @@ window.lunrData = {
       "net",
       "never",
       "new",
+      "non",
       "null",
       "number",
       "obj",
@@ -22769,6 +22928,7 @@ window.lunrData = {
       "str.format",
       "str.from",
       "str.join",
+      "str.kebab",
       "str.startswith",
       "str.until",
       "string",
@@ -24150,6 +24310,16 @@ window.lunrData = {
       "name": "camel",
       "tags": "FooUtils.str.camel str.camel camel",
       "summary": "Converts the given target to camel case.",
+      "description": ""
+    },
+    "FooUtils.str.html#.kebab": {
+      "id": "FooUtils.str.html#.kebab",
+      "kind": "function",
+      "title": "&lt;static&gt; kebab( target ) → {string}",
+      "longname": "FooUtils.str.kebab",
+      "name": "kebab",
+      "tags": "FooUtils.str.kebab str.kebab kebab",
+      "summary": "Converts the given target to kebab case. Non-alphanumeric characters are converted to -.",
       "description": ""
     },
     "FooUtils.str.html#.contains": {
