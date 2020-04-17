@@ -36,6 +36,32 @@
 	};
 
 	/**
+	 * @summary Converts the given `target` to kebab case. Non-alphanumeric characters are converted to `-`.
+	 * @memberof FooUtils.str
+	 * @function kebab
+	 * @param {string} target - The string to kebab case.
+	 * @returns {string}
+	 * @example {@run true}
+	 * // alias the FooUtils.str namespace
+	 * var _str = FooUtils.str;
+	 *
+	 * console.log( _str.kebab( "max-width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "max--width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "max Width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "Max_width" ) ); // => "max-width"
+	 * console.log( _str.kebab( "MaxWidth" ) ); // => "max-width"
+	 * console.log( _str.kebab( "Non-alphanumeric ch@racters are converted to dashes!" ) ); // => "non-alphanumeric-ch-racters-are-converted-to-dashes"
+	 */
+	_.str.kebab = function(target){
+		if (_is.empty(target)) return target;
+		return target
+			.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)
+			.filter(Boolean)
+			.map(function(x){ return x.toLowerCase(); })
+			.join('-');
+	};
+
+	/**
 	 * @summary Checks if the `target` contains the given `substr`.
 	 * @memberof FooUtils.str
 	 * @function contains
