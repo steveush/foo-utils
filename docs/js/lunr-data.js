@@ -218,6 +218,16 @@ window.lunrData = {
           "singl",
           "us"
         ],
+        "FooUtils.Class.html#.bases": [
+          "array",
+          "array.&lt;fooutils.class&gt",
+          "base",
+          "class",
+          "class.bas",
+          "fooutils.class.bas",
+          "function",
+          "lt;static&gt"
+        ],
         "FooUtils.Debugger.html": [
           "abil",
           "actual",
@@ -2464,7 +2474,7 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 147
+      "length": 148
     },
     "tokenStore": {
       "root": {
@@ -2570,6 +2580,10 @@ window.lunrData = {
                     "FooUtils.Class.html#.override": {
                       "ref": "FooUtils.Class.html#.override",
                       "tf": 20.441176470588236
+                    },
+                    "FooUtils.Class.html#.bases": {
+                      "ref": "FooUtils.Class.html#.bases",
+                      "tf": 35
                     },
                     "FooUtils.Debugger.html": {
                       "ref": "FooUtils.Debugger.html",
@@ -2706,6 +2720,20 @@ window.lunrData = {
                                   }
                                 }
                               }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "b": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "s": {
+                          "docs": {
+                            "FooUtils.Class.html#.bases": {
+                              "ref": "FooUtils.Class.html#.bases",
+                              "tf": 100
                             }
                           }
                         }
@@ -4271,6 +4299,20 @@ window.lunrData = {
                                                     }
                                                   }
                                                 }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "b": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {
+                                              "FooUtils.Class.html#.bases": {
+                                                "ref": "FooUtils.Class.html#.bases",
+                                                "tf": 1100
                                               }
                                             }
                                           }
@@ -7469,6 +7511,10 @@ window.lunrData = {
                           "FooUtils.Class.html#.override": {
                             "ref": "FooUtils.Class.html#.override",
                             "tf": 112.94117647058823
+                          },
+                          "FooUtils.Class.html#.bases": {
+                            "ref": "FooUtils.Class.html#.bases",
+                            "tf": 110
                           },
                           "FooUtils.Debugger.html#enable": {
                             "ref": "FooUtils.Debugger.html#enable",
@@ -13644,6 +13690,10 @@ window.lunrData = {
                                     "ref": "FooUtils.Class.html#.override",
                                     "tf": 25
                                   },
+                                  "FooUtils.Class.html#.bases": {
+                                    "ref": "FooUtils.Class.html#.bases",
+                                    "tf": 33.33333333333333
+                                  },
                                   "FooUtils.Factory.html#.extend": {
                                     "ref": "FooUtils.Factory.html#.extend",
                                     "tf": 25
@@ -14943,6 +14993,10 @@ window.lunrData = {
                   "FooUtils.Class.html": {
                     "ref": "FooUtils.Class.html",
                     "tf": 11.470588235294118
+                  },
+                  "FooUtils.Class.html#.bases": {
+                    "ref": "FooUtils.Class.html#.bases",
+                    "tf": 650.8333333333334
                   },
                   "FooUtils.Event.html": {
                     "ref": "FooUtils.Event.html",
@@ -17623,94 +17677,261 @@ window.lunrData = {
               }
             }
           },
-          "b": {
+          "r": {
             "docs": {},
-            "i": {
+            "r": {
               "docs": {},
-              "l": {
-                "docs": {
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
-                  }
-                }
-              }
-            }
-          },
-          "c": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "u": {
+              "a": {
                 "docs": {},
-                "a": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 1.282051282051282
-                      },
-                      "FooUtils.fn.html#.check": {
-                        "ref": "FooUtils.fn.html#.check",
-                        "tf": 1.0638297872340425
-                      }
+                "y": {
+                  "docs": {
+                    "FooUtils.Class.html#.bases": {
+                      "ref": "FooUtils.Class.html#.bases",
+                      "tf": 17.5
+                    },
+                    "FooUtils.Factory.html#load": {
+                      "ref": "FooUtils.Factory.html#load",
+                      "tf": 2.083333333333333
+                    },
+                    "FooUtils.Factory.html#names": {
+                      "ref": "FooUtils.Factory.html#names",
+                      "tf": 17.5
+                    },
+                    "FooUtils.fn.html#.arg2arr": {
+                      "ref": "FooUtils.fn.html#.arg2arr",
+                      "tf": 42.22222222222222
+                    },
+                    "FooUtils.fn.html#.enqueue": {
+                      "ref": "FooUtils.fn.html#.enqueue",
+                      "tf": 0.6493506493506493
+                    },
+                    "FooUtils.is.html#.empty": {
+                      "ref": "FooUtils.is.html#.empty",
+                      "tf": 2.7777777777777777
+                    },
+                    "FooUtils.is.html#.array": {
+                      "ref": "FooUtils.is.html#.array",
+                      "tf": 648.3333333333334
+                    },
+                    "FooUtils.obj.html#.extend": {
+                      "ref": "FooUtils.obj.html#.extend",
+                      "tf": 5.263157894736842
+                    },
+                    "FooUtils.obj.html#.merge": {
+                      "ref": "FooUtils.obj.html#.merge",
+                      "tf": 5.555555555555555
+                    },
+                    "FooUtils.str.html#.format": {
+                      "ref": "FooUtils.str.html#.format",
+                      "tf": 1.3888888888888888
                     }
-                  }
-                }
-              },
-              "i": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "FooUtils.Event.html#defaultPrevented": {
-                        "ref": "FooUtils.Event.html#defaultPrevented",
-                        "tf": 17.5
-                      },
-                      "FooUtils.Event.html#preventDefault": {
-                        "ref": "FooUtils.Event.html#preventDefault",
-                        "tf": 10
-                      },
-                      "FooUtils.Event.html#isDefaultPrevented": {
-                        "ref": "FooUtils.Event.html#isDefaultPrevented",
-                        "tf": 14
-                      },
-                      "FooUtils.animation.html#.start": {
-                        "ref": "FooUtils.animation.html#.start",
-                        "tf": 0.78125
-                      },
-                      "FooUtils.transition.html#.start": {
-                        "ref": "FooUtils.transition.html#.start",
-                        "tf": 1
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "c": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "r": {
-                  "docs": {},
-                  "d": {
+                  },
+                  ".": {
                     "docs": {},
-                    "i": {
+                    "&": {
                       "docs": {},
-                      "n": {
+                      "l": {
                         "docs": {},
-                        "g": {
+                        "t": {
                           "docs": {},
-                          "l": {
+                          ";": {
                             "docs": {},
-                            "i": {
-                              "docs": {
-                                "FooUtils.FullscreenAPI.html#~resolver": {
-                                  "ref": "FooUtils.FullscreenAPI.html#~resolver",
-                                  "tf": 7
+                            "f": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "l": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            ".": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "s": {
+                                                        "docs": {},
+                                                        "&": {
+                                                          "docs": {},
+                                                          "g": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {
+                                                                "FooUtils.Class.html#.bases": {
+                                                                  "ref": "FooUtils.Class.html#.bases",
+                                                                  "tf": 33.33333333333333
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "o": {
+                              "docs": {},
+                              "b": {
+                                "docs": {},
+                                "j": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "&": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "FooUtils.Factory.html#load": {
+                                                  "ref": "FooUtils.Factory.html#load",
+                                                  "tf": 20
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "s": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "g": {
+                                        "docs": {},
+                                        "&": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {
+                                                "FooUtils.Factory.html#names": {
+                                                  "ref": "FooUtils.Factory.html#names",
+                                                  "tf": 33.33333333333333
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "p": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "y": {
+                                  "docs": {},
+                                  "p": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      ".": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "l": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  ".": {
+                                                    "docs": {},
+                                                    "c": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {
+                                                            "FooUtils.fn.html#.arg2arr": {
+                                                              "ref": "FooUtils.fn.html#.arg2arr",
+                                                              "tf": 5.555555555555555
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "j": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {
+                                                  "FooUtils.str.html#.join": {
+                                                    "ref": "FooUtils.str.html#.join",
+                                                    "tf": 2
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -17720,36 +17941,8 @@ window.lunrData = {
                     }
                   }
                 }
-              },
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.is.html#.promise": {
-                      "ref": "FooUtils.is.html#.promise",
-                      "tf": 1.3513513513513513
-                    }
-                  }
-                }
-              },
-              "e": {
-                "docs": {},
-                "s": {
-                  "docs": {},
-                  "s": {
-                    "docs": {
-                      "FooUtils.html#.ready": {
-                        "ref": "FooUtils.html#.ready",
-                        "tf": 11.666666666666666
-                      }
-                    }
-                  }
-                }
               }
-            }
-          },
-          "r": {
-            "docs": {},
+            },
             "g": {
               "1": {
                 "docs": {
@@ -17912,210 +18105,6 @@ window.lunrData = {
                 }
               }
             },
-            "r": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "y": {
-                  "docs": {
-                    "FooUtils.Factory.html#load": {
-                      "ref": "FooUtils.Factory.html#load",
-                      "tf": 2.083333333333333
-                    },
-                    "FooUtils.Factory.html#names": {
-                      "ref": "FooUtils.Factory.html#names",
-                      "tf": 17.5
-                    },
-                    "FooUtils.fn.html#.arg2arr": {
-                      "ref": "FooUtils.fn.html#.arg2arr",
-                      "tf": 42.22222222222222
-                    },
-                    "FooUtils.fn.html#.enqueue": {
-                      "ref": "FooUtils.fn.html#.enqueue",
-                      "tf": 0.6493506493506493
-                    },
-                    "FooUtils.is.html#.empty": {
-                      "ref": "FooUtils.is.html#.empty",
-                      "tf": 2.7777777777777777
-                    },
-                    "FooUtils.is.html#.array": {
-                      "ref": "FooUtils.is.html#.array",
-                      "tf": 648.3333333333334
-                    },
-                    "FooUtils.obj.html#.extend": {
-                      "ref": "FooUtils.obj.html#.extend",
-                      "tf": 5.263157894736842
-                    },
-                    "FooUtils.obj.html#.merge": {
-                      "ref": "FooUtils.obj.html#.merge",
-                      "tf": 5.555555555555555
-                    },
-                    "FooUtils.str.html#.format": {
-                      "ref": "FooUtils.str.html#.format",
-                      "tf": 1.3888888888888888
-                    }
-                  },
-                  ".": {
-                    "docs": {},
-                    "&": {
-                      "docs": {},
-                      "l": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          ";": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "b": {
-                                "docs": {},
-                                "j": {
-                                  "docs": {},
-                                  "e": {
-                                    "docs": {},
-                                    "c": {
-                                      "docs": {},
-                                      "t": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "FooUtils.Factory.html#load": {
-                                                  "ref": "FooUtils.Factory.html#load",
-                                                  "tf": 20
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "s": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "i": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "g": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "FooUtils.Factory.html#names": {
-                                                  "ref": "FooUtils.Factory.html#names",
-                                                  "tf": 33.33333333333333
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "p": {
-                      "docs": {},
-                      "r": {
-                        "docs": {},
-                        "o": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "y": {
-                                  "docs": {},
-                                  "p": {
-                                    "docs": {},
-                                    "e": {
-                                      "docs": {},
-                                      ".": {
-                                        "docs": {},
-                                        "s": {
-                                          "docs": {},
-                                          "l": {
-                                            "docs": {},
-                                            "i": {
-                                              "docs": {},
-                                              "c": {
-                                                "docs": {},
-                                                "e": {
-                                                  "docs": {},
-                                                  ".": {
-                                                    "docs": {},
-                                                    "c": {
-                                                      "docs": {},
-                                                      "a": {
-                                                        "docs": {},
-                                                        "l": {
-                                                          "docs": {
-                                                            "FooUtils.fn.html#.arg2arr": {
-                                                              "ref": "FooUtils.fn.html#.arg2arr",
-                                                              "tf": 5.555555555555555
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "j": {
-                                          "docs": {},
-                                          "o": {
-                                            "docs": {},
-                                            "i": {
-                                              "docs": {},
-                                              "n": {
-                                                "docs": {
-                                                  "FooUtils.str.html#.join": {
-                                                    "ref": "FooUtils.str.html#.join",
-                                                    "tf": 2
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "o": {
               "docs": {},
               "u": {
@@ -18131,6 +18120,131 @@ window.lunrData = {
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
                         "tf": 3.571428571428571
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "b": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "FooUtils.Debugger.html": {
+                    "ref": "FooUtils.Debugger.html",
+                    "tf": 1.282051282051282
+                  }
+                }
+              }
+            }
+          },
+          "c": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "FooUtils.Debugger.html": {
+                        "ref": "FooUtils.Debugger.html",
+                        "tf": 1.282051282051282
+                      },
+                      "FooUtils.fn.html#.check": {
+                        "ref": "FooUtils.fn.html#.check",
+                        "tf": 1.0638297872340425
+                      }
+                    }
+                  }
+                }
+              },
+              "i": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "FooUtils.Event.html#defaultPrevented": {
+                        "ref": "FooUtils.Event.html#defaultPrevented",
+                        "tf": 17.5
+                      },
+                      "FooUtils.Event.html#preventDefault": {
+                        "ref": "FooUtils.Event.html#preventDefault",
+                        "tf": 10
+                      },
+                      "FooUtils.Event.html#isDefaultPrevented": {
+                        "ref": "FooUtils.Event.html#isDefaultPrevented",
+                        "tf": 14
+                      },
+                      "FooUtils.animation.html#.start": {
+                        "ref": "FooUtils.animation.html#.start",
+                        "tf": 0.78125
+                      },
+                      "FooUtils.transition.html#.start": {
+                        "ref": "FooUtils.transition.html#.start",
+                        "tf": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "d": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "g": {
+                          "docs": {},
+                          "l": {
+                            "docs": {},
+                            "i": {
+                              "docs": {
+                                "FooUtils.FullscreenAPI.html#~resolver": {
+                                  "ref": "FooUtils.FullscreenAPI.html#~resolver",
+                                  "tf": 7
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.is.html#.promise": {
+                      "ref": "FooUtils.is.html#.promise",
+                      "tf": 1.3513513513513513
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "s": {
+                    "docs": {
+                      "FooUtils.html#.ready": {
+                        "ref": "FooUtils.html#.ready",
+                        "tf": 11.666666666666666
                       }
                     }
                   }
@@ -22268,7 +22382,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2159
+      "length": 2167
     },
     "corpusTokens": [
       "0",
@@ -22316,6 +22430,7 @@ window.lunrData = {
       "argument",
       "around",
       "array",
+      "array.&lt;fooutils.class&gt",
       "array.&lt;object&gt",
       "array.&lt;string&gt",
       "array.prototype.join",
@@ -22362,6 +22477,7 @@ window.lunrData = {
       "check",
       "child",
       "class",
+      "class.bas",
       "class.extend",
       "class.overrid",
       "classnam",
@@ -22519,6 +22635,7 @@ window.lunrData = {
       "fooutils.bounds.extend",
       "fooutils.bounds.overrid",
       "fooutils.class",
+      "fooutils.class.bas",
       "fooutils.class.extend",
       "fooutils.class.overrid",
       "fooutils.debugg",
@@ -23159,6 +23276,16 @@ window.lunrData = {
       "tags": "FooUtils.Class.override Class.override override",
       "summary": "Overrides a single method on this class.",
       "description": "This is a helper method for overriding a single function of a FooUtils.Class or one of its child classes. This uses the FooUtils.fn.addOrOverride method internally and simply provides the correct prototype."
+    },
+    "FooUtils.Class.html#.bases": {
+      "id": "FooUtils.Class.html#.bases",
+      "kind": "function",
+      "title": "&lt;static&gt; bases() → {Array.&lt;FooUtils.Class&gt;}",
+      "longname": "FooUtils.Class.bases",
+      "name": "bases",
+      "tags": "FooUtils.Class.bases Class.bases bases",
+      "summary": "Get an array of all base classes for this class.",
+      "description": ""
     },
     "FooUtils.Debugger.html": {
       "id": "FooUtils.Debugger.html",

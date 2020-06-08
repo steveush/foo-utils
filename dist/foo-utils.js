@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.8
+* @version 0.1.9
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2020
 * @license Released under the GPL-3.0 license.
@@ -53,7 +53,7 @@
 		 * @name version
 		 * @type {string}
 		 */
-		version: '0.1.8'
+		version: '0.1.9'
 	};
 
 	/**
@@ -149,7 +149,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -503,7 +503,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @memberof FooUtils
@@ -1086,7 +1086,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1225,7 +1225,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1566,7 +1566,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1898,7 +1898,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -2179,7 +2179,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS animation property.
@@ -2405,7 +2405,7 @@
 );
 (function($, _, _is, _animation){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2579,10 +2579,11 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
+	 * @memberof FooUtils.
 	 * @constructs FooUtils.Class
 	 * @description This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a `_super` method within the scope of any overriding methods that allows a simple way to execute the overridden function.
 	 *
@@ -2611,7 +2612,7 @@
 
 	/**
 	 * @summary Creates a new class that inherits from this one which in turn allows itself to be extended.
-	 * @memberof FooUtils.Class
+	 * @memberof FooUtils.Class.
 	 * @function extend
 	 * @param {Object} [definition] - An object containing any methods to implement/override.
 	 * @returns {function} A new class that inherits from the base class.
@@ -2674,12 +2675,14 @@
 		Class.prototype.constructor = _is.fn(proto.__ctor__) ? proto.__ctor__ : Class;
 		Class.extend = _.Class.extend;
 		Class.override = _.Class.override;
+		Class.bases = _.Class.bases;
+		Class.__base__ = this;
 		return Class;
 	};
 
 	/**
 	 * @summary Overrides a single method on this class.
-	 * @memberof FooUtils.Class
+	 * @memberof FooUtils.Class.
 	 * @function override
 	 * @param {string} name - The name of the function to override.
 	 * @param {function} fn - The new function to override with, the `_super` method will be made available within this function.
@@ -2708,6 +2711,33 @@
 		_fn.addOrOverride(this.prototype, name, fn);
 	};
 
+	/**
+	 * @summary The base class for this class.
+	 * @memberof FooUtils.Class.
+	 * @name __base__
+	 * @type {?FooUtils.Class}
+	 * @private
+	 */
+	_.Class.__base__ = null;
+
+	/**
+	 * @summary Get an array of all base classes for this class.
+	 * @memberof FooUtils.Class.
+	 * @function bases
+	 * @returns {FooUtils.Class[]}
+	 */
+	_.Class.bases = function(){
+		function _get(klass, result){
+			if (!_is.array(result)) result = [];
+			if (_is.fn(klass) && klass.__base__ !== null){
+				result.unshift(klass.__base__);
+				return _get(klass.__base__, result);
+			}
+			return result;
+		}
+		var initial = [];
+		return _get(this, initial);
+	};
 })(
 	// dependencies
 	FooUtils.$,
@@ -2718,7 +2748,7 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.8') return;
+    if (_.version !== '0.1.9') return;
 
     _.Event = _.Class.extend(/** @lends FooUtils.Event */{
         /**
@@ -2980,7 +3010,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
 		/**
@@ -3081,7 +3111,7 @@
 );
 (function($, _, _is, _fn, _obj){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.8') return;
+    if (_.version !== '0.1.9') return;
 
     _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
         /**
@@ -3375,7 +3405,7 @@
 
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
 		/**
@@ -3698,7 +3728,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.8') return;
+	if (_.version !== '0.1.9') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -3804,7 +3834,7 @@
 );
 (function($, _, _fn){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.8') return;
+    if (_.version !== '0.1.9') return;
 
     _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
         /**
