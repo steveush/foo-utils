@@ -1,6 +1,6 @@
 {
   "name": "foo-utils",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "title": "FooUtils",
   "description": "Contains common utility methods and classes used in our plugins.",
   "main": "dist/foo-utils.js",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/steveush/foo-utils#readme",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "foodoc": "0.0.9",

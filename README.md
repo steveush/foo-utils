@@ -41,6 +41,10 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.1.9
+
+* Added new `FooUtils.Class.bases` method to return an array of all inherited classes.
+
 ### 0.1.8
 
 * Added new `FooUtils.str.kebab` method for formatting strings to kebab case (this-is-kebab).
