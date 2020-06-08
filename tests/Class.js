@@ -71,3 +71,18 @@ QUnit.test(".override", function(assert){
 	assert.equal( klass.testString(), "original:modified", "klass.testString() == 'original:modified'" );
 
 });
+
+QUnit.test(".bases", function(assert){
+
+	var Klass1 = FooUtils.Class.extend({});
+	var bases1 = Klass1.bases();
+	assert.equal(bases1.length, 1, "bases.length === 1");
+	assert.equal(bases1[0], FooUtils.Class, "bases[0] === FooUtils.Class");
+
+	var Klass2 = Klass1.extend({});
+	var bases2 = Klass2.bases();
+	assert.equal(bases2.length, 2, "bases.length === 2");
+	assert.equal(bases2[0], FooUtils.Class, "bases[0] === FooUtils.Class");
+	assert.equal(bases2[1], Klass1, "bases[1] === Klass1");
+
+});

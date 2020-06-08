@@ -4,6 +4,7 @@
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
+	 * @memberof FooUtils.
 	 * @constructs FooUtils.Class
 	 * @description This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a `_super` method within the scope of any overriding methods that allows a simple way to execute the overridden function.
 	 *
@@ -32,7 +33,7 @@
 
 	/**
 	 * @summary Creates a new class that inherits from this one which in turn allows itself to be extended.
-	 * @memberof FooUtils.Class
+	 * @memberof FooUtils.Class.
 	 * @function extend
 	 * @param {Object} [definition] - An object containing any methods to implement/override.
 	 * @returns {function} A new class that inherits from the base class.
@@ -95,12 +96,14 @@
 		Class.prototype.constructor = _is.fn(proto.__ctor__) ? proto.__ctor__ : Class;
 		Class.extend = _.Class.extend;
 		Class.override = _.Class.override;
+		Class.bases = _.Class.bases;
+		Class.__base__ = this;
 		return Class;
 	};
 
 	/**
 	 * @summary Overrides a single method on this class.
-	 * @memberof FooUtils.Class
+	 * @memberof FooUtils.Class.
 	 * @function override
 	 * @param {string} name - The name of the function to override.
 	 * @param {function} fn - The new function to override with, the `_super` method will be made available within this function.
@@ -129,6 +132,33 @@
 		_fn.addOrOverride(this.prototype, name, fn);
 	};
 
+	/**
+	 * @summary The base class for this class.
+	 * @memberof FooUtils.Class.
+	 * @name __base__
+	 * @type {?FooUtils.Class}
+	 * @private
+	 */
+	_.Class.__base__ = null;
+
+	/**
+	 * @summary Get an array of all base classes for this class.
+	 * @memberof FooUtils.Class.
+	 * @function bases
+	 * @returns {FooUtils.Class[]}
+	 */
+	_.Class.bases = function(){
+		function _get(klass, result){
+			if (!_is.array(result)) result = [];
+			if (_is.fn(klass) && klass.__base__ !== null){
+				result.unshift(klass.__base__);
+				return _get(klass.__base__, result);
+			}
+			return result;
+		}
+		var initial = [];
+		return _get(this, initial);
+	};
 })(
 	// dependencies
 	FooUtils.$,
