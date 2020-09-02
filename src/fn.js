@@ -3,7 +3,7 @@
 	if (_.version !== '@@version') return;
 
 	/**
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace fn
 	 * @summary Contains common function utility methods.
 	 */
@@ -13,7 +13,7 @@
 
 	/**
 	 * @summary The regular expression to test if a function uses the `this._super` method applied by the {@link FooUtils.fn.add} method.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @name CONTAINS_SUPER
 	 * @type {RegExp}
 	 * @default /\b_super\b/
@@ -41,7 +41,7 @@
 
 	/**
 	 * @summary Adds or overrides the given method `name` on the `proto` using the supplied `fn`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function addOrOverride
 	 * @param {Object} proto - The prototype to add the method to.
 	 * @param {string} name - The name of the method to add, if this already exists the original will be exposed within the scope of the supplied `fn` as `this._super`.
@@ -107,11 +107,11 @@
 
 	/**
 	 * @summary Use the `Function.prototype.apply` method on a class constructor using the `new` keyword.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function apply
 	 * @param {Object} klass - The class to create.
 	 * @param {Array} [args=[]] - The arguments to pass to the constructor.
-	 * @returns {function} The new instance of the `klass` created with the supplied `args`.
+	 * @returns {Object} The new instance of the `klass` created with the supplied `args`.
 	 * @description When using the default `Function.prototype.apply` you can't use it on class constructors requiring the `new` keyword, this method allows us to do that.
 	 * @example {@run true}
 	 * // alias the FooUtils.fn namespace
@@ -135,15 +135,14 @@
 			return klass.apply(this, args);
 		}
 		Class.prototype = klass.prototype;
-		//noinspection JSValidateTypes
 		return new Class();
 	};
 
 	/**
 	 * @summary Converts the default `arguments` object into a proper array.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function arg2arr
-	 * @param {Arguments} args - The arguments object to create an array from.
+	 * @param {IArguments} args - The arguments object to create an array from.
 	 * @returns {Array}
 	 * @description This method is simply a replacement for calling `Array.prototype.slice.call()` to create an array from an `arguments` object.
 	 * @example {@run true}
@@ -165,7 +164,7 @@
 
 	/**
 	 * @summary Debounces the `fn` by the supplied `time`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function debounce
 	 * @param {function} fn - The function to debounce.
 	 * @param {number} time - The time in milliseconds to delay execution.
@@ -185,7 +184,7 @@
 
 	/**
 	 * @summary Throttles the `fn` by the supplied `time`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function throttle
 	 * @param {function} fn - The function to throttle.
 	 * @param {number} time - The time in milliseconds to delay execution.
@@ -213,7 +212,7 @@
 
 	/**
 	 * @summary Checks the given `value` and ensures a function is returned.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function check
 	 * @param {?Object} thisArg=window - The `this` keyword within the returned function, if the supplied value is not an object this defaults to the `window`.
 	 * @param {*} value - The value to check, if not a function or the name of one then the `def` value is automatically returned.
@@ -285,7 +284,7 @@
 
 	/**
 	 * @summary Fetches a function given its `name`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function fetch
 	 * @param {string} name - The name of the function to fetch. This can be a `.` notated name.
 	 * @param {Object} [ctx=window] - The context to retrieve the function from, defaults to the `window` object.
@@ -326,7 +325,7 @@
 
 	/**
 	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function enqueue
 	 * @param {Array.<Object>} objects - The objects to call the method on.
 	 * @param {string} name - The name of the method to execute.
@@ -514,7 +513,7 @@
 
 	/**
 	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function when
 	 * @param {Promise[]} promises - The array of promises to wait for.
 	 * @returns {Promise}
@@ -522,20 +521,25 @@
 	_.fn.when = function(promises){
 		if (!_is.array(promises) || _is.empty(promises)) return $.when();
 		var d = $.Deferred(), results = [], remaining = promises.length;
+		function reduceRemaining(){
+			remaining--; // always mark as finished
+			if(!remaining) d.resolve(results);
+		}
 		for(var i = 0; i < promises.length; i++){
-			promises[i].then(function(res){
-				results.push(res); // on success, add to results
-			}).always(function(){
-				remaining--; // always mark as finished
-				if(!remaining) d.resolve(results);
-			})
+			if (_is.promise(promises[i])){
+				promises[i].then(function(res){
+					results.push(res); // on success, add to results
+				}).always(reduceRemaining);
+			} else {
+				reduceRemaining();
+			}
 		}
 		return d.promise(); // return a promise on the remaining values
 	};
 
 	/**
 	 * @summary Return a promise rejected using the supplied args.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function rejectWith
 	 * @param {*} [arg1] - The first argument to reject the promise with.
 	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
@@ -548,7 +552,7 @@
 
 	/**
 	 * @summary Return a promise resolved using the supplied args.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function resolveWith
 	 * @param {*} [arg1] - The first argument to resolve the promise with.
 	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
@@ -561,7 +565,7 @@
 
 	/**
 	 * @summary A resolved promise object.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @name resolved
 	 * @type {Promise}
 	 */
@@ -569,8 +573,8 @@
 
 	/**
 	 * @summary A rejected promise object.
-	 * @memberof FooUtils.fn
-	 * @name resolved
+	 * @memberof FooUtils.fn.
+	 * @name rejected
 	 * @type {Promise}
 	 */
 	_.fn.rejected = $.Deferred().reject().promise();

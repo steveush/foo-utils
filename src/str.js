@@ -4,14 +4,14 @@
 
 	/**
 	 * @summary Contains common string utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace str
 	 */
 	_.str = {};
 
 	/**
 	 * @summary Converts the given `target` to camel case.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function camel
 	 * @param {string} target - The string to camel case.
 	 * @returns {string}
@@ -37,7 +37,7 @@
 
 	/**
 	 * @summary Converts the given `target` to kebab case. Non-alphanumeric characters are converted to `-`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function kebab
 	 * @param {string} target - The string to kebab case.
 	 * @returns {string}
@@ -63,7 +63,7 @@
 
 	/**
 	 * @summary Checks if the `target` contains the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function contains
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The string to check for.
@@ -90,7 +90,7 @@
 
 	/**
 	 * @summary Checks if the `target` contains the given `word`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function containsWord
 	 * @param {string} target - The string to check.
 	 * @param {string} word - The word to check for.
@@ -121,7 +121,7 @@
 
 	/**
 	 * @summary Checks if the `target` ends with the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function endsWith
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The substr to check for.
@@ -141,7 +141,7 @@
 
 	/**
 	 * @summary Escapes the `target` for use in a regular expression.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function escapeRegExp
 	 * @param {string} target - The string to escape.
 	 * @returns {string}
@@ -154,7 +154,7 @@
 
 	/**
 	 * @summary Generates a 32 bit FNV-1a hash from the given `target`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function fnv1a
 	 * @param {string} target - The string to generate a hash from.
 	 * @returns {?number} `null` if the `target` is not a string or empty otherwise a 32 bit FNV-1a hash.
@@ -178,7 +178,7 @@
 
 	/**
 	 * @summary Returns the remainder of the `target` split on the first index of the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function from
 	 * @param {string} target - The string to split.
 	 * @param {string} substr - The substring to split on.
@@ -195,13 +195,12 @@
 	 * console.log( _str.from( target, "nonexistent" ) ); // => null
 	 */
 	_.str.from = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return null;
 		return _.str.contains(target, substr) ? target.substring(target.indexOf(substr) + substr.length) : null;
 	};
 
 	/**
 	 * @summary Joins any number of strings using the given `separator`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function join
 	 * @param {string} separator - The separator to use to join the strings.
 	 * @param {string} part - The first string to join.
@@ -239,7 +238,7 @@
 
 	/**
 	 * @summary Checks if the `target` starts with the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function startsWith
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The substr to check for.
@@ -259,7 +258,7 @@
 
 	/**
 	 * @summary Returns the first part of the `target` split on the first index of the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function until
 	 * @param {string} target - The string to split.
 	 * @param {string} substr - The substring to split on.
@@ -276,13 +275,12 @@
 	 * console.log( _str.until( target, "nonexistent" ) ); // => "To be, or not to be, that is the question."
 	 */
 	_.str.until = function (target, substr) {
-		if (_is.empty(target) || _is.empty(substr)) return target;
 		return _.str.contains(target, substr) ? target.substring(0, target.indexOf(substr)) : target;
 	};
 
 	/**
 	 * @summary A basic string formatter that can use both index and name based placeholders but handles only string or number replacements.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function format
 	 * @param {string} target - The format string containing any placeholders to replace.
 	 * @param {string|number|Object|Array} arg1 - The first value to format the target with. If an object is supplied it's properties are used to match named placeholders. If an array, string or number is supplied it's values are used to match any index placeholders.
@@ -323,12 +321,13 @@
 	_.str.format = function (target, arg1, argN){
 		var args = _fn.arg2arr(arguments);
 		target = args.shift(); // remove the target from the args
-		if (_is.empty(target) || _is.empty(args)) return target;
-		if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
-			args = args[0];
-		}
-		for (var arg in args){
-			target = target.replace(new RegExp("\\{" + arg + "\\}", "gi"), args[arg]);
+		if (_is.string(target) && args.length > 0){
+			if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
+				args = args[0];
+			}
+			_.each(args, function(value, placeholder){
+				target = target.replace(new RegExp("\\{" + placeholder + "\\}", "gi"), value + "");
+			});
 		}
 		return target;
 	};

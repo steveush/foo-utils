@@ -41,6 +41,20 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.2.0
+
+* Breaking Change: Changed how the lib registers itself to the global. Previously it would only register itself if it didn't exist, or the existing version was older. The version check is no longer performed.
+* Added new `FooUtils.find` method to pluck a single value from an array or object.
+* Added new `FooUtils.each` method to iterate over arrays or objects.
+* Added new `FooUtils.Event.parse` method that splits an event name into its type and namespace.
+* Updated the `FooUtils.transition.duration`, `FooUtils.animation.duration` and `FooUtils.animation.iterations` methods to handle multiple values.
+* Updated the `FooUtils.EventClass` to expose various internal members publicly. This class now exposes an `events` object as well as a `addListener` and `removeListener` methods.
+* Updated the `FooUtils.fn.when` method to handle values that are not promises passed in as part of the array.
+* Updated the `FooUtils.str.format` method to use the new `FooUtils.each` method internally.
+* Updated the `FooUtils.str.from` and `FooUtils.str.until` methods by simply removing unnecessary parameter checks.
+* Updated the `devDependencies` in the `package.json`.
+* Updated various comments across the library to give better intellisense.
+
 ### 0.1.9
 
 * Added new `FooUtils.Class.bases` method to return an array of all inherited classes.

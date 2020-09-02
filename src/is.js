@@ -4,14 +4,14 @@
 
 	/**
 	 * @summary Contains common type checking utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace is
 	 */
 	_.is = {};
 
 	/**
 	 * @summary Checks if the `value` is an array.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function array
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an array.
@@ -30,7 +30,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a boolean.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function boolean
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a boolean.
@@ -51,7 +51,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an element.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function element
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an element.
@@ -74,7 +74,7 @@
 
 	/**
 	 * @summary Checks if the `value` is empty.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function empty
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is empty.
@@ -127,7 +127,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an error.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function error
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an error.
@@ -152,7 +152,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a function.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function fn
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a function.
@@ -173,7 +173,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a hash.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function hash
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a hash.
@@ -194,7 +194,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a jQuery object.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function jq
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a jQuery object.
@@ -218,7 +218,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a number.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function number
 	 * @param {*} value - The value to check.
 	 * @returns {boolean}
@@ -237,7 +237,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an object.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function object
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an object.
@@ -260,7 +260,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a promise.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function promise
 	 * @param {*} value - The object to check.
 	 * @returns {boolean} `true` if the supplied `value` is an object.
@@ -286,7 +286,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a valid CSS length.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function size
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the `value` is a number or CSS length.
@@ -311,7 +311,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a string.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function string
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the `value` is a string.
@@ -330,7 +330,7 @@
 
 	/**
 	 * @summary Checks if the `value` is `undefined`.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function undef
 	 * @param {*} value - The value to check is undefined.
 	 * @returns {boolean} `true` if the supplied `value` is `undefined`.
