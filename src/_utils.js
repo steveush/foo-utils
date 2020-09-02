@@ -14,7 +14,7 @@
 
 	/**
 	 * @summary Waits for the DOM to be accessible and then executes the supplied callback.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function ready
 	 * @param {FooUtils~readyCallback} callback - The function to execute once the DOM is accessible.
 	 * @example {@caption This method can be used as a replacement for the jQuery ready callback to avoid an error in another script stopping our scripts from running.}
@@ -32,8 +32,81 @@
 	};
 
 	/**
+	 * @summary Executed once for each array index or object property until it returns a truthy value.
+	 * @callback FooUtils~findCallback
+	 * @param {*} value - The current value being iterated over. This could be either an element in an array or the value of an object property.
+	 * @param {(number|string)} [key] - The array index or property name of the `value`.
+	 * @param {(Object|Array)} [object] - The array or object currently being searched.
+	 * @returns {boolean} A truthy value.
+	 */
+
+	/**
+	 * @summary Returns the value of the first element or property in the provided target that satisfies the provided test function.
+	 * @memberof FooUtils.
+	 * @function find
+	 * @param {(Object|Array)} target - The object or array to search.
+	 * @param {FooUtils~findCallback} callback - A function to execute for each value in the target.
+	 * @param {*} [thisArg] - The `this` value within the `callback`.
+	 * @returns {*} The value of the first element or property in the provided target that satisfies the provided test function. Otherwise, `undefined` is returned.
+	 */
+	_.find = function(target, callback, thisArg){
+		if (!_is.fn(callback)) return;
+		thisArg = _is.undef(thisArg) ? callback : thisArg;
+		var i, l;
+		if (_is.array(target)){
+			for (i = 0, l = target.length; i < l; i++){
+				if (callback.call(thisArg, target[i], i, target)){
+					return target[i];
+				}
+			}
+		} else if (_is.object(target)){
+			var keys = Object.keys(target);
+			for (i = 0, l = keys.length; i < l; i++){
+				if (callback.call(thisArg, target[keys[i]], keys[i], target)){
+					return target[keys[i]];
+				}
+			}
+		}
+	};
+
+	/**
+	 * @summary Executed once for each array index or object property.
+	 * @callback FooUtils~eachCallback
+	 * @param {*} value - The current value being iterated over. This could be either an element in an array or the value of an object property.
+	 * @param {(number|string)} [key] - The array index or property name of the `value`.
+	 * @param {(Object|Array)} [object] - The array or object currently being searched.
+	 * @returns {(boolean|void)} Return `false` to break out of the loop, all other values are ignored.
+	 */
+
+	/**
+	 * @summary Iterate over all indexes or properties of the provided target executing the provided callback once per value.
+	 * @memberof FooUtils.
+	 * @function each
+	 * @param {(Object|Array)} object - The object or array to search.
+	 * @param {FooUtils~eachCallback} callback - A function to execute for each value in the target.
+	 * @param {*} [thisArg] - The `this` value within the `callback`.
+	 */
+	_.each = function(object, callback, thisArg){
+		if (!_is.fn(callback)) return;
+		thisArg = _is.undef(thisArg) ? callback : thisArg;
+		var i, l, result;
+		if (_is.array(object)){
+			for (i = 0, l = object.length; i < l; i++){
+				result = callback.call(thisArg, object[i], i, object);
+				if (result === false) break;
+			}
+		} else if (_is.object(object)){
+			var keys = Object.keys(object);
+			for (i = 0, l = keys.length; i < l; i++){
+				result = callback.call(thisArg, object[keys[i]], keys[i], object);
+				if (result === false) break;
+			}
+		}
+	};
+
+	/**
 	 * @summary Compares two version numbers.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function versionCompare
 	 * @param {string} version1 - The first version to use in the comparison.
 	 * @param {string} version2 - The second version to compare to the first.
@@ -101,7 +174,7 @@
 
 	/**
 	 * @summary Generate and apply a unique id for the given `$element`.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function uniqueId
 	 * @param {jQuery} $element - The jQuery element object to retrieve an id from or generate an id for.
 	 * @param {string} [prefix="uid-"] - A prefix to append to the start of any generated ids.
@@ -134,7 +207,7 @@
 
 	/**
 	 * @summary Remove the id from the given `$element` if it was set using the {@link FooUtils.uniqueId|uniqueId} method.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function removeUniqueId
 	 * @param {jQuery} $element - The jQuery element object to remove a generated id from.
 	 * @example {@run true}
@@ -158,7 +231,7 @@
 
 	/**
 	 * @summary Convert CSS class names into CSS selectors.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function selectify
 	 * @param {(string|string[]|object)} classes - A space delimited string of CSS class names or an array of them with each item being included in the selector using the OR (`,`) syntax as a separator. If an object is supplied the result will be an object with the same property names but the values converted to selectors.
 	 * @returns {(object|string)}
@@ -199,7 +272,7 @@
 
 	/**
 	 * @summary Parses the supplied `src` and `srcset` values and returns the best matching URL for the supplied render size.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function src
 	 * @param {string} src - The default src for the image.
 	 * @param {string} srcset - The srcset containing additional image sizes.
@@ -308,7 +381,7 @@
 
 	/**
 	 * @summary Get the scroll parent for the supplied element optionally filtering by axis.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function scrollParent
 	 * @param {(string|Element|jQuery)} element - The selector, element or jQuery element to find the scroll parent of.
 	 * @param {string} [axis="xy"] - The axis to check. By default this method will check both the X and Y axis.
