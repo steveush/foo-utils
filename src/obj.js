@@ -29,6 +29,44 @@
 	};
 
 	/**
+	 * @summary Executed once for each array index or object property until it returns a truthy value.
+	 * @callback FooUtils.obj~findCallback
+	 * @param {*} value - The current value being iterated over. This could be either an element in an array or the value of an object property.
+	 * @param {(number|string)} [key] - The array index or object property of the `value`.
+	 * @param {(Object|Array)} [object] - The array or object currently being searched.
+	 * @returns {boolean} A truthy value.
+	 */
+
+	/**
+	 * @summary Returns the value of the first element or property in the provided object that satisfies the provided test function.
+	 * @memberof FooUtils.obj
+	 * @function find
+	 * @param {(Object|Array)} object - The object or array to search.
+	 * @param {FooUtils.obj~findCallback} callback - A function to execute on each value in the object.
+	 * @param {*} [thisArg] - The `this` value within the `callback`.
+	 * @returns {*} The value of the first element or property in the provided object that satisfies the provided test function. Otherwise, `undefined` is returned.
+	 */
+	_.obj.find = function(object, callback, thisArg){
+		if (!_is.fn(callback)) return;
+		thisArg = _is.undef(thisArg) ? callback : thisArg;
+		var i, l;
+		if (_is.array(object)){
+			for (i = 0, l = object.length; i < l; i++){
+				if (callback.call(thisArg, object[i], i, object)){
+					return object[i];
+				}
+			}
+		} else if (_is.object(object)){
+			var keys = Object.keys(object);
+			for (i = 0, l = keys.length; i < l; i++){
+				if (callback.call(thisArg, object[keys[i]], keys[i], object)){
+					return object[keys[i]];
+				}
+			}
+		}
+	};
+
+	/**
 	 * @summary Merge the contents of two or more objects together into the first `target` object.
 	 * @memberof FooUtils.obj
 	 * @function extend

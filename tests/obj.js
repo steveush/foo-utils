@@ -18,6 +18,50 @@ QUnit.test('create', function (assert) {
 
 });
 
+QUnit.test('find:array', function (assert) {
+
+	var array1 = ["element1","element2","element3"];
+	var found1 = FooUtils.obj.find(array1, function(value, index, array){
+		return value === "element2";
+	});
+	var found2 = FooUtils.obj.find(array1, function(value, index, array){
+		return index === 1;
+	});
+
+	assert.ok("element2" === found1 && "element2" === found2);
+
+	var array2 = [{id: 1},{id: 2},{id: 3}];
+	var found3 = FooUtils.obj.find(array2, function(value, index, array){
+		return value.id === 2;
+	});
+	var found4 = FooUtils.obj.find(array2, function(value, index, array){
+		return index === 1;
+	});
+	assert.ok(found3 === array2[1] && found4 === array2[1]);
+});
+
+QUnit.test('find:object', function (assert) {
+
+	var object1 = {key1:"value1",key2:"value2",key3:"value3"};
+	var found1 = FooUtils.obj.find(object1, function(value, key, object){
+		return value === "value2";
+	});
+	var found2 = FooUtils.obj.find(object1, function(value, key, object){
+		return key === "key2";
+	});
+
+	assert.ok("value2" === found1 && "value2" === found2);
+
+	var object1 = {key1:{id: 1},key2:{id: 2},key3:{id: 3}};
+	var found3 = FooUtils.obj.find(object1, function(value, key, object){
+		return value.id === 2;
+	});
+	var found4 = FooUtils.obj.find(object1, function(value, key, object){
+		return key === "key2";
+	});
+	assert.ok(found3 === object1.key2 && found4 === object1.key2);
+});
+
 QUnit.test('extend', function (assert) {
 
 	var defaults = {"name": "My Object", "enabled": false, "arr": [1,2,3]},
