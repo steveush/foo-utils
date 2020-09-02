@@ -27,7 +27,11 @@
      * eventClass.trigger(event);
      */
     _.Event = _.Class.extend(/** @lends FooUtils.Event.prototype */{
-        /** @ignore */
+        /**
+         * @ignore
+         * @constructs
+         * @param {string} type
+         **/
         construct: function(type){
             if (_is.empty(type))
                 throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
@@ -112,7 +116,10 @@
      * @description This is a very basic events implementation that provides just enough to cover most needs.
      */
     _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass.prototype */{
-        /** @ignore */
+        /**
+         * @ignore
+         * @constructs
+         **/
         construct: function(){
             /**
              * @summary An object containing all the required info to execute a listener.
@@ -293,12 +300,10 @@
             var self = this, result = [];
             if (event instanceof _.Event){
                 result.push(event);
-                if (event.target === null) event.target = self;
                 self.emit(event, args);
             } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
                     var e = new _.Event(type);
-                    e.target = self;
                     result.push(e)
                     self.emit(e, args);
                 });
@@ -316,6 +321,7 @@
             if (!(event instanceof FooUtils.Event)) return;
             var self = this;
             args = _is.array(args) ? args : [];
+            if (event.target === null) event.target = self;
             if (_is.array(self.events[event.type])) {
                 self.events[event.type].forEach(function (h) {
                     if (event.namespace != null && h.namespace !== event.namespace) return;
