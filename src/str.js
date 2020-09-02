@@ -195,7 +195,6 @@
 	 * console.log( _str.from( target, "nonexistent" ) ); // => null
 	 */
 	_.str.from = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return null;
 		return _.str.contains(target, substr) ? target.substring(target.indexOf(substr) + substr.length) : null;
 	};
 
@@ -276,7 +275,6 @@
 	 * console.log( _str.until( target, "nonexistent" ) ); // => "To be, or not to be, that is the question."
 	 */
 	_.str.until = function (target, substr) {
-		if (_is.empty(target) || _is.empty(substr)) return target;
 		return _.str.contains(target, substr) ? target.substring(0, target.indexOf(substr)) : target;
 	};
 
