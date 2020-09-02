@@ -1,12 +1,12 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.1.9
+* @version 0.2.0
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2020
 * @license Released under the GPL-3.0 license.
 */
 /**
- * @file This creates the global FooUtils namespace ensuring it only registers itself if the namespace doesn't already exist or if the current version is lower than this one.
+ * @file This creates the global FooUtils namespace
  */
 (function ($) {
 
@@ -14,112 +14,6 @@
 		console.warn('jQuery must be included in the page prior to the FooUtils library.');
 		return;
 	}
-
-	/**
-	 * @summary This namespace contains common utility methods and code shared between our plugins.
-	 * @namespace FooUtils
-	 * @description This namespace relies on jQuery being included in the page prior to it being loaded.
-	 */
-	var utils = {
-		/**
-		 * @summary A reference to the jQuery object the library is registered with.
-		 * @memberof FooUtils
-		 * @name $
-		 * @type {jQuery}
-		 * @description This is used internally for all jQuery operations to help work around issues where multiple jQuery libraries have been included in a single page.
-		 * @example {@caption The following shows the issue when multiple jQuery's are included in a single page.}{@lang html}
-		 * <script src="jquery-1.12.4.js"></script>
-		 * <script src="my-plugin.js"></script>
-		 * <script src="jquery-2.2.4.js"></script>
-		 * <script>
-		 * 	jQuery(function($){
-	 	 * 		$(".selector").myPlugin(); // => This would throw a TypeError: $(...).myPlugin is not a function
-	 	 * 	});
-		 * </script>
-		 * @example {@caption The reason the above throws an error is that the `$.fn.myPlugin` function is registered to the first instance of jQuery in the page however the instance used to create the ready callback and actually try to execute `$(...).myPlugin()` is the second. To resolve this issue ideally you would remove the second instance of jQuery however you can use the `FooUtils.$` member to ensure you are always working with the instance of jQuery the library was registered with.}{@lang html}
-		 * <script src="jquery-1.12.4.js"></script>
-		 * <script src="my-plugin.js"></script>
-		 * <script src="jquery-2.2.4.js"></script>
-		 * <script>
-		 * 	FooUtils.$(function($){
-	 	 * 		$(".selector").myPlugin(); // => It works!
-	 	 * 	});
-		 * </script>
-		 */
-		$: $,
-		/**
-		 * @summary The version of this library.
-		 * @memberof FooUtils
-		 * @name version
-		 * @type {string}
-		 */
-		version: '0.1.9'
-	};
-
-	/**
-	 * @summary Compares two version numbers.
-	 * @memberof FooUtils
-	 * @function versionCompare
-	 * @param {string} version1 - The first version to use in the comparison.
-	 * @param {string} version2 - The second version to compare to the first.
-	 * @returns {number} `0` if the version are equal.
-	 * `-1` if `version1` is less than `version2`.
-	 * `1` if `version1` is greater than `version2`.
-	 * `NaN` if either of the supplied versions do not conform to MAJOR.MINOR.PATCH format.
-	 * @description This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. `1.0` versus `1.0.1`.
-	 * @example {@caption The following shows the results of comparing various version strings.}
-	 * console.log( FooUtils.versionCompare( "0", "0" ) ); // => 0
-	 * console.log( FooUtils.versionCompare( "0.0", "0" ) ); // => 0
-	 * console.log( FooUtils.versionCompare( "0.0", "0.0.0" ) ); // => 0
-	 * console.log( FooUtils.versionCompare( "0.1", "0.0.0" ) ); // => 1
-	 * console.log( FooUtils.versionCompare( "0.1", "0.0.1" ) ); // => 1
-	 * console.log( FooUtils.versionCompare( "1", "0.1" ) ); // => 1
-	 * console.log( FooUtils.versionCompare( "1.10", "1.9" ) ); // => 1
-	 * console.log( FooUtils.versionCompare( "1.9", "1.10" ) ); // => -1
-	 * console.log( FooUtils.versionCompare( "1", "1.1" ) ); // => -1
-	 * console.log( FooUtils.versionCompare( "1.0.9", "1.1" ) ); // => -1
-	 * @example {@caption If either of the supplied version strings does not match the MAJOR.MINOR.PATCH format then `NaN` is returned.}
-	 * console.log( FooUtils.versionCompare( "not-a-version", "1.1" ) ); // => NaN
-	 * console.log( FooUtils.versionCompare( "1.1", "not-a-version" ) ); // => NaN
-	 * console.log( FooUtils.versionCompare( "not-a-version", "not-a-version" ) ); // => NaN
-	 */
-	utils.versionCompare = function(version1, version2){
-		// if either of the versions do not match the expected format return NaN
-		if (!(/[\d.]/.test(version1) && /[\d.]/.test(version2))) return NaN;
-
-		/**
-		 * @summary Splits and parses the given version string into a numeric array.
-		 * @param {string} version - The version string to split and parse.
-		 * @returns {Array.<number>}
-		 * @ignore
-		 */
-		function split(version){
-			var parts = version.split('.'), result = [];
-			for(var i = 0, len = parts.length; i < len; i++){
-				result[i] = parseInt(parts[i]);
-				if (isNaN(result[i])) result[i] = 0;
-			}
-			return result;
-		}
-
-		// get the base numeric arrays for each version
-		var v1parts = split(version1),
-			v2parts = split(version2);
-
-		// ensure both arrays are the same length by padding the shorter with 0
-		while (v1parts.length < v2parts.length) v1parts.push(0);
-		while (v2parts.length < v1parts.length) v2parts.push(0);
-
-		// perform the actual comparison
-		for (var i = 0; i < v1parts.length; ++i) {
-			if (v2parts.length === i) return 1;
-			if (v1parts[i] === v2parts[i]) continue;
-			if (v1parts[i] > v2parts[i]) return 1;
-			else return -1;
-		}
-		if (v1parts.length !== v2parts.length) return -1;
-		return 0;
-	};
 
 	function __exists(){
 		try {
@@ -129,19 +23,48 @@
 		}
 	}
 
-	if (__exists()){
-		// if it already exists always log a warning as there may be version conflicts as the following code always ensures the latest version is loaded
-		if (utils.versionCompare(utils.version, window.FooUtils.version) > 0){
-			// if it exists but it's an old version replace it
-			console.warn("An older version of FooUtils (" + window.FooUtils.version + ") already exists in the page, version " + utils.version + " will override it.");
-			window.FooUtils = utils;
-		} else {
-			// otherwise its a newer version so do nothing
-			console.warn("A newer version of FooUtils (" + window.FooUtils.version + ") already exists in the page, version " + utils.version + " will not register itself.");
-		}
-	} else {
-		// if it doesn't exist register it
-		window.FooUtils = utils;
+	if (!__exists()){
+		/**
+		 * @summary This namespace contains common utility methods and code shared between our plugins.
+		 * @global
+		 * @namespace FooUtils
+		 * @description This namespace relies on jQuery being included in the page prior to it being loaded.
+		 */
+		window.FooUtils = {
+			/**
+			 * @summary A reference to the jQuery object the library is registered with.
+			 * @memberof FooUtils.
+			 * @name $
+			 * @type {jQuery}
+			 * @description This is used internally for all jQuery operations to help work around issues where multiple jQuery libraries have been included in a single page.
+			 * @example {@caption The following shows the issue when multiple jQuery's are included in a single page.}{@lang html}
+			 * <script src="jquery-1.12.4.js"></script>
+			 * <script src="my-plugin.js"></script>
+			 * <script src="jquery-2.2.4.js"></script>
+			 * <script>
+			 * 	jQuery(function($){
+			 * 		$(".selector").myPlugin(); // => This would throw a TypeError: $(...).myPlugin is not a function
+			 * 	});
+			 * </script>
+			 * @example {@caption The reason the above throws an error is that the `$.fn.myPlugin` function is registered to the first instance of jQuery in the page however the instance used to create the ready callback and actually try to execute `$(...).myPlugin()` is the second. To resolve this issue ideally you would remove the second instance of jQuery however you can use the `FooUtils.$` member to ensure you are always working with the instance of jQuery the library was registered with.}{@lang html}
+			 * <script src="jquery-1.12.4.js"></script>
+			 * <script src="my-plugin.js"></script>
+			 * <script src="jquery-2.2.4.js"></script>
+			 * <script>
+			 * 	FooUtils.$(function($){
+			 * 		$(".selector").myPlugin(); // => It works!
+			 * 	});
+			 * </script>
+			 */
+			$: $,
+			/**
+			 * @summary The version of this library.
+			 * @memberof FooUtils.
+			 * @name version
+			 * @type {string}
+			 */
+			version: '0.2.0'
+		};
 	}
 
 	// at this point there will always be a FooUtils namespace registered to the global scope.
@@ -149,18 +72,18 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace is
 	 */
 	_.is = {};
 
 	/**
 	 * @summary Checks if the `value` is an array.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function array
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an array.
@@ -179,7 +102,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a boolean.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function boolean
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a boolean.
@@ -200,7 +123,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an element.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function element
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an element.
@@ -223,7 +146,7 @@
 
 	/**
 	 * @summary Checks if the `value` is empty.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function empty
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is empty.
@@ -276,7 +199,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an error.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function error
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an error.
@@ -301,7 +224,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a function.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function fn
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a function.
@@ -322,7 +245,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a hash.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function hash
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a hash.
@@ -343,7 +266,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a jQuery object.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function jq
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is a jQuery object.
@@ -367,7 +290,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a number.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function number
 	 * @param {*} value - The value to check.
 	 * @returns {boolean}
@@ -386,7 +309,7 @@
 
 	/**
 	 * @summary Checks if the `value` is an object.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function object
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the supplied `value` is an object.
@@ -409,7 +332,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a promise.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function promise
 	 * @param {*} value - The object to check.
 	 * @returns {boolean} `true` if the supplied `value` is an object.
@@ -435,7 +358,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a valid CSS length.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function size
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the `value` is a number or CSS length.
@@ -460,7 +383,7 @@
 
 	/**
 	 * @summary Checks if the `value` is a string.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function string
 	 * @param {*} value - The value to check.
 	 * @returns {boolean} `true` if the `value` is a string.
@@ -479,7 +402,7 @@
 
 	/**
 	 * @summary Checks if the `value` is `undefined`.
-	 * @memberof FooUtils.is
+	 * @memberof FooUtils.is.
 	 * @function undef
 	 * @param {*} value - The value to check is undefined.
 	 * @returns {boolean} `true` if the supplied `value` is `undefined`.
@@ -503,10 +426,10 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace fn
 	 * @summary Contains common function utility methods.
 	 */
@@ -516,7 +439,7 @@
 
 	/**
 	 * @summary The regular expression to test if a function uses the `this._super` method applied by the {@link FooUtils.fn.add} method.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @name CONTAINS_SUPER
 	 * @type {RegExp}
 	 * @default /\b_super\b/
@@ -544,7 +467,7 @@
 
 	/**
 	 * @summary Adds or overrides the given method `name` on the `proto` using the supplied `fn`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function addOrOverride
 	 * @param {Object} proto - The prototype to add the method to.
 	 * @param {string} name - The name of the method to add, if this already exists the original will be exposed within the scope of the supplied `fn` as `this._super`.
@@ -610,11 +533,11 @@
 
 	/**
 	 * @summary Use the `Function.prototype.apply` method on a class constructor using the `new` keyword.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function apply
 	 * @param {Object} klass - The class to create.
 	 * @param {Array} [args=[]] - The arguments to pass to the constructor.
-	 * @returns {function} The new instance of the `klass` created with the supplied `args`.
+	 * @returns {Object} The new instance of the `klass` created with the supplied `args`.
 	 * @description When using the default `Function.prototype.apply` you can't use it on class constructors requiring the `new` keyword, this method allows us to do that.
 	 * @example {@run true}
 	 * // alias the FooUtils.fn namespace
@@ -638,15 +561,14 @@
 			return klass.apply(this, args);
 		}
 		Class.prototype = klass.prototype;
-		//noinspection JSValidateTypes
 		return new Class();
 	};
 
 	/**
 	 * @summary Converts the default `arguments` object into a proper array.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function arg2arr
-	 * @param {Arguments} args - The arguments object to create an array from.
+	 * @param {IArguments} args - The arguments object to create an array from.
 	 * @returns {Array}
 	 * @description This method is simply a replacement for calling `Array.prototype.slice.call()` to create an array from an `arguments` object.
 	 * @example {@run true}
@@ -668,7 +590,7 @@
 
 	/**
 	 * @summary Debounces the `fn` by the supplied `time`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function debounce
 	 * @param {function} fn - The function to debounce.
 	 * @param {number} time - The time in milliseconds to delay execution.
@@ -688,7 +610,7 @@
 
 	/**
 	 * @summary Throttles the `fn` by the supplied `time`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function throttle
 	 * @param {function} fn - The function to throttle.
 	 * @param {number} time - The time in milliseconds to delay execution.
@@ -716,7 +638,7 @@
 
 	/**
 	 * @summary Checks the given `value` and ensures a function is returned.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function check
 	 * @param {?Object} thisArg=window - The `this` keyword within the returned function, if the supplied value is not an object this defaults to the `window`.
 	 * @param {*} value - The value to check, if not a function or the name of one then the `def` value is automatically returned.
@@ -788,7 +710,7 @@
 
 	/**
 	 * @summary Fetches a function given its `name`.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function fetch
 	 * @param {string} name - The name of the function to fetch. This can be a `.` notated name.
 	 * @param {Object} [ctx=window] - The context to retrieve the function from, defaults to the `window` object.
@@ -829,7 +751,7 @@
 
 	/**
 	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function enqueue
 	 * @param {Array.<Object>} objects - The objects to call the method on.
 	 * @param {string} name - The name of the method to execute.
@@ -1017,7 +939,7 @@
 
 	/**
 	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function when
 	 * @param {Promise[]} promises - The array of promises to wait for.
 	 * @returns {Promise}
@@ -1025,20 +947,25 @@
 	_.fn.when = function(promises){
 		if (!_is.array(promises) || _is.empty(promises)) return $.when();
 		var d = $.Deferred(), results = [], remaining = promises.length;
+		function reduceRemaining(){
+			remaining--; // always mark as finished
+			if(!remaining) d.resolve(results);
+		}
 		for(var i = 0; i < promises.length; i++){
-			promises[i].then(function(res){
-				results.push(res); // on success, add to results
-			}).always(function(){
-				remaining--; // always mark as finished
-				if(!remaining) d.resolve(results);
-			})
+			if (_is.promise(promises[i])){
+				promises[i].then(function(res){
+					results.push(res); // on success, add to results
+				}).always(reduceRemaining);
+			} else {
+				reduceRemaining();
+			}
 		}
 		return d.promise(); // return a promise on the remaining values
 	};
 
 	/**
 	 * @summary Return a promise rejected using the supplied args.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function rejectWith
 	 * @param {*} [arg1] - The first argument to reject the promise with.
 	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
@@ -1051,7 +978,7 @@
 
 	/**
 	 * @summary Return a promise resolved using the supplied args.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @function resolveWith
 	 * @param {*} [arg1] - The first argument to resolve the promise with.
 	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
@@ -1064,7 +991,7 @@
 
 	/**
 	 * @summary A resolved promise object.
-	 * @memberof FooUtils.fn
+	 * @memberof FooUtils.fn.
 	 * @name resolved
 	 * @type {Promise}
 	 */
@@ -1072,8 +999,8 @@
 
 	/**
 	 * @summary A rejected promise object.
-	 * @memberof FooUtils.fn
-	 * @name resolved
+	 * @memberof FooUtils.fn.
+	 * @name rejected
 	 * @type {Promise}
 	 */
 	_.fn.rejected = $.Deferred().reject().promise();
@@ -1086,11 +1013,11 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common url utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace url
 	 */
 	_.url = {};
@@ -1100,7 +1027,7 @@
 
 	/**
 	 * @summary Parses the supplied url into an object containing it's component parts.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function parts
 	 * @param {string} url - The url to parse.
 	 * @returns {FooUtils.url~Parts}
@@ -1125,7 +1052,7 @@
 
 	/**
 	 * @summary Given a <code>url</code> that could be relative or full this ensures a full url is returned.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function full
 	 * @param {string} url - The url to ensure is full.
 	 * @returns {?string} `null` if the given `path` is not a string or empty.
@@ -1149,7 +1076,7 @@
 
 	/**
 	 * @summary Gets or sets a parameter in the given <code>search</code> string.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function param
 	 * @param {string} search - The search string to use (usually `location.search`).
 	 * @param {string} key - The key of the parameter.
@@ -1225,18 +1152,18 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common string utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace str
 	 */
 	_.str = {};
 
 	/**
 	 * @summary Converts the given `target` to camel case.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function camel
 	 * @param {string} target - The string to camel case.
 	 * @returns {string}
@@ -1262,7 +1189,7 @@
 
 	/**
 	 * @summary Converts the given `target` to kebab case. Non-alphanumeric characters are converted to `-`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function kebab
 	 * @param {string} target - The string to kebab case.
 	 * @returns {string}
@@ -1288,7 +1215,7 @@
 
 	/**
 	 * @summary Checks if the `target` contains the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function contains
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The string to check for.
@@ -1315,7 +1242,7 @@
 
 	/**
 	 * @summary Checks if the `target` contains the given `word`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function containsWord
 	 * @param {string} target - The string to check.
 	 * @param {string} word - The word to check for.
@@ -1346,7 +1273,7 @@
 
 	/**
 	 * @summary Checks if the `target` ends with the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function endsWith
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The substr to check for.
@@ -1366,7 +1293,7 @@
 
 	/**
 	 * @summary Escapes the `target` for use in a regular expression.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function escapeRegExp
 	 * @param {string} target - The string to escape.
 	 * @returns {string}
@@ -1379,7 +1306,7 @@
 
 	/**
 	 * @summary Generates a 32 bit FNV-1a hash from the given `target`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function fnv1a
 	 * @param {string} target - The string to generate a hash from.
 	 * @returns {?number} `null` if the `target` is not a string or empty otherwise a 32 bit FNV-1a hash.
@@ -1403,7 +1330,7 @@
 
 	/**
 	 * @summary Returns the remainder of the `target` split on the first index of the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function from
 	 * @param {string} target - The string to split.
 	 * @param {string} substr - The substring to split on.
@@ -1420,13 +1347,12 @@
 	 * console.log( _str.from( target, "nonexistent" ) ); // => null
 	 */
 	_.str.from = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return null;
 		return _.str.contains(target, substr) ? target.substring(target.indexOf(substr) + substr.length) : null;
 	};
 
 	/**
 	 * @summary Joins any number of strings using the given `separator`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function join
 	 * @param {string} separator - The separator to use to join the strings.
 	 * @param {string} part - The first string to join.
@@ -1464,7 +1390,7 @@
 
 	/**
 	 * @summary Checks if the `target` starts with the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function startsWith
 	 * @param {string} target - The string to check.
 	 * @param {string} substr - The substr to check for.
@@ -1484,7 +1410,7 @@
 
 	/**
 	 * @summary Returns the first part of the `target` split on the first index of the given `substr`.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function until
 	 * @param {string} target - The string to split.
 	 * @param {string} substr - The substring to split on.
@@ -1501,13 +1427,12 @@
 	 * console.log( _str.until( target, "nonexistent" ) ); // => "To be, or not to be, that is the question."
 	 */
 	_.str.until = function (target, substr) {
-		if (_is.empty(target) || _is.empty(substr)) return target;
 		return _.str.contains(target, substr) ? target.substring(0, target.indexOf(substr)) : target;
 	};
 
 	/**
 	 * @summary A basic string formatter that can use both index and name based placeholders but handles only string or number replacements.
-	 * @memberof FooUtils.str
+	 * @memberof FooUtils.str.
 	 * @function format
 	 * @param {string} target - The format string containing any placeholders to replace.
 	 * @param {string|number|Object|Array} arg1 - The first value to format the target with. If an object is supplied it's properties are used to match named placeholders. If an array, string or number is supplied it's values are used to match any index placeholders.
@@ -1548,12 +1473,13 @@
 	_.str.format = function (target, arg1, argN){
 		var args = _fn.arg2arr(arguments);
 		target = args.shift(); // remove the target from the args
-		if (_is.empty(target) || _is.empty(args)) return target;
-		if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
-			args = args[0];
-		}
-		for (var arg in args){
-			target = target.replace(new RegExp("\\{" + arg + "\\}", "gi"), args[arg]);
+		if (_is.string(target) && args.length > 0){
+			if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
+				args = args[0];
+			}
+			_.each(args, function(value, placeholder){
+				target = target.replace(new RegExp("\\{" + placeholder + "\\}", "gi"), value + "");
+			});
 		}
 		return target;
 	};
@@ -1566,11 +1492,11 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common object utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace obj
 	 */
 	_.obj = {};
@@ -1579,10 +1505,10 @@
 	var Obj = function () {};
 	/**
 	 * @summary Creates a new object with the specified prototype.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function create
-	 * @param {object} proto - The object which should be the prototype of the newly-created object.
-	 * @returns {object} A new object with the specified prototype.
+	 * @param {Object} proto - The object which should be the prototype of the newly-created object.
+	 * @returns {Object} A new object with the specified prototype.
 	 * @description This is a basic implementation of the {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create|Object.create} method.
 	 */
 	_.obj.create = function (proto) {
@@ -1596,7 +1522,7 @@
 
 	/**
 	 * @summary Merge the contents of two or more objects together into the first `target` object.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function extend
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {Object} object - An object containing properties to merge.
@@ -1631,7 +1557,7 @@
 
 	/**
 	 * @summary Merge the contents of two objects together into the first `target` object.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function merge
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {Object} object - The object containing properties to merge.
@@ -1668,7 +1594,7 @@
 
 	/**
 	 * @summary Merge the validated properties of the `object` into the `target` using the optional `mappings`.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function mergeValid
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {FooUtils.obj~Validators} validators - An object containing validators for the `target` object properties.
@@ -1742,7 +1668,7 @@
 
 	/**
 	 * @summary Get or set a property value given its `name`.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function prop
 	 * @param {Object} object - The object to inspect for the property.
 	 * @param {string} name - The name of the property to fetch. This can be a `.` notated name.
@@ -1821,7 +1747,7 @@
 
 	/**
 	 * @summary An object used by the {@link FooUtils.obj.mergeValid|mergeValid} method to map new values onto the `target` object.
-	 * @typedef {Object.<string,string>|Object.<string,Array.<string>>} FooUtils.obj~Mappings
+	 * @typedef {Object.<string,(string|Array.<string>)>} FooUtils.obj~Mappings
 	 * @description The mappings object is a single level object. If you want to map a property from/to a child object on either the source or target objects you must supply the name using `.` notation as seen in the below example with the `"name.first"` to `"Name.Short"` mapping.
 	 * @example {@caption The basic structure of a mappings object is the below.}
 	 * {
@@ -1898,7 +1824,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1912,7 +1838,7 @@
 
 	/**
 	 * @summary Waits for the DOM to be accessible and then executes the supplied callback.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function ready
 	 * @param {FooUtils~readyCallback} callback - The function to execute once the DOM is accessible.
 	 * @example {@caption This method can be used as a replacement for the jQuery ready callback to avoid an error in another script stopping our scripts from running.}
@@ -1929,12 +1855,150 @@
 		else document.addEventListener('DOMContentLoaded', onready, false);
 	};
 
+	/**
+	 * @summary Executed once for each array index or object property until it returns a truthy value.
+	 * @callback FooUtils~findCallback
+	 * @param {*} value - The current value being iterated over. This could be either an element in an array or the value of an object property.
+	 * @param {(number|string)} [key] - The array index or property name of the `value`.
+	 * @param {(Object|Array)} [object] - The array or object currently being searched.
+	 * @returns {boolean} A truthy value.
+	 */
+
+	/**
+	 * @summary Returns the value of the first element or property in the provided target that satisfies the provided test function.
+	 * @memberof FooUtils.
+	 * @function find
+	 * @param {(Object|Array)} target - The object or array to search.
+	 * @param {FooUtils~findCallback} callback - A function to execute for each value in the target.
+	 * @param {*} [thisArg] - The `this` value within the `callback`.
+	 * @returns {*} The value of the first element or property in the provided target that satisfies the provided test function. Otherwise, `undefined` is returned.
+	 */
+	_.find = function(target, callback, thisArg){
+		if (!_is.fn(callback)) return;
+		thisArg = _is.undef(thisArg) ? callback : thisArg;
+		var i, l;
+		if (_is.array(target)){
+			for (i = 0, l = target.length; i < l; i++){
+				if (callback.call(thisArg, target[i], i, target)){
+					return target[i];
+				}
+			}
+		} else if (_is.object(target)){
+			var keys = Object.keys(target);
+			for (i = 0, l = keys.length; i < l; i++){
+				if (callback.call(thisArg, target[keys[i]], keys[i], target)){
+					return target[keys[i]];
+				}
+			}
+		}
+	};
+
+	/**
+	 * @summary Executed once for each array index or object property.
+	 * @callback FooUtils~eachCallback
+	 * @param {*} value - The current value being iterated over. This could be either an element in an array or the value of an object property.
+	 * @param {(number|string)} [key] - The array index or property name of the `value`.
+	 * @param {(Object|Array)} [object] - The array or object currently being searched.
+	 * @returns {(boolean|void)} Return `false` to break out of the loop, all other values are ignored.
+	 */
+
+	/**
+	 * @summary Iterate over all indexes or properties of the provided target executing the provided callback once per value.
+	 * @memberof FooUtils.
+	 * @function each
+	 * @param {(Object|Array)} object - The object or array to search.
+	 * @param {FooUtils~eachCallback} callback - A function to execute for each value in the target.
+	 * @param {*} [thisArg] - The `this` value within the `callback`.
+	 */
+	_.each = function(object, callback, thisArg){
+		if (!_is.fn(callback)) return;
+		thisArg = _is.undef(thisArg) ? callback : thisArg;
+		var i, l, result;
+		if (_is.array(object)){
+			for (i = 0, l = object.length; i < l; i++){
+				result = callback.call(thisArg, object[i], i, object);
+				if (result === false) break;
+			}
+		} else if (_is.object(object)){
+			var keys = Object.keys(object);
+			for (i = 0, l = keys.length; i < l; i++){
+				result = callback.call(thisArg, object[keys[i]], keys[i], object);
+				if (result === false) break;
+			}
+		}
+	};
+
+	/**
+	 * @summary Compares two version numbers.
+	 * @memberof FooUtils.
+	 * @function versionCompare
+	 * @param {string} version1 - The first version to use in the comparison.
+	 * @param {string} version2 - The second version to compare to the first.
+	 * @returns {number} `0` if the version are equal.
+	 * `-1` if `version1` is less than `version2`.
+	 * `1` if `version1` is greater than `version2`.
+	 * `NaN` if either of the supplied versions do not conform to MAJOR.MINOR.PATCH format.
+	 * @description This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. `1.0` versus `1.0.1`.
+	 * @example {@caption The following shows the results of comparing various version strings.}
+	 * console.log( FooUtils.versionCompare( "0", "0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.0", "0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.0", "0.0.0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.1", "0.0.0" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "0.1", "0.0.1" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1", "0.1" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1.10", "1.9" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1.9", "1.10" ) ); // => -1
+	 * console.log( FooUtils.versionCompare( "1", "1.1" ) ); // => -1
+	 * console.log( FooUtils.versionCompare( "1.0.9", "1.1" ) ); // => -1
+	 * @example {@caption If either of the supplied version strings does not match the MAJOR.MINOR.PATCH format then `NaN` is returned.}
+	 * console.log( FooUtils.versionCompare( "not-a-version", "1.1" ) ); // => NaN
+	 * console.log( FooUtils.versionCompare( "1.1", "not-a-version" ) ); // => NaN
+	 * console.log( FooUtils.versionCompare( "not-a-version", "not-a-version" ) ); // => NaN
+	 */
+	_.versionCompare = function(version1, version2){
+		// if either of the versions do not match the expected format return NaN
+		if (!(/[\d.]/.test(version1) && /[\d.]/.test(version2))) return NaN;
+
+		/**
+		 * @summary Splits and parses the given version string into a numeric array.
+		 * @param {string} version - The version string to split and parse.
+		 * @returns {Array.<number>}
+		 * @ignore
+		 */
+		function split(version){
+			var parts = version.split('.'), result = [];
+			for(var i = 0, len = parts.length; i < len; i++){
+				result[i] = parseInt(parts[i]);
+				if (isNaN(result[i])) result[i] = 0;
+			}
+			return result;
+		}
+
+		// get the base numeric arrays for each version
+		var v1parts = split(version1),
+			v2parts = split(version2);
+
+		// ensure both arrays are the same length by padding the shorter with 0
+		while (v1parts.length < v2parts.length) v1parts.push(0);
+		while (v2parts.length < v1parts.length) v2parts.push(0);
+
+		// perform the actual comparison
+		for (var i = 0; i < v1parts.length; ++i) {
+			if (v2parts.length === i) return 1;
+			if (v1parts[i] === v2parts[i]) continue;
+			if (v1parts[i] > v2parts[i]) return 1;
+			else return -1;
+		}
+		if (v1parts.length !== v2parts.length) return -1;
+		return 0;
+	};
+
 	// A variable to hold the last number used to generate an ID in the current page.
 	var uniqueId = 0;
 
 	/**
 	 * @summary Generate and apply a unique id for the given `$element`.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function uniqueId
 	 * @param {jQuery} $element - The jQuery element object to retrieve an id from or generate an id for.
 	 * @param {string} [prefix="uid-"] - A prefix to append to the start of any generated ids.
@@ -1967,7 +2031,7 @@
 
 	/**
 	 * @summary Remove the id from the given `$element` if it was set using the {@link FooUtils.uniqueId|uniqueId} method.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function removeUniqueId
 	 * @param {jQuery} $element - The jQuery element object to remove a generated id from.
 	 * @example {@run true}
@@ -1991,7 +2055,7 @@
 
 	/**
 	 * @summary Convert CSS class names into CSS selectors.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function selectify
 	 * @param {(string|string[]|object)} classes - A space delimited string of CSS class names or an array of them with each item being included in the selector using the OR (`,`) syntax as a separator. If an object is supplied the result will be an object with the same property names but the values converted to selectors.
 	 * @returns {(object|string)}
@@ -2032,7 +2096,7 @@
 
 	/**
 	 * @summary Parses the supplied `src` and `srcset` values and returns the best matching URL for the supplied render size.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function src
 	 * @param {string} src - The default src for the image.
 	 * @param {string} srcset - The srcset containing additional image sizes.
@@ -2141,7 +2205,7 @@
 
 	/**
 	 * @summary Get the scroll parent for the supplied element optionally filtering by axis.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function scrollParent
 	 * @param {(string|Element|jQuery)} element - The selector, element or jQuery element to find the scroll parent of.
 	 * @param {string} [axis="xy"] - The axis to check. By default this method will check both the X and Y axis.
@@ -2179,17 +2243,17 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS animation property.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace animation
 	 */
 	_.animation = {};
 
 	function raf(callback){
-		return setTimeout(callback, 1);
+		return setTimeout(callback, 1000/60);
 	}
 
 	function caf(requestID){
@@ -2198,7 +2262,7 @@
 
 	/**
 	 * @summary A cross browser wrapper for the `requestAnimationFrame` method.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function requestFrame
 	 * @param {function} callback - The function to call when it's time to update your animation for the next repaint.
 	 * @return {number} - The request id that uniquely identifies the entry in the callback list.
@@ -2207,7 +2271,7 @@
 
 	/**
 	 * @summary A cross browser wrapper for the `cancelAnimationFrame` method.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function cancelFrame
 	 * @param {number} requestID - The ID value returned by the call to {@link FooUtils.animation.requestFrame|requestFrame} that requested the callback.
 	 */
@@ -2218,7 +2282,7 @@
 
 	/**
 	 * @summary Whether or not animations are supported by the current browser.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @name supported
 	 * @type {boolean}
 	 */
@@ -2241,7 +2305,7 @@
 
 	/**
 	 * @summary The `animationend` event name for the current browser.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @name end
 	 * @type {string}
 	 * @description Depending on the browser this returns one of the following values:
@@ -2274,7 +2338,7 @@
 
 	/**
 	 * @summary Gets the `animation-duration` value for the supplied jQuery element.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function duration
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=0] - The default value to return if no duration is set.
@@ -2285,23 +2349,27 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('animation-duration');
-		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
-			// if we have a valid time value
-			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
-				value = parseFloat(match[1]),
-				unit = match[2].toLowerCase();
-			if (unit === 's'){
-				// convert seconds to milliseconds
-				value = value * 1000;
-			}
-			return value;
+		if (/^([\d.]*)+?(ms|s)/i.test(duration)){
+			// if we have a valid duration value split it into it's components
+			var parts = duration.split(","), max = 0;
+			parts.forEach(function(part){
+				var match = part.match(/^\s*?([\d.]*)+?(ms|s)\s*?$/i),
+					value = parseFloat(match[1]),
+					unit = match[2].toLowerCase();
+				if (unit === 's'){
+					// convert seconds to milliseconds
+					value = value * 1000;
+				}
+				if (value > max) max = value;
+			});
+			return max;
 		}
 		return def;
 	};
 
 	/**
 	 * @summary Gets the `animation-iteration-count` value for the supplied jQuery element.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function iterations
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=1] - The default value to return if no iteration count is set.
@@ -2312,8 +2380,15 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var iterations = $element.css('animation-iteration-count');
-		if (/^(\d+|infinite)$/i.test(iterations)){
-			return iterations === "infinite" ? Infinity : parseInt(iterations);
+		if (/^(([\d.]+)|infinite)/i.test(iterations)){
+			// if we have a valid iterations value split it into it's components
+			var parts = iterations.split(","), max = 0;
+			parts.forEach(function(part){
+				var value = parseFloat(part);
+				if (isNaN(value)) value = Infinity;
+				if (value > max) max = value;
+			});
+			return max;
 		}
 		return def;
 	};
@@ -2327,7 +2402,7 @@
 
 	/**
 	 * @summary Start a animation by toggling the supplied `className` on the `$element`.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the animation on.
 	 * @param {(string|FooUtils.animation~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the animation.
@@ -2405,11 +2480,11 @@
 );
 (function($, _, _is, _animation){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace transition
 	 */
 	_.transition = {};
@@ -2419,7 +2494,7 @@
 
 	/**
 	 * @summary Whether or not transitions are supported by the current browser.
-	 * @memberof FooUtils.transition
+	 * @memberof FooUtils.transition.
 	 * @name supported
 	 * @type {boolean}
 	 */
@@ -2442,7 +2517,7 @@
 
 	/**
 	 * @summary The `transitionend` event name for the current browser.
-	 * @memberof FooUtils.transition
+	 * @memberof FooUtils.transition.
 	 * @name end
 	 * @type {string}
 	 * @description Depending on the browser this returns one of the following values:
@@ -2475,7 +2550,7 @@
 
 	/**
 	 * @summary Gets the `transition-duration` value for the supplied jQuery element.
-	 * @memberof FooUtils.transition
+	 * @memberof FooUtils.transition.
 	 * @function duration
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=0] - The default value to return if no duration is set.
@@ -2486,16 +2561,20 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('transition-duration');
-		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
-			// if we have a valid time value
-			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
-				value = parseFloat(match[1]),
-				unit = match[2].toLowerCase();
-			if (unit === 's'){
-				// convert seconds to milliseconds
-				value = value * 1000;
-			}
-			return value;
+		if (/^([\d.]*)+?(ms|s)/i.test(duration)){
+			// if we have a valid duration value split it into it's components
+			var parts = duration.split(","), max = 0;
+			parts.forEach(function(part){
+				var match = part.match(/^\s*?([\d.]*)+?(ms|s)\s*?$/i),
+					value = parseFloat(match[1]),
+					unit = match[2].toLowerCase();
+				if (unit === 's'){
+					// convert seconds to milliseconds
+					value = value * 1000;
+				}
+				if (value > max) max = value;
+			});
+			return max;
 		}
 		return def;
 	};
@@ -2509,7 +2588,7 @@
 
 	/**
 	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
-	 * @memberof FooUtils.transition
+	 * @memberof FooUtils.transition.
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the transition on.
 	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
@@ -2579,12 +2658,12 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
 	 * @memberof FooUtils.
-	 * @constructs FooUtils.Class
+	 * @constructs Class
 	 * @description This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a `_super` method within the scope of any overriding methods that allows a simple way to execute the overridden function.
 	 *
 	 * Have a look at the {@link FooUtils.Class.extend|extend} and {@link FooUtils.Class.override|override} method examples to see some basic usage.
@@ -2604,8 +2683,9 @@
 	 * @ignore
 	 * @summary The original function when within the scope of an overriding method.
 	 * @memberof FooUtils.Class#
-	 * @name _super
-	 * @type {?function}
+	 * @function _super
+	 * @param {...*} [argN] - The same arguments as the base method.
+	 * @returns {*} The result of the base method.
 	 * @description This is only available within the scope of an overriding method if it was created using the {@link FooUtils.Class.extend|extend}, {@link FooUtils.Class.override|override} or {@link FooUtils.fn.addOrOverride} methods.
 	 * @see {@link FooUtils.fn.addOrOverride} to see an example of how this property is used.
 	 */
@@ -2748,34 +2828,43 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.1.9') return;
+    if (_.version !== '0.2.0') return;
 
-    _.Event = _.Class.extend(/** @lends FooUtils.Event */{
+    /**
+     * @summary A base event class providing just a type and defaultPrevented properties.
+     * @memberof FooUtils.
+     * @class Event
+     * @param {string} type - The type for this event.
+     * @augments FooUtils.Class
+     * @borrows FooUtils.Class.extend as extend
+     * @borrows FooUtils.Class.override as override
+     * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
+     *
+     * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
+     * @example {@caption The following shows how to use this class to create a custom event.}
+     * var MyEvent = FooUtils.Event.extend({
+     * 	construct: function(type, customProp){
+     * 	    this._super(type);
+     * 	    this.myCustomProp = customProp;
+     * 	}
+     * });
+     *
+     * // to use the class you would then instantiate it and pass it as the first argument to a FooUtils.EventClass's trigger method
+     * var eventClass = ...; // any class inheriting from FooUtils.EventClass
+     * var event = new MyEvent( "my-event-type", true );
+     * eventClass.trigger(event);
+     */
+    _.Event = _.Class.extend(/** @lends FooUtils.Event.prototype */{
         /**
-         * @summary A base event class providing just a type and defaultPrevented properties.
+         * @ignore
          * @constructs
-         * @param {string} type - The type for this event.
-         * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
-         *
-         * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
-         * @example {@caption The following shows how to use this class to create a custom event.}
-         * var MyEvent = FooUtils.Event.extend({
-         * 	construct: function(type, customProp){
-         * 	    this._super(type);
-         * 	    this.myCustomProp = customProp;
-         * 	}
-         * });
-         *
-         * // to use the class you would then instantiate it and pass it as the first argument to a FooUtils.EventClass's trigger method
-         * var eventClass = ...; // any class inheriting from FooUtils.EventClass
-         * var event = new MyEvent( "my-event-type", true );
-         * eventClass.trigger(event);
-         */
+         * @param {string} type
+         **/
         construct: function(type){
             if (_is.empty(type))
                 throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
 
-            var namespaced = _str.contains(type, ".");
+            var self = this, parsed = _.Event.parse(type);
             /**
              * @summary The type of event.
              * @memberof FooUtils.Event#
@@ -2783,7 +2872,7 @@
              * @type {string}
              * @readonly
              */
-            this.type = namespaced ? _str.until(type, ".") : type;
+            self.type = parsed.type;
             /**
              * @summary The namespace of the event.
              * @memberof FooUtils.Event#
@@ -2791,7 +2880,7 @@
              * @type {string}
              * @readonly
              */
-            this.namespace = namespaced ? _str.from(type, ".") : null;
+            self.namespace = parsed.namespace;
             /**
              * @summary Whether the default action should be taken or not.
              * @memberof FooUtils.Event#
@@ -2799,15 +2888,14 @@
              * @type {boolean}
              * @readonly
              */
-            this.defaultPrevented = false;
+            self.defaultPrevented = false;
             /**
-             * @summary The {@link FooUtils.EventClass} that triggered this event.
+             * @summary The original {@link FooUtils.EventClass} that triggered this event.
              * @memberof FooUtils.Event#
              * @name target
              * @type {FooUtils.EventClass}
-             * @readonly
              */
-            this.target = null;
+            self.target = null;
         },
         /**
          * @summary Informs the class that raised this event that its default action should not be taken.
@@ -2828,21 +2916,58 @@
         }
     });
 
-    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass */{
+    /**
+     * @summary Parse the provided event string into a type and namespace.
+     * @memberof FooUtils.Event.
+     * @function parse
+     * @param {string} event - The event to parse.
+     * @returns {{namespaced: boolean, type: string, namespace: string}} Returns an object containing the type and namespace for the event.
+     */
+    _.Event.parse = function(event){
+        event = _is.string(event) && !_is.empty(event) ? event : null;
+        var namespaced = _str.contains(event, ".");
+        return {
+            namespaced: namespaced,
+            type: namespaced ? _str.startsWith(event, ".") ? null : _str.until(event, ".") : event,
+            namespace: namespaced ? _str.from(event, ".") : null
+        };
+    };
+
+    /**
+     * @summary A base class that implements a basic events interface.
+     * @memberof FooUtils.
+     * @class EventClass
+     * @augments FooUtils.Class
+     * @borrows FooUtils.Class.extend as extend
+     * @borrows FooUtils.Class.override as override
+     * @description This is a very basic events implementation that provides just enough to cover most needs.
+     */
+    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass.prototype */{
         /**
-         * @summary A base class that implements a basic events interface.
+         * @ignore
          * @constructs
-         * @description This is a very basic events implementation that provides just enough to cover most needs.
-         */
+         **/
         construct: function(){
             /**
-             * @summary The object used internally to register event handlers.
-             * @memberof FooUtils.EventClass#
-             * @name __handlers
-             * @type {Object}
-             * @private
+             * @summary An object containing all the required info to execute a listener.
+             * @typedef {Object} FooUtils.EventClass~RegisteredListener
+             * @property {string} namespace - The namespace for the listener.
+             * @property {function} fn - The callback function for the listener.
+             * @property {*} thisArg - The `this` value to execute the callback with.
              */
-            this.__handlers = {};
+
+            /**
+             * @summary An object containing a mapping of events to listeners.
+             * @typedef {Object.<string, Array<FooUtils.EventClass~RegisteredListener>>} FooUtils.EventClass~RegisteredEvents
+             */
+
+            /**
+             * @summary The object used to register event handlers.
+             * @memberof FooUtils.EventClass#
+             * @name events
+             * @type {FooUtils.EventClass~RegisteredEvents}
+             */
+            this.events = {};
         },
         /**
          * @summary Destroy the current instance releasing used resources.
@@ -2850,131 +2975,151 @@
          * @function destroy
          */
         destroy: function(){
-            this.__handlers = {};
+            this.events = {};
         },
         /**
-         * @summary Attach multiple event handler functions for one or more events to the class.
+         * @summary Attach multiple event listeners to the class.
          * @memberof FooUtils.EventClass#
          * @function on
-         * @param {object} events - An object containing an event name to handler mapping.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {Object.<string, function>} events - An object containing event types to listener mappings.
+         * @param {*} [thisArg] - The value of `this` within the listeners. Defaults to the class raising the event.
          * @returns {this}
          *//**
-         * @summary Attach an event handler function for one or more events to the class.
+         * @summary Attach an event listener for one or more events to the class.
          * @memberof FooUtils.EventClass#
          * @function on
          * @param {string} events - One or more space-separated event types.
-         * @param {function} handler - A function to execute when the event is triggered.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
          * @returns {this}
          */
-        on: function(events, handler, thisArg){
+        on: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
-                thisArg = _is.undef(handler) ? this : handler;
+                thisArg = listener;
                 Object.keys(events).forEach(function(key){
-                    key.split(" ").forEach(function(type){
-                        self.__on(type, events[key], thisArg);
-                    });
+                    if (_is.fn(events[key])){
+                        key.split(" ").forEach(function(type){
+                            self.addListener(type, events[key], thisArg);
+                        });
+                    }
                 });
-            } else if (_is.string(events) && _is.fn(handler)) {
-                thisArg = _is.undef(thisArg) ? this : thisArg;
+            } else if (_is.string(events) && _is.fn(listener)) {
                 events.split(" ").forEach(function(type){
-                    self.__on(type, handler, thisArg);
+                    self.addListener(type, listener, thisArg);
                 });
             }
 
             return self;
         },
-        __on: function(event, handler, thisArg){
-            var self = this,
-                namespaced = _str.contains(event, "."),
-                type = namespaced ? _str.until(event, ".") : event,
-                namespace = namespaced ? _str.from(event, ".") : null;
+        /**
+         * @summary Adds a single event listener to the current class.
+         * @memberof FooUtils.EventClass#
+         * @function addListener
+         * @param {string} event - The event type, this can not contain any whitespace.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
+         * @returns {boolean} Returns `true` if added.
+         */
+        addListener: function(event, listener, thisArg){
+            if (!_is.string(event) || /\s/.test(event) || !_is.fn(listener)) return false;
 
-            if (!_is.array(self.__handlers[type])){
-                self.__handlers[type] = [];
+            var self = this, parsed = _.Event.parse(event);
+            thisArg = _is.undef(thisArg) ? self : thisArg;
+
+            if (!_is.array(self.events[parsed.type])){
+                self.events[parsed.type] = [];
             }
-            var exists = self.__handlers[type].some(function(h){
-                return h.namespace === namespace && h.fn === handler && h.thisArg === thisArg;
+            var exists = self.events[parsed.type].some(function(h){
+                return h.namespace === parsed.namespace && h.fn === listener && h.thisArg === thisArg;
             });
             if (!exists){
-                self.__handlers[type].push({
-                    namespace: namespace,
-                    fn: handler,
+                self.events[parsed.type].push({
+                    namespace: parsed.namespace,
+                    fn: listener,
                     thisArg: thisArg
                 });
+                return true;
             }
+            return false;
         },
         /**
-         * @summary Remove multiple event handler functions for one or more events from the class.
+         * @summary Remove multiple event listeners from the class.
          * @memberof FooUtils.EventClass#
          * @function off
-         * @param {object} events - An object containing an event name to handler mapping.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {Object.<string, function>} events - An object containing event types to listener mappings.
+         * @param {*} [thisArg] - The value of `this` within the `listener` function. Defaults to the class raising the event.
          * @returns {this}
          *//**
-         * @summary Remove an event handler function for one or more events from the class.
+         * @summary Remove an event listener from the class.
          * @memberof FooUtils.EventClass#
          * @function off
          * @param {string} events - One or more space-separated event types.
-         * @param {function} handler - The handler to remove.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
          * @returns {this}
          */
-        off: function(events, handler, thisArg){
+        off: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
-                thisArg = _is.undef(handler) ? this : handler;
+                thisArg = listener;
                 Object.keys(events).forEach(function(key){
                     key.split(" ").forEach(function(type){
-                        self.__off(type, _is.fn(events[key]) ? events[key] : null, thisArg);
+                        self.removeListener(type, events[key], thisArg);
                     });
                 });
             } else if (_is.string(events)) {
-                handler = _is.fn(handler) ? handler : null;
-                thisArg = _is.undef(thisArg) ? this : thisArg;
                 events.split(" ").forEach(function(type){
-                    self.__off(type, handler, thisArg);
+                    self.removeListener(type, listener, thisArg);
                 });
             }
 
             return self;
         },
-        __off: function(event, handler, thisArg){
-            var self = this,
-                type = _str.until(event, ".") || null,
-                namespace = _str.from(event, ".") || null,
-                types = [];
+        /**
+         * @summary Removes a single event listener from the current class.
+         * @memberof FooUtils.EventClass#
+         * @function removeListener
+         * @param {string} event - The event type, this can not contain any whitespace.
+         * @param {function} [listener] - The listener registered to the event type.
+         * @param {*} [thisArg] - The value of `this` registered for the `listener`. Defaults to the class raising the event.
+         * @returns {boolean} Returns `true` if removed.
+         */
+        removeListener: function(event, listener, thisArg){
+            if (!_is.string(event) || /\s/.test(event)) return false;
 
-            if (!_is.empty(type)){
-                types.push(type);
-            } else if (!_is.empty(namespace)){
-                types.push.apply(types, Object.keys(self.__handlers));
+            var self = this, parsed = _.Event.parse(event), types = [];
+            thisArg = _is.undef(thisArg) ? self : thisArg;
+
+            if (!_is.empty(parsed.type)){
+                types.push(parsed.type);
+            } else if (!_is.empty(parsed.namespace)){
+                types.push.apply(types, Object.keys(self.events));
             }
 
             types.forEach(function(type){
-                if (!_is.array(self.__handlers[type])) return;
-                self.__handlers[type] = self.__handlers[type].filter(function (h) {
-                    if (handler != null){
-                        return !(h.namespace === namespace && h.fn === handler && h.thisArg === thisArg);
+                if (!_is.array(self.events[type])) return;
+                self.events[type] = self.events[type].filter(function (h) {
+                    if (listener != null){
+                        return !(h.namespace === parsed.namespace && h.fn === listener && h.thisArg === thisArg);
                     }
-                    if (namespace != null){
-                        return h.namespace !== namespace;
+                    if (parsed.namespace != null){
+                        return h.namespace !== parsed.namespace;
                     }
                     return false;
                 });
-                if (self.__handlers[type].length === 0){
-                    delete self.__handlers[type];
+                if (self.events[type].length === 0){
+                    delete self.events[type];
                 }
             });
+            return true;
         },
         /**
          * @summary Trigger an event on the current class.
          * @memberof FooUtils.EventClass#
          * @function trigger
          * @param {(string|FooUtils.Event)} event - Either a space-separated string of event types or a custom event object to raise.
-         * @param {Array} [args] - An array of additional arguments to supply to the handlers after the event object.
+         * @param {Array} [args] - An array of additional arguments to supply to the listeners after the event object.
          * @returns {(FooUtils.Event|FooUtils.Event[]|null)} Returns the {@link FooUtils.Event|event object} of the triggered event. If more than one event was triggered an array of {@link FooUtils.Event|event objects} is returned. If no `event` was supplied or triggered `null` is returned.
          */
         trigger: function(event, args){
@@ -2982,23 +3127,39 @@
             var self = this, result = [];
             if (event instanceof _.Event){
                 result.push(event);
-                self.__trigger(event, args);
+                self.emit(event, args);
             } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
-                    var index = result.push(new _.Event(type)) - 1;
-                    self.__trigger(result[index], args);
+                    var e = new _.Event(type);
+                    result.push(e)
+                    self.emit(e, args);
                 });
             }
             return _is.empty(result) ? null : (result.length === 1 ? result[0] : result);
         },
-        __trigger: function(event, args){
+        /**
+         * @summary Emits the supplied event on the current class.
+         * @memberof FooUtils.EventClass#
+         * @function emit
+         * @param {FooUtils.Event} event - The event object to emit.
+         * @param {Array} [args] - An array of additional arguments to supply to the listener after the event object.
+         */
+        emit: function(event, args){
+            if (!(event instanceof FooUtils.Event)) return;
             var self = this;
-            event.target = self;
-            if (!_is.array(self.__handlers[event.type])) return;
-            self.__handlers[event.type].forEach(function (h) {
-                if (event.namespace != null && h.namespace !== event.namespace) return;
-                h.fn.apply(h.thisArg, [event].concat(args));
-            });
+            args = _is.array(args) ? args : [];
+            if (event.target === null) event.target = self;
+            if (_is.array(self.events[event.type])) {
+                self.events[event.type].forEach(function (h) {
+                    if (event.namespace != null && h.namespace !== event.namespace) return;
+                    h.fn.apply(h.thisArg, [event].concat(args));
+                });
+            }
+            if (_is.array(self.events["__all__"])){
+                self.events["__all__"].forEach(function (h) {
+                    h.fn.apply(h.thisArg, [event].concat(args));
+                });
+            }
         }
     });
 
@@ -3010,23 +3171,64 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
-	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
+	/**
+	 * @summary A simple bounding rectangle class.
+	 * @memberof FooUtils.
+	 * @class Bounds
+	 * @augments FooUtils.Class
+	 * @borrows FooUtils.Class.extend as extend
+	 * @borrows FooUtils.Class.override as override
+	 */
+	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds.prototype */{
 		/**
-		 * @summary A simple bounding rectangle class.
+		 * @ignore
 		 * @constructs
-		 * @augments FooUtils.Class
-		 * @borrows FooUtils.Class.extend as extend
-		 * @borrows FooUtils.Class.override as override
-		 */
+		 **/
 		construct: function(){
 			var self = this;
+			/**
+			 * @summary The top position.
+			 * @memberof FooUtils.Bounds#
+			 * @name top
+			 * @type {number}
+			 */
 			self.top = 0;
+			/**
+			 * @summary The right position.
+			 * @memberof FooUtils.Bounds#
+			 * @name right
+			 * @type {number}
+			 */
 			self.right = 0;
+			/**
+			 * @summary The bottom position.
+			 * @memberof FooUtils.Bounds#
+			 * @name bottom
+			 * @type {number}
+			 */
 			self.bottom = 0;
+			/**
+			 * @summary The left position.
+			 * @memberof FooUtils.Bounds#
+			 * @name left
+			 * @type {number}
+			 */
 			self.left = 0;
+			/**
+			 * @summary The width of the rectangle described by the position properties.
+			 * @memberof FooUtils.Bounds#
+			 * @name width
+			 * @type {number}
+			 */
 			self.width = 0;
+			/**
+			 * @summary The height of the rectangle described by the position properties.
+			 * @memberof FooUtils.Bounds#
+			 * @name height
+			 * @type {number}
+			 */
 			self.height = 0;
 		},
 		/**
@@ -3064,7 +3266,7 @@
 	var __$window;
 	/**
 	 * @summary Gets the bounding rectangle of the current viewport.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function getViewportBounds
 	 * @param {number} [inflate] - An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.
 	 * @returns {FooUtils.Bounds}
@@ -3084,7 +3286,7 @@
 
 	/**
 	 * @summary Get the bounding rectangle for the supplied element.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function getElementBounds
 	 * @param {(jQuery|HTMLElement|string)} element - The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.
 	 * @returns {FooUtils.Bounds}
@@ -3111,13 +3313,19 @@
 );
 (function($, _, _is, _fn, _obj){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.9') return;
+    if (_.version !== '0.2.0') return;
 
+    /**
+     * @summary A simple timer that triggers events.
+     * @memberof FooUtils.
+     * @class Timer
+     * @param {number} [interval=1000] - The internal tick interval of the timer.
+     */
     _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
         /**
-         * @summary A simple timer that triggers events.
+         * @ignore
          * @constructs
-         * @param {number} [interval=1000] - The internal tick interval of the timer.
+         * @param {number} [interval=1000]
          */
         construct: function(interval){
             this._super();
@@ -3405,23 +3613,36 @@
 
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
-	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
+	/**
+	 * @summary A factory for classes allowing them to be registered and created using a friendly name.
+	 * @memberof FooUtils.
+	 * @class Factory
+	 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
+	 * @augments FooUtils.Class
+	 * @borrows FooUtils.Class.extend as extend
+	 * @borrows FooUtils.Class.override as override
+	 */
+	_.Factory = _.Class.extend(/** @lends FooUtils.Factory.prototype */{
 		/**
-		 * @summary A factory for classes allowing them to be registered and created using a friendly name.
+		 * @ignore
 		 * @constructs
-		 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
-		 * @augments FooUtils.Class
-		 * @borrows FooUtils.Class.extend as extend
-		 * @borrows FooUtils.Class.override as override
-		 */
+		 **/
 		construct: function(){
+			/**
+			 * @summary An object containing all the required info to create a new instance of a registered class.
+			 * @typedef {Object} FooUtils.Factory~RegisteredClass
+			 * @property {string} name - The friendly name of the registered class.
+			 * @property {function} klass - The constructor for the registered class.
+			 * @property {number} priority - The priority for the registered class.
+			 */
+
 			/**
 			 * @summary An object containing all registered classes.
 			 * @memberof FooUtils.Factory#
 			 * @name registered
-			 * @type {Object.<string, Object>}
+			 * @type {Object.<string, FooUtils.Factory~RegisteredClass>}
 			 * @readonly
 			 * @example {@caption The following shows the structure of this object. The `<name>` placeholders would be the name the class was registered with.}
 			 * {
@@ -3466,7 +3687,7 @@
 		 * @summary Creates new instances of all registered classes using there registered priority and the supplied arguments.
 		 * @memberof FooUtils.Factory#
 		 * @function load
-		 * @param {Object.<string, function>} overrides - An object containing classes to override any matching registered classes with, if no overrides are required you can pass `false` or `null`.
+		 * @param {Object.<string, (function|string)>} overrides - An object containing classes to override any matching registered classes with, if no overrides are required you can pass `false` or `null`.
 		 * @param {*} arg1 - The first argument to supply when creating new instances of all registered classes.
 		 * @param {...*} [argN] - Any number of additional arguments to supply when creating new instances of all registered classes.
 		 * @returns {Array.<Object>} An array containing new instances of all registered classes.
@@ -3728,7 +3949,7 @@
 );
 (function(_, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.1.9') return;
+	if (_.version !== '0.2.0') return;
 
 	// this is done to handle Content Security in Chrome and other browsers blocking access to the localStorage object under certain configurations.
 	// see: https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document
@@ -3736,15 +3957,24 @@
 	try { localAvailable = !!window.localStorage; }
 	catch (err){ localAvailable = false; }
 
-	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger */{
+	/**
+	 * @summary A debug utility class that can be enabled across sessions using the given `key` by storing its state in `localStorage`.
+	 * @memberof FooUtils.
+	 * @class Debugger
+	 * @param {string} key - The key to use to store the debug state in `localStorage`.
+	 * @augments FooUtils.Class
+	 * @borrows FooUtils.Class.extend as extend
+	 * @borrows FooUtils.Class.override as override
+	 * @description This class allows you to write additional debug info to the console within your code which by default is not actually output. You can then enable the debugger and it will start to output the results to the console.
+	 *
+	 * The most useful feature of this is the ability to store the debug state across page sessions by using `localStorage`. This allows you to enable the debugger and then refresh the page to view any debugger output that occurs on page load.
+	 */
+	_.Debugger = _.Class.extend(/** @lends FooUtils.Debugger.prototype */{
 		/**
-		 * @summary A debug utility class that can be enabled across sessions using the given `key` by storing its state in `localStorage`.
+		 * @ignore
 		 * @constructs
-		 * @param {string} key - The key to use to store the debug state in `localStorage`.
-		 * @description This class allows you to write additional debug info to the console within your code which by default is not actually output. You can then enable the debugger and it will start to output the results to the console.
-		 *
-		 * This most useful feature of this is the ability to store the debug state across page sessions by using `localStorage`. This allows you enable the debugger and then refresh the page to view any debugger output that occurs on page load.
-		 */
+		 * @param {string} key
+		 **/
 		construct: function(key){
 			/**
 			 * @summary The key used to store the debug state in `localStorage`.
@@ -3759,7 +3989,7 @@
 			 * @name enabled
 			 * @type {boolean}
 			 * @readonly
-			 * @description The value for this property is synced with the current state stored in `localStorage` and should never set from outside of this class.
+			 * @description The value for this property is synced with the current state stored in `localStorage` and should never be set from outside of this class.
 			 */
 			this.enabled = localAvailable ? !!localStorage.getItem(this.key) : false;
 		},
@@ -3770,13 +4000,13 @@
 		 * @example
 		 * var d = new FooUtils.Debugger( "FOO_DEBUG" );
 		 * d.log( "Never logged" );
-		 * d.enabled();
+		 * d.enable();
 		 * d.log( "I am logged!" );
 		 */
 		enable: function(){
 			if (!localAvailable) return;
 			this.enabled = true;
-			localStorage.setItem(this.key, this.enabled);
+			localStorage.setItem(this.key, "debug");
 		},
 		/**
 		 * @summary Disable the debugger stopping additional info being logged to the console.
@@ -3785,7 +4015,7 @@
 		 * @example
 		 * var d = new FooUtils.Debugger( "FOO_DEBUG" );
 		 * d.log( "Never logged" );
-		 * d.enabled();
+		 * d.enable();
 		 * d.log( "I am logged!" );
 		 * d.disable();
 		 * d.log( "Never logged" );
@@ -3812,7 +4042,7 @@
 		 * @memberof FooUtils.Debugger#
 		 * @function logf
 		 * @param {string} message - The message containing named `replacements` to log to the console.
-		 * @param {Object.<string, *>} replacements - An object containing key value pairs used to perform a named format on the `message`.
+		 * @param {Object.<string, string>} replacements - An object containing key value pairs used to perform a named format on the `message`.
 		 * @param {*} [argN] - Any number of additional arguments to supply after the message.
 		 * @see {@link FooUtils.str.format} for more information on supplying the replacements object.
 		 */
@@ -3834,18 +4064,26 @@
 );
 (function($, _, _fn){
     // only register methods if this version is the current version
-    if (_.version !== '0.1.9') return;
+    if (_.version !== '0.2.0') return;
 
+    /**
+     * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+     * @memberof FooUtils.
+     * @class FullscreenAPI
+     * @augments FooUtils.EventClass
+     * @borrows FooUtils.EventClass.extend as extend
+     * @borrows FooUtils.EventClass.override as override
+     */
     _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
         /**
-         * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+         * @ignore
          * @constructs
          */
         construct: function(){
             this._super();
             /**
              * @summary An object containing a single browsers various methods and events needed for this wrapper.
-             * @typedef {Object} FooUtils.FullscreenAPI~BrowserAPI
+             * @typedef {?Object} FooUtils.FullscreenAPI~BrowserAPI
              * @property {string} enabled
              * @property {string} element
              * @property {string} request
@@ -3856,10 +4094,15 @@
              */
 
             /**
+             * @summary An object containing the supported fullscreen browser API's.
+             * @typedef {Object.<string, FooUtils.FullscreenAPI~BrowserAPI>} FooUtils.FullscreenAPI~SupportedBrowsers
+             */
+
+            /**
              * @summary Contains the various browser specific method and event names.
              * @memberof FooUtils.FullscreenAPI#
              * @name apis
-             * @type {{w3: BrowserAPI, ms: BrowserAPI, moz: BrowserAPI, webkit: BrowserAPI}}
+             * @type {FooUtils.FullscreenAPI~SupportedBrowsers}
              */
             this.apis = {
                 w3: {
@@ -3907,7 +4150,7 @@
              * @summary The current browsers specific method and event names.
              * @memberof FooUtils.FullscreenAPI#
              * @name api
-             * @type {?BrowserAPI}
+             * @type {FooUtils.FullscreenAPI~BrowserAPI}
              */
             this.api = this.getAPI();
             /**
@@ -3933,7 +4176,7 @@
          * @summary Fetches the correct API for the current browser.
          * @memberof FooUtils.FullscreenAPI#
          * @function getAPI
-         * @return {?BrowserAPI} If the fullscreen API is not supported `null` is returned.
+         * @return {?FooUtils.FullscreenAPI~BrowserAPI} Returns `null` if the fullscreen API is not supported.
          */
         getAPI: function(){
             for (var vendor in this.apis) {
@@ -4065,7 +4308,7 @@
 
     /**
      * @summary A cross browser wrapper for the fullscreen API.
-     * @memberof FooUtils
+     * @memberof FooUtils.
      * @name fullscreen
      * @type {FooUtils.FullscreenAPI}
      */
