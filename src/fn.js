@@ -143,7 +143,7 @@
 	 * @summary Converts the default `arguments` object into a proper array.
 	 * @memberof FooUtils.fn
 	 * @function arg2arr
-	 * @param {Arguments} args - The arguments object to create an array from.
+	 * @param {IArguments} args - The arguments object to create an array from.
 	 * @returns {Array}
 	 * @description This method is simply a replacement for calling `Array.prototype.slice.call()` to create an array from an `arguments` object.
 	 * @example {@run true}
@@ -522,13 +522,18 @@
 	_.fn.when = function(promises){
 		if (!_is.array(promises) || _is.empty(promises)) return $.when();
 		var d = $.Deferred(), results = [], remaining = promises.length;
+		function reduceRemaining(){
+			remaining--; // always mark as finished
+			if(!remaining) d.resolve(results);
+		}
 		for(var i = 0; i < promises.length; i++){
-			promises[i].then(function(res){
-				results.push(res); // on success, add to results
-			}).always(function(){
-				remaining--; // always mark as finished
-				if(!remaining) d.resolve(results);
-			})
+			if (_is.promise(promises[i])){
+				promises[i].then(function(res){
+					results.push(res); // on success, add to results
+				}).always(reduceRemaining);
+			} else {
+				reduceRemaining();
+			}
 		}
 		return d.promise(); // return a promise on the remaining values
 	};

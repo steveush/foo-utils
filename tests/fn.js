@@ -319,3 +319,56 @@ QUnit.test(".enqueue:failure", function (assert) {
 	});
 
 });
+
+QUnit.test(".when:empty", function (assert) {
+
+	assert.expect(2);
+	var done = assert.async();
+
+	var result = FooUtils.fn.when();
+	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
+	result.then(function(){
+		assert.ok(true, "Result is a resolved promise.");
+		done();
+	}, function(){
+		assert.ok(false, "Result is a rejected promise.");
+		done();
+	});
+});
+
+QUnit.test(".when:non-promises", function (assert) {
+
+	assert.expect(4);
+	var done = assert.async();
+
+	function success(result){
+		return $.Deferred(function(def){
+			setTimeout(function(){
+				def.resolve(result);
+			}, 10);
+		}).promise();
+	}
+
+	function failed(result){
+		return $.Deferred(function(def){
+			setTimeout(function(){
+				def.reject(result);
+			}, 10);
+		}).promise();
+	}
+
+	var promises = [null, false, success("success-1"), failed("failed"), "invalid"];
+
+	var result = FooUtils.fn.when(promises);
+	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
+	result.then(function(results){
+		assert.ok(true, "Result is a resolved promise.");
+		assert.ok(FooUtils.is.array(results), "Results is an array.");
+		assert.ok(results.length === 1 && results[0] === "success-1", "Results contains a single, expected result.");
+		done();
+	}, function(){
+		assert.ok(false, "Result is a rejected promise.");
+		done();
+	});
+
+});
