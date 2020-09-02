@@ -2,32 +2,37 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    /**
+     * @summary A base event class providing just a type and defaultPrevented properties.
+     * @memberof FooUtils.
+     * @class Event
+     * @param {string} type - The type for this event.
+     * @augments FooUtils.Class
+     * @borrows FooUtils.Class.extend as extend
+     * @borrows FooUtils.Class.override as override
+     * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
+     *
+     * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
+     * @example {@caption The following shows how to use this class to create a custom event.}
+     * var MyEvent = FooUtils.Event.extend({
+     * 	construct: function(type, customProp){
+     * 	    this._super(type);
+     * 	    this.myCustomProp = customProp;
+     * 	}
+     * });
+     *
+     * // to use the class you would then instantiate it and pass it as the first argument to a FooUtils.EventClass's trigger method
+     * var eventClass = ...; // any class inheriting from FooUtils.EventClass
+     * var event = new MyEvent( "my-event-type", true );
+     * eventClass.trigger(event);
+     */
     _.Event = _.Class.extend(/** @lends FooUtils.Event.prototype */{
-        /**
-         * @summary A base event class providing just a type and defaultPrevented properties.
-         * @constructs
-         * @param {string} type - The type for this event.
-         * @description This is a very basic event class that is used internally by the {@link FooUtils.EventClass#trigger} method when the first parameter supplied is simply the event name.
-         *
-         * To trigger your own custom event you will need to inherit from this class and then supply the instantiated event object as the first parameter to the {@link FooUtils.EventClass#trigger} method.
-         * @example {@caption The following shows how to use this class to create a custom event.}
-         * var MyEvent = FooUtils.Event.extend({
-         * 	construct: function(type, customProp){
-         * 	    this._super(type);
-         * 	    this.myCustomProp = customProp;
-         * 	}
-         * });
-         *
-         * // to use the class you would then instantiate it and pass it as the first argument to a FooUtils.EventClass's trigger method
-         * var eventClass = ...; // any class inheriting from FooUtils.EventClass
-         * var event = new MyEvent( "my-event-type", true );
-         * eventClass.trigger(event);
-         */
+        /** @ignore */
         construct: function(type){
             if (_is.empty(type))
                 throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
 
-            var namespaced = _str.contains(type, ".");
+            var self = this, parsed = _.Event.parse(type);
             /**
              * @summary The type of event.
              * @memberof FooUtils.Event#
@@ -35,7 +40,7 @@
              * @type {string}
              * @readonly
              */
-            this.type = namespaced ? _str.until(type, ".") : type;
+            self.type = parsed.type;
             /**
              * @summary The namespace of the event.
              * @memberof FooUtils.Event#
@@ -43,7 +48,7 @@
              * @type {string}
              * @readonly
              */
-            this.namespace = namespaced ? _str.from(type, ".") : null;
+            self.namespace = parsed.namespace;
             /**
              * @summary Whether the default action should be taken or not.
              * @memberof FooUtils.Event#
@@ -51,7 +56,7 @@
              * @type {boolean}
              * @readonly
              */
-            this.defaultPrevented = false;
+            self.defaultPrevented = false;
             /**
              * @summary The {@link FooUtils.EventClass} that triggered this event.
              * @memberof FooUtils.Event#
@@ -59,7 +64,7 @@
              * @type {FooUtils.EventClass}
              * @readonly
              */
-            this.target = null;
+            self.target = null;
         },
         /**
          * @summary Informs the class that raised this event that its default action should not be taken.
@@ -80,18 +85,53 @@
         }
     });
 
+    /**
+     * @summary Parse the provided event string into a type and namespace.
+     * @memberof FooUtils.Event.
+     * @function parse
+     * @param {string} event - The event to parse.
+     * @returns {{namespaced: boolean, type: string, namespace: string}} Returns an object containing the type and namespace for the event.
+     */
+    _.Event.parse = function(event){
+        event = _is.string(event) && !_is.empty(event) ? event : null;
+        var namespaced = _str.contains(event, ".");
+        return {
+            namespaced: namespaced,
+            type: namespaced ? _str.startsWith(event, ".") ? null : _str.until(event, ".") : event,
+            namespace: namespaced ? _str.from(event, ".") : null
+        };
+    };
+
+    /**
+     * @summary A base class that implements a basic events interface.
+     * @memberof FooUtils.
+     * @class EventClass
+     * @augments FooUtils.Class
+     * @borrows FooUtils.Class.extend as extend
+     * @borrows FooUtils.Class.override as override
+     * @description This is a very basic events implementation that provides just enough to cover most needs.
+     */
     _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass.prototype */{
-        /**
-         * @summary A base class that implements a basic events interface.
-         * @constructs
-         * @description This is a very basic events implementation that provides just enough to cover most needs.
-         */
+        /** @ignore */
         construct: function(){
             /**
-             * @summary The object used internally to register event handlers.
+             * @summary An object containing all the required info to execute a listener.
+             * @typedef {Object} FooUtils.EventClass~RegisteredListener
+             * @property {string} namespace - The namespace for the listener.
+             * @property {function} fn - The callback function for the listener.
+             * @property {*} thisArg - The `this` value to execute the callback with.
+             */
+
+            /**
+             * @summary An object containing a mapping of events to listeners.
+             * @typedef {Object.<string, Array<FooUtils.EventClass~RegisteredListener>>} FooUtils.EventClass~RegisteredEvents
+             */
+
+            /**
+             * @summary The object used to register event handlers.
              * @memberof FooUtils.EventClass#
              * @name events
-             * @type {Object}
+             * @type {FooUtils.EventClass~RegisteredEvents}
              */
             this.events = {};
         },
@@ -122,10 +162,13 @@
         on: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
+                thisArg = listener;
                 Object.keys(events).forEach(function(key){
-                    key.split(" ").forEach(function(type){
-                        self.addListener(type, events[key], thisArg);
-                    });
+                    if (_is.fn(events[key])){
+                        key.split(" ").forEach(function(type){
+                            self.addListener(type, events[key], thisArg);
+                        });
+                    }
                 });
             } else if (_is.string(events) && _is.fn(listener)) {
                 events.split(" ").forEach(function(type){
@@ -147,22 +190,18 @@
         addListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event) || !_is.fn(listener)) return false;
 
-            var self = this;
+            var self = this, parsed = _.Event.parse(event);
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
-            var namespaced = _str.contains(event, "."),
-                type = namespaced ? _str.until(event, ".") : event,
-                namespace = namespaced ? _str.from(event, ".") : null;
-
-            if (!_is.array(self.events[type])){
-                self.events[type] = [];
+            if (!_is.array(self.events[parsed.type])){
+                self.events[parsed.type] = [];
             }
-            var exists = self.events[type].some(function(h){
-                return h.namespace === namespace && h.fn === listener && h.thisArg === thisArg;
+            var exists = self.events[parsed.type].some(function(h){
+                return h.namespace === parsed.namespace && h.fn === listener && h.thisArg === thisArg;
             });
             if (!exists){
-                self.events[type].push({
-                    namespace: namespace,
+                self.events[parsed.type].push({
+                    namespace: parsed.namespace,
                     fn: listener,
                     thisArg: thisArg
                 });
@@ -189,15 +228,13 @@
         off: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
-                thisArg = _is.undef(listener) ? self : listener;
+                thisArg = listener;
                 Object.keys(events).forEach(function(key){
                     key.split(" ").forEach(function(type){
-                        self.removeListener(type, _is.fn(events[key]) ? events[key] : null, thisArg);
+                        self.removeListener(type, events[key], thisArg);
                     });
                 });
             } else if (_is.string(events)) {
-                listener = _is.fn(listener) ? listener : null;
-                thisArg = _is.undef(thisArg) ? self : thisArg;
                 events.split(" ").forEach(function(type){
                     self.removeListener(type, listener, thisArg);
                 });
@@ -217,16 +254,12 @@
         removeListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event)) return false;
 
-            var self = this;
+            var self = this, parsed = _.Event.parse(event), types = [];
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
-            var type = _str.until(event, ".") || null,
-                namespace = _str.from(event, ".") || null,
-                types = [];
-
-            if (!_is.empty(type)){
-                types.push(type);
-            } else if (!_is.empty(namespace)){
+            if (!_is.empty(parsed.type)){
+                types.push(parsed.type);
+            } else if (!_is.empty(parsed.namespace)){
                 types.push.apply(types, Object.keys(self.events));
             }
 
@@ -234,10 +267,10 @@
                 if (!_is.array(self.events[type])) return;
                 self.events[type] = self.events[type].filter(function (h) {
                     if (listener != null){
-                        return !(h.namespace === namespace && h.fn === listener && h.thisArg === thisArg);
+                        return !(h.namespace === parsed.namespace && h.fn === listener && h.thisArg === thisArg);
                     }
-                    if (namespace != null){
-                        return h.namespace !== namespace;
+                    if (parsed.namespace != null){
+                        return h.namespace !== parsed.namespace;
                     }
                     return false;
                 });

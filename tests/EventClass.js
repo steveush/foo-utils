@@ -1,5 +1,18 @@
 QUnit.module("Event");
 
+QUnit.test('.parse', function (assert) {
+
+    var empty = {namespaced: false, type: null, namespace: null};
+    assert.deepEqual(FooUtils.Event.parse(), empty);
+    assert.deepEqual(FooUtils.Event.parse(false), empty);
+    assert.deepEqual(FooUtils.Event.parse(null), empty);
+    assert.deepEqual(FooUtils.Event.parse(""), empty);
+    assert.deepEqual(FooUtils.Event.parse("test"), {namespaced: false, type: "test", namespace: null});
+    assert.deepEqual(FooUtils.Event.parse("test.namespace"), {namespaced: true, type: "test", namespace: "namespace"});
+    assert.deepEqual(FooUtils.Event.parse(".namespace"), {namespaced: true, type: null, namespace: "namespace"});
+
+});
+
 QUnit.test('construct', function (assert) {
 
     var obj = new FooUtils.Event("test");
