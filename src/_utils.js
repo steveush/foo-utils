@@ -31,6 +31,71 @@
 		else document.addEventListener('DOMContentLoaded', onready, false);
 	};
 
+	/**
+	 * @summary Compares two version numbers.
+	 * @memberof FooUtils
+	 * @function versionCompare
+	 * @param {string} version1 - The first version to use in the comparison.
+	 * @param {string} version2 - The second version to compare to the first.
+	 * @returns {number} `0` if the version are equal.
+	 * `-1` if `version1` is less than `version2`.
+	 * `1` if `version1` is greater than `version2`.
+	 * `NaN` if either of the supplied versions do not conform to MAJOR.MINOR.PATCH format.
+	 * @description This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. `1.0` versus `1.0.1`.
+	 * @example {@caption The following shows the results of comparing various version strings.}
+	 * console.log( FooUtils.versionCompare( "0", "0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.0", "0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.0", "0.0.0" ) ); // => 0
+	 * console.log( FooUtils.versionCompare( "0.1", "0.0.0" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "0.1", "0.0.1" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1", "0.1" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1.10", "1.9" ) ); // => 1
+	 * console.log( FooUtils.versionCompare( "1.9", "1.10" ) ); // => -1
+	 * console.log( FooUtils.versionCompare( "1", "1.1" ) ); // => -1
+	 * console.log( FooUtils.versionCompare( "1.0.9", "1.1" ) ); // => -1
+	 * @example {@caption If either of the supplied version strings does not match the MAJOR.MINOR.PATCH format then `NaN` is returned.}
+	 * console.log( FooUtils.versionCompare( "not-a-version", "1.1" ) ); // => NaN
+	 * console.log( FooUtils.versionCompare( "1.1", "not-a-version" ) ); // => NaN
+	 * console.log( FooUtils.versionCompare( "not-a-version", "not-a-version" ) ); // => NaN
+	 */
+	_.versionCompare = function(version1, version2){
+		// if either of the versions do not match the expected format return NaN
+		if (!(/[\d.]/.test(version1) && /[\d.]/.test(version2))) return NaN;
+
+		/**
+		 * @summary Splits and parses the given version string into a numeric array.
+		 * @param {string} version - The version string to split and parse.
+		 * @returns {Array.<number>}
+		 * @ignore
+		 */
+		function split(version){
+			var parts = version.split('.'), result = [];
+			for(var i = 0, len = parts.length; i < len; i++){
+				result[i] = parseInt(parts[i]);
+				if (isNaN(result[i])) result[i] = 0;
+			}
+			return result;
+		}
+
+		// get the base numeric arrays for each version
+		var v1parts = split(version1),
+			v2parts = split(version2);
+
+		// ensure both arrays are the same length by padding the shorter with 0
+		while (v1parts.length < v2parts.length) v1parts.push(0);
+		while (v2parts.length < v1parts.length) v2parts.push(0);
+
+		// perform the actual comparison
+		for (var i = 0; i < v1parts.length; ++i) {
+			if (v2parts.length === i) return 1;
+			if (v1parts[i] === v2parts[i]) continue;
+			if (v1parts[i] > v2parts[i]) return 1;
+			else return -1;
+		}
+		if (v1parts.length !== v2parts.length) return -1;
+		return 0;
+	};
+
 	// A variable to hold the last number used to generate an ID in the current page.
 	var uniqueId = 0;
 
