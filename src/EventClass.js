@@ -2,7 +2,7 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
-    _.Event = _.Class.extend(/** @lends FooUtils.Event */{
+    _.Event = _.Class.extend(/** @lends FooUtils.Event.prototype */{
         /**
          * @summary A base event class providing just a type and defaultPrevented properties.
          * @constructs
@@ -80,7 +80,7 @@
         }
     });
 
-    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass */{
+    _.EventClass = _.Class.extend(/** @lends FooUtils.EventClass.prototype */{
         /**
          * @summary A base class that implements a basic events interface.
          * @constructs
@@ -90,11 +90,10 @@
             /**
              * @summary The object used internally to register event handlers.
              * @memberof FooUtils.EventClass#
-             * @name __handlers
+             * @name events
              * @type {Object}
-             * @private
              */
-            this.__handlers = {};
+            this.events = {};
         },
         /**
          * @summary Destroy the current instance releasing used resources.
@@ -102,131 +101,158 @@
          * @function destroy
          */
         destroy: function(){
-            this.__handlers = {};
+            this.events = {};
         },
         /**
-         * @summary Attach multiple event handler functions for one or more events to the class.
+         * @summary Attach multiple event listeners to the class.
          * @memberof FooUtils.EventClass#
          * @function on
-         * @param {object} events - An object containing an event name to handler mapping.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {Object.<string, function>} events - An object containing event types to listener mappings.
+         * @param {*} [thisArg] - The value of `this` within the listeners. Defaults to the class raising the event.
          * @returns {this}
          *//**
-         * @summary Attach an event handler function for one or more events to the class.
+         * @summary Attach an event listener for one or more events to the class.
          * @memberof FooUtils.EventClass#
          * @function on
          * @param {string} events - One or more space-separated event types.
-         * @param {function} handler - A function to execute when the event is triggered.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
          * @returns {this}
          */
-        on: function(events, handler, thisArg){
+        on: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
-                thisArg = _is.undef(handler) ? this : handler;
                 Object.keys(events).forEach(function(key){
                     key.split(" ").forEach(function(type){
-                        self.__on(type, events[key], thisArg);
+                        self.addListener(type, events[key], thisArg);
                     });
                 });
-            } else if (_is.string(events) && _is.fn(handler)) {
-                thisArg = _is.undef(thisArg) ? this : thisArg;
+            } else if (_is.string(events) && _is.fn(listener)) {
                 events.split(" ").forEach(function(type){
-                    self.__on(type, handler, thisArg);
+                    self.addListener(type, listener, thisArg);
                 });
             }
 
             return self;
         },
-        __on: function(event, handler, thisArg){
-            var self = this,
-                namespaced = _str.contains(event, "."),
+        /**
+         * @summary Adds a single event listener to the current class.
+         * @memberof FooUtils.EventClass#
+         * @function addListener
+         * @param {string} event - The event type, this can not contain any whitespace.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
+         * @returns {boolean} Returns `true` if added.
+         */
+        addListener: function(event, listener, thisArg){
+            if (!_is.string(event) || /\s/.test(event) || !_is.fn(listener)) return false;
+
+            var self = this;
+            thisArg = _is.undef(thisArg) ? self : thisArg;
+
+            var namespaced = _str.contains(event, "."),
                 type = namespaced ? _str.until(event, ".") : event,
                 namespace = namespaced ? _str.from(event, ".") : null;
 
-            if (!_is.array(self.__handlers[type])){
-                self.__handlers[type] = [];
+            if (!_is.array(self.events[type])){
+                self.events[type] = [];
             }
-            var exists = self.__handlers[type].some(function(h){
-                return h.namespace === namespace && h.fn === handler && h.thisArg === thisArg;
+            var exists = self.events[type].some(function(h){
+                return h.namespace === namespace && h.fn === listener && h.thisArg === thisArg;
             });
             if (!exists){
-                self.__handlers[type].push({
+                self.events[type].push({
                     namespace: namespace,
-                    fn: handler,
+                    fn: listener,
                     thisArg: thisArg
                 });
+                return true;
             }
+            return false;
         },
         /**
-         * @summary Remove multiple event handler functions for one or more events from the class.
+         * @summary Remove multiple event listeners from the class.
          * @memberof FooUtils.EventClass#
          * @function off
-         * @param {object} events - An object containing an event name to handler mapping.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function. Defaults to the `EventClass` raising the event.
+         * @param {Object.<string, function>} events - An object containing event types to listener mappings.
+         * @param {*} [thisArg] - The value of `this` within the `listener` function. Defaults to the class raising the event.
          * @returns {this}
          *//**
-         * @summary Remove an event handler function for one or more events from the class.
+         * @summary Remove an event listener from the class.
          * @memberof FooUtils.EventClass#
          * @function off
          * @param {string} events - One or more space-separated event types.
-         * @param {function} handler - The handler to remove.
-         * @param {*} [thisArg] - The value of `this` within the `handler` function.
+         * @param {function} listener - A function to execute when the event is triggered.
+         * @param {*} [thisArg] - The value of `this` within the `listener`. Defaults to the class raising the event.
          * @returns {this}
          */
-        off: function(events, handler, thisArg){
+        off: function(events, listener, thisArg){
             var self = this;
             if (_is.object(events)){
-                thisArg = _is.undef(handler) ? this : handler;
+                thisArg = _is.undef(listener) ? self : listener;
                 Object.keys(events).forEach(function(key){
                     key.split(" ").forEach(function(type){
-                        self.__off(type, _is.fn(events[key]) ? events[key] : null, thisArg);
+                        self.removeListener(type, _is.fn(events[key]) ? events[key] : null, thisArg);
                     });
                 });
             } else if (_is.string(events)) {
-                handler = _is.fn(handler) ? handler : null;
-                thisArg = _is.undef(thisArg) ? this : thisArg;
+                listener = _is.fn(listener) ? listener : null;
+                thisArg = _is.undef(thisArg) ? self : thisArg;
                 events.split(" ").forEach(function(type){
-                    self.__off(type, handler, thisArg);
+                    self.removeListener(type, listener, thisArg);
                 });
             }
 
             return self;
         },
-        __off: function(event, handler, thisArg){
-            var self = this,
-                type = _str.until(event, ".") || null,
+        /**
+         * @summary Removes a single event listener from the current class.
+         * @memberof FooUtils.EventClass#
+         * @function removeListener
+         * @param {string} event - The event type, this can not contain any whitespace.
+         * @param {function} [listener] - The listener registered to the event type.
+         * @param {*} [thisArg] - The value of `this` registered for the `listener`. Defaults to the class raising the event.
+         * @returns {boolean} Returns `true` if removed.
+         */
+        removeListener: function(event, listener, thisArg){
+            if (!_is.string(event) || /\s/.test(event)) return false;
+
+            var self = this;
+            thisArg = _is.undef(thisArg) ? self : thisArg;
+
+            var type = _str.until(event, ".") || null,
                 namespace = _str.from(event, ".") || null,
                 types = [];
 
             if (!_is.empty(type)){
                 types.push(type);
             } else if (!_is.empty(namespace)){
-                types.push.apply(types, Object.keys(self.__handlers));
+                types.push.apply(types, Object.keys(self.events));
             }
 
             types.forEach(function(type){
-                if (!_is.array(self.__handlers[type])) return;
-                self.__handlers[type] = self.__handlers[type].filter(function (h) {
-                    if (handler != null){
-                        return !(h.namespace === namespace && h.fn === handler && h.thisArg === thisArg);
+                if (!_is.array(self.events[type])) return;
+                self.events[type] = self.events[type].filter(function (h) {
+                    if (listener != null){
+                        return !(h.namespace === namespace && h.fn === listener && h.thisArg === thisArg);
                     }
                     if (namespace != null){
                         return h.namespace !== namespace;
                     }
                     return false;
                 });
-                if (self.__handlers[type].length === 0){
-                    delete self.__handlers[type];
+                if (self.events[type].length === 0){
+                    delete self.events[type];
                 }
             });
+            return true;
         },
         /**
          * @summary Trigger an event on the current class.
          * @memberof FooUtils.EventClass#
          * @function trigger
          * @param {(string|FooUtils.Event)} event - Either a space-separated string of event types or a custom event object to raise.
-         * @param {Array} [args] - An array of additional arguments to supply to the handlers after the event object.
+         * @param {Array} [args] - An array of additional arguments to supply to the listeners after the event object.
          * @returns {(FooUtils.Event|FooUtils.Event[]|null)} Returns the {@link FooUtils.Event|event object} of the triggered event. If more than one event was triggered an array of {@link FooUtils.Event|event objects} is returned. If no `event` was supplied or triggered `null` is returned.
          */
         trigger: function(event, args){
@@ -234,23 +260,40 @@
             var self = this, result = [];
             if (event instanceof _.Event){
                 result.push(event);
-                self.__trigger(event, args);
+                if (event.target === null) event.target = self;
+                self.emit(event, args);
             } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
-                    var index = result.push(new _.Event(type)) - 1;
-                    self.__trigger(result[index], args);
+                    var e = new _.Event(type);
+                    e.target = self;
+                    result.push(e)
+                    self.emit(e, args);
                 });
             }
             return _is.empty(result) ? null : (result.length === 1 ? result[0] : result);
         },
-        __trigger: function(event, args){
+        /**
+         * @summary Emits the supplied event on the current class.
+         * @memberof FooUtils.EventClass#
+         * @function emit
+         * @param {FooUtils.Event} event - The event object to emit.
+         * @param {Array} [args] - An array of additional arguments to supply to the listener after the event object.
+         */
+        emit: function(event, args){
+            if (!(event instanceof FooUtils.Event)) return;
             var self = this;
-            event.target = self;
-            if (!_is.array(self.__handlers[event.type])) return;
-            self.__handlers[event.type].forEach(function (h) {
-                if (event.namespace != null && h.namespace !== event.namespace) return;
-                h.fn.apply(h.thisArg, [event].concat(args));
-            });
+            args = _is.array(args) ? args : [];
+            if (_is.array(self.events[event.type])) {
+                self.events[event.type].forEach(function (h) {
+                    if (event.namespace != null && h.namespace !== event.namespace) return;
+                    h.fn.apply(h.thisArg, [event].concat(args));
+                });
+            }
+            if (_is.array(self.events["__all__"])){
+                self.events["__all__"].forEach(function (h) {
+                    h.fn.apply(h.thisArg, [event].concat(args));
+                });
+            }
         }
     });
 
