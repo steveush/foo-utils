@@ -28,6 +28,12 @@ QUnit.module('transition', {
 		css +=		"-ms-transition-duration: 0.75s;";
 		css +=		"transition-duration: 0.75s;";
 		css +=		"}";
+		css +=		".duration-test-4 {";
+		css +=		"-webkit-transition-duration: 0.5s, 0.75s, 300ms, 800ms;";
+		css +=		"-moz-transition-duration: 0.5s, 0.75s, 300ms, 800ms;";
+		css +=		"-ms-transition-duration: 0.5s, 0.75s, 300ms, 800ms;";
+		css +=		"transition-duration: 0.5s, 0.75s, 300ms, 800ms;";
+		css +=		"}";
 		$('head').append($('<style/>', {id: 'transition-styles', text: css}));
 		$('#qunit-fixture').empty();
 	},
@@ -41,7 +47,8 @@ QUnit.module('transition', {
 			$('<div/>', {'class': 'transitionable trans-2'}),
 			$('<div/>', {'class': 'duration-test-1'}),
 			$('<div/>', {'class': 'duration-test-2'}),
-			$('<div/>', {'class': 'duration-test-3'})
+			$('<div/>', {'class': 'duration-test-3'}),
+			$('<div/>', {'class': 'duration-test-4'})
 		);
 	},
 	afterEach: function () {
@@ -54,6 +61,7 @@ QUnit.test('duration', function (assert) {
 	assert.equal( FooUtils.transition.duration($('.duration-test-1')), FooUtils.transition.supported ? 500 : 0 );
 	assert.equal( FooUtils.transition.duration($('.duration-test-2')), FooUtils.transition.supported ? 500 : 0 );
 	assert.equal( FooUtils.transition.duration($('.duration-test-3')), FooUtils.transition.supported ? 750 : 0 );
+	assert.equal( FooUtils.transition.duration($('.duration-test-4')), FooUtils.transition.supported ? 800 : 0 );
 	assert.equal( FooUtils.transition.duration($()), 0 );
 	assert.equal( FooUtils.transition.duration(null), 0 );
 

@@ -81,16 +81,20 @@
 		if (!_is.jq($element)) return def;
 		// we can use jQuery.css() method to retrieve the value cross browser
 		var duration = $element.css('transition-duration');
-		if (/^([\d.]*)+?(ms|s)$/i.test(duration)){
-			// if we have a valid time value
-			var match = duration.match(/^([\d.]*)+?(ms|s)$/i),
-				value = parseFloat(match[1]),
-				unit = match[2].toLowerCase();
-			if (unit === 's'){
-				// convert seconds to milliseconds
-				value = value * 1000;
-			}
-			return value;
+		if (/^([\d.]*)+?(ms|s)/i.test(duration)){
+			// if we have a valid duration value split it into it's components
+			var parts = duration.split(","), max = 0;
+			parts.forEach(function(part){
+				var match = part.match(/^\s*?([\d.]*)+?(ms|s)\s*?$/i),
+					value = parseFloat(match[1]),
+					unit = match[2].toLowerCase();
+				if (unit === 's'){
+					// convert seconds to milliseconds
+					value = value * 1000;
+				}
+				if (value > max) max = value;
+			});
+			return max;
 		}
 		return def;
 	};
