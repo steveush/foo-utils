@@ -101,6 +101,13 @@
 			
 			
 			
+							<!-- augments -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Augments</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><a href="FooUtils.Class.html">FooUtils.Class</a></p>
+								</div>
+							</div>
 			
 			
 			
@@ -117,7 +124,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-89">line 89</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-108">line 108</a></p>
 								</div>
 							</div>
 			
@@ -129,8 +136,203 @@
 </dd>
 							</dl>
 							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="events" class="member public"><span class="name">events</span><span class="signature-type"> :<a href="FooUtils.EventClass.html#~RegisteredEvents">FooUtils.EventClass~RegisteredEvents</a></span></h4>
+				<div class="summary"><p>The object used to register event handlers.</p></div></dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="FooUtils.EventClass.html#~RegisteredEvents">FooUtils.EventClass~RegisteredEvents</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-136">line 136</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".extend" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+				<div class="summary"><p>Creates a new class that inherits from this one which in turn allows itself to be extended.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Every class created using this method has both the <a href="FooUtils.Class.html#.extend">extend</a> and <a href="FooUtils.Class.html#.override">override</a> static methods added to it to allow it to be extended.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>definition</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>An object containing any methods to implement/override.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>A new class that inherits from the base class.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below shows an example of how to implement inheritance using this method.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-35">line 35</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".override" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">override</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Overrides a single method on this class.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a helper method for overriding a single function of a <a href="FooUtils.Class.html">FooUtils.Class</a> or one of its child classes. This uses the <a href="FooUtils.fn.html#.addOrOverride">FooUtils.fn.addOrOverride</a> method internally and simply provides the correct prototype.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>name</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>The name of the function to override.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fn</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>The new function to override with, the <code>_super</code> method will be made available within this function.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below example wraps the <code>Person.prototype.dance</code> method with a new one that inverts the result. Note the override applies even to instances of the class that are already created.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-105">line 105</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id="destroy" class="function public"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
@@ -157,7 +359,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-99">line 99</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-144">line 144</a></p>
 								</div>
 							</div>
 			
@@ -170,7 +372,7 @@
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id="on" class="function public"><span class="name">on</span><span class="signature-params">( <span class="signature-param">events</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
-				<div class="summary"><p>Attach multiple event handler functions for one or more events to the class.</p></div></dt>
+				<div class="summary"><p>Attach multiple event listeners to the class.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -187,10 +389,10 @@
 					<tbody>
 						<tr>
 								<td><code>events</code></td>
-							<td><span class="param-type">object</span></td>
+							<td><span class="param-type">Object.&lt;string, function()></span></td>
 								<td class="attributes"></td>
 							<td class="last">
-									<p>An object containing an event name to handler mapping.</p>
+									<p>An object containing event types to listener mappings.</p>
 							</td>
 						</tr>
 						<tr>
@@ -198,7 +400,7 @@
 							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The value of <code>this</code> within the <code>handler</code> function. Defaults to the <code>EventClass</code> raising the event.</p>
+									<p>The value of <code>this</code> within the listeners. Defaults to the class raising the event.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -232,7 +434,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-107">line 107</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-152">line 152</a></p>
 								</div>
 							</div>
 			
@@ -244,8 +446,8 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="on" class="function public"><span class="name">on</span><span class="signature-params">( <span class="signature-param">events</span>, <span class="signature-param">handler</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
-				<div class="summary"><p>Attach an event handler function for one or more events to the class.</p></div></dt>
+			<h4 id="on" class="function public"><span class="name">on</span><span class="signature-params">( <span class="signature-param">events</span>, <span class="signature-param">listener</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
+				<div class="summary"><p>Attach an event listener for one or more events to the class.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -269,7 +471,7 @@
 							</td>
 						</tr>
 						<tr>
-								<td><code>handler</code></td>
+								<td><code>listener</code></td>
 							<td><span class="param-type">function</span></td>
 								<td class="attributes"></td>
 							<td class="last">
@@ -281,7 +483,7 @@
 							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The value of <code>this</code> within the <code>handler</code> function. Defaults to the <code>EventClass</code> raising the event.</p>
+									<p>The value of <code>this</code> within the <code>listener</code>. Defaults to the class raising the event.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -315,7 +517,90 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-107">line 107</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-152">line 152</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="addListener" class="function public"><span class="name">addListener</span><span class="signature-params">( <span class="signature-param">event</span>, <span class="signature-param">listener</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Adds a single event listener to the current class.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>event</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The event type, this can not contain any whitespace.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>listener</code></td>
+							<td><span class="param-type">function</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>A function to execute when the event is triggered.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The value of <code>this</code> within the <code>listener</code>. Defaults to the class raising the event.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>Returns <code>true</code> if added.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-187">line 187</a></p>
 								</div>
 							</div>
 			
@@ -328,7 +613,7 @@
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">events</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
-				<div class="summary"><p>Remove multiple event handler functions for one or more events from the class.</p></div></dt>
+				<div class="summary"><p>Remove multiple event listeners from the class.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -345,10 +630,10 @@
 					<tbody>
 						<tr>
 								<td><code>events</code></td>
-							<td><span class="param-type">object</span></td>
+							<td><span class="param-type">Object.&lt;string, function()></span></td>
 								<td class="attributes"></td>
 							<td class="last">
-									<p>An object containing an event name to handler mapping.</p>
+									<p>An object containing event types to listener mappings.</p>
 							</td>
 						</tr>
 						<tr>
@@ -356,7 +641,7 @@
 							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The value of <code>this</code> within the <code>handler</code> function. Defaults to the <code>EventClass</code> raising the event.</p>
+									<p>The value of <code>this</code> within the <code>listener</code> function. Defaults to the class raising the event.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -390,7 +675,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-161">line 161</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-218">line 218</a></p>
 								</div>
 							</div>
 			
@@ -402,8 +687,8 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">events</span>, <span class="signature-param">handler</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
-				<div class="summary"><p>Remove an event handler function for one or more events from the class.</p></div></dt>
+			<h4 id="off" class="function public"><span class="name">off</span><span class="signature-params">( <span class="signature-param">events</span>, <span class="signature-param">listener</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{this}</span></h4>
+				<div class="summary"><p>Remove an event listener from the class.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -427,11 +712,11 @@
 							</td>
 						</tr>
 						<tr>
-								<td><code>handler</code></td>
+								<td><code>listener</code></td>
 							<td><span class="param-type">function</span></td>
 								<td class="attributes"></td>
 							<td class="last">
-									<p>The handler to remove.</p>
+									<p>A function to execute when the event is triggered.</p>
 							</td>
 						</tr>
 						<tr>
@@ -439,7 +724,7 @@
 							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The value of <code>this</code> within the <code>handler</code> function.</p>
+									<p>The value of <code>this</code> within the <code>listener</code>. Defaults to the class raising the event.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -473,7 +758,90 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-161">line 161</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-218">line 218</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="removeListener" class="function public"><span class="name">removeListener</span><span class="signature-params">( <span class="signature-param">event</span> [,&nbsp;<span class="signature-param">listener</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+				<div class="summary"><p>Removes a single event listener from the current class.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>event</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The event type, this can not contain any whitespace.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>listener</code></td>
+							<td><span class="param-type">function</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The listener registered to the event type.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The value of <code>this</code> registered for the <code>listener</code>. Defaults to the class raising the event.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>Returns <code>true</code> if removed.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-251">line 251</a></p>
 								</div>
 							</div>
 			
@@ -514,7 +882,7 @@
 							<td><span class="param-type">Array</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>An array of additional arguments to supply to the handlers after the event object.</p>
+									<p>An array of additional arguments to supply to the listeners after the event object.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -548,7 +916,198 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-224">line 224</a></p>
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-289">line 289</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="emit" class="function public"><span class="name">emit</span><span class="signature-params">( <span class="signature-param">event</span> [,&nbsp;<span class="signature-param">args</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Emits the supplied event on the current class.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>event</code></td>
+							<td><span class="param-type"><a href="FooUtils.Event.html">FooUtils.Event</a></span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The event object to emit.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>args</code></td>
+							<td><span class="param-type">Array</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>An array of additional arguments to supply to the listener after the event object.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-312">line 312</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+									<h3>Type Definitions</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~RegisteredListener" class="typedef public"><span class="name">RegisteredListener</span></h4>
+				<div class="summary"><p>An object containing all the required info to execute a listener.</p></div></dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Properties</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>namespace</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>The namespace for the listener.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fn</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>The callback function for the listener.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+							<td class="last">
+									<p>The <code>this</code> value to execute the callback with.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Object</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-123">line 123</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~RegisteredEvents" class="typedef public"><span class="name">RegisteredEvents</span></h4>
+				<div class="summary"><p>An object containing a mapping of events to listeners.</p></div></dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Object.&lt;string, Array.&lt;<a href="FooUtils.EventClass.html#~RegisteredListener">FooUtils.EventClass~RegisteredListener</a>>></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="EventClass.js.html">EventClass.js</a>, <a href="EventClass.js.html#line-131">line 131</a></p>
 								</div>
 							</div>
 			
@@ -569,7 +1128,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on 8th Jun 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 2nd Sep 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

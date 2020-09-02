@@ -124,7 +124,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-14">line 14</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-5">line 5</a></p>
 								</div>
 							</div>
 			
@@ -140,7 +140,7 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="registered" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">registered</span><span class="signature-type"> :Object.&lt;string, Object></span></h4>
+			<h4 id="registered" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">registered</span><span class="signature-type"> :Object.&lt;string, <a href="FooUtils.Factory.html#~RegisteredClass">FooUtils.Factory~RegisteredClass</a>></span></h4>
 				<div class="summary"><p>An object containing all registered classes.</p></div></dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -154,7 +154,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">Object.&lt;string, Object></span></div>
+									<div class="form-control-static type-names"><span class="param-type">Object.&lt;string, <a href="FooUtils.Factory.html#~RegisteredClass">FooUtils.Factory~RegisteredClass</a>></span></div>
 								</div>
 							</div>
 			
@@ -175,7 +175,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-15">line 15</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-28">line 28</a></p>
 								</div>
 							</div>
 			
@@ -188,6 +188,82 @@
 									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".extend" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+				<div class="summary"><p>Creates a new class that inherits from this one which in turn allows itself to be extended.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Every class created using this method has both the <a href="FooUtils.Class.html#.extend">extend</a> and <a href="FooUtils.Class.html#.override">override</a> static methods added to it to allow it to be extended.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>definition</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>An object containing any methods to implement/override.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>A new class that inherits from the base class.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below shows an example of how to implement inheritance using this method.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-35">line 35</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id="contains" class="function public"><span class="name">contains</span><span class="signature-params">( <span class="signature-param">name</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
@@ -250,7 +326,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-38">line 38</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-51">line 51</a></p>
 								</div>
 							</div>
 			
@@ -282,7 +358,7 @@
 					<tbody>
 						<tr>
 								<td><code>overrides</code></td>
-							<td><span class="param-type">Object.&lt;string, function()></span></td>
+							<td><span class="param-type">Object.&lt;string, (function()|string)></span></td>
 								<td class="attributes"></td>
 							<td class="last">
 									<p>An object containing classes to override any matching registered classes with, if no overrides are required you can pass <code>false</code> or <code>null</code>.</p>
@@ -351,7 +427,80 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-60">line 60</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-73">line 73</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".override" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">override</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Overrides a single method on this class.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a helper method for overriding a single function of a <a href="FooUtils.Class.html">FooUtils.Class</a> or one of its child classes. This uses the <a href="FooUtils.fn.html#.addOrOverride">FooUtils.fn.addOrOverride</a> method internally and simply provides the correct prototype.</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>name</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>The name of the function to override.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fn</code></td>
+							<td><span class="param-type">function</span></td>
+							<td class="last">
+									<p>The new function to override with, the <code>_super</code> method will be made available within this function.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below example wraps the <code>Person.prototype.dance</code> method with a new one that inverts the result. Note the override applies even to instances of the class that are already created.</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false</code></pre>
+					</div>
+					<p class="example-run">
+						<input type="hidden" value="var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false">
+						<button type="button" class="btn btn-default code-run">Run</button>
+					</p>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-105">line 105</a></p>
 								</div>
 							</div>
 			
@@ -442,7 +591,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-202">line 202</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-215">line 215</a></p>
 								</div>
 							</div>
 			
@@ -518,7 +667,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-236">line 236</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-249">line 249</a></p>
 								</div>
 							</div>
 			
@@ -613,7 +762,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-279">line 279</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-292">line 292</a></p>
 								</div>
 							</div>
 			
@@ -623,91 +772,17 @@
 					</form>
 			</div>	</div>
 </dd>
+									</dl>
+									<h3>Type Definitions</h3>
+									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".extend" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">extend</span><span class="signature-params">( [&nbsp;<span class="signature-param">definition</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
-				<div class="summary"><p>Creates a new class that inherits from this one which in turn allows itself to be extended.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
+											<dt class="symbol-title typedef public collapsible-symbol">
+			<h4 id="~RegisteredClass" class="typedef public"><span class="name">RegisteredClass</span></h4>
+				<div class="summary"><p>An object containing all the required info to create a new instance of a registered class.</p></div></dt>
+<dd class="symbol-details typedef public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Every class created using this method has both the <a href="FooUtils.Class.html#.extend">extend</a> and <a href="FooUtils.Class.html#.override">override</a> static methods added to it to allow it to be extended.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>definition</code></td>
-							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>An object containing any methods to implement/override.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>A new class that inherits from the base class.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below shows an example of how to implement inheritance using this method.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// create a base Person classvar Person &#x3D; FooUtils.Class.extend({	construct: function(isDancing){		this.dancing &#x3D; isDancing;	},	dance: function(){		return this.dancing;	}});var Ninja &#x3D; Person.extend({	construct: function(){		// Call the inherited version of construct()		this._super( false );	},	dance: function(){		// Call the inherited version of dance()		return this._super();	},	swingSword: function(){		return true;	}});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truevar n &#x3D; new Ninja();console.log( n.dance() ); // &#x3D;&gt; falseconsole.log( n.swingSword() ); // &#x3D;&gt; trueconsole.log(	p instanceof Person &amp;&amp; p.constructor &#x3D;&#x3D;&#x3D; Person &amp;&amp; p instanceof FooUtils.Class	&amp;&amp; n instanceof Ninja &amp;&amp; n.constructor &#x3D;&#x3D;&#x3D; Ninja &amp;&amp; n instanceof Person &amp;&amp; n instanceof FooUtils.Class); // &#x3D;&gt; true">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-34">line 34</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".override" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">override</span><span class="signature-params">( <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Overrides a single method on this class.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This is a helper method for overriding a single function of a <a href="FooUtils.Class.html">FooUtils.Class</a> or one of its child classes. This uses the <a href="FooUtils.fn.html#.addOrOverride">FooUtils.fn.addOrOverride</a> method internally and simply provides the correct prototype.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+			<div class="callout callout-info">
+				<h5>Properties</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -721,29 +796,35 @@
 								<td><code>name</code></td>
 							<td><span class="param-type">string</span></td>
 							<td class="last">
-									<p>The name of the function to override.</p>
+									<p>The friendly name of the registered class.</p>
 							</td>
 						</tr>
 						<tr>
-								<td><code>fn</code></td>
+								<td><code>klass</code></td>
 							<td><span class="param-type">function</span></td>
 							<td class="last">
-									<p>The new function to override with, the <code>_super</code> method will be made available within this function.</p>
+									<p>The constructor for the registered class.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>priority</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+									<p>The priority for the registered class.</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The below example wraps the <code>Person.prototype.dance</code> method with a new one that inverts the result. Note the override applies even to instances of the class that are already created.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="var Person &#x3D; FooUtils.Class.extend({  construct: function(isDancing){    this.dancing &#x3D; isDancing;  },  dance: function(){    return this.dancing;  }});var p &#x3D; new Person(true);console.log( p.dance() ); // &#x3D;&gt; truePerson.override(&quot;dance&quot;, function(){	// Call the original version of dance()	return !this._super();});console.log( p.dance() ); // &#x3D;&gt; false">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Object</span></div>
+								</div>
+							</div>
 			
 			
 			
@@ -762,7 +843,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Class.js.html">Class.js</a>, <a href="Class.js.html#line-104">line 104</a></p>
+									<p class="form-control-static"><a href="Factory.js.html">Factory.js</a>, <a href="Factory.js.html#line-20">line 20</a></p>
 								</div>
 							</div>
 			
@@ -783,7 +864,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on 8th Jun 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 2nd Sep 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
