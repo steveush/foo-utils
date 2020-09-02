@@ -62,11 +62,10 @@
              */
             self.defaultPrevented = false;
             /**
-             * @summary The {@link FooUtils.EventClass} that triggered this event.
+             * @summary The original {@link FooUtils.EventClass} that triggered this event.
              * @memberof FooUtils.Event#
              * @name target
              * @type {FooUtils.EventClass}
-             * @readonly
              */
             self.target = null;
         },

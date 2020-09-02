@@ -4,7 +4,7 @@
 
 	/**
 	 * @summary Contains common object utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace obj
 	 */
 	_.obj = {};
@@ -13,10 +13,10 @@
 	var Obj = function () {};
 	/**
 	 * @summary Creates a new object with the specified prototype.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function create
-	 * @param {object} proto - The object which should be the prototype of the newly-created object.
-	 * @returns {object} A new object with the specified prototype.
+	 * @param {Object} proto - The object which should be the prototype of the newly-created object.
+	 * @returns {Object} A new object with the specified prototype.
 	 * @description This is a basic implementation of the {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create|Object.create} method.
 	 */
 	_.obj.create = function (proto) {
@@ -30,7 +30,7 @@
 
 	/**
 	 * @summary Merge the contents of two or more objects together into the first `target` object.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function extend
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {Object} object - An object containing properties to merge.
@@ -65,7 +65,7 @@
 
 	/**
 	 * @summary Merge the contents of two objects together into the first `target` object.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function merge
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {Object} object - The object containing properties to merge.
@@ -102,7 +102,7 @@
 
 	/**
 	 * @summary Merge the validated properties of the `object` into the `target` using the optional `mappings`.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function mergeValid
 	 * @param {Object} target - The object to merge properties into.
 	 * @param {FooUtils.obj~Validators} validators - An object containing validators for the `target` object properties.
@@ -176,7 +176,7 @@
 
 	/**
 	 * @summary Get or set a property value given its `name`.
-	 * @memberof FooUtils.obj
+	 * @memberof FooUtils.obj.
 	 * @function prop
 	 * @param {Object} object - The object to inspect for the property.
 	 * @param {string} name - The name of the property to fetch. This can be a `.` notated name.
@@ -255,7 +255,7 @@
 
 	/**
 	 * @summary An object used by the {@link FooUtils.obj.mergeValid|mergeValid} method to map new values onto the `target` object.
-	 * @typedef {Object.<string,string>|Object.<string,Array.<string>>} FooUtils.obj~Mappings
+	 * @typedef {Object.<string,(string|Array.<string>)>} FooUtils.obj~Mappings
 	 * @description The mappings object is a single level object. If you want to map a property from/to a child object on either the source or target objects you must supply the name using `.` notation as seen in the below example with the `"name.first"` to `"Name.Short"` mapping.
 	 * @example {@caption The basic structure of a mappings object is the below.}
 	 * {

@@ -5,7 +5,7 @@
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
 	 * @memberof FooUtils.
-	 * @constructs FooUtils.Class
+	 * @constructs Class
 	 * @description This is a base class for making prototypal inheritance simpler to work with. It provides an easy way to inherit from another class and exposes a `_super` method within the scope of any overriding methods that allows a simple way to execute the overridden function.
 	 *
 	 * Have a look at the {@link FooUtils.Class.extend|extend} and {@link FooUtils.Class.override|override} method examples to see some basic usage.
@@ -25,8 +25,9 @@
 	 * @ignore
 	 * @summary The original function when within the scope of an overriding method.
 	 * @memberof FooUtils.Class#
-	 * @name _super
-	 * @type {?function}
+	 * @function _super
+	 * @param {...*} [argN] - The same arguments as the base method.
+	 * @returns {*} The result of the base method.
 	 * @description This is only available within the scope of an overriding method if it was created using the {@link FooUtils.Class.extend|extend}, {@link FooUtils.Class.override|override} or {@link FooUtils.fn.addOrOverride} methods.
 	 * @see {@link FooUtils.fn.addOrOverride} to see an example of how this property is used.
 	 */

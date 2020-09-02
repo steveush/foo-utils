@@ -26,7 +26,7 @@
 		window.FooUtils = {
 			/**
 			 * @summary A reference to the jQuery object the library is registered with.
-			 * @memberof FooUtils
+			 * @memberof FooUtils.
 			 * @name $
 			 * @type {jQuery}
 			 * @description This is used internally for all jQuery operations to help work around issues where multiple jQuery libraries have been included in a single page.
@@ -52,7 +52,7 @@
 			$: $,
 			/**
 			 * @summary The version of this library.
-			 * @memberof FooUtils
+			 * @memberof FooUtils.
 			 * @name version
 			 * @type {string}
 			 */

@@ -2,21 +2,62 @@
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
-	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds */{
+	/**
+	 * @summary A simple bounding rectangle class.
+	 * @memberof FooUtils.
+	 * @class Bounds
+	 * @augments FooUtils.Class
+	 * @borrows FooUtils.Class.extend as extend
+	 * @borrows FooUtils.Class.override as override
+	 */
+	_.Bounds = _.Class.extend(/** @lends FooUtils.Bounds.prototype */{
 		/**
-		 * @summary A simple bounding rectangle class.
+		 * @ignore
 		 * @constructs
-		 * @augments FooUtils.Class
-		 * @borrows FooUtils.Class.extend as extend
-		 * @borrows FooUtils.Class.override as override
-		 */
+		 **/
 		construct: function(){
 			var self = this;
+			/**
+			 * @summary The top position.
+			 * @memberof FooUtils.Bounds#
+			 * @name top
+			 * @type {number}
+			 */
 			self.top = 0;
+			/**
+			 * @summary The right position.
+			 * @memberof FooUtils.Bounds#
+			 * @name right
+			 * @type {number}
+			 */
 			self.right = 0;
+			/**
+			 * @summary The bottom position.
+			 * @memberof FooUtils.Bounds#
+			 * @name bottom
+			 * @type {number}
+			 */
 			self.bottom = 0;
+			/**
+			 * @summary The left position.
+			 * @memberof FooUtils.Bounds#
+			 * @name left
+			 * @type {number}
+			 */
 			self.left = 0;
+			/**
+			 * @summary The width of the rectangle described by the position properties.
+			 * @memberof FooUtils.Bounds#
+			 * @name width
+			 * @type {number}
+			 */
 			self.width = 0;
+			/**
+			 * @summary The height of the rectangle described by the position properties.
+			 * @memberof FooUtils.Bounds#
+			 * @name height
+			 * @type {number}
+			 */
 			self.height = 0;
 		},
 		/**
@@ -54,7 +95,7 @@
 	var __$window;
 	/**
 	 * @summary Gets the bounding rectangle of the current viewport.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function getViewportBounds
 	 * @param {number} [inflate] - An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.
 	 * @returns {FooUtils.Bounds}
@@ -74,7 +115,7 @@
 
 	/**
 	 * @summary Get the bounding rectangle for the supplied element.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @function getElementBounds
 	 * @param {(jQuery|HTMLElement|string)} element - The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.
 	 * @returns {FooUtils.Bounds}

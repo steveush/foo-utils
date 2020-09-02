@@ -4,13 +4,13 @@
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS animation property.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace animation
 	 */
 	_.animation = {};
 
 	function raf(callback){
-		return setTimeout(callback, 1);
+		return setTimeout(callback, 1000/60);
 	}
 
 	function caf(requestID){
@@ -19,7 +19,7 @@
 
 	/**
 	 * @summary A cross browser wrapper for the `requestAnimationFrame` method.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function requestFrame
 	 * @param {function} callback - The function to call when it's time to update your animation for the next repaint.
 	 * @return {number} - The request id that uniquely identifies the entry in the callback list.
@@ -28,7 +28,7 @@
 
 	/**
 	 * @summary A cross browser wrapper for the `cancelAnimationFrame` method.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function cancelFrame
 	 * @param {number} requestID - The ID value returned by the call to {@link FooUtils.animation.requestFrame|requestFrame} that requested the callback.
 	 */
@@ -39,7 +39,7 @@
 
 	/**
 	 * @summary Whether or not animations are supported by the current browser.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @name supported
 	 * @type {boolean}
 	 */
@@ -62,7 +62,7 @@
 
 	/**
 	 * @summary The `animationend` event name for the current browser.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @name end
 	 * @type {string}
 	 * @description Depending on the browser this returns one of the following values:
@@ -95,7 +95,7 @@
 
 	/**
 	 * @summary Gets the `animation-duration` value for the supplied jQuery element.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function duration
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=0] - The default value to return if no duration is set.
@@ -126,7 +126,7 @@
 
 	/**
 	 * @summary Gets the `animation-iteration-count` value for the supplied jQuery element.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function iterations
 	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
 	 * @param {number} [def=1] - The default value to return if no iteration count is set.
@@ -159,7 +159,7 @@
 
 	/**
 	 * @summary Start a animation by toggling the supplied `className` on the `$element`.
-	 * @memberof FooUtils.animation
+	 * @memberof FooUtils.animation.
 	 * @function start
 	 * @param {jQuery} $element - The jQuery element to start the animation on.
 	 * @param {(string|FooUtils.animation~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the animation.

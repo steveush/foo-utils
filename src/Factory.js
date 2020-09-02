@@ -2,21 +2,34 @@
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
-	_.Factory = _.Class.extend(/** @lends FooUtils.Factory */{
+	/**
+	 * @summary A factory for classes allowing them to be registered and created using a friendly name.
+	 * @memberof FooUtils.
+	 * @class Factory
+	 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
+	 * @augments FooUtils.Class
+	 * @borrows FooUtils.Class.extend as extend
+	 * @borrows FooUtils.Class.override as override
+	 */
+	_.Factory = _.Class.extend(/** @lends FooUtils.Factory.prototype */{
 		/**
-		 * @summary A factory for classes allowing them to be registered and created using a friendly name.
+		 * @ignore
 		 * @constructs
-		 * @description This class allows other classes to register themselves for use at a later time. Depending on how you intend to use the registered classes you can also specify a load and execution order through the `priority` parameter of the {@link FooUtils.Factory#register|register} method.
-		 * @augments FooUtils.Class
-		 * @borrows FooUtils.Class.extend as extend
-		 * @borrows FooUtils.Class.override as override
-		 */
+		 **/
 		construct: function(){
+			/**
+			 * @summary An object containing all the required info to create a new instance of a registered class.
+			 * @typedef {Object} FooUtils.Factory~RegisteredClass
+			 * @property {string} name - The friendly name of the registered class.
+			 * @property {function} klass - The constructor for the registered class.
+			 * @property {number} priority - The priority for the registered class.
+			 */
+
 			/**
 			 * @summary An object containing all registered classes.
 			 * @memberof FooUtils.Factory#
 			 * @name registered
-			 * @type {Object.<string, Object>}
+			 * @type {Object.<string, FooUtils.Factory~RegisteredClass>}
 			 * @readonly
 			 * @example {@caption The following shows the structure of this object. The `<name>` placeholders would be the name the class was registered with.}
 			 * {
@@ -61,7 +74,7 @@
 		 * @summary Creates new instances of all registered classes using there registered priority and the supplied arguments.
 		 * @memberof FooUtils.Factory#
 		 * @function load
-		 * @param {Object.<string, function>} overrides - An object containing classes to override any matching registered classes with, if no overrides are required you can pass `false` or `null`.
+		 * @param {Object.<string, (function|string)>} overrides - An object containing classes to override any matching registered classes with, if no overrides are required you can pass `false` or `null`.
 		 * @param {*} arg1 - The first argument to supply when creating new instances of all registered classes.
 		 * @param {...*} [argN] - Any number of additional arguments to supply when creating new instances of all registered classes.
 		 * @returns {Array.<Object>} An array containing new instances of all registered classes.

@@ -2,11 +2,17 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    /**
+     * @summary A simple timer that triggers events.
+     * @memberof FooUtils.
+     * @class Timer
+     * @param {number} [interval=1000] - The internal tick interval of the timer.
+     */
     _.Timer = _.EventClass.extend(/** @lends FooUtils.Timer */{
         /**
-         * @summary A simple timer that triggers events.
+         * @ignore
          * @constructs
-         * @param {number} [interval=1000] - The internal tick interval of the timer.
+         * @param {number} [interval=1000]
          */
         construct: function(interval){
             this._super();

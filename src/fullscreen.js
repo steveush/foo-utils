@@ -2,16 +2,24 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    /**
+     * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+     * @memberof FooUtils.
+     * @class FullscreenAPI
+     * @augments FooUtils.EventClass
+     * @borrows FooUtils.EventClass.extend as extend
+     * @borrows FooUtils.EventClass.override as override
+     */
     _.FullscreenAPI = _.EventClass.extend(/** @lends FooUtils.FullscreenAPI */{
         /**
-         * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
+         * @ignore
          * @constructs
          */
         construct: function(){
             this._super();
             /**
              * @summary An object containing a single browsers various methods and events needed for this wrapper.
-             * @typedef {Object} FooUtils.FullscreenAPI~BrowserAPI
+             * @typedef {?Object} FooUtils.FullscreenAPI~BrowserAPI
              * @property {string} enabled
              * @property {string} element
              * @property {string} request
@@ -22,10 +30,15 @@
              */
 
             /**
+             * @summary An object containing the supported fullscreen browser API's.
+             * @typedef {Object.<string, FooUtils.FullscreenAPI~BrowserAPI>} FooUtils.FullscreenAPI~SupportedBrowsers
+             */
+
+            /**
              * @summary Contains the various browser specific method and event names.
              * @memberof FooUtils.FullscreenAPI#
              * @name apis
-             * @type {{w3: BrowserAPI, ms: BrowserAPI, moz: BrowserAPI, webkit: BrowserAPI}}
+             * @type {FooUtils.FullscreenAPI~SupportedBrowsers}
              */
             this.apis = {
                 w3: {
@@ -73,7 +86,7 @@
              * @summary The current browsers specific method and event names.
              * @memberof FooUtils.FullscreenAPI#
              * @name api
-             * @type {?BrowserAPI}
+             * @type {FooUtils.FullscreenAPI~BrowserAPI}
              */
             this.api = this.getAPI();
             /**
@@ -99,7 +112,7 @@
          * @summary Fetches the correct API for the current browser.
          * @memberof FooUtils.FullscreenAPI#
          * @function getAPI
-         * @return {?BrowserAPI} If the fullscreen API is not supported `null` is returned.
+         * @return {?FooUtils.FullscreenAPI~BrowserAPI} Returns `null` if the fullscreen API is not supported.
          */
         getAPI: function(){
             for (var vendor in this.apis) {
@@ -231,7 +244,7 @@
 
     /**
      * @summary A cross browser wrapper for the fullscreen API.
-     * @memberof FooUtils
+     * @memberof FooUtils.
      * @name fullscreen
      * @type {FooUtils.FullscreenAPI}
      */

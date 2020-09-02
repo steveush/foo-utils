@@ -4,7 +4,7 @@
 
 	/**
 	 * @summary Contains common url utility methods.
-	 * @memberof FooUtils
+	 * @memberof FooUtils.
 	 * @namespace url
 	 */
 	_.url = {};
@@ -14,7 +14,7 @@
 
 	/**
 	 * @summary Parses the supplied url into an object containing it's component parts.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function parts
 	 * @param {string} url - The url to parse.
 	 * @returns {FooUtils.url~Parts}
@@ -39,7 +39,7 @@
 
 	/**
 	 * @summary Given a <code>url</code> that could be relative or full this ensures a full url is returned.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function full
 	 * @param {string} url - The url to ensure is full.
 	 * @returns {?string} `null` if the given `path` is not a string or empty.
@@ -63,7 +63,7 @@
 
 	/**
 	 * @summary Gets or sets a parameter in the given <code>search</code> string.
-	 * @memberof FooUtils.url
+	 * @memberof FooUtils.url.
 	 * @function param
 	 * @param {string} search - The search string to use (usually `location.search`).
 	 * @param {string} key - The key of the parameter.
