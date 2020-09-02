@@ -323,12 +323,13 @@
 	_.str.format = function (target, arg1, argN){
 		var args = _fn.arg2arr(arguments);
 		target = args.shift(); // remove the target from the args
-		if (_is.empty(target) || _is.empty(args)) return target;
-		if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
-			args = args[0];
-		}
-		for (var arg in args){
-			target = target.replace(new RegExp("\\{" + arg + "\\}", "gi"), args[arg]);
+		if (_is.string(target) && args.length > 0){
+			if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
+				args = args[0];
+			}
+			_.each(args, function(value, placeholder){
+				target = target.replace(new RegExp("\\{" + placeholder + "\\}", "gi"), value + "");
+			});
 		}
 		return target;
 	};
