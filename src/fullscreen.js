@@ -242,14 +242,6 @@
         }
     });
 
-    /**
-     * @summary A cross browser wrapper for the fullscreen API.
-     * @memberof FooUtils.
-     * @name fullscreen
-     * @type {FooUtils.FullscreenAPI}
-     */
-    _.fullscreen = new _.FullscreenAPI();
-
 })(
     FooUtils.$,
     FooUtils,
