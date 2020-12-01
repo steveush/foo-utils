@@ -41,6 +41,11 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.2.1
+
+* Breaking Change: Removed the `FooUtils.Debugger` class, it's usefulness had come to an end, and it was reporting as a cookie in Chrome because it checked on the existence of localStorage as the script was parsed.
+* Breaking Change: Removed the default instance of the `FooUtils.FullscreenAPI` class which was exposed as `FooUtils.fullscreen` as not all projects need it and initializing it by default was unnecessary overhead.
+
 ### 0.2.0
 
 * Breaking Change: Changed how the lib registers itself to the global. Previously it would only register itself if it didn't exist, or the existing version was older. The version check is no longer performed.
