@@ -956,182 +956,6 @@ window.lunrData = {
           "timer",
           "timer#reset"
         ],
-        "FooUtils.Debugger.html": [
-          "abil",
-          "actual",
-          "addit",
-          "allow",
-          "class",
-          "code",
-          "consol",
-          "debug",
-          "debugg",
-          "default",
-          "enabl",
-          "featur",
-          "fooutils.debugg",
-          "given",
-          "info",
-          "key",
-          "load",
-          "localstorag",
-          "occur",
-          "output",
-          "page",
-          "refresh",
-          "result",
-          "session",
-          "start",
-          "state",
-          "store",
-          "us",
-          "util",
-          "view",
-          "within",
-          "write"
-        ],
-        "FooUtils.Debugger.html#key": [
-          "debug",
-          "debugger#key",
-          "fooutils.debugger#key",
-          "key",
-          "localstorag",
-          "member",
-          "state",
-          "store",
-          "string",
-          "us"
-        ],
-        "FooUtils.Debugger.html#enabled": [
-          "boolean",
-          "class",
-          "current",
-          "debugg",
-          "debugger#en",
-          "enabl",
-          "fooutils.debugger#en",
-          "localstorag",
-          "lt;readonly&gt",
-          "member",
-          "never",
-          "outsid",
-          "properti",
-          "set",
-          "state",
-          "store",
-          "sync",
-          "valu",
-          "whether"
-        ],
-        "FooUtils.Debugger.html#.extend": [
-          "ad",
-          "allow",
-          "both",
-          "class",
-          "creat",
-          "debugger.extend",
-          "definit",
-          "extend",
-          "fooutils.debugger.extend",
-          "function",
-          "inherit",
-          "itself",
-          "lt;static&gt",
-          "method",
-          "new",
-          "on",
-          "overrid",
-          "static",
-          "turn",
-          "us"
-        ],
-        "FooUtils.Debugger.html#enable": [
-          "addit",
-          "caus",
-          "consol",
-          "debugg",
-          "debugger#en",
-          "enabl",
-          "fooutils.debugger#en",
-          "function",
-          "info",
-          "log"
-        ],
-        "FooUtils.Debugger.html#disable": [
-          "addit",
-          "be",
-          "consol",
-          "debugg",
-          "debugger#dis",
-          "disabl",
-          "fooutils.debugger#dis",
-          "function",
-          "info",
-          "log",
-          "stop"
-        ],
-        "FooUtils.Debugger.html#log": [
-          "addit",
-          "along",
-          "argn",
-          "argument",
-          "basic",
-          "befor",
-          "check",
-          "consol",
-          "console.log",
-          "debugg",
-          "debugger#log",
-          "enabl",
-          "fooutils.debugger#log",
-          "function",
-          "log",
-          "messag",
-          "method",
-          "pass",
-          "simpli",
-          "state",
-          "suppli",
-          "wrap"
-        ],
-        "FooUtils.Debugger.html#logf": [
-          "addit",
-          "argn",
-          "argument",
-          "consol",
-          "debugger#logf",
-          "enabl",
-          "fooutils.debugger#logf",
-          "format",
-          "function",
-          "log",
-          "logf",
-          "messag",
-          "replac"
-        ],
-        "FooUtils.Debugger.html#.override": [
-          "child",
-          "class",
-          "correct",
-          "debugger.overrid",
-          "fn",
-          "fooutils.class",
-          "fooutils.debugger.overrid",
-          "fooutils.fn.addoroverrid",
-          "function",
-          "helper",
-          "intern",
-          "lt;static&gt",
-          "method",
-          "name",
-          "on",
-          "overrid",
-          "prototyp",
-          "provid",
-          "simpli",
-          "singl",
-          "us"
-        ],
         "FooUtils.Class.html": [
           "_super",
           "allow",
@@ -2698,17 +2522,6 @@ window.lunrData = {
           "string",
           "version"
         ],
-        "FooUtils.html#.fullscreen": [
-          "api",
-          "browser",
-          "cross",
-          "fooutils.fullscreen",
-          "fooutils.fullscreenapi",
-          "fullscreen",
-          "lt;static&gt",
-          "member",
-          "wrapper"
-        ],
         "FooUtils.html#.ready": [
           "access",
           "callback",
@@ -2934,7 +2747,7 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 181
+      "length": 171
     },
     "tokenStore": {
       "root": {
@@ -3112,22 +2925,6 @@ window.lunrData = {
                     "FooUtils.Timer.html": {
                       "ref": "FooUtils.Timer.html",
                       "tf": 110
-                    },
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 117.64568764568764
-                    },
-                    "FooUtils.Debugger.html#enabled": {
-                      "ref": "FooUtils.Debugger.html#enabled",
-                      "tf": 4.545454545454546
-                    },
-                    "FooUtils.Debugger.html#.extend": {
-                      "ref": "FooUtils.Debugger.html#.extend",
-                      "tf": 11.944444444444443
-                    },
-                    "FooUtils.Debugger.html#.override": {
-                      "ref": "FooUtils.Debugger.html#.override",
-                      "tf": 20.441176470588236
                     },
                     "FooUtils.Class.html": {
                       "ref": "FooUtils.Class.html",
@@ -3697,53 +3494,6 @@ window.lunrData = {
                     }
                   }
                 },
-                "o": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 2.564102564102564
-                      },
-                      "FooUtils.Debugger.html#enable": {
-                        "ref": "FooUtils.Debugger.html#enable",
-                        "tf": 10
-                      },
-                      "FooUtils.Debugger.html#disable": {
-                        "ref": "FooUtils.Debugger.html#disable",
-                        "tf": 8.75
-                      },
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 10
-                      },
-                      "FooUtils.Debugger.html#logf": {
-                        "ref": "FooUtils.Debugger.html#logf",
-                        "tf": 10
-                      }
-                    },
-                    "e": {
-                      "docs": {},
-                      ".": {
-                        "docs": {},
-                        "l": {
-                          "docs": {},
-                          "o": {
-                            "docs": {},
-                            "g": {
-                              "docs": {
-                                "FooUtils.Debugger.html#log": {
-                                  "ref": "FooUtils.Debugger.html#log",
-                                  "tf": 3.3333333333333335
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
                 "i": {
                   "docs": {},
                   "d": {
@@ -3829,10 +3579,6 @@ window.lunrData = {
                           "ref": "FooUtils.FullscreenAPI.html#getAPI",
                           "tf": 14
                         },
-                        "FooUtils.Debugger.html#.override": {
-                          "ref": "FooUtils.Debugger.html#.override",
-                          "tf": 2.941176470588235
-                        },
                         "FooUtils.Class.html#.override": {
                           "ref": "FooUtils.Class.html#.override",
                           "tf": 2.941176470588235
@@ -3909,21 +3655,6 @@ window.lunrData = {
                 }
               }
             },
-            "d": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
-                  },
-                  "FooUtils.html": {
-                    "ref": "FooUtils.html",
-                    "tf": 7.777777777777778
-                  }
-                }
-              }
-            },
             "v": {
               "docs": {},
               "e": {
@@ -3949,6 +3680,17 @@ window.lunrData = {
                   "FooUtils.obj.html#.merge": {
                     "ref": "FooUtils.obj.html#.merge",
                     "tf": 2.7777777777777777
+                  }
+                }
+              }
+            },
+            "d": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "FooUtils.html": {
+                    "ref": "FooUtils.html",
+                    "tf": 7.777777777777778
                   }
                 }
               }
@@ -3993,10 +3735,6 @@ window.lunrData = {
                     "FooUtils.Factory.html#~RegisteredClass": {
                       "ref": "FooUtils.Factory.html#~RegisteredClass",
                       "tf": 7.777777777777778
-                    },
-                    "FooUtils.Debugger.html#.extend": {
-                      "ref": "FooUtils.Debugger.html#.extend",
-                      "tf": 11.944444444444443
                     },
                     "FooUtils.Class.html#.extend": {
                       "ref": "FooUtils.Class.html#.extend",
@@ -4051,10 +3789,6 @@ window.lunrData = {
                     "FooUtils.animation.html#.cancelFrame": {
                       "ref": "FooUtils.animation.html#.cancelFrame",
                       "tf": 14
-                    },
-                    "FooUtils.html#.fullscreen": {
-                      "ref": "FooUtils.html#.fullscreen",
-                      "tf": 14
                     }
                   }
                 }
@@ -4076,10 +3810,6 @@ window.lunrData = {
                     "FooUtils.Factory.html#contains": {
                       "ref": "FooUtils.Factory.html#contains",
                       "tf": 8.75
-                    },
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 3.3333333333333335
                     },
                     "FooUtils.fn.html#.CONTAINS_SUPER": {
                       "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
@@ -4189,10 +3919,6 @@ window.lunrData = {
                     },
                     "FooUtils.Factory.html#.override": {
                       "ref": "FooUtils.Factory.html#.override",
-                      "tf": 2.941176470588235
-                    },
-                    "FooUtils.Debugger.html#.override": {
-                      "ref": "FooUtils.Debugger.html#.override",
                       "tf": 2.941176470588235
                     },
                     "FooUtils.Class.html#.override": {
@@ -4311,10 +4037,6 @@ window.lunrData = {
                         "FooUtils.Timer.html#isPaused": {
                           "ref": "FooUtils.Timer.html#isPaused",
                           "tf": 17.5
-                        },
-                        "FooUtils.Debugger.html#enabled": {
-                          "ref": "FooUtils.Debugger.html#enabled",
-                          "tf": 22.045454545454547
                         },
                         "FooUtils.EventClass.html#destroy": {
                           "ref": "FooUtils.EventClass.html#destroy",
@@ -4513,17 +4235,6 @@ window.lunrData = {
                       "ref": "FooUtils.fn.html#.apply",
                       "tf": 4.166666666666666
                     }
-                  }
-                }
-              }
-            },
-            "u": {
-              "docs": {},
-              "s": {
-                "docs": {
-                  "FooUtils.Debugger.html#enable": {
-                    "ref": "FooUtils.Debugger.html#enable",
-                    "tf": 10
                   }
                 }
               }
@@ -4977,10 +4688,6 @@ window.lunrData = {
                                         "ref": "FooUtils.Factory.html#.override",
                                         "tf": 2.941176470588235
                                       },
-                                      "FooUtils.Debugger.html#.override": {
-                                        "ref": "FooUtils.Debugger.html#.override",
-                                        "tf": 2.941176470588235
-                                      },
                                       "FooUtils.Class.html": {
                                         "ref": "FooUtils.Class.html",
                                         "tf": 1250
@@ -5119,10 +4826,6 @@ window.lunrData = {
                                                           },
                                                           "FooUtils.Factory.html#.override": {
                                                             "ref": "FooUtils.Factory.html#.override",
-                                                            "tf": 2.941176470588235
-                                                          },
-                                                          "FooUtils.Debugger.html#.override": {
-                                                            "ref": "FooUtils.Debugger.html#.override",
                                                             "tf": 2.941176470588235
                                                           },
                                                           "FooUtils.Class.html#.override": {
@@ -5706,12 +5409,7 @@ window.lunrData = {
                                           "e": {
                                             "docs": {},
                                             "n": {
-                                              "docs": {
-                                                "FooUtils.html#.fullscreen": {
-                                                  "ref": "FooUtils.html#.fullscreen",
-                                                  "tf": 1150
-                                                }
-                                              },
+                                              "docs": {},
                                               "a": {
                                                 "docs": {},
                                                 "p": {
@@ -5721,10 +5419,6 @@ window.lunrData = {
                                                       "FooUtils.FullscreenAPI.html": {
                                                         "ref": "FooUtils.FullscreenAPI.html",
                                                         "tf": 1250
-                                                      },
-                                                      "FooUtils.html#.fullscreen": {
-                                                        "ref": "FooUtils.html#.fullscreen",
-                                                        "tf": 33.33333333333333
                                                       }
                                                     },
                                                     "#": {
@@ -7311,155 +7005,6 @@ window.lunrData = {
                               }
                             }
                           },
-                          "d": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "b": {
-                                "docs": {},
-                                "u": {
-                                  "docs": {},
-                                  "g": {
-                                    "docs": {},
-                                    "g": {
-                                      "docs": {
-                                        "FooUtils.Debugger.html": {
-                                          "ref": "FooUtils.Debugger.html",
-                                          "tf": 1250
-                                        }
-                                      },
-                                      "e": {
-                                        "docs": {},
-                                        "r": {
-                                          "docs": {},
-                                          "#": {
-                                            "docs": {},
-                                            "k": {
-                                              "docs": {},
-                                              "e": {
-                                                "docs": {},
-                                                "y": {
-                                                  "docs": {
-                                                    "FooUtils.Debugger.html#key": {
-                                                      "ref": "FooUtils.Debugger.html#key",
-                                                      "tf": 1100
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "e": {
-                                              "docs": {},
-                                              "n": {
-                                                "docs": {
-                                                  "FooUtils.Debugger.html#enabled": {
-                                                    "ref": "FooUtils.Debugger.html#enabled",
-                                                    "tf": 1100
-                                                  },
-                                                  "FooUtils.Debugger.html#enable": {
-                                                    "ref": "FooUtils.Debugger.html#enable",
-                                                    "tf": 1100
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "d": {
-                                              "docs": {},
-                                              "i": {
-                                                "docs": {},
-                                                "s": {
-                                                  "docs": {
-                                                    "FooUtils.Debugger.html#disable": {
-                                                      "ref": "FooUtils.Debugger.html#disable",
-                                                      "tf": 1100
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "l": {
-                                              "docs": {},
-                                              "o": {
-                                                "docs": {},
-                                                "g": {
-                                                  "docs": {
-                                                    "FooUtils.Debugger.html#log": {
-                                                      "ref": "FooUtils.Debugger.html#log",
-                                                      "tf": 1100
-                                                    }
-                                                  },
-                                                  "f": {
-                                                    "docs": {
-                                                      "FooUtils.Debugger.html#logf": {
-                                                        "ref": "FooUtils.Debugger.html#logf",
-                                                        "tf": 1100
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          },
-                                          ".": {
-                                            "docs": {},
-                                            "e": {
-                                              "docs": {},
-                                              "x": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {},
-                                                  "e": {
-                                                    "docs": {},
-                                                    "n": {
-                                                      "docs": {},
-                                                      "d": {
-                                                        "docs": {
-                                                          "FooUtils.Debugger.html#.extend": {
-                                                            "ref": "FooUtils.Debugger.html#.extend",
-                                                            "tf": 1100
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "o": {
-                                              "docs": {},
-                                              "v": {
-                                                "docs": {},
-                                                "e": {
-                                                  "docs": {},
-                                                  "r": {
-                                                    "docs": {},
-                                                    "r": {
-                                                      "docs": {},
-                                                      "i": {
-                                                        "docs": {},
-                                                        "d": {
-                                                          "docs": {
-                                                            "FooUtils.Debugger.html#.override": {
-                                                              "ref": "FooUtils.Debugger.html#.override",
-                                                              "tf": 1100
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
                           "a": {
                             "docs": {},
                             "n": {
@@ -8880,39 +8425,6 @@ window.lunrData = {
                 }
               }
             },
-            "r": {
-              "docs": {},
-              "m": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "FooUtils.Debugger.html#logf": {
-                        "ref": "FooUtils.Debugger.html#logf",
-                        "tf": 10
-                      },
-                      "FooUtils.str.html#.format": {
-                        "ref": "FooUtils.str.html#.format",
-                        "tf": 616.6666666666666
-                      },
-                      "FooUtils.html#.versionCompare": {
-                        "ref": "FooUtils.html#.versionCompare",
-                        "tf": 2.1739130434782608
-                      }
-                    },
-                    "t": {
-                      "docs": {
-                        "FooUtils.str.html#.format": {
-                          "ref": "FooUtils.str.html#.format",
-                          "tf": 6.773504273504274
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "l": {
               "docs": {},
               "l": {
@@ -8936,6 +8448,35 @@ window.lunrData = {
                       "FooUtils.transition.html#.end": {
                         "ref": "FooUtils.transition.html#.end",
                         "tf": 4.545454545454546
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "r": {
+              "docs": {},
+              "m": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "FooUtils.str.html#.format": {
+                        "ref": "FooUtils.str.html#.format",
+                        "tf": 616.6666666666666
+                      },
+                      "FooUtils.html#.versionCompare": {
+                        "ref": "FooUtils.html#.versionCompare",
+                        "tf": 2.1739130434782608
+                      }
+                    },
+                    "t": {
+                      "docs": {
+                        "FooUtils.str.html#.format": {
+                          "ref": "FooUtils.str.html#.format",
+                          "tf": 6.773504273504274
+                        }
                       }
                     }
                   }
@@ -9100,30 +8641,6 @@ window.lunrData = {
                           "FooUtils.Timer.html#reset": {
                             "ref": "FooUtils.Timer.html#reset",
                             "tf": 110
-                          },
-                          "FooUtils.Debugger.html#.extend": {
-                            "ref": "FooUtils.Debugger.html#.extend",
-                            "tf": 135
-                          },
-                          "FooUtils.Debugger.html#enable": {
-                            "ref": "FooUtils.Debugger.html#enable",
-                            "tf": 110
-                          },
-                          "FooUtils.Debugger.html#disable": {
-                            "ref": "FooUtils.Debugger.html#disable",
-                            "tf": 110
-                          },
-                          "FooUtils.Debugger.html#log": {
-                            "ref": "FooUtils.Debugger.html#log",
-                            "tf": 110
-                          },
-                          "FooUtils.Debugger.html#logf": {
-                            "ref": "FooUtils.Debugger.html#logf",
-                            "tf": 110
-                          },
-                          "FooUtils.Debugger.html#.override": {
-                            "ref": "FooUtils.Debugger.html#.override",
-                            "tf": 112.94117647058823
                           },
                           "FooUtils.Class.html": {
                             "ref": "FooUtils.Class.html",
@@ -9581,10 +9098,6 @@ window.lunrData = {
                               "FooUtils.FullscreenAPI.html#~resolver": {
                                 "ref": "FooUtils.FullscreenAPI.html#~resolver",
                                 "tf": 7
-                              },
-                              "FooUtils.html#.fullscreen": {
-                                "ref": "FooUtils.html#.fullscreen",
-                                "tf": 697.3333333333334
                               }
                             },
                             "a": {
@@ -10022,10 +9535,6 @@ window.lunrData = {
               },
               "FooUtils.Factory.html#.override": {
                 "ref": "FooUtils.Factory.html#.override",
-                "tf": 25
-              },
-              "FooUtils.Debugger.html#.override": {
-                "ref": "FooUtils.Debugger.html#.override",
                 "tf": 25
               },
               "FooUtils.Class.html#.override": {
@@ -10853,23 +10362,6 @@ window.lunrData = {
                   }
                 }
               }
-            },
-            "a": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "u": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 1.282051282051282
-                      }
-                    }
-                  }
-                }
-              }
             }
           },
           "l": {
@@ -10994,10 +10486,6 @@ window.lunrData = {
                           "ref": "FooUtils.Factory.html#.extend",
                           "tf": 7.777777777777778
                         },
-                        "FooUtils.Debugger.html#.extend": {
-                          "ref": "FooUtils.Debugger.html#.extend",
-                          "tf": 7.777777777777778
-                        },
                         "FooUtils.Class.html": {
                           "ref": "FooUtils.Class.html",
                           "tf": 12.941176470588236
@@ -11045,18 +10533,6 @@ window.lunrData = {
                   "FooUtils.Factory.html#~RegisteredClass": {
                     "ref": "FooUtils.Factory.html#~RegisteredClass",
                     "tf": 7.777777777777778
-                  },
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
-                  },
-                  "FooUtils.Debugger.html#enable": {
-                    "ref": "FooUtils.Debugger.html#enable",
-                    "tf": 10
-                  },
-                  "FooUtils.Debugger.html#disable": {
-                    "ref": "FooUtils.Debugger.html#disable",
-                    "tf": 8.75
                   },
                   "FooUtils.EventClass.html#~RegisteredListener": {
                     "ref": "FooUtils.EventClass.html#~RegisteredListener",
@@ -11120,10 +10596,6 @@ window.lunrData = {
                       "FooUtils.Timer.html#interval": {
                         "ref": "FooUtils.Timer.html#interval",
                         "tf": 14
-                      },
-                      "FooUtils.Debugger.html#.override": {
-                        "ref": "FooUtils.Debugger.html#.override",
-                        "tf": 2.941176470588235
                       },
                       "FooUtils.Class.html#.override": {
                         "ref": "FooUtils.Class.html#.override",
@@ -11340,10 +10812,6 @@ window.lunrData = {
                       },
                       "FooUtils.Factory.html#.extend": {
                         "ref": "FooUtils.Factory.html#.extend",
-                        "tf": 7.777777777777778
-                      },
-                      "FooUtils.Debugger.html#.extend": {
-                        "ref": "FooUtils.Debugger.html#.extend",
                         "tf": 7.777777777777778
                       },
                       "FooUtils.Class.html#.extend": {
@@ -11898,18 +11366,6 @@ window.lunrData = {
                         "ref": "FooUtils.Timer.html#restart",
                         "tf": 7.777777777777778
                       },
-                      "FooUtils.Debugger.html#.extend": {
-                        "ref": "FooUtils.Debugger.html#.extend",
-                        "tf": 8.333333333333332
-                      },
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 6.666666666666667
-                      },
-                      "FooUtils.Debugger.html#.override": {
-                        "ref": "FooUtils.Debugger.html#.override",
-                        "tf": 23.38235294117647
-                      },
                       "FooUtils.Class.html": {
                         "ref": "FooUtils.Class.html",
                         "tf": 14.411764705882353
@@ -12139,14 +11595,6 @@ window.lunrData = {
                         "ref": "FooUtils.Timer.html#canRestart",
                         "tf": 110
                       },
-                      "FooUtils.Debugger.html#key": {
-                        "ref": "FooUtils.Debugger.html#key",
-                        "tf": 110
-                      },
-                      "FooUtils.Debugger.html#enabled": {
-                        "ref": "FooUtils.Debugger.html#enabled",
-                        "tf": 110
-                      },
                       "FooUtils.EventClass.html#events": {
                         "ref": "FooUtils.EventClass.html#events",
                         "tf": 110
@@ -12194,31 +11642,6 @@ window.lunrData = {
                       "FooUtils.html#.version": {
                         "ref": "FooUtils.html#.version",
                         "tf": 110
-                      },
-                      "FooUtils.html#.fullscreen": {
-                        "ref": "FooUtils.html#.fullscreen",
-                        "tf": 110
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "s": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "g": {
-                    "docs": {
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 43.33333333333333
-                      },
-                      "FooUtils.Debugger.html#logf": {
-                        "ref": "FooUtils.Debugger.html#logf",
-                        "tf": 35
                       }
                     }
                   }
@@ -12734,10 +12157,6 @@ window.lunrData = {
                             "ref": "FooUtils.Event.html",
                             "tf": 10
                           },
-                          "FooUtils.Debugger.html#enabled": {
-                            "ref": "FooUtils.Debugger.html#enabled",
-                            "tf": 4.545454545454546
-                          },
                           "FooUtils.animation.html": {
                             "ref": "FooUtils.animation.html",
                             "tf": 8.75
@@ -12823,10 +12242,6 @@ window.lunrData = {
                             "ref": "FooUtils.Factory.html#.override",
                             "tf": 2.941176470588235
                           },
-                          "FooUtils.Debugger.html#.override": {
-                            "ref": "FooUtils.Debugger.html#.override",
-                            "tf": 2.941176470588235
-                          },
                           "FooUtils.Class.html": {
                             "ref": "FooUtils.Class.html",
                             "tf": 11.470588235294118
@@ -12877,10 +12292,6 @@ window.lunrData = {
                       },
                       "FooUtils.Factory.html#.override": {
                         "ref": "FooUtils.Factory.html#.override",
-                        "tf": 2.941176470588235
-                      },
-                      "FooUtils.Debugger.html#.override": {
-                        "ref": "FooUtils.Debugger.html#.override",
                         "tf": 2.941176470588235
                       },
                       "FooUtils.Class.html": {
@@ -13266,10 +12677,6 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 3.8461538461538463
-                  },
                   "FooUtils.fn.html#.CONTAINS_SUPER": {
                     "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                     "tf": 1.5625
@@ -13281,17 +12688,6 @@ window.lunrData = {
                   "FooUtils.html#.$": {
                     "ref": "FooUtils.html#.$",
                     "tf": 3.571428571428571
-                  }
-                }
-              }
-            },
-            "s": {
-              "docs": {},
-              "s": {
-                "docs": {
-                  "FooUtils.Debugger.html#log": {
-                    "ref": "FooUtils.Debugger.html#log",
-                    "tf": 3.3333333333333335
                   }
                 }
               }
@@ -13668,10 +13064,6 @@ window.lunrData = {
                       "FooUtils.Factory.html#load": {
                         "ref": "FooUtils.Factory.html#load",
                         "tf": 2.083333333333333
-                      },
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 1.282051282051282
                       },
                       "FooUtils.fn.html#.when": {
                         "ref": "FooUtils.fn.html#.when",
@@ -14200,78 +13592,6 @@ window.lunrData = {
                 }
               }
             },
-            "f": {
-              "docs": {},
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "s": {
-                    "docs": {},
-                    "h": {
-                      "docs": {
-                        "FooUtils.Debugger.html": {
-                          "ref": "FooUtils.Debugger.html",
-                          "tf": 1.282051282051282
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.str.html#.format": {
-                      "ref": "FooUtils.str.html#.format",
-                      "tf": 1.3888888888888888
-                    },
-                    "FooUtils.html#.$": {
-                      "ref": "FooUtils.html#.$",
-                      "tf": 14
-                    }
-                  }
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "l": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "c": {
-                    "docs": {
-                      "FooUtils.Debugger.html#logf": {
-                        "ref": "FooUtils.Debugger.html#logf",
-                        "tf": 25
-                      },
-                      "FooUtils.fn.html#.addOrOverride": {
-                        "ref": "FooUtils.fn.html#.addOrOverride",
-                        "tf": 0.9615384615384616
-                      },
-                      "FooUtils.fn.html#.arg2arr": {
-                        "ref": "FooUtils.fn.html#.arg2arr",
-                        "tf": 5.555555555555555
-                      },
-                      "FooUtils.obj.html#.extend": {
-                        "ref": "FooUtils.obj.html#.extend",
-                        "tf": 2.631578947368421
-                      },
-                      "FooUtils.obj.html#.merge": {
-                        "ref": "FooUtils.obj.html#.merge",
-                        "tf": 2.7777777777777777
-                      },
-                      "FooUtils.str.html#.format": {
-                        "ref": "FooUtils.str.html#.format",
-                        "tf": 10.94017094017094
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "l": {
               "docs": {
                 "FooUtils.url.html#.full": {
@@ -14302,6 +13622,57 @@ window.lunrData = {
                   "FooUtils.html": {
                     "ref": "FooUtils.html",
                     "tf": 5.555555555555555
+                  }
+                }
+              }
+            },
+            "p": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "c": {
+                    "docs": {
+                      "FooUtils.fn.html#.addOrOverride": {
+                        "ref": "FooUtils.fn.html#.addOrOverride",
+                        "tf": 0.9615384615384616
+                      },
+                      "FooUtils.fn.html#.arg2arr": {
+                        "ref": "FooUtils.fn.html#.arg2arr",
+                        "tf": 5.555555555555555
+                      },
+                      "FooUtils.obj.html#.extend": {
+                        "ref": "FooUtils.obj.html#.extend",
+                        "tf": 2.631578947368421
+                      },
+                      "FooUtils.obj.html#.merge": {
+                        "ref": "FooUtils.obj.html#.merge",
+                        "tf": 2.7777777777777777
+                      },
+                      "FooUtils.str.html#.format": {
+                        "ref": "FooUtils.str.html#.format",
+                        "tf": 10.94017094017094
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.str.html#.format": {
+                      "ref": "FooUtils.str.html#.format",
+                      "tf": 1.3888888888888888
+                    },
+                    "FooUtils.html#.$": {
+                      "ref": "FooUtils.html#.$",
+                      "tf": 14
+                    }
                   }
                 }
               }
@@ -14482,22 +13853,6 @@ window.lunrData = {
                 "ref": "FooUtils.Timer.html#restart",
                 "tf": 7.777777777777778
               },
-              "FooUtils.Debugger.html": {
-                "ref": "FooUtils.Debugger.html",
-                "tf": 8.927738927738929
-              },
-              "FooUtils.Debugger.html#key": {
-                "ref": "FooUtils.Debugger.html#key",
-                "tf": 11.666666666666666
-              },
-              "FooUtils.Debugger.html#.extend": {
-                "ref": "FooUtils.Debugger.html#.extend",
-                "tf": 4.166666666666666
-              },
-              "FooUtils.Debugger.html#.override": {
-                "ref": "FooUtils.Debugger.html#.override",
-                "tf": 2.941176470588235
-              },
               "FooUtils.Class.html#.extend": {
                 "ref": "FooUtils.Class.html#.extend",
                 "tf": 4.166666666666666
@@ -14624,10 +13979,6 @@ window.lunrData = {
                   "index.html": {
                     "ref": "index.html",
                     "tf": 10
-                  },
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 6.363636363636364
                   },
                   "FooUtils.animation.html": {
                     "ref": "FooUtils.animation.html",
@@ -15045,10 +14396,6 @@ window.lunrData = {
                           "ref": "FooUtils.Factory.html#.extend",
                           "tf": 25
                         },
-                        "FooUtils.Debugger.html#.extend": {
-                          "ref": "FooUtils.Debugger.html#.extend",
-                          "tf": 25
-                        },
                         "FooUtils.Class.html#.extend": {
                           "ref": "FooUtils.Class.html#.extend",
                           "tf": 25
@@ -15081,10 +14428,6 @@ window.lunrData = {
                         "FooUtils.Event.html#isDefaultPrevented": {
                           "ref": "FooUtils.Event.html#isDefaultPrevented",
                           "tf": 14
-                        },
-                        "FooUtils.Debugger.html": {
-                          "ref": "FooUtils.Debugger.html",
-                          "tf": 1.282051282051282
                         },
                         "FooUtils.fn.html#.apply": {
                           "ref": "FooUtils.fn.html#.apply",
@@ -15244,171 +14587,6 @@ window.lunrData = {
             },
             "b": {
               "docs": {},
-              "u": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 8.927738927738929
-                    },
-                    "FooUtils.Debugger.html#key": {
-                      "ref": "FooUtils.Debugger.html#key",
-                      "tf": 11.666666666666666
-                    }
-                  },
-                  "g": {
-                    "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 653.8461538461538
-                      },
-                      "FooUtils.Debugger.html#enabled": {
-                        "ref": "FooUtils.Debugger.html#enabled",
-                        "tf": 17.5
-                      },
-                      "FooUtils.Debugger.html#enable": {
-                        "ref": "FooUtils.Debugger.html#enable",
-                        "tf": 10
-                      },
-                      "FooUtils.Debugger.html#disable": {
-                        "ref": "FooUtils.Debugger.html#disable",
-                        "tf": 8.75
-                      },
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 3.3333333333333335
-                      }
-                    },
-                    "e": {
-                      "docs": {},
-                      "r": {
-                        "docs": {},
-                        "#": {
-                          "docs": {},
-                          "k": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "y": {
-                                "docs": {
-                                  "FooUtils.Debugger.html#key": {
-                                    "ref": "FooUtils.Debugger.html#key",
-                                    "tf": 100
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "e": {
-                            "docs": {},
-                            "n": {
-                              "docs": {
-                                "FooUtils.Debugger.html#enabled": {
-                                  "ref": "FooUtils.Debugger.html#enabled",
-                                  "tf": 100
-                                },
-                                "FooUtils.Debugger.html#enable": {
-                                  "ref": "FooUtils.Debugger.html#enable",
-                                  "tf": 100
-                                }
-                              }
-                            }
-                          },
-                          "d": {
-                            "docs": {},
-                            "i": {
-                              "docs": {},
-                              "s": {
-                                "docs": {
-                                  "FooUtils.Debugger.html#disable": {
-                                    "ref": "FooUtils.Debugger.html#disable",
-                                    "tf": 100
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "l": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "g": {
-                                "docs": {
-                                  "FooUtils.Debugger.html#log": {
-                                    "ref": "FooUtils.Debugger.html#log",
-                                    "tf": 100
-                                  }
-                                },
-                                "f": {
-                                  "docs": {
-                                    "FooUtils.Debugger.html#logf": {
-                                      "ref": "FooUtils.Debugger.html#logf",
-                                      "tf": 100
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        ".": {
-                          "docs": {},
-                          "e": {
-                            "docs": {},
-                            "x": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {
-                                        "FooUtils.Debugger.html#.extend": {
-                                          "ref": "FooUtils.Debugger.html#.extend",
-                                          "tf": 100
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "o": {
-                            "docs": {},
-                            "v": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {},
-                                    "i": {
-                                      "docs": {},
-                                      "d": {
-                                        "docs": {
-                                          "FooUtils.Debugger.html#.override": {
-                                            "ref": "FooUtils.Debugger.html#.override",
-                                            "tf": 100
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "o": {
                 "docs": {},
                 "u": {
@@ -15489,24 +14667,49 @@ window.lunrData = {
               }
             }
           },
+          "u": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "FooUtils.animation.html#.duration": {
+                      "ref": "FooUtils.animation.html#.duration",
+                      "tf": 630
+                    },
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
+                    "FooUtils.transition.html#.duration": {
+                      "ref": "FooUtils.transition.html#.duration",
+                      "tf": 630
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "a": {
+                "docs": {
+                  "FooUtils.fn.html#.check": {
+                    "ref": "FooUtils.fn.html#.check",
+                    "tf": 1.0638297872340425
+                  }
+                }
+              }
+            }
+          },
           "i": {
             "docs": {},
             "s": {
               "docs": {},
-              "a": {
-                "docs": {},
-                "b": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "FooUtils.Debugger.html#disable": {
-                        "ref": "FooUtils.Debugger.html#disable",
-                        "tf": 708.75
-                      }
-                    }
-                  }
-                }
-              },
               "t": {
                 "docs": {},
                 "i": {
@@ -15554,45 +14757,6 @@ window.lunrData = {
                         "tf": 2
                       }
                     }
-                  }
-                }
-              }
-            }
-          },
-          "u": {
-            "docs": {},
-            "r": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "FooUtils.animation.html#.duration": {
-                      "ref": "FooUtils.animation.html#.duration",
-                      "tf": 630
-                    },
-                    "FooUtils.animation.html#.start": {
-                      "ref": "FooUtils.animation.html#.start",
-                      "tf": 0.78125
-                    },
-                    "FooUtils.transition.html#.duration": {
-                      "ref": "FooUtils.transition.html#.duration",
-                      "tf": 630
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "t": {
-              "docs": {},
-              "a": {
-                "docs": {
-                  "FooUtils.fn.html#.check": {
-                    "ref": "FooUtils.fn.html#.check",
-                    "tf": 1.0638297872340425
                   }
                 }
               }
@@ -15792,10 +14956,6 @@ window.lunrData = {
                     "FooUtils.Factory.html#register": {
                       "ref": "FooUtils.Factory.html#register",
                       "tf": 10
-                    },
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 6.363636363636364
                     },
                     "FooUtils.fn.html#.addOrOverride": {
                       "ref": "FooUtils.fn.html#.addOrOverride",
@@ -16145,14 +15305,6 @@ window.lunrData = {
                                     "ref": "FooUtils.Factory.html#.override",
                                     "tf": 25
                                   },
-                                  "FooUtils.Debugger.html#.extend": {
-                                    "ref": "FooUtils.Debugger.html#.extend",
-                                    "tf": 25
-                                  },
-                                  "FooUtils.Debugger.html#.override": {
-                                    "ref": "FooUtils.Debugger.html#.override",
-                                    "tf": 25
-                                  },
                                   "FooUtils.Class.html#.extend": {
                                     "ref": "FooUtils.Class.html#.extend",
                                     "tf": 25
@@ -16413,10 +15565,6 @@ window.lunrData = {
                                     "ref": "FooUtils.html#.version",
                                     "tf": 33.33333333333333
                                   },
-                                  "FooUtils.html#.fullscreen": {
-                                    "ref": "FooUtils.html#.fullscreen",
-                                    "tf": 33.33333333333333
-                                  },
                                   "FooUtils.html#.ready": {
                                     "ref": "FooUtils.html#.ready",
                                     "tf": 33.33333333333333
@@ -16528,10 +15676,6 @@ window.lunrData = {
                                       "FooUtils.Timer.html#canRestart": {
                                         "ref": "FooUtils.Timer.html#canRestart",
                                         "tf": 33.33333333333333
-                                      },
-                                      "FooUtils.Debugger.html#enabled": {
-                                        "ref": "FooUtils.Debugger.html#enabled",
-                                        "tf": 33.33333333333333
                                       }
                                     }
                                   }
@@ -16609,10 +15753,6 @@ window.lunrData = {
                     "ref": "FooUtils.Factory.html#register",
                     "tf": 3.8461538461538463
                   },
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
-                  },
                   "FooUtils.fn.html#.CONTAINS_SUPER": {
                     "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
                     "tf": 1.5625
@@ -16650,82 +15790,6 @@ window.lunrData = {
                 }
               }
             },
-            "c": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "s": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "r": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "g": {
-                              "docs": {
-                                "FooUtils.Debugger.html": {
-                                  "ref": "FooUtils.Debugger.html",
-                                  "tf": 7.645687645687646
-                                },
-                                "FooUtils.Debugger.html#key": {
-                                  "ref": "FooUtils.Debugger.html#key",
-                                  "tf": 11.666666666666666
-                                },
-                                "FooUtils.Debugger.html#enabled": {
-                                  "ref": "FooUtils.Debugger.html#enabled",
-                                  "tf": 4.545454545454546
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "t": {
-                  "docs": {
-                    "FooUtils.url.html#.full": {
-                      "ref": "FooUtils.url.html#.full",
-                      "tf": 3.125
-                    }
-                  }
-                }
-              }
-            },
-            "g": {
-              "docs": {
-                "FooUtils.Debugger.html#enable": {
-                  "ref": "FooUtils.Debugger.html#enable",
-                  "tf": 10
-                },
-                "FooUtils.Debugger.html#disable": {
-                  "ref": "FooUtils.Debugger.html#disable",
-                  "tf": 8.75
-                },
-                "FooUtils.Debugger.html#log": {
-                  "ref": "FooUtils.Debugger.html#log",
-                  "tf": 643.3333333333334
-                },
-                "FooUtils.Debugger.html#logf": {
-                  "ref": "FooUtils.Debugger.html#logf",
-                  "tf": 10
-                }
-              },
-              "f": {
-                "docs": {
-                  "FooUtils.Debugger.html#logf": {
-                    "ref": "FooUtils.Debugger.html#logf",
-                    "tf": 625
-                  }
-                }
-              }
-            },
             "o": {
               "docs": {},
               "k": {
@@ -16733,6 +15797,20 @@ window.lunrData = {
                   "FooUtils.Class.html": {
                     "ref": "FooUtils.Class.html",
                     "tf": 1.4705882352941175
+                  }
+                }
+              }
+            },
+            "c": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "FooUtils.url.html#.full": {
+                      "ref": "FooUtils.url.html#.full",
+                      "tf": 3.125
+                    }
                   }
                 }
               }
@@ -16790,10 +15868,6 @@ window.lunrData = {
                   "FooUtils.FullscreenAPI.html#api": {
                     "ref": "FooUtils.FullscreenAPI.html#api",
                     "tf": 11.666666666666666
-                  },
-                  "FooUtils.Debugger.html#.override": {
-                    "ref": "FooUtils.Debugger.html#.override",
-                    "tf": 25
                   },
                   "FooUtils.Class.html#.override": {
                     "ref": "FooUtils.Class.html#.override",
@@ -17027,10 +16101,6 @@ window.lunrData = {
                   "ref": "FooUtils.Factory.html#~RegisteredClass",
                   "tf": 7.777777777777778
                 },
-                "FooUtils.Debugger.html#.extend": {
-                  "ref": "FooUtils.Debugger.html#.extend",
-                  "tf": 7.777777777777778
-                },
                 "FooUtils.Class.html#.extend": {
                   "ref": "FooUtils.Class.html#.extend",
                   "tf": 7.777777777777778
@@ -17080,28 +16150,6 @@ window.lunrData = {
                 }
               }
             },
-            "v": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.Debugger.html#enabled": {
-                      "ref": "FooUtils.Debugger.html#enabled",
-                      "tf": 4.545454545454546
-                    },
-                    "FooUtils.animation.html#.start": {
-                      "ref": "FooUtils.animation.html#.start",
-                      "tf": 0.78125
-                    },
-                    "FooUtils.transition.html#.start": {
-                      "ref": "FooUtils.transition.html#.start",
-                      "tf": 1
-                    }
-                  }
-                }
-              }
-            },
             "t": {
               "docs": {
                 "FooUtils.animation.html#.start": {
@@ -17111,6 +16159,24 @@ window.lunrData = {
                 "FooUtils.transition.html#.start": {
                   "ref": "FooUtils.transition.html#.start",
                   "tf": 1
+                }
+              }
+            },
+            "v": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "r": {
+                  "docs": {
+                    "FooUtils.animation.html#.start": {
+                      "ref": "FooUtils.animation.html#.start",
+                      "tf": 0.78125
+                    },
+                    "FooUtils.transition.html#.start": {
+                      "ref": "FooUtils.transition.html#.start",
+                      "tf": 1
+                    }
+                  }
                 }
               }
             }
@@ -17428,10 +16494,6 @@ window.lunrData = {
                     "ref": "FooUtils.Factory.html#.extend",
                     "tf": 4.166666666666666
                   },
-                  "FooUtils.Debugger.html#.extend": {
-                    "ref": "FooUtils.Debugger.html#.extend",
-                    "tf": 4.166666666666666
-                  },
                   "FooUtils.Class.html#.extend": {
                     "ref": "FooUtils.Class.html#.extend",
                     "tf": 4.166666666666666
@@ -17507,10 +16569,6 @@ window.lunrData = {
                         },
                         "FooUtils.Timer.html#canRestart": {
                           "ref": "FooUtils.Timer.html#canRestart",
-                          "tf": 33.33333333333333
-                        },
-                        "FooUtils.Debugger.html#enabled": {
-                          "ref": "FooUtils.Debugger.html#enabled",
                           "tf": 33.33333333333333
                         },
                         "FooUtils.EventClass.html#addListener": {
@@ -17672,10 +16730,6 @@ window.lunrData = {
                       "ref": "FooUtils.Event.html",
                       "tf": 1.7857142857142856
                     },
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 3.3333333333333335
-                    },
                     "FooUtils.Class.html": {
                       "ref": "FooUtils.Class.html",
                       "tf": 1.4705882352941175
@@ -17799,10 +16853,6 @@ window.lunrData = {
                         "FooUtils.transition.html#.start": {
                           "ref": "FooUtils.transition.html#.start",
                           "tf": 2
-                        },
-                        "FooUtils.html#.fullscreen": {
-                          "ref": "FooUtils.html#.fullscreen",
-                          "tf": 14
                         }
                       },
                       "a": {
@@ -17827,10 +16877,6 @@ window.lunrData = {
           },
           "e": {
             "docs": {
-              "FooUtils.Debugger.html#disable": {
-                "ref": "FooUtils.Debugger.html#disable",
-                "tf": 8.75
-              },
               "FooUtils.fn.html#.check": {
                 "ref": "FooUtils.fn.html#.check",
                 "tf": 1.0638297872340425
@@ -17878,10 +16924,6 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 3.3333333333333335
-                    },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
                       "tf": 0.78125
@@ -18017,14 +17059,6 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#.override",
                         "tf": 2.941176470588235
                       },
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 3.3333333333333335
-                      },
-                      "FooUtils.Debugger.html#.override": {
-                        "ref": "FooUtils.Debugger.html#.override",
-                        "tf": 2.941176470588235
-                      },
                       "FooUtils.Class.html#.override": {
                         "ref": "FooUtils.Class.html#.override",
                         "tf": 2.941176470588235
@@ -18111,10 +17145,6 @@ window.lunrData = {
                       "ref": "FooUtils.FullscreenAPI.html#~BrowserAPI",
                       "tf": 7.777777777777778
                     },
-                    "FooUtils.Debugger.html#.override": {
-                      "ref": "FooUtils.Debugger.html#.override",
-                      "tf": 20.441176470588236
-                    },
                     "FooUtils.Class.html#.override": {
                       "ref": "FooUtils.Class.html#.override",
                       "tf": 20.441176470588236
@@ -18185,10 +17215,6 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#.extend",
                         "tf": 4.166666666666666
                       },
-                      "FooUtils.Debugger.html#.extend": {
-                        "ref": "FooUtils.Debugger.html#.extend",
-                        "tf": 4.166666666666666
-                      },
                       "FooUtils.Class.html#.extend": {
                         "ref": "FooUtils.Class.html#.extend",
                         "tf": 4.166666666666666
@@ -18217,22 +17243,6 @@ window.lunrData = {
                     "FooUtils.Timer.html#reset": {
                       "ref": "FooUtils.Timer.html#reset",
                       "tf": 11.666666666666666
-                    },
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 7.645687645687646
-                    },
-                    "FooUtils.Debugger.html#key": {
-                      "ref": "FooUtils.Debugger.html#key",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.Debugger.html#enabled": {
-                      "ref": "FooUtils.Debugger.html#enabled",
-                      "tf": 4.545454545454546
-                    },
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 3.3333333333333335
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
@@ -18268,10 +17278,6 @@ window.lunrData = {
                     "FooUtils.Timer.html#reset": {
                       "ref": "FooUtils.Timer.html#reset",
                       "tf": 11.666666666666666
-                    },
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 1.282051282051282
                     },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
@@ -18398,10 +17404,6 @@ window.lunrData = {
                       "FooUtils.Event.html#.parse": {
                         "ref": "FooUtils.Event.html#.parse",
                         "tf": 11.666666666666666
-                      },
-                      "FooUtils.Debugger.html#key": {
-                        "ref": "FooUtils.Debugger.html#key",
-                        "tf": 50
                       },
                       "FooUtils.animation.html#.end": {
                         "ref": "FooUtils.animation.html#.end",
@@ -18798,29 +17800,6 @@ window.lunrData = {
                   "FooUtils.Timer.html#stop": {
                     "ref": "FooUtils.Timer.html#stop",
                     "tf": 735
-                  },
-                  "FooUtils.Debugger.html#disable": {
-                    "ref": "FooUtils.Debugger.html#disable",
-                    "tf": 8.75
-                  }
-                }
-              },
-              "r": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 7.645687645687646
-                    },
-                    "FooUtils.Debugger.html#key": {
-                      "ref": "FooUtils.Debugger.html#key",
-                      "tf": 11.666666666666666
-                    },
-                    "FooUtils.Debugger.html#enabled": {
-                      "ref": "FooUtils.Debugger.html#enabled",
-                      "tf": 4.545454545454546
-                    }
                   }
                 }
               }
@@ -18957,10 +17936,6 @@ window.lunrData = {
                       "FooUtils.Timer.html#restart": {
                         "ref": "FooUtils.Timer.html#restart",
                         "tf": 7.777777777777778
-                      },
-                      "FooUtils.Debugger.html#log": {
-                        "ref": "FooUtils.Debugger.html#log",
-                        "tf": 13.333333333333334
                       },
                       "FooUtils.EventClass.html#emit": {
                         "ref": "FooUtils.EventClass.html#emit",
@@ -19303,32 +18278,32 @@ window.lunrData = {
                 }
               }
             },
-            "s": {
-              "docs": {},
-              "s": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "n": {
-                      "docs": {
-                        "FooUtils.Debugger.html": {
-                          "ref": "FooUtils.Debugger.html",
-                          "tf": 7.645687645687646
-                        }
-                      }
-                    }
+            "e": {
+              "docs": {
+                "FooUtils.Class.html": {
+                  "ref": "FooUtils.Class.html",
+                  "tf": 1.4705882352941175
+                },
+                "FooUtils.fn.html#.CONTAINS_SUPER": {
+                  "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
+                  "tf": 1.5625
+                },
+                "FooUtils.str.html#.join": {
+                  "ref": "FooUtils.str.html#.join",
+                  "tf": 2
+                }
+              },
+              "n": {
+                "docs": {
+                  "FooUtils.str.html#.format": {
+                    "ref": "FooUtils.str.html#.format",
+                    "tf": 1.3888888888888888
                   }
                 }
               }
             },
             "t": {
               "docs": {
-                "FooUtils.Debugger.html#enabled": {
-                  "ref": "FooUtils.Debugger.html#enabled",
-                  "tf": 4.545454545454546
-                },
                 "FooUtils.animation.html#.start": {
                   "ref": "FooUtils.animation.html#.start",
                   "tf": 0.78125
@@ -19356,30 +18331,6 @@ window.lunrData = {
                 "FooUtils.html#.removeUniqueId": {
                   "ref": "FooUtils.html#.removeUniqueId",
                   "tf": 8.75
-                }
-              }
-            },
-            "e": {
-              "docs": {
-                "FooUtils.Class.html": {
-                  "ref": "FooUtils.Class.html",
-                  "tf": 1.4705882352941175
-                },
-                "FooUtils.fn.html#.CONTAINS_SUPER": {
-                  "ref": "FooUtils.fn.html#.CONTAINS_SUPER",
-                  "tf": 1.5625
-                },
-                "FooUtils.str.html#.join": {
-                  "ref": "FooUtils.str.html#.join",
-                  "tf": 2
-                }
-              },
-              "n": {
-                "docs": {
-                  "FooUtils.str.html#.format": {
-                    "ref": "FooUtils.str.html#.format",
-                    "tf": 1.3888888888888888
-                  }
                 }
               }
             },
@@ -19451,20 +18402,6 @@ window.lunrData = {
                         }
                       }
                     }
-                  }
-                }
-              }
-            }
-          },
-          "y": {
-            "docs": {},
-            "n": {
-              "docs": {},
-              "c": {
-                "docs": {
-                  "FooUtils.Debugger.html#enabled": {
-                    "ref": "FooUtils.Debugger.html#enabled",
-                    "tf": 4.545454545454546
                   }
                 }
               }
@@ -19792,10 +18729,6 @@ window.lunrData = {
                   },
                   "FooUtils.Factory.html#.extend": {
                     "ref": "FooUtils.Factory.html#.extend",
-                    "tf": 7.777777777777778
-                  },
-                  "FooUtils.Debugger.html#.extend": {
-                    "ref": "FooUtils.Debugger.html#.extend",
                     "tf": 7.777777777777778
                   },
                   "FooUtils.Class.html#.extend": {
@@ -21137,10 +20070,6 @@ window.lunrData = {
                         "ref": "FooUtils.Factory.html#load",
                         "tf": 2.083333333333333
                       },
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 1.282051282051282
-                      },
                       "FooUtils.Class.html": {
                         "ref": "FooUtils.Class.html",
                         "tf": 1.4705882352941175
@@ -21236,10 +20165,6 @@ window.lunrData = {
                           "ref": "FooUtils.Timer.html#start",
                           "tf": 7.777777777777778
                         },
-                        "FooUtils.Debugger.html#enabled": {
-                          "ref": "FooUtils.Debugger.html#enabled",
-                          "tf": 17.5
-                        },
                         "FooUtils.animation.html#.supported": {
                           "ref": "FooUtils.animation.html#.supported",
                           "tf": 14
@@ -21275,10 +20200,6 @@ window.lunrData = {
               "docs": {},
               "p": {
                 "docs": {
-                  "FooUtils.Debugger.html#log": {
-                    "ref": "FooUtils.Debugger.html#log",
-                    "tf": 3.3333333333333335
-                  },
                   "FooUtils.fn.html#.debounce": {
                     "ref": "FooUtils.fn.html#.debounce",
                     "tf": 3.125
@@ -21317,10 +20238,6 @@ window.lunrData = {
                         "FooUtils.animation.html#.cancelFrame": {
                           "ref": "FooUtils.animation.html#.cancelFrame",
                           "tf": 14
-                        },
-                        "FooUtils.html#.fullscreen": {
-                          "ref": "FooUtils.html#.fullscreen",
-                          "tf": 14
                         }
                       }
                     }
@@ -21334,10 +20251,6 @@ window.lunrData = {
                 "docs": {},
                 "e": {
                   "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 1.282051282051282
-                    },
                     "FooUtils.fn.html#.addOrOverride": {
                       "ref": "FooUtils.fn.html#.addOrOverride",
                       "tf": 0.9615384615384616
@@ -21448,10 +20361,6 @@ window.lunrData = {
                       },
                       "FooUtils.Factory.html#.override": {
                         "ref": "FooUtils.Factory.html#.override",
-                        "tf": 2.941176470588235
-                      },
-                      "FooUtils.Debugger.html#.override": {
-                        "ref": "FooUtils.Debugger.html#.override",
                         "tf": 2.941176470588235
                       },
                       "FooUtils.Class.html": {
@@ -21571,10 +20480,6 @@ window.lunrData = {
                 "ref": "FooUtils.Factory.html#.extend",
                 "tf": 4.166666666666666
               },
-              "FooUtils.Debugger.html#.extend": {
-                "ref": "FooUtils.Debugger.html#.extend",
-                "tf": 4.166666666666666
-              },
               "FooUtils.Class.html#.extend": {
                 "ref": "FooUtils.Class.html#.extend",
                 "tf": 4.166666666666666
@@ -21630,26 +20535,6 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 1.282051282051282
-                    },
-                    "FooUtils.Debugger.html#enable": {
-                      "ref": "FooUtils.Debugger.html#enable",
-                      "tf": 10
-                    },
-                    "FooUtils.Debugger.html#disable": {
-                      "ref": "FooUtils.Debugger.html#disable",
-                      "tf": 8.75
-                    },
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 10
-                    },
-                    "FooUtils.Debugger.html#logf": {
-                      "ref": "FooUtils.Debugger.html#logf",
-                      "tf": 10
-                    },
                     "FooUtils.animation.html#.start": {
                       "ref": "FooUtils.animation.html#.start",
                       "tf": 0.78125
@@ -21731,14 +20616,6 @@ window.lunrData = {
                       "ref": "FooUtils.Factory.html#.extend",
                       "tf": 11.944444444444443
                     },
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 2.564102564102564
-                    },
-                    "FooUtils.Debugger.html#.extend": {
-                      "ref": "FooUtils.Debugger.html#.extend",
-                      "tf": 11.944444444444443
-                    },
                     "FooUtils.Class.html": {
                       "ref": "FooUtils.Class.html",
                       "tf": 1.4705882352941175
@@ -21766,20 +20643,6 @@ window.lunrData = {
                     "FooUtils.str.html#.format": {
                       "ref": "FooUtils.str.html#.format",
                       "tf": 1.3888888888888888
-                    }
-                  }
-                }
-              }
-            },
-            "o": {
-              "docs": {},
-              "n": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 3.3333333333333335
                     }
                   }
                 }
@@ -21889,10 +20752,6 @@ window.lunrData = {
                   "docs": {},
                   "l": {
                     "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 1.282051282051282
-                      },
                       "FooUtils.fn.html#.check": {
                         "ref": "FooUtils.fn.html#.check",
                         "tf": 1.0638297872340425
@@ -22061,14 +20920,6 @@ window.lunrData = {
                     "ref": "FooUtils.Factory.html#make",
                     "tf": 20
                   },
-                  "FooUtils.Debugger.html#log": {
-                    "ref": "FooUtils.Debugger.html#log",
-                    "tf": 33.33333333333333
-                  },
-                  "FooUtils.Debugger.html#logf": {
-                    "ref": "FooUtils.Debugger.html#logf",
-                    "tf": 25
-                  },
                   "FooUtils.fn.html#.enqueue": {
                     "ref": "FooUtils.fn.html#.enqueue",
                     "tf": 14.285714285714285
@@ -22108,14 +20959,6 @@ window.lunrData = {
                           "FooUtils.Timer.html#restart": {
                             "ref": "FooUtils.Timer.html#restart",
                             "tf": 7.777777777777778
-                          },
-                          "FooUtils.Debugger.html#log": {
-                            "ref": "FooUtils.Debugger.html#log",
-                            "tf": 13.333333333333334
-                          },
-                          "FooUtils.Debugger.html#logf": {
-                            "ref": "FooUtils.Debugger.html#logf",
-                            "tf": 10
                           },
                           "FooUtils.fn.html#.arg2arr": {
                             "ref": "FooUtils.fn.html#.arg2arr",
@@ -22453,10 +21296,6 @@ window.lunrData = {
                 "FooUtils.FullscreenAPI.html#getAPI": {
                   "ref": "FooUtils.FullscreenAPI.html#getAPI",
                   "tf": 14
-                },
-                "FooUtils.html#.fullscreen": {
-                  "ref": "FooUtils.html#.fullscreen",
-                  "tf": 14
                 }
               },
               "'": {
@@ -22548,20 +21387,6 @@ window.lunrData = {
                         }
                       }
                     }
-                  }
-                }
-              }
-            }
-          },
-          "b": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "l": {
-                "docs": {
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
                   }
                 }
               }
@@ -23136,10 +21961,6 @@ window.lunrData = {
                       },
                       "FooUtils.Factory.html#.extend": {
                         "ref": "FooUtils.Factory.html#.extend",
-                        "tf": 641.1111111111112
-                      },
-                      "FooUtils.Debugger.html#.extend": {
-                        "ref": "FooUtils.Debugger.html#.extend",
                         "tf": 641.1111111111112
                       },
                       "FooUtils.Class.html": {
@@ -24124,36 +22945,6 @@ window.lunrData = {
                 }
               }
             },
-            "a": {
-              "docs": {},
-              "b": {
-                "docs": {},
-                "l": {
-                  "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 8.927738927738929
-                    },
-                    "FooUtils.Debugger.html#enabled": {
-                      "ref": "FooUtils.Debugger.html#enabled",
-                      "tf": 650.8333333333334
-                    },
-                    "FooUtils.Debugger.html#enable": {
-                      "ref": "FooUtils.Debugger.html#enable",
-                      "tf": 710
-                    },
-                    "FooUtils.Debugger.html#log": {
-                      "ref": "FooUtils.Debugger.html#log",
-                      "tf": 13.333333333333334
-                    },
-                    "FooUtils.Debugger.html#logf": {
-                      "ref": "FooUtils.Debugger.html#logf",
-                      "tf": 10
-                    }
-                  }
-                }
-              }
-            },
             "o": {
               "docs": {},
               "u": {
@@ -24561,14 +23352,6 @@ window.lunrData = {
                 "ref": "FooUtils.Factory.html#.override",
                 "tf": 2.941176470588235
               },
-              "FooUtils.Debugger.html#.extend": {
-                "ref": "FooUtils.Debugger.html#.extend",
-                "tf": 7.777777777777778
-              },
-              "FooUtils.Debugger.html#.override": {
-                "ref": "FooUtils.Debugger.html#.override",
-                "tf": 2.941176470588235
-              },
               "FooUtils.Class.html#.extend": {
                 "ref": "FooUtils.Class.html#.extend",
                 "tf": 7.777777777777778
@@ -24694,14 +23477,6 @@ window.lunrData = {
                         },
                         "FooUtils.Factory.html#.override": {
                           "ref": "FooUtils.Factory.html#.override",
-                          "tf": 645.4411764705883
-                        },
-                        "FooUtils.Debugger.html#.extend": {
-                          "ref": "FooUtils.Debugger.html#.extend",
-                          "tf": 4.166666666666666
-                        },
-                        "FooUtils.Debugger.html#.override": {
-                          "ref": "FooUtils.Debugger.html#.override",
                           "tf": 645.4411764705883
                         },
                         "FooUtils.Class.html": {
@@ -25222,23 +23997,6 @@ window.lunrData = {
               }
             }
           },
-          "c": {
-            "docs": {},
-            "c": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "FooUtils.Debugger.html": {
-                      "ref": "FooUtils.Debugger.html",
-                      "tf": 1.282051282051282
-                    }
-                  }
-                }
-              }
-            }
-          },
           "u": {
             "docs": {},
             "t": {
@@ -25246,34 +24004,6 @@ window.lunrData = {
                 "FooUtils.fn.html#.addOrOverride": {
                   "ref": "FooUtils.fn.html#.addOrOverride",
                   "tf": 0.9615384615384616
-                }
-              },
-              "p": {
-                "docs": {},
-                "u": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "FooUtils.Debugger.html": {
-                        "ref": "FooUtils.Debugger.html",
-                        "tf": 3.8461538461538463
-                      }
-                    }
-                  }
-                }
-              },
-              "s": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "d": {
-                    "docs": {
-                      "FooUtils.Debugger.html#enabled": {
-                        "ref": "FooUtils.Debugger.html#enabled",
-                        "tf": 4.545454545454546
-                      }
-                    }
-                  }
                 }
               },
               "c": {
@@ -25472,10 +24202,6 @@ window.lunrData = {
                     "ref": "FooUtils.Timer.html#start",
                     "tf": 7.777777777777778
                   },
-                  "FooUtils.Debugger.html#enabled": {
-                    "ref": "FooUtils.Debugger.html#enabled",
-                    "tf": 4.545454545454546
-                  },
                   "FooUtils.animation.html#.end": {
                     "ref": "FooUtils.animation.html#.end",
                     "tf": 4.545454545454546
@@ -25612,12 +24338,7 @@ window.lunrData = {
             "e": {
               "docs": {},
               "w": {
-                "docs": {
-                  "FooUtils.Debugger.html": {
-                    "ref": "FooUtils.Debugger.html",
-                    "tf": 1.282051282051282
-                  }
-                },
+                "docs": {},
                 "p": {
                   "docs": {},
                   "o": {
@@ -25666,14 +24387,6 @@ window.lunrData = {
             "docs": {},
             "y": {
               "docs": {
-                "FooUtils.Debugger.html": {
-                  "ref": "FooUtils.Debugger.html",
-                  "tf": 6.363636363636364
-                },
-                "FooUtils.Debugger.html#key": {
-                  "ref": "FooUtils.Debugger.html#key",
-                  "tf": 661.6666666666666
-                },
                 "FooUtils.url.html#.param": {
                   "ref": "FooUtils.url.html#.param",
                   "tf": 16.666666666666664
@@ -25929,7 +24642,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2550
+      "length": 2383
     },
     "corpusTokens": [
       "0",
@@ -25938,7 +24651,6 @@ window.lunrData = {
       "1a",
       "32",
       "_super",
-      "abil",
       "access",
       "accordingli",
       "accur",
@@ -25950,7 +24662,6 @@ window.lunrData = {
       "addlisten",
       "addoroverrid",
       "allow",
-      "along",
       "alphanumer",
       "alway",
       "amount",
@@ -26028,7 +24739,6 @@ window.lunrData = {
       "canrestart",
       "canresum",
       "case",
-      "caus",
       "chang",
       "charact",
       "check",
@@ -26052,8 +24762,6 @@ window.lunrData = {
       "componentb'",
       "conform",
       "consid",
-      "consol",
-      "console.log",
       "constructor",
       "contain",
       "contains_sup",
@@ -26075,15 +24783,6 @@ window.lunrData = {
       "custom",
       "data",
       "debounc",
-      "debug",
-      "debugg",
-      "debugger#dis",
-      "debugger#en",
-      "debugger#key",
-      "debugger#log",
-      "debugger#logf",
-      "debugger.extend",
-      "debugger.overrid",
       "decompil",
       "decrement",
       "def",
@@ -26100,7 +24799,6 @@ window.lunrData = {
       "determin",
       "devicepixelratio",
       "differ",
-      "disabl",
       "distinguish",
       "document",
       "doesn't",
@@ -26116,7 +24814,6 @@ window.lunrData = {
       "element",
       "emit",
       "empti",
-      "enabl",
       "end",
       "endswith",
       "enough",
@@ -26169,7 +24866,6 @@ window.lunrData = {
       "factory.overrid",
       "factory~registeredclass",
       "failur",
-      "featur",
       "fetch",
       "fill",
       "filter",
@@ -26221,14 +24917,6 @@ window.lunrData = {
       "fooutils.class.bas",
       "fooutils.class.extend",
       "fooutils.class.overrid",
-      "fooutils.debugg",
-      "fooutils.debugger#dis",
-      "fooutils.debugger#en",
-      "fooutils.debugger#key",
-      "fooutils.debugger#log",
-      "fooutils.debugger#logf",
-      "fooutils.debugger.extend",
-      "fooutils.debugger.overrid",
       "fooutils.each",
       "fooutils.ev",
       "fooutils.event#defaultprev",
@@ -26281,7 +24969,6 @@ window.lunrData = {
       "fooutils.fn.resolvewith",
       "fooutils.fn.throttl",
       "fooutils.fn.when",
-      "fooutils.fullscreen",
       "fooutils.fullscreenapi",
       "fooutils.fullscreenapi#addlisten",
       "fooutils.fullscreenapi#api",
@@ -26483,10 +25170,7 @@ window.lunrData = {
       "liter",
       "littl",
       "load",
-      "localstorag",
       "locat",
-      "log",
-      "logf",
       "look",
       "lower",
       "lt;readonly&gt",
@@ -26500,7 +25184,6 @@ window.lunrData = {
       "member",
       "merg",
       "mergevalid",
-      "messag",
       "method",
       "millisecond",
       "mode",
@@ -26529,7 +25212,6 @@ window.lunrData = {
       "object`false``null``undefin",
       "objectn",
       "object|str",
-      "occur",
       "on",
       "onc",
       "oper",
@@ -26539,8 +25221,6 @@ window.lunrData = {
       "original.call(thi",
       "out",
       "outcom",
-      "output",
-      "outsid",
       "over",
       "overrid",
       "overridden",
@@ -26551,7 +25231,6 @@ window.lunrData = {
       "pars",
       "part",
       "partn",
-      "pass",
       "paus",
       "per",
       "perform",
@@ -26585,7 +25264,6 @@ window.lunrData = {
       "readycallback",
       "rectangl",
       "refer",
-      "refresh",
       "regardless",
       "regexp",
       "regist",
@@ -26637,7 +25315,6 @@ window.lunrData = {
       "selectifi",
       "selector",
       "separ",
-      "session",
       "set",
       "shallow",
       "share",
@@ -26663,7 +25340,6 @@ window.lunrData = {
       "state",
       "static",
       "stop",
-      "store",
       "str",
       "str.camel",
       "str.contain",
@@ -26688,7 +25364,6 @@ window.lunrData = {
       "support",
       "supportedbrows",
       "switch",
-      "sync",
       "taken",
       "target",
       "test",
@@ -26762,7 +25437,6 @@ window.lunrData = {
       "version2",
       "versioncompar",
       "versu",
-      "view",
       "viewport",
       "wait",
       "way",
@@ -27482,97 +26156,6 @@ window.lunrData = {
       "tags": "FooUtils.Timer#reset Timer#reset reset",
       "summary": "Resets the timer back to a fresh starting state.",
       "description": ""
-    },
-    "FooUtils.Debugger.html": {
-      "id": "FooUtils.Debugger.html",
-      "kind": "class",
-      "title": "FooUtils.Debugger",
-      "longname": "FooUtils.Debugger",
-      "name": "Debugger",
-      "tags": "FooUtils.Debugger Debugger",
-      "summary": "A debug utility class that can be enabled across sessions using the given key by storing its state in localStorage.",
-      "description": "This class allows you to write additional debug info to the console within your code which by default is not actually output. You can then enable the debugger and it will start to output the results to the console. The most useful feature of this is the ability to store the debug state across page sessions by using localStorage. This allows you to enable the debugger and then refresh the page to view any debugger output that occurs on page load.",
-      "body": ""
-    },
-    "FooUtils.Debugger.html#key": {
-      "id": "FooUtils.Debugger.html#key",
-      "kind": "member",
-      "title": "key :string",
-      "longname": "FooUtils.Debugger#key",
-      "name": "key",
-      "tags": "FooUtils.Debugger#key Debugger#key key",
-      "summary": "The key used to store the debug state in localStorage.",
-      "description": ""
-    },
-    "FooUtils.Debugger.html#enabled": {
-      "id": "FooUtils.Debugger.html#enabled",
-      "kind": "member",
-      "title": "&lt;readonly&gt; enabled :boolean",
-      "longname": "FooUtils.Debugger#enabled",
-      "name": "enabled",
-      "tags": "FooUtils.Debugger#enabled Debugger#enabled enabled",
-      "summary": "Whether or not the debugger is currently enabled.",
-      "description": "The value for this property is synced with the current state stored in localStorage and should never be set from outside of this class."
-    },
-    "FooUtils.Debugger.html#.extend": {
-      "id": "FooUtils.Debugger.html#.extend",
-      "kind": "function",
-      "title": "&lt;static&gt; extend( [ definition ] ) → {function}",
-      "longname": "FooUtils.Debugger.extend",
-      "name": "extend",
-      "tags": "FooUtils.Debugger.extend Debugger.extend extend",
-      "summary": "Creates a new class that inherits from this one which in turn allows itself to be extended.",
-      "description": "Every class created using this method has both the extend and override static methods added to it to allow it to be extended."
-    },
-    "FooUtils.Debugger.html#enable": {
-      "id": "FooUtils.Debugger.html#enable",
-      "kind": "function",
-      "title": "enable()",
-      "longname": "FooUtils.Debugger#enable",
-      "name": "enable",
-      "tags": "FooUtils.Debugger#enable Debugger#enable enable",
-      "summary": "Enable the debugger causing additional info to be logged to the console.",
-      "description": ""
-    },
-    "FooUtils.Debugger.html#disable": {
-      "id": "FooUtils.Debugger.html#disable",
-      "kind": "function",
-      "title": "disable()",
-      "longname": "FooUtils.Debugger#disable",
-      "name": "disable",
-      "tags": "FooUtils.Debugger#disable Debugger#disable disable",
-      "summary": "Disable the debugger stopping additional info being logged to the console.",
-      "description": ""
-    },
-    "FooUtils.Debugger.html#log": {
-      "id": "FooUtils.Debugger.html#log",
-      "kind": "function",
-      "title": "log( message [, argN ] )",
-      "longname": "FooUtils.Debugger#log",
-      "name": "log",
-      "tags": "FooUtils.Debugger#log Debugger#log log",
-      "summary": "Logs the supplied message and additional arguments to the console when enabled.",
-      "description": "This method basically wraps the console.log method and simply checks the enabled state of the debugger before passing along any supplied arguments."
-    },
-    "FooUtils.Debugger.html#logf": {
-      "id": "FooUtils.Debugger.html#logf",
-      "kind": "function",
-      "title": "logf( message, replacements [, argN ] )",
-      "longname": "FooUtils.Debugger#logf",
-      "name": "logf",
-      "tags": "FooUtils.Debugger#logf Debugger#logf logf",
-      "summary": "Logs the formatted message and additional arguments to the console when enabled.",
-      "description": ""
-    },
-    "FooUtils.Debugger.html#.override": {
-      "id": "FooUtils.Debugger.html#.override",
-      "kind": "function",
-      "title": "&lt;static&gt; override( name, fn )",
-      "longname": "FooUtils.Debugger.override",
-      "name": "override",
-      "tags": "FooUtils.Debugger.override Debugger.override override",
-      "summary": "Overrides a single method on this class.",
-      "description": "This is a helper method for overriding a single function of a FooUtils.Class or one of its child classes. This uses the FooUtils.fn.addOrOverride method internally and simply provides the correct prototype."
     },
     "FooUtils.Class.html": {
       "id": "FooUtils.Class.html",
@@ -28462,16 +27045,6 @@ window.lunrData = {
       "name": "version",
       "tags": "FooUtils.version version",
       "summary": "The version of this library.",
-      "description": ""
-    },
-    "FooUtils.html#.fullscreen": {
-      "id": "FooUtils.html#.fullscreen",
-      "kind": "member",
-      "title": "&lt;static&gt; fullscreen :FooUtils.FullscreenAPI",
-      "longname": "FooUtils.fullscreen",
-      "name": "fullscreen",
-      "tags": "FooUtils.fullscreen fullscreen",
-      "summary": "A cross browser wrapper for the fullscreen API.",
       "description": ""
     },
     "FooUtils.html#.ready": {
