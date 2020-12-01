@@ -41,7 +41,6 @@ module.exports = function(grunt) {
 					"./src/Bounds.js",
 					"./src/Timer.js",
 					"./src/Factory.js",
-					"./src/Debugger.js",
 					"./src/fullscreen.js"
 				],
 				dest: "./dist/foo-utils.js"
