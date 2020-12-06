@@ -1,6 +1,6 @@
 /*!
 * FooUtils - Contains common utility methods and classes used in our plugins.
-* @version 0.2.1
+* @version 0.2.2
 * @link https://github.com/steveush/foo-utils#readme
 * @copyright Steve Usher 2020
 * @license Released under the GPL-3.0 license.
@@ -63,7 +63,7 @@
 			 * @name version
 			 * @type {string}
 			 */
-			version: '0.2.1'
+			version: '0.2.2'
 		};
 	}
 
@@ -72,7 +72,7 @@
 })(jQuery);
 (function ($, _){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common type checking utility methods.
@@ -426,7 +426,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @memberof FooUtils.
@@ -1013,7 +1013,7 @@
 );
 (function(_, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common url utility methods.
@@ -1152,7 +1152,7 @@
 );
 (function (_, _is, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common string utility methods.
@@ -1492,7 +1492,7 @@
 );
 (function($, _, _is, _fn, _str){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common object utility methods.
@@ -1824,7 +1824,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	// any methods that have dependencies but don't fall into a specific subset or namespace can be added here
 
@@ -1926,6 +1926,21 @@
 				if (result === false) break;
 			}
 		}
+	};
+
+	/**
+	 * @summary Checks if a value exists within an array.
+	 * @memberof FooUtils.
+	 * @function inArray
+	 * @param {*} needle - The value to search for.
+	 * @param {[]} haystack - The array to search within.
+	 * @returns {number} Returns the index of the value if found otherwise -1.
+	 */
+	_.inArray = function(needle, haystack){
+		if (_is.array(haystack)){
+			return haystack.indexOf(needle);
+		}
+		return -1;
 	};
 
 	/**
@@ -2243,7 +2258,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS animation property.
@@ -2480,7 +2495,7 @@
 );
 (function($, _, _is, _animation){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary Contains common utility methods and members for the CSS transition property.
@@ -2658,7 +2673,7 @@
 );
 (function ($, _, _is, _obj, _fn) {
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary A base class providing some helper methods for prototypal inheritance.
@@ -2828,7 +2843,7 @@
 );
 (function (_, _is, _str) {
     // only register methods if this version is the current version
-    if (_.version !== '0.2.1') return;
+    if (_.version !== '0.2.2') return;
 
     /**
      * @summary A base event class providing just a type and defaultPrevented properties.
@@ -3171,7 +3186,7 @@
 );
 (function($, _, _is){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary A simple bounding rectangle class.
@@ -3313,7 +3328,7 @@
 );
 (function($, _, _is, _fn, _obj){
     // only register methods if this version is the current version
-    if (_.version !== '0.2.1') return;
+    if (_.version !== '0.2.2') return;
 
     /**
      * @summary A simple timer that triggers events.
@@ -3613,7 +3628,7 @@
 
 (function($, _, _is, _fn){
 	// only register methods if this version is the current version
-	if (_.version !== '0.2.1') return;
+	if (_.version !== '0.2.2') return;
 
 	/**
 	 * @summary A factory for classes allowing them to be registered and created using a friendly name.
@@ -3949,7 +3964,7 @@
 );
 (function($, _, _fn){
     // only register methods if this version is the current version
-    if (_.version !== '0.2.1') return;
+    if (_.version !== '0.2.2') return;
 
     /**
      * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.

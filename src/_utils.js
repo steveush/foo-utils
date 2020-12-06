@@ -109,7 +109,7 @@
 	 * @memberof FooUtils.
 	 * @function inArray
 	 * @param {*} needle - The value to search for.
-	 * @param {[]} haystack - The array to search within.
+	 * @param {Array} haystack - The array to search within.
 	 * @returns {number} Returns the index of the value if found otherwise -1.
 	 */
 	_.inArray = function(needle, haystack){

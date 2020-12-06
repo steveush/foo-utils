@@ -101,6 +101,18 @@ QUnit.test('each:break:object', function (assert) {
 
 });
 
+QUnit.test('inArray', function (assert) {
+
+	assert.equal( FooUtils.inArray(), -1 );
+	assert.equal( FooUtils.inArray( "test" ), -1 );
+	assert.equal( FooUtils.inArray( "test", [] ), -1 );
+	assert.equal( FooUtils.inArray( "test", ["test"] ), 0 );
+	assert.equal( FooUtils.inArray( "test", ["weo","test"] ), 1 );
+	assert.equal( FooUtils.inArray( "weo", ["weo","test"] ), 0 );
+	assert.equal( FooUtils.inArray( "blah", ["weo","test"] ), -1 );
+
+});
+
 QUnit.test('versionCompare', function (assert) {
 
 	assert.equal( FooUtils.versionCompare( "0", "0" ), 0 );
