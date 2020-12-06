@@ -105,6 +105,21 @@
 	};
 
 	/**
+	 * @summary Checks if a value exists within an array.
+	 * @memberof FooUtils.
+	 * @function inArray
+	 * @param {*} needle - The value to search for.
+	 * @param {[]} haystack - The array to search within.
+	 * @returns {number} Returns the index of the value if found otherwise -1.
+	 */
+	_.inArray = function(needle, haystack){
+		if (_is.array(haystack)){
+			return haystack.indexOf(needle);
+		}
+		return -1;
+	};
+
+	/**
 	 * @summary Compares two version numbers.
 	 * @memberof FooUtils.
 	 * @function versionCompare
