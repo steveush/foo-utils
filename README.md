@@ -41,6 +41,10 @@ Ideally the above would be used as a step in a larger build process that would i
 
 ## Changelog
 
+### 0.2.2
+
+* Added new `FooUtils.inArray` method to test if a value exists in an array. Essentially a wrapper around the native `indexOf` method on an array, but it checks if the haystack is an actual array.
+
 ### 0.2.1
 
 * Breaking Change: Removed the `FooUtils.Debugger` class, it's usefulness had come to an end, and it was reporting as a cookie in Chrome because it checked on the existence of localStorage as the script was parsed.

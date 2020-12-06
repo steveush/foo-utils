@@ -2583,6 +2583,31 @@ window.lunrData = {
           "rectangl",
           "viewport"
         ],
+        "FooUtils.html#.inArray": [
+          "array",
+          "check",
+          "exist",
+          "fooutils.inarray",
+          "function",
+          "haystack",
+          "inarray",
+          "lt;static&gt",
+          "needl",
+          "number",
+          "valu",
+          "within"
+        ],
+        "FooUtils.html#.getElementBounds": [
+          "bound",
+          "element",
+          "fooutils.bound",
+          "fooutils.getelementbound",
+          "function",
+          "getelementbound",
+          "lt;static&gt",
+          "rectangl",
+          "suppli"
+        ],
         "FooUtils.html#.versionCompare": [
           "1.0",
           "1.0.1",
@@ -2610,17 +2635,6 @@ window.lunrData = {
           "version2",
           "versioncompar",
           "versu"
-        ],
-        "FooUtils.html#.getElementBounds": [
-          "bound",
-          "element",
-          "fooutils.bound",
-          "fooutils.getelementbound",
-          "function",
-          "getelementbound",
-          "lt;static&gt",
-          "rectangl",
-          "suppli"
         ],
         "FooUtils.html#.uniqueId": [
           "appli",
@@ -2747,7 +2761,7 @@ window.lunrData = {
           "valu"
         ]
       },
-      "length": 171
+      "length": 172
     },
     "tokenStore": {
       "root": {
@@ -3897,6 +3911,10 @@ window.lunrData = {
                     },
                     "FooUtils.str.html#.startsWith": {
                       "ref": "FooUtils.str.html#.startsWith",
+                      "tf": 14
+                    },
+                    "FooUtils.html#.inArray": {
+                      "ref": "FooUtils.html#.inArray",
                       "tf": 14
                     }
                   }
@@ -7492,6 +7510,29 @@ window.lunrData = {
                                   }
                                 }
                               }
+                            },
+                            "n": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "r": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "y": {
+                                        "docs": {
+                                          "FooUtils.html#.inArray": {
+                                            "ref": "FooUtils.html#.inArray",
+                                            "tf": 1150
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                           },
                           "o": {
@@ -8934,12 +8975,16 @@ window.lunrData = {
                             "ref": "FooUtils.html#.getViewportBounds",
                             "tf": 110
                           },
-                          "FooUtils.html#.versionCompare": {
-                            "ref": "FooUtils.html#.versionCompare",
+                          "FooUtils.html#.inArray": {
+                            "ref": "FooUtils.html#.inArray",
                             "tf": 110
                           },
                           "FooUtils.html#.getElementBounds": {
                             "ref": "FooUtils.html#.getElementBounds",
+                            "tf": 110
+                          },
+                          "FooUtils.html#.versionCompare": {
+                            "ref": "FooUtils.html#.versionCompare",
                             "tf": 110
                           },
                           "FooUtils.html#.uniqueId": {
@@ -10785,6 +10830,26 @@ window.lunrData = {
                       "FooUtils.html#.$": {
                         "ref": "FooUtils.html#.$",
                         "tf": 3.571428571428571
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "a": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "y": {
+                      "docs": {
+                        "FooUtils.html#.inArray": {
+                          "ref": "FooUtils.html#.inArray",
+                          "tf": 670
+                        }
                       }
                     }
                   }
@@ -15581,13 +15646,17 @@ window.lunrData = {
                                     "ref": "FooUtils.html#.getViewportBounds",
                                     "tf": 25
                                   },
-                                  "FooUtils.html#.versionCompare": {
-                                    "ref": "FooUtils.html#.versionCompare",
+                                  "FooUtils.html#.inArray": {
+                                    "ref": "FooUtils.html#.inArray",
                                     "tf": 20
                                   },
                                   "FooUtils.html#.getElementBounds": {
                                     "ref": "FooUtils.html#.getElementBounds",
                                     "tf": 25
+                                  },
+                                  "FooUtils.html#.versionCompare": {
+                                    "ref": "FooUtils.html#.versionCompare",
+                                    "tf": 20
                                   },
                                   "FooUtils.html#.uniqueId": {
                                     "ref": "FooUtils.html#.uniqueId",
@@ -16048,6 +16117,10 @@ window.lunrData = {
                         "ref": "FooUtils.transition.html#.duration",
                         "tf": 20
                       },
+                      "FooUtils.html#.inArray": {
+                        "ref": "FooUtils.html#.inArray",
+                        "tf": 20
+                      },
                       "FooUtils.html#.versionCompare": {
                         "ref": "FooUtils.html#.versionCompare",
                         "tf": 41.84782608695652
@@ -16146,6 +16219,14 @@ window.lunrData = {
                   "FooUtils.EventClass.html": {
                     "ref": "FooUtils.EventClass.html",
                     "tf": 6.25
+                  }
+                },
+                "l": {
+                  "docs": {
+                    "FooUtils.html#.inArray": {
+                      "ref": "FooUtils.html#.inArray",
+                      "tf": 20
+                    }
                   }
                 }
               }
@@ -20093,6 +20174,10 @@ window.lunrData = {
                       "FooUtils.transition.html#.start": {
                         "ref": "FooUtils.transition.html#.start",
                         "tf": 1
+                      },
+                      "FooUtils.html#.inArray": {
+                        "ref": "FooUtils.html#.inArray",
+                        "tf": 14
                       }
                     }
                   }
@@ -20458,6 +20543,29 @@ window.lunrData = {
                   "FooUtils.str.html#.fnv1a": {
                     "ref": "FooUtils.str.html#.fnv1a",
                     "tf": 8.75
+                  }
+                }
+              }
+            },
+            "y": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "t": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "k": {
+                        "docs": {
+                          "FooUtils.html#.inArray": {
+                            "ref": "FooUtils.html#.inArray",
+                            "tf": 20
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -21024,6 +21132,10 @@ window.lunrData = {
                     "FooUtils.str.html#.format": {
                       "ref": "FooUtils.str.html#.format",
                       "tf": 1.3888888888888888
+                    },
+                    "FooUtils.html#.inArray": {
+                      "ref": "FooUtils.html#.inArray",
+                      "tf": 14
                     },
                     "FooUtils.html#~findCallback": {
                       "ref": "FooUtils.html#~findCallback",
@@ -22070,6 +22182,10 @@ window.lunrData = {
                     "FooUtils.fn.html#.addOrOverride": {
                       "ref": "FooUtils.fn.html#.addOrOverride",
                       "tf": 0.9615384615384616
+                    },
+                    "FooUtils.html#.inArray": {
+                      "ref": "FooUtils.html#.inArray",
+                      "tf": 14
                     }
                   }
                 }
@@ -24302,6 +24418,10 @@ window.lunrData = {
                     "ref": "FooUtils.html#.each",
                     "tf": 5.833333333333333
                   },
+                  "FooUtils.html#.inArray": {
+                    "ref": "FooUtils.html#.inArray",
+                    "tf": 14
+                  },
                   "FooUtils.html#.src": {
                     "ref": "FooUtils.html#.src",
                     "tf": 5.833333333333333
@@ -24642,7 +24762,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 2383
+      "length": 2395
     },
     "corpusTokens": [
       "0",
@@ -24991,6 +25111,7 @@ window.lunrData = {
       "fooutils.getelementbound",
       "fooutils.getviewportbound",
       "fooutils.i",
+      "fooutils.inarray",
       "fooutils.is.array",
       "fooutils.is.boolean",
       "fooutils.is.el",
@@ -25100,6 +25221,7 @@ window.lunrData = {
       "handler",
       "hash",
       "have",
+      "haystack",
       "height",
       "help",
       "helper",
@@ -25109,6 +25231,7 @@ window.lunrData = {
       "ignorecas",
       "imag",
       "implement",
+      "inarray",
       "includ",
       "increment",
       "index",
@@ -25194,6 +25317,7 @@ window.lunrData = {
       "name",
       "namespac",
       "need",
+      "needl",
       "net",
       "never",
       "new",
@@ -27087,15 +27211,15 @@ window.lunrData = {
       "summary": "Gets the bounding rectangle of the current viewport.",
       "description": ""
     },
-    "FooUtils.html#.versionCompare": {
-      "id": "FooUtils.html#.versionCompare",
+    "FooUtils.html#.inArray": {
+      "id": "FooUtils.html#.inArray",
       "kind": "function",
-      "title": "&lt;static&gt; versionCompare( version1, version2 ) → {number}",
-      "longname": "FooUtils.versionCompare",
-      "name": "versionCompare",
-      "tags": "FooUtils.versionCompare versionCompare",
-      "summary": "Compares two version numbers.",
-      "description": "This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. 1.0 versus 1.0.1."
+      "title": "&lt;static&gt; inArray( needle, haystack ) → {number}",
+      "longname": "FooUtils.inArray",
+      "name": "inArray",
+      "tags": "FooUtils.inArray inArray",
+      "summary": "Checks if a value exists within an array.",
+      "description": ""
     },
     "FooUtils.html#.getElementBounds": {
       "id": "FooUtils.html#.getElementBounds",
@@ -27106,6 +27230,16 @@ window.lunrData = {
       "tags": "FooUtils.getElementBounds getElementBounds",
       "summary": "Get the bounding rectangle for the supplied element.",
       "description": ""
+    },
+    "FooUtils.html#.versionCompare": {
+      "id": "FooUtils.html#.versionCompare",
+      "kind": "function",
+      "title": "&lt;static&gt; versionCompare( version1, version2 ) → {number}",
+      "longname": "FooUtils.versionCompare",
+      "name": "versionCompare",
+      "tags": "FooUtils.versionCompare versionCompare",
+      "summary": "Compares two version numbers.",
+      "description": "This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. 1.0 versus 1.0.1."
     },
     "FooUtils.html#.uniqueId": {
       "id": "FooUtils.html#.uniqueId",
