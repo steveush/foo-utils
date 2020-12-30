@@ -10,6 +10,17 @@
 	_.str = {};
 
 	/**
+	 * @summary Removes whitespace from both ends of the target string.
+	 * @memberof FooUtils.str.
+	 * @function trim
+	 * @param {string} target - The string to trim.
+	 * @returns {string|null} Returns `null` if the supplied target is not a string.
+	 */
+	_.str.trim = function(target){
+		return _is.string(target) ? target.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') : null;
+	};
+
+	/**
 	 * @summary Converts the given `target` to camel case.
 	 * @memberof FooUtils.str.
 	 * @function camel
