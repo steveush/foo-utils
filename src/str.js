@@ -38,7 +38,7 @@
 	 * console.log( _str.camel( "Abbreviations like CSS are left intact" ) ); // => "abbreviationsLikeCSSAreLeftIntact"
 	 */
 	_.str.camel = function (target) {
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		if (target.toUpperCase() === target) return target.toLowerCase();
 		return target.replace(/^([A-Z])|[-\s_]+(\w)/g, function (match, p1, p2) {
 			if (_is.string(p2)) return p2.toUpperCase();
@@ -64,7 +64,7 @@
 	 * console.log( _str.kebab( "Non-alphanumeric ch@racters are converted to dashes!" ) ); // => "non-alphanumeric-ch-racters-are-converted-to-dashes"
 	 */
 	_.str.kebab = function(target){
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		return target
 			.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)
 			.filter(Boolean)
@@ -123,8 +123,9 @@
 	_.str.containsWord = function(target, word, ignoreCase){
 		if (!_is.string(target) || _is.empty(target) || !_is.string(word) || _is.empty(word) || target.length < word.length)
 			return false;
-		var parts = target.split(/\W/);
-		for (var i = 0, len = parts.length; i < len; i++){
+		const parts = target.split(/\W/);
+		let i = 0, len = parts.length;
+		for (; i < len; i++){
 			if (ignoreCase ? parts[i].toUpperCase() === word.toUpperCase() : parts[i] === word) return true;
 		}
 		return false;
@@ -146,8 +147,28 @@
 	 * console.log( _str.endsWith( "something", "no" ) ); // => false
 	 */
 	_.str.endsWith = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target === substr;
+		if (!_is.string(target) || !_is.string(substr) || substr.length > target.length) return false;
 		return target.slice(target.length - substr.length) === substr;
+	};
+
+	/**
+	 * @summary Checks if the `target` starts with the given `substr`.
+	 * @memberof FooUtils.str.
+	 * @function startsWith
+	 * @param {string} target - The string to check.
+	 * @param {string} substr - The substr to check for.
+	 * @returns {boolean} `true` if the `target` starts with the given `substr`.
+	 * @example {@run true}
+	 * // alias the FooUtils.str namespace
+	 * var _str = FooUtils.str;
+	 *
+	 * console.log( _str.startsWith( "something", "s" ) ); // => true
+	 * console.log( _str.startsWith( "something", "some" ) ); // => true
+	 * console.log( _str.startsWith( "something", "no" ) ); // => false
+	 */
+	_.str.startsWith = function (target, substr) {
+		if (_is.empty(target) || _is.empty(substr)) return false;
+		return target.slice(0, substr.length) === substr;
 	};
 
 	/**
@@ -156,10 +177,10 @@
 	 * @function escapeRegExp
 	 * @param {string} target - The string to escape.
 	 * @returns {string}
-	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions|Regular Expressions: Using Special Characters - JavaScript | MDN}
+	 * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 	 */
 	_.str.escapeRegExp = function(target){
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		return target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 	};
 
@@ -179,7 +200,7 @@
 	 */
 	_.str.fnv1a = function(target){
 		if (!_is.string(target) || _is.empty(target)) return null;
-		var i, l, hval = 0x811c9dc5;
+		let i, l, hval = 0x811c9dc5;
 		for (i = 0, l = target.length; i < l; i++) {
 			hval ^= target.charCodeAt(i);
 			hval += (hval << 1) + (hval << 4) + (hval << 7) + (hval << 8) + (hval << 24);
@@ -230,9 +251,9 @@
 	 */
 	_.str.join = function(separator, part, partN){
 		if (!_is.string(separator) || !_is.string(part)) return null;
-		var parts = _fn.arg2arr(arguments);
+		const parts = _fn.arg2arr(arguments);
 		separator = parts.shift();
-		var i, l, result = parts.shift();
+		let i, l, result = parts.shift();
 		for (i = 0, l = parts.length; i < l; i++){
 			part = parts[i];
 			if (_is.empty(part)) continue;
@@ -245,26 +266,6 @@
 			result += separator + part;
 		}
 		return result;
-	};
-
-	/**
-	 * @summary Checks if the `target` starts with the given `substr`.
-	 * @memberof FooUtils.str.
-	 * @function startsWith
-	 * @param {string} target - The string to check.
-	 * @param {string} substr - The substr to check for.
-	 * @returns {boolean} `true` if the `target` starts with the given `substr`.
-	 * @example {@run true}
-	 * // alias the FooUtils.str namespace
-	 * var _str = FooUtils.str;
-	 *
-	 * console.log( _str.startsWith( "something", "s" ) ); // => true
-	 * console.log( _str.startsWith( "something", "some" ) ); // => true
-	 * console.log( _str.startsWith( "something", "no" ) ); // => false
-	 */
-	_.str.startsWith = function (target, substr) {
-		if (_is.empty(target) || _is.empty(substr)) return false;
-		return target.slice(0, substr.length) === substr;
 	};
 
 	/**
@@ -330,7 +331,7 @@
 	 * // => "{0}{0}"
 	 */
 	_.str.format = function (target, arg1, argN){
-		var args = _fn.arg2arr(arguments);
+		let args = _fn.arg2arr(arguments);
 		target = args.shift(); // remove the target from the args
 		if (_is.string(target) && args.length > 0){
 			if (args.length === 1 && (_is.array(args[0]) || _is.object(args[0]))){
