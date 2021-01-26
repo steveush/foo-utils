@@ -47,6 +47,7 @@ There are considerable changes for this version as I included babel in the build
 
 * Breaking Change: Removed the `FooUtils.uniqueId` and `FooUtils.removeUniqueId` methods as they were no longer being used in any of our plugins.
 * Breaking Change: Removed the `FooUtils.scrollParent` method as it was no longer being used due to issues in some browsers.
+* Breaking Change: Removed the `FooUtils.src` method as it was no longer being used in any of our plugins.
 * Breaking Change: Removed the `FooUtils.versionCompare` method as it was only being used by the lib when it registered itself and that was changed in version 0.2.0.
 * Breaking Change: Removed the `FooUtils.animation` namespace and moved the `FooUtils.animation.requestFrame` and `FooUtils.animation.cancelFrame` methods to the base `FooUtils` namespace as `FooUtils.requestFrame` and `FooUtils.cancelFrame`.
 * Breaking Change: Removed the `FooUtils.transition.transitionend` and `FooUtils.transition.supported` properties as all supported browsers now have support for the `transitionend` event and browser detection is no longer required.
@@ -56,9 +57,8 @@ There are considerable changes for this version as I included babel in the build
 * Breaking Change: Updated the signatures of the `FooUtils.fn.resolveWith` and `FooUtils.fn.rejectWith` methods to better match those provided by jQuery. The first parameter is now the `thisArg` within any callbacks.
 * Breaking Change: Changed the `FooUtils.Class.bases` method to `FooUtils.Class.getBaseClasses`.
 * Breaking Change: Removed the `FooUtils.fn.check` and `FooUtils.fn.fetch` methods as they were no longer being used in any of our plugins.
-* Breaking Change: Removed the `FooUtils.Factory` class, take a look at the new `FooUtils.ClassRegistry` class.
-* Breaking Change: Removed the `FooUtils.src` method as it was no longer being used in any of our plugins.
-* Added new `FooUtils.ClassRegistry` class to replace the previous `FooUtils.Factory` class but with some significant improvements.
+* Breaking Change: Removed the `FooUtils.Factory` class, use the new `FooUtils.ClassRegistry` class instead.
+* Added new `FooUtils.ClassRegistry` class to replace the previous `FooUtils.Factory` class.
 * Added new `FooUtils.transition.disable(element, modifyFn)` method to help with working with transitions. This method temporarily disables all transitions on an element, executes the callback to modify the element, and then enables all transitions again once modifications are complete.
 * Added new `FooUtils.transition.modify(element, modifyFn [, immediate [, propertyName]])` method to help with working with transitions. The `immediate` parameter changes how the `modifyFn` is used; `true` is applied immediately with no transition, `false` is applied immediately but waits for the transition to end.
 * Added new `FooUtils.fn.all` method to match the functionality provided by the `Promise.all` method.
