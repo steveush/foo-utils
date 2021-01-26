@@ -1,6 +1,21 @@
 module.exports = function(grunt) {
 
-	var pkg = grunt.file.readJSON('package.json');
+	var pkg = grunt.file.readJSON('package.json'),
+		// Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
+		// The following list is set as per WordPress requirements. Though, Feel free to change.
+		BROWSERS_LIST = [
+			'last 2 version',
+			'> 1%',
+			'ie >= 11',
+			'last 1 Android versions',
+			'last 1 ChromeAndroid versions',
+			'last 2 Chrome versions',
+			'last 2 Firefox versions',
+			'last 2 Safari versions',
+			'last 2 iOS versions',
+			'last 2 Edge versions',
+			'last 2 Opera versions'
+		];
 
 	grunt.initConfig({
 		pkg: pkg,
@@ -26,24 +41,69 @@ module.exports = function(grunt) {
 						return content.replace(/@@version/g, pkg.version);
 					}
 				},
-				src: [
-					"./src/__utils.js",
-					"./src/is.js",
-					"./src/fn.js",
-					"./src/url.js",
-					"./src/str.js",
-					"./src/obj.js",
-					"./src/_utils.js",
-					"./src/animation.js",
-					"./src/transition.js",
-					"./src/Class.js",
-					"./src/EventClass.js",
-					"./src/Bounds.js",
-					"./src/Timer.js",
-					"./src/Factory.js",
-					"./src/fullscreen.js"
+				files: {
+					"./dist/foo-utils.pre-babel.js": [
+						"./src/__utils.js",
+						"./src/is.js",
+						"./src/fn.js",
+						"./src/url.js",
+						"./src/str.js",
+						"./src/obj.js",
+						"./src/_utils.js",
+						"./src/Class.js",
+						"./src/ClassRegistry.js",
+						"./src/EventClass.js",
+						"./src/Timer.js",
+						"./src/fullscreen.js",
+						"./src/transition.js"
+					],
+					"./dist/foo-utils.core.pre-babel.js": [
+						"./src/__utils.js",
+						"./src/is.js",
+						"./src/fn.js",
+						"./src/url.js",
+						"./src/str.js",
+						"./src/obj.js",
+						"./src/_utils.js"
+					],
+					"./dist/foo-utils.classes.pre-babel.js": [
+						"./src/Class.js",
+						"./src/ClassRegistry.js",
+						"./src/EventClass.js"
+					],
+					"./dist/foo-utils.timer.pre-babel.js": [
+						"./src/Timer.js"
+					],
+					"./dist/foo-utils.fullscreen.pre-babel.js": [
+						"./src/fullscreen.js"
+					],
+					"./dist/foo-utils.transition.pre-babel.js": [
+						"./src/transition.js"
+					]
+				}
+			}
+		},
+		babel: {
+			options: {
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: {browsers: BROWSERS_LIST} // Target browser list to support.
+						}
+					]
 				],
-				dest: "./dist/foo-utils.js"
+				ignore: ["./src/polyfills"]
+			},
+			dist: {
+				files: {
+					"./dist/foo-utils.js": "./dist/foo-utils.pre-babel.js",
+					"./dist/foo-utils.core.js": "./dist/foo-utils.core.pre-babel.js",
+					"./dist/foo-utils.classes.js": "./dist/foo-utils.classes.pre-babel.js",
+					"./dist/foo-utils.timer.js": "./dist/foo-utils.timer.pre-babel.js",
+					"./dist/foo-utils.fullscreen.js": "./dist/foo-utils.fullscreen.pre-babel.js",
+					"./dist/foo-utils.transition.js": "./dist/foo-utils.transition.pre-babel.js"
+				}
 			}
 		},
 		uglify: {
@@ -52,8 +112,14 @@ module.exports = function(grunt) {
 					preserveComments: false,
 					banner: "<%= foo.banner %>"
 				},
-				src: "./dist/foo-utils.js",
-				dest: "./dist/foo-utils.min.js"
+				files: {
+					"./dist/foo-utils.min.js": "./dist/foo-utils.js",
+					"./dist/foo-utils.core.min.js": "./dist/foo-utils.core.js",
+					"./dist/foo-utils.classes.min.js": "./dist/foo-utils.classes.js",
+					"./dist/foo-utils.timer.min.js": "./dist/foo-utils.timer.js",
+					"./dist/foo-utils.fullscreen.min.js": "./dist/foo-utils.fullscreen.js",
+					"./dist/foo-utils.transition.min.js": "./dist/foo-utils.transition.js"
+				}
 			}
 		},
 		"foo-utils": {
@@ -89,13 +155,14 @@ module.exports = function(grunt) {
 	grunt.loadTasks('tasks');
 
 	// These plugins provide necessary tasks.
+	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-qunit');
 	grunt.loadNpmTasks('grunt-jsdoc');
 
-	grunt.registerTask('default', ['clean:dist','concat','uglify']);
+	grunt.registerTask('default', ['clean:dist','concat','babel','uglify']);
 	grunt.registerTask('test', ['clean:foo-utils','foo-utils','qunit','clean:foo-utils']);
 	grunt.registerTask('document', ['clean:docs','jsdoc']);
 

@@ -1,5 +1,23 @@
 QUnit.module('str');
 
+QUnit.test('trim', function (assert) {
+
+	assert.equal( FooUtils.str.trim( false ), null );
+	assert.equal( FooUtils.str.trim( null ), null );
+	assert.equal( FooUtils.str.trim( 123 ), null );
+	assert.equal( FooUtils.str.trim( " " ), "" );
+	assert.equal( FooUtils.str.trim( "    " ), "" );
+	assert.equal( FooUtils.str.trim( "test" ), "test" );
+	assert.equal( FooUtils.str.trim( "test space" ), "test space" );
+	assert.equal( FooUtils.str.trim( " test" ), "test" );
+	assert.equal( FooUtils.str.trim( "test " ), "test" );
+	assert.equal( FooUtils.str.trim( " test " ), "test" );
+	assert.equal( FooUtils.str.trim( " test space" ), "test space" );
+	assert.equal( FooUtils.str.trim( "test space " ), "test space" );
+	assert.equal( FooUtils.str.trim( " test space " ), "test space" );
+
+});
+
 QUnit.test('camel', function (assert) {
 
 	assert.equal( FooUtils.str.camel( "max-width" ), "maxWidth" );

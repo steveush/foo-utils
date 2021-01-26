@@ -2,6 +2,7 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A base event class providing just a type and defaultPrevented properties.
      * @memberof FooUtils.
@@ -36,7 +37,7 @@
             if (_is.empty(type))
                 throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
 
-            var self = this, parsed = _.Event.parse(type);
+            const self = this, parsed = _.Event.parse(type);
             /**
              * @summary The type of event.
              * @memberof FooUtils.Event#
@@ -97,7 +98,7 @@
      */
     _.Event.parse = function(event){
         event = _is.string(event) && !_is.empty(event) ? event : null;
-        var namespaced = _str.contains(event, ".");
+        const namespaced = _str.contains(event, ".");
         return {
             namespaced: namespaced,
             type: namespaced ? _str.startsWith(event, ".") ? null : _str.until(event, ".") : event,
@@ -105,6 +106,7 @@
         };
     };
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A base class that implements a basic events interface.
      * @memberof FooUtils.
@@ -166,7 +168,7 @@
          * @returns {this}
          */
         on: function(events, listener, thisArg){
-            var self = this;
+            const self = this;
             if (_is.object(events)){
                 thisArg = listener;
                 Object.keys(events).forEach(function(key){
@@ -196,13 +198,13 @@
         addListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event) || !_is.fn(listener)) return false;
 
-            var self = this, parsed = _.Event.parse(event);
+            const self = this, parsed = _.Event.parse(event);
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
             if (!_is.array(self.events[parsed.type])){
                 self.events[parsed.type] = [];
             }
-            var exists = self.events[parsed.type].some(function(h){
+            const exists = self.events[parsed.type].some(function (h) {
                 return h.namespace === parsed.namespace && h.fn === listener && h.thisArg === thisArg;
             });
             if (!exists){
@@ -232,7 +234,7 @@
          * @returns {this}
          */
         off: function(events, listener, thisArg){
-            var self = this;
+            const self = this;
             if (_is.object(events)){
                 thisArg = listener;
                 Object.keys(events).forEach(function(key){
@@ -260,7 +262,7 @@
         removeListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event)) return false;
 
-            var self = this, parsed = _.Event.parse(event), types = [];
+            const self = this, parsed = _.Event.parse(event), types = [];
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
             if (!_is.empty(parsed.type)){
@@ -296,13 +298,13 @@
          */
         trigger: function(event, args){
             args = _is.array(args) ? args : [];
-            var self = this, result = [];
+            const self = this, result = [];
             if (event instanceof _.Event){
                 result.push(event);
                 self.emit(event, args);
             } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
-                    var e = new _.Event(type);
+                    const e = new _.Event(type);
                     result.push(e)
                     self.emit(e, args);
                 });
@@ -318,7 +320,7 @@
          */
         emit: function(event, args){
             if (!(event instanceof FooUtils.Event)) return;
-            var self = this;
+            const self = this;
             args = _is.array(args) ? args : [];
             if (event.target === null) event.target = self;
             if (_is.array(self.events[event.type])) {

@@ -38,11 +38,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -51,7 +50,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -103,7 +101,8 @@
          * @param {number} [interval=1000]
          */
         construct: function(interval){
-            this._super();
+            const self = this;
+            self._super();
             /**
              * @summary The internal tick interval of the timer in milliseconds.
              * @memberof FooUtils.Timer#
@@ -112,7 +111,7 @@
              * @default 1000
              * @readonly
              */
-            this.interval = _is.number(interval) ? interval : 1000;
+            self.interval = _is.number(interval) ? interval : 1000;
             /**
              * @summary Whether the timer is currently running or not.
              * @memberof FooUtils.Timer#
@@ -121,7 +120,7 @@
              * @default false
              * @readonly
              */
-            this.isRunning = false;
+            self.isRunning = false;
             /**
              * @summary Whether the timer is currently paused or not.
              * @memberof FooUtils.Timer#
@@ -130,7 +129,7 @@
              * @default false
              * @readonly
              */
-            this.isPaused = false;
+            self.isPaused = false;
             /**
              * @summary Whether the timer can resume from a previous state or not.
              * @memberof FooUtils.Timer#
@@ -139,7 +138,7 @@
              * @default false
              * @readonly
              */
-            this.canResume = false;
+            self.canResume = false;
             /**
              * @summary Whether the timer can restart or not.
              * @memberof FooUtils.Timer#
@@ -148,7 +147,7 @@
              * @default false
              * @readonly
              */
-            this.canRestart = false;
+            self.canRestart = false;
             /**
              * @summary The internal tick timeout ID.
              * @memberof FooUtils.Timer#
@@ -157,7 +156,7 @@
              * @default null
              * @private
              */
-            this.__timeout = null;
+            self.__timeout = null;
             /**
              * @summary Whether the timer is incrementing or decrementing.
              * @memberof FooUtils.Timer#
@@ -166,7 +165,7 @@
              * @default false
              * @private
              */
-            this.__decrement = false;
+            self.__decrement = false;
             /**
              * @summary The total time for the timer.
              * @memberof FooUtils.Timer#
@@ -175,7 +174,7 @@
              * @default 0
              * @private
              */
-            this.__time = 0;
+            self.__time = 0;
             /**
              * @summary The remaining time for the timer.
              * @memberof FooUtils.Timer#
@@ -184,7 +183,7 @@
              * @default 0
              * @private
              */
-            this.__remaining = 0;
+            self.__remaining = 0;
             /**
              * @summary The current time for the timer.
              * @memberof FooUtils.Timer#
@@ -193,7 +192,7 @@
              * @default 0
              * @private
              */
-            this.__current = 0;
+            self.__current = 0;
             /**
              * @summary The final time for the timer.
              * @memberof FooUtils.Timer#
@@ -202,7 +201,7 @@
              * @default 0
              * @private
              */
-            this.__finish = 0;
+            self.__finish = 0;
             /**
              * @summary The last arguments supplied to the {@link FooUtils.Timer#start|start} method.
              * @memberof FooUtils.Timer#
@@ -211,7 +210,7 @@
              * @default []
              * @private
              */
-            this.__restart = [];
+            self.__restart = [];
         },
         /**
          * @summary Resets the timer back to a fresh starting state.
@@ -220,16 +219,17 @@
          * @private
          */
         __reset: function(){
-            clearTimeout(this.__timeout);
-            this.__timeout = null;
-            this.__decrement = false;
-            this.__time = 0;
-            this.__remaining = 0;
-            this.__current = 0;
-            this.__finish = 0;
-            this.isRunning = false;
-            this.isPaused = false;
-            this.canResume = false;
+            const self = this;
+            clearTimeout(self.__timeout);
+            self.__timeout = null;
+            self.__decrement = false;
+            self.__time = 0;
+            self.__remaining = 0;
+            self.__current = 0;
+            self.__finish = 0;
+            self.isRunning = false;
+            self.isPaused = false;
+            self.canResume = false;
         },
         /**
          * @summary Generates event args to be passed to listeners of the timer events.
@@ -240,10 +240,11 @@
          * @private
          */
         __eventArgs: function(args){
+            const self = this;
             return [
-                this.__current,
-                this.__time,
-                this.__decrement
+                self.__current,
+                self.__time,
+                self.__decrement
             ].concat(_fn.arg2arr(arguments));
         },
         /**
@@ -253,7 +254,7 @@
          * @private
          */
         __tick: function(){
-            var self = this;
+            const self = this;
             self.trigger("tick", self.__eventArgs());
             if (self.__current === self.__finish){
                 self.trigger("complete", self.__eventArgs());
@@ -279,7 +280,7 @@
          * @param {boolean} [decrement=false] - Whether the timer should increment or decrement from or to the supplied time.
          */
         start: function(time, decrement){
-            var self = this;
+            const self = this;
             if (self.isRunning) return;
             decrement = _is.boolean(decrement) ? decrement : false;
             self.__restart = [time, decrement];
@@ -318,9 +319,10 @@
          * @function restart
          */
         restart: function(){
-            this.stop();
-            if (this.canRestart){
-                this.start.apply(this, this.__restart);
+            const self = this;
+            self.stop();
+            if (self.canRestart){
+                self.start.apply(self, self.__restart);
             }
         },
         /**
@@ -329,9 +331,10 @@
          * @function stop
          */
         stop: function(){
-            if (this.isRunning || this.isPaused){
-                this.__reset();
-                this.trigger("stop", this.__eventArgs());
+            const self = this;
+            if (self.isRunning || self.isPaused){
+                self.__reset();
+                self.trigger("stop", self.__eventArgs());
             }
         },
         /**
@@ -341,7 +344,7 @@
          * @return {number} - The number of seconds remaining for the timer.
          */
         pause: function(){
-            var self = this;
+            const self = this;
             if (self.__timeout != null){
                 clearTimeout(self.__timeout);
                 self.__timeout = null;
@@ -359,7 +362,7 @@
          * @function resume
          */
         resume: function(){
-            var self = this;
+            const self = this;
             if (self.canResume){
                 self.isRunning = true;
                 self.isPaused = false;
@@ -373,8 +376,9 @@
          * @function reset
          */
         reset: function(){
-            this.__reset();
-            this.trigger("reset", this.__eventArgs());
+            const self = this;
+            self.__reset();
+            self.trigger("reset", this.__eventArgs());
         }
     });
 
@@ -392,7 +396,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

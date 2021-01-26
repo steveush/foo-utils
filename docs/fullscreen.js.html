@@ -38,11 +38,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -51,7 +50,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -90,6 +88,7 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
      * @memberof FooUtils.
@@ -203,7 +202,7 @@
          * @return {?FooUtils.FullscreenAPI~BrowserAPI} Returns `null` if the fullscreen API is not supported.
          */
         getAPI: function(){
-            for (var vendor in this.apis) {
+            for (const vendor in this.apis) {
                 if (!this.apis.hasOwnProperty(vendor)) continue;
                 // Check if document has the "enabled" property
                 if (this.apis[vendor].enabled in document) {
@@ -231,7 +230,7 @@
          */
         request: function(element){
             if (this.supported &amp;&amp; !!element[this.api.request]){
-                var result = element[this.api.request]();
+                const result = element[this.api.request]();
                 return !result ? $.Deferred(this.__resolver(this.api.request)).promise() : result;
             }
             return _fn.rejected;
@@ -244,7 +243,7 @@
          */
         exit: function(){
             if (this.supported &amp;&amp; !!this.element()){
-                var result = document[this.api.exit]();
+                const result = document[this.api.exit]();
                 return !result ? $.Deferred(this.__resolver(this.api.exit)).promise() : result;
             }
             return _fn.rejected;
@@ -266,7 +265,7 @@
          * @private
          */
         __listen: function(){
-            var self = this;
+            const self = this;
             if (!self.supported) return;
             $(document).on(self.api.events.change + ".utils", function() {
                 self.trigger("change");
@@ -281,7 +280,7 @@
          * @private
          */
         __stopListening: function(){
-            var self = this;
+            const self = this;
             if (!self.supported) return;
             $(document).off(self.api.events.change + ".utils")
                 .off(self.api.events.error + ".utils");
@@ -291,11 +290,11 @@
          * @memberof FooUtils.FullscreenAPI#
          * @function __resolver
          * @param {string} method - The request or exit method the resolver is being created for.
-         * @returns {resolver}
+         * @returns {FooUtils.FullscreenAPI~resolver}
          * @private
          */
         __resolver: function(method){
-            var self = this;
+            const self = this;
             /**
              * @summary Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.
              * @callback FooUtils.FullscreenAPI~resolver
@@ -305,6 +304,7 @@
                 // Reject the promise if asked to exitFullscreen and there is no element currently in fullscreen
                 if (method === self.api.exit &amp;&amp; !!self.element()) {
                     setTimeout(function() {
+                        // noinspection JSUnresolvedFunction
                         def.reject(new TypeError());
                     }, 1);
                     return;
@@ -312,6 +312,7 @@
 
                 // When receiving an internal fullscreenchange event, fulfill the promise
                 function change() {
+                    // noinspection JSUnresolvedFunction
                     def.resolve();
                     $(document).off(self.api.events.change, change)
                         .off(self.api.events.error, error);
@@ -319,6 +320,7 @@
 
                 // When receiving an internal fullscreenerror event, reject the promise
                 function error() {
+                    // noinspection JSUnresolvedFunction
                     def.reject(new TypeError());
                     $(document).off(self.api.events.change, change)
                         .off(self.api.events.error, error);
@@ -341,7 +343,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
