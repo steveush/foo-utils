@@ -38,11 +38,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -51,7 +50,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -114,6 +112,34 @@
 </code></pre>
 <p>Ideally the above would be used as a step in a larger build process that would include the <code>my-api-utils.js</code> file as part of its own concat or uglify tasks resulting in a single file so any include order namespace issues are no longer a problem.</p>
 <h2>Changelog</h2>
+<h3>1.0.0</h3>
+<p>There are considerable changes for this version as I included babel in the build and performed a cleanup of old/unused methods.</p>
+<ul>
+<li>Breaking Change: Removed the <code>FooUtils.uniqueId</code> and <code>FooUtils.removeUniqueId</code> methods as they were no longer being used in any of our plugins.</li>
+<li>Breaking Change: Removed the <code>FooUtils.scrollParent</code> method as it was no longer being used due to issues in some browsers.</li>
+<li>Breaking Change: Removed the <code>FooUtils.src</code> method as it was no longer being used in any of our plugins.</li>
+<li>Breaking Change: Removed the <code>FooUtils.versionCompare</code> method as it was only being used by the lib when it registered itself and that was changed in version 0.2.0.</li>
+<li>Breaking Change: Removed the <code>FooUtils.animation</code> namespace and moved the <code>FooUtils.animation.requestFrame</code> and <code>FooUtils.animation.cancelFrame</code> methods to the base <code>FooUtils</code> namespace as <code>FooUtils.requestFrame</code> and <code>FooUtils.cancelFrame</code>.</li>
+<li>Breaking Change: Removed the <code>FooUtils.transition.transitionend</code> and <code>FooUtils.transition.supported</code> properties as all supported browsers now have support for the <code>transitionend</code> event and browser detection is no longer required.</li>
+<li>Breaking Change: Updated the signature of the <code>FooUtils.transition.start(element, triggerFn, propertyName, timeout)</code> method to provide better functionality now that all supported browsers support the <code>transitionend</code> event.</li>
+<li>Breaking Change: Removed the <code>FooUtils.Bounds</code> object as its functionality can be better implemented using an <code>IntersectionObserver</code>.</li>
+<li>Breaking Change: Removed the <code>FooUtils.fn.when</code> method and replaced it with <code>FooUtils.fn.all</code> and <code>FooUtils.fn.allSettled</code> to match the signatures of the standard <code>Promise</code> api.</li>
+<li>Breaking Change: Updated the signatures of the <code>FooUtils.fn.resolveWith</code> and <code>FooUtils.fn.rejectWith</code> methods to better match those provided by jQuery. The first parameter is now the <code>thisArg</code> within any callbacks.</li>
+<li>Breaking Change: Changed the <code>FooUtils.Class.bases</code> method to <code>FooUtils.Class.getBaseClasses</code>.</li>
+<li>Breaking Change: Removed the <code>FooUtils.fn.check</code> and <code>FooUtils.fn.fetch</code> methods as they were no longer being used in any of our plugins.</li>
+<li>Breaking Change: Removed the <code>FooUtils.Factory</code> class, use the new <code>FooUtils.ClassRegistry</code> class instead.</li>
+<li>Added new <code>FooUtils.ClassRegistry</code> class to replace the previous <code>FooUtils.Factory</code> class.</li>
+<li>Added new <code>FooUtils.transition.disable(element, modifyFn)</code> method to help with working with transitions. This method temporarily disables all transitions on an element, executes the callback to modify the element, and then enables all transitions again once modifications are complete.</li>
+<li>Added new <code>FooUtils.transition.modify(element, modifyFn [, immediate [, propertyName]])</code> method to help with working with transitions. The <code>immediate</code> parameter changes how the <code>modifyFn</code> is used; <code>true</code> is applied immediately with no transition, <code>false</code> is applied immediately but waits for the transition to end.</li>
+<li>Added new <code>FooUtils.fn.all</code> method to match the functionality provided by the <code>Promise.all</code> method.</li>
+<li>Added new <code>FooUtils.fn.allSettled</code> method to match the functionality provided by the <code>Promise.allSettled</code> method.</li>
+<li>Added new <code>FooUtils.fn.resolve</code> method to match the functionality provided by the <code>Promise.resolve</code> method and the previous <code>FooUtils.fn.resolveWith</code> method.</li>
+<li>Added new <code>FooUtils.fn.reject</code> method to match the functionality provided by the <code>Promise.reject</code> method and the previous <code>FooUtils.fn.rejectWith</code> method.</li>
+</ul>
+<h3>0.2.2</h3>
+<ul>
+<li>Added new <code>FooUtils.inArray</code> method to test if a value exists in an array. Essentially a wrapper around the native <code>indexOf</code> method on an array, but it checks if the haystack is an actual array.</li>
+</ul>
 <h3>0.2.1</h3>
 <ul>
 <li>Breaking Change: Removed the <code>FooUtils.Debugger</code> class, it's usefulness had come to an end, and it was reporting as a cookie in Chrome because it checked on the existence of localStorage as the script was parsed.</li>
@@ -191,7 +217,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

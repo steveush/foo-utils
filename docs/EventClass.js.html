@@ -38,11 +38,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -51,7 +50,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -90,6 +88,7 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A base event class providing just a type and defaultPrevented properties.
      * @memberof FooUtils.
@@ -124,7 +123,7 @@
             if (_is.empty(type))
                 throw new SyntaxError('FooUtils.Event objects must be supplied a `type`.');
 
-            var self = this, parsed = _.Event.parse(type);
+            const self = this, parsed = _.Event.parse(type);
             /**
              * @summary The type of event.
              * @memberof FooUtils.Event#
@@ -185,7 +184,7 @@
      */
     _.Event.parse = function(event){
         event = _is.string(event) &amp;&amp; !_is.empty(event) ? event : null;
-        var namespaced = _str.contains(event, ".");
+        const namespaced = _str.contains(event, ".");
         return {
             namespaced: namespaced,
             type: namespaced ? _str.startsWith(event, ".") ? null : _str.until(event, ".") : event,
@@ -193,6 +192,7 @@
         };
     };
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A base class that implements a basic events interface.
      * @memberof FooUtils.
@@ -254,7 +254,7 @@
          * @returns {this}
          */
         on: function(events, listener, thisArg){
-            var self = this;
+            const self = this;
             if (_is.object(events)){
                 thisArg = listener;
                 Object.keys(events).forEach(function(key){
@@ -284,13 +284,13 @@
         addListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event) || !_is.fn(listener)) return false;
 
-            var self = this, parsed = _.Event.parse(event);
+            const self = this, parsed = _.Event.parse(event);
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
             if (!_is.array(self.events[parsed.type])){
                 self.events[parsed.type] = [];
             }
-            var exists = self.events[parsed.type].some(function(h){
+            const exists = self.events[parsed.type].some(function (h) {
                 return h.namespace === parsed.namespace &amp;&amp; h.fn === listener &amp;&amp; h.thisArg === thisArg;
             });
             if (!exists){
@@ -320,7 +320,7 @@
          * @returns {this}
          */
         off: function(events, listener, thisArg){
-            var self = this;
+            const self = this;
             if (_is.object(events)){
                 thisArg = listener;
                 Object.keys(events).forEach(function(key){
@@ -348,7 +348,7 @@
         removeListener: function(event, listener, thisArg){
             if (!_is.string(event) || /\s/.test(event)) return false;
 
-            var self = this, parsed = _.Event.parse(event), types = [];
+            const self = this, parsed = _.Event.parse(event), types = [];
             thisArg = _is.undef(thisArg) ? self : thisArg;
 
             if (!_is.empty(parsed.type)){
@@ -384,13 +384,13 @@
          */
         trigger: function(event, args){
             args = _is.array(args) ? args : [];
-            var self = this, result = [];
+            const self = this, result = [];
             if (event instanceof _.Event){
                 result.push(event);
                 self.emit(event, args);
             } else if (_is.string(event)) {
                 event.split(" ").forEach(function(type){
-                    var e = new _.Event(type);
+                    const e = new _.Event(type);
                     result.push(e)
                     self.emit(e, args);
                 });
@@ -406,7 +406,7 @@
          */
         emit: function(event, args){
             if (!(event instanceof FooUtils.Event)) return;
-            var self = this;
+            const self = this;
             args = _is.array(args) ? args : [];
             if (event.target === null) event.target = self;
             if (_is.array(self.events[event.type])) {
@@ -435,7 +435,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

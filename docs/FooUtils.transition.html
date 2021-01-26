@@ -37,11 +37,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -50,7 +49,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -131,8 +129,8 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id=".supported" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">supported</span><span class="signature-type"> :boolean</span></h4>
-				<div class="summary"><p>Whether or not transitions are supported by the current browser.</p></div></dt>
+			<h4 id=".dataName" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">dataName</span><span class="signature-type"> :string</span></h4>
+				<div class="summary"><p>The data name used by transitions to ensure promises are resolved.</p></div></dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
@@ -141,10 +139,17 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
 								</div>
 							</div>
 			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">&quot;__foo-transition__&quot;</p>
+								</div>
+							</div>
 			
 			
 			
@@ -162,7 +167,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-15">line 15</a></p>
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-12">line 12</a></p>
 								</div>
 							</div>
 			
@@ -174,19 +179,11 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id=".end" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">end</span><span class="signature-type"> :string</span></h4>
-				<div class="summary"><p>The <code>transitionend</code> event name for the current browser.</p></div></dt>
+			<h4 id=".disableClassName" class="member public"><span class="signature-attribs">&lt;static, nullable> </span><span class="name">disableClassName</span><span class="signature-type"> :string</span></h4>
+				<div class="summary"><p>The CSS className used to disable transitions when using the <a href="FooUtils.transition.html#.disable">disable</a> method instead of inline styles.</p></div></dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Depending on the browser this returns one of the following values:</p>
-			<ul><!--
-			--><li>`"transitionend"`</li><!--
-			--><li>`"webkitTransitionEnd"`</li><!--
-			--><li>`"msTransitionEnd"`</li><!--
-			--><li>`"oTransitionEnd"`</li><!--
-			--><li>`null` - If the browser doesn't support transitions</li><!--
-			--></ul></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
 							<div class="form-group">
@@ -196,6 +193,13 @@
 								</div>
 							</div>
 			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">null</p>
+								</div>
+							</div>
 			
 			
 			
@@ -213,7 +217,57 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-38">line 38</a></p>
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-21">line 21</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".timeout" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">timeout</span><span class="signature-type"> :number</span></h4>
+				<div class="summary"><p>The global timeout used as a safety measure when using the <a href="FooUtils.transition.html#.start">start</a> method. This can be overridden using the <code>timeout</code> parameter of the <a href="FooUtils.transition.html#.start">start</a> method.</p></div></dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+							<!-- defaultvalue -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Default Value</label>
+								<div class="col-sm-9">
+									<p class="form-control-static">3000</p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-30">line 30</a></p>
 								</div>
 							</div>
 			
@@ -228,8 +282,8 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".duration" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">duration</span><span class="signature-params">( <span class="signature-param">$element</span> [,&nbsp;<span class="signature-param">def</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
-				<div class="summary"><p>Gets the <code>transition-duration</code> value for the supplied jQuery element.</p></div></dt>
+			<h4 id=".disable" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">disable</span><span class="signature-params">( <span class="signature-param">element</span>, <span class="signature-param">modifyFn</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Disable transitions temporarily on the provided element so changes can be made immediately within the callback.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -239,42 +293,28 @@
 					<tr>
 							<th>Name</th>
 						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>$element</code></td>
-							<td><span class="param-type">jQuery</span></td>
-								<td class="attributes"></td>
-								<td></td>
+								<td><code>element</code></td>
+							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span></td>
 							<td class="last">
-									<p>The jQuery element to retrieve the duration from.</p>
+									<p>The element to disable transitions on.</p>
 							</td>
 						</tr>
 						<tr>
-								<td><code>def</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>0</td>
+								<td><code>modifyFn</code></td>
+							<td><span class="param-type">FooUtils.transition~modifyFn</span></td>
 							<td class="last">
-									<p>The default value to return if no duration is set.</p>
+									<p>A function to execute while the elements transitions are disabled.</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>The value of the <code>transition-duration</code> property converted to a millisecond value.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -294,7 +334,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-71">line 71</a></p>
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-39">line 39</a></p>
 								</div>
 							</div>
 			
@@ -306,54 +346,26 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".start" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">start</span><span class="signature-params">( <span class="signature-param">$element</span>, <span class="signature-param">classNameOrFunc</span> [,&nbsp;<span class="signature-param">state</span> [,&nbsp;<span class="signature-param">timeout</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
-				<div class="summary"><p>Start a transition by toggling the supplied <code>className</code> on the <code>$element</code>.</p></div></dt>
+			<h4 id=".stop" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">stop</span><span class="signature-params">( <span class="signature-param">element</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Stop a transition started using the <a href="FooUtils.transition.html#.start">start</a> method.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This method lets us use CSS transitions by toggling a class and using the <code>transitionend</code> event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's <code>.toggleClass</code> method.</p>
-			<p>The last parameter <code>timeout</code> is used to create a timer that behaves as a safety net in case the <code>transitionend</code> event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.</p></div>
-			</div>			<div class="callout callout-info">
+			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
 							<th>Name</th>
 						<th>Type</th>
-							<th>Attributes</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>$element</code></td>
-							<td><span class="param-type">jQuery</span></td>
-								<td class="attributes"></td>
+								<td><code>element</code></td>
+							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span></td>
 							<td class="last">
-									<p>The jQuery element to start the transition on.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>classNameOrFunc</code></td>
-							<td><span class="param-type">string</span> | <span class="param-type"><a href="FooUtils.transition.html#~startCallback">FooUtils.transition~startCallback</a></span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>state</code></td>
-							<td><span class="param-type">boolean</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>timeout</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>The maximum time, in milliseconds, to wait for the <code>transitionend</code> event to be raised. If not provided this will be automatically set to the elements <code>transition-duration</code> property plus an extra 50 milliseconds.</p>
+									<p>The element to stop the transition on.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -387,31 +399,21 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-109">line 109</a></p>
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-74">line 74</a></p>
 								</div>
 							</div>
 			
 			
-							<!-- see -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">See</label>
-								<div class="col-sm-9">
-										<p class="form-control-static"><a href="https://developer.mozilla.org/en/docs/Web/CSS/transition-duration">transition-duration - CSS | MDN</a> for more information on the `transition-duration` CSS property.</p>
-								</div>
-							</div>
 			
 			
 					</form>
 			</div>	</div>
 </dd>
-									</dl>
-									<h3>Type Definitions</h3>
-									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title typedef public collapsible-symbol">
-			<h4 id="~startCallback" class="typedef public"><span class="name">startCallback</span><span class="signature-params">( <span class="signature-param">$element</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>The callback function to execute when starting a transition.</p></div></dt>
-<dd class="symbol-details typedef public  collapsible-symbol">
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".createListener" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">createListener</span><span class="signature-params">( <span class="signature-param">element</span>, <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">propertyName</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
+				<div class="summary"><p>Creates a new transition event listener ensuring the element and optionally the propertyName matches before executing the callback.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -420,29 +422,52 @@
 					<tr>
 							<th>Name</th>
 						<th>Type</th>
+							<th>Attributes</th>
+							<th>Default</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>$element</code></td>
-							<td><span class="param-type">jQuery</span></td>
+								<td><code>element</code></td>
+							<td><span class="param-type">HTMLElement</span></td>
+								<td class="attributes"></td>
+								<td></td>
 							<td class="last">
-									<p>The element to start the transition on.</p>
+									<p>The element being listened to.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>The callback to execute once the element and optional propertyName are matched.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>propertyName</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/>&lt;nullable&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>The propertyName to match on the TransitionEvent object.</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">function</span></div>
+									<div class="form-control-static returns-description"></div>
 								</div>
 							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
 			
 			
 			
@@ -461,7 +486,194 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-102">line 102</a></p>
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-101">line 101</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".start" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">start</span><span class="signature-params">( <span class="signature-param">element</span>, <span class="signature-param">triggerFn</span> [,&nbsp;<span class="signature-param">propertyName</span> [,&nbsp;<span class="signature-param">timeout</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Start a transition on an element returning a promise that is resolved once the transition ends.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The element to perform the transition on.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>triggerFn</code></td>
+							<td><span class="param-type">FooUtils.transition~modifyFn</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The callback that triggers the transition on the element.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>propertyName</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/>&lt;nullable&gt;<br/></td>
+							<td class="last">
+									<p>A specific property name to wait for before resolving. If not supplied the first instance of the transitionend event will resolve the promise.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>timeout</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>A safety timeout to ensure the returned promise is finalized. If not supplied the value of the <a href="FooUtils.transition.html#.timeout">FooUtils.transition.timeout</a> property is used.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-122">line 122</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".modify" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">modify</span><span class="signature-params">( <span class="signature-param">element</span>, <span class="signature-param">modifyFn</span> [,&nbsp;<span class="signature-param">immediate</span> [,&nbsp;<span class="signature-param">propertyName</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Used to modify an element which has transitions optionally allowing the transition to occur or not.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+							<th>Default</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>element</code></td>
+							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>The element to perform the modifications to.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>modifyFn</code></td>
+							<td><span class="param-type">FooUtils.transition~modifyFn</span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>The callback used to perform the modifications.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>immediate</code></td>
+							<td><span class="param-type">boolean</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>false</td>
+							<td class="last">
+									<p>Whether or not transitions should be allowed to execute and waited on. The default value of <code>false</code> means transitions are allowed and the promise will only resolve once there transitionend event has fired.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>propertyName</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/>&lt;nullable&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>A specific property name to wait for before resolving. If not supplied the first instance of the transitionend event will resolve the promise.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>Returns a promise that is resolved once the modifications to the element have ended.</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="transition.js.html">transition.js</a>, <a href="transition.js.html#line-172">line 172</a></p>
 								</div>
 							</div>
 			
@@ -482,7 +694,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

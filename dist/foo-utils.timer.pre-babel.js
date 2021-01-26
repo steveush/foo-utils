@@ -1,92 +1,13 @@
-<!-- start:source.tmpl.hbs -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-		<title>Timer.js</title>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
-		<link type="text/css" rel="stylesheet" href="css/template.min.css">
-		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooUtils","systemSummary":"Contains common utility methods and classes used in our plugins.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooUtils Copyright © 2016 The contributors to the FooUtils project.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["../dist/foo-utils.js"],"monospaceLinks":false,"cleverLinks":false,"readmeTargets":[]};
-			window.DOCLET_TOC_ENABLED = false;
-			window.DOCLET_AFILTER_ENABLED = false;
-		</script>
-</head>
-<body>
-	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
-					FooUtils
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-								<li class="dropdown">
-									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
-											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
-											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
-											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
-											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
-											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
-											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
-											<li><a href="FooUtils.str.html">FooUtils.str</a></li>
-											<li><a href="FooUtils.transition.html">FooUtils.transition</a></li>
-											<li><a href="FooUtils.url.html">FooUtils.url</a></li>
-									</ul>
-								</li>
-				</ul>
-					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
-		</div>
-	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
-			<div class="container">
-				<span class="kind">source</span>
-				<h1><span class="name">Timer.js</span></h1>
-			</div>
-		</div>
-	<div class="container content">
-		<div class="row">
-			<div class="col-md-12 main-content">
-		<section class="source-section">
-			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">(function($, _, _is, _fn, _obj){
+/*!
+* FooUtils - Contains common utility methods and classes used in our plugins.
+* @version 1.0.0
+* @link https://github.com/steveush/foo-utils#readme
+* @copyright Steve Usher 2021
+* @license Released under the GPL-3.0 license.
+*/
+(function($, _, _is, _fn, _obj){
     // only register methods if this version is the current version
-    if (_.version !== '@@version') return;
+    if (_.version !== '1.0.0') return;
 
     /**
      * @summary A simple timer that triggers events.
@@ -389,39 +310,3 @@
     FooUtils.fn,
     FooUtils.obj
 );
-</code></pre>
-		</section>
-			</div>
-		</div>
-	</div>
-	<footer>
-				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
-	</footer>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/clipboard.min.js"></script>
-	<script src="js/prism.min.js"></script>
-	<script src="js/template.min.js"></script>
-		<!-- start:lunr-search-modal.hbs -->
-		<div class="modal fade" id="lunr-search-modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Search results</h4>
-					</div>
-					<div class="modal-body" id="lunr-search-body">
-					</div>
-					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
-		<script src="../dist/foo-utils.js"></script>
-	
-</body>
-</html>
-<!-- end:source.tmpl.hbs -->

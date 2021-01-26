@@ -37,11 +37,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -50,7 +49,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -132,8 +130,16 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title class public">
-			<h4 id="Bounds" class="class public"><a href="FooUtils.Bounds.html"><span class="signature-new">new&nbsp;</span><span class="name">Bounds</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
-				<div class="summary"><p>A simple bounding rectangle class.</p></div></dt>
+			<h4 id="ClassRegistry" class="class public"><a href="FooUtils.ClassRegistry.html"><span class="signature-new">new&nbsp;</span><span class="name">ClassRegistry</span><span class="signature-params">( [&nbsp;<span class="signature-param">options</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A registry class allowing classes to be easily registered and created.</p></div></dt>
+<dd class="symbol-details class public">
+	<div class="symbol-details-inner">
+	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title class public">
+			<h4 id="Timer" class="class public"><a href="FooUtils.Timer.html"><span class="signature-new">new&nbsp;</span><span class="name">Timer</span><span class="signature-params">( [&nbsp;<span class="signature-param">interval</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
+				<div class="summary"><p>A simple timer that triggers events.</p></div></dt>
 <dd class="symbol-details class public">
 	<div class="symbol-details-inner">
 	</div>
@@ -148,24 +154,8 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title class public">
-			<h4 id="Factory" class="class public"><a href="FooUtils.Factory.html"><span class="signature-new">new&nbsp;</span><span class="name">Factory</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
-				<div class="summary"><p>A factory for classes allowing them to be registered and created using a friendly name.</p></div></dt>
-<dd class="symbol-details class public">
-	<div class="symbol-details-inner">
-	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title class public">
 			<h4 id="FullscreenAPI" class="class public"><a href="FooUtils.FullscreenAPI.html"><span class="signature-new">new&nbsp;</span><span class="name">FullscreenAPI</span><span class="signature-params">()</span><span class="signature-type"></span></a></h4>
 				<div class="summary"><p>A wrapper around the fullscreen API to ensure cross browser compatibility.</p></div></dt>
-<dd class="symbol-details class public">
-	<div class="symbol-details-inner">
-	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title class public">
-			<h4 id="Timer" class="class public"><a href="FooUtils.Timer.html"><span class="signature-new">new&nbsp;</span><span class="name">Timer</span><span class="signature-params">( [&nbsp;<span class="signature-param">interval</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></a></h4>
-				<div class="summary"><p>A simple timer that triggers events.</p></div></dt>
 <dd class="symbol-details class public">
 	<div class="symbol-details-inner">
 	</div>
@@ -189,14 +179,6 @@
 									</dl>
 									<h3>Namespaces</h3>
 									<dl class="symbol">
-											<hr/>
-											<dt class="symbol-title namespace public">
-			<h4 id="animation" class="namespace public"><a href="FooUtils.animation.html"><span class="name">animation</span></a></h4>
-				<div class="summary"><p>Contains common utility methods and members for the CSS animation property.</p></div></dt>
-<dd class="symbol-details namespace public">
-	<div class="symbol-details-inner">
-	</div>
-</dd>
 											<hr/>
 											<dt class="symbol-title namespace public">
 			<h4 id="fn" class="namespace public"><a href="FooUtils.fn.html"><span class="name">fn</span></a></h4>
@@ -567,73 +549,6 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getViewportBounds" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getViewportBounds</span><span class="signature-params">( [&nbsp;<span class="signature-param">inflate</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
-				<div class="summary"><p>Gets the bounding rectangle of the current viewport.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>inflate</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>An amount to inflate the bounds by. A positive number will expand the bounds outside of the visible viewport while a negative one would shrink it.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-96">line 96</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".inArray" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">inArray</span><span class="signature-params">( <span class="signature-param">needle</span>, <span class="signature-param">haystack</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
 				<div class="summary"><p>Checks if a value exists within an array.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
@@ -706,304 +621,6 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getElementBounds" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getElementBounds</span><span class="signature-params">( <span class="signature-param">element</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="FooUtils.Bounds.html">FooUtils.Bounds</a>}</span></h4>
-				<div class="summary"><p>Get the bounding rectangle for the supplied element.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>element</code></td>
-							<td><span class="param-type">jQuery</span> | <span class="param-type">HTMLElement</span> | <span class="param-type">string</span></td>
-							<td class="last">
-									<p>The jQuery wrapper around the element, the element itself, or a CSS selector to retrieve the element with.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Bounds.js.html">Bounds.js</a>, <a href="Bounds.js.html#line-116">line 116</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".versionCompare" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">versionCompare</span><span class="signature-params">( <span class="signature-param">version1</span>, <span class="signature-param">version2</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
-				<div class="summary"><p>Compares two version numbers.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This method will compare two version numbers that conform to the basic MAJOR.MINOR.PATCH format returning the result as a simple number. This method will handle short version string comparisons e.g. <code>1.0</code> versus <code>1.0.1</code>.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>version1</code></td>
-							<td><span class="param-type">string</span></td>
-							<td class="last">
-									<p>The first version to use in the comparison.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>version2</code></td>
-							<td><span class="param-type">string</span></td>
-							<td class="last">
-									<p>The second version to compare to the first.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p><code>0</code> if the version are equal.<br>
-			<code>-1</code> if <code>version1</code> is less than <code>version2</code>.<br>
-			<code>1</code> if <code>version1</code> is greater than <code>version2</code>.<br>
-			<code>NaN</code> if either of the supplied versions do not conform to MAJOR.MINOR.PATCH format.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The following shows the results of comparing various version strings.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">console.log( FooUtils.versionCompare( &quot;0&quot;, &quot;0&quot; ) ); // &#x3D;&gt; 0console.log( FooUtils.versionCompare( &quot;0.0&quot;, &quot;0&quot; ) ); // &#x3D;&gt; 0console.log( FooUtils.versionCompare( &quot;0.0&quot;, &quot;0.0.0&quot; ) ); // &#x3D;&gt; 0console.log( FooUtils.versionCompare( &quot;0.1&quot;, &quot;0.0.0&quot; ) ); // &#x3D;&gt; 1console.log( FooUtils.versionCompare( &quot;0.1&quot;, &quot;0.0.1&quot; ) ); // &#x3D;&gt; 1console.log( FooUtils.versionCompare( &quot;1&quot;, &quot;0.1&quot; ) ); // &#x3D;&gt; 1console.log( FooUtils.versionCompare( &quot;1.10&quot;, &quot;1.9&quot; ) ); // &#x3D;&gt; 1console.log( FooUtils.versionCompare( &quot;1.9&quot;, &quot;1.10&quot; ) ); // &#x3D;&gt; -1console.log( FooUtils.versionCompare( &quot;1&quot;, &quot;1.1&quot; ) ); // &#x3D;&gt; -1console.log( FooUtils.versionCompare( &quot;1.0.9&quot;, &quot;1.1&quot; ) ); // &#x3D;&gt; -1</code></pre>
-					</div>
-					<div class="example-caption"><p>If either of the supplied version strings does not match the MAJOR.MINOR.PATCH format then <code>NaN</code> is returned.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">console.log( FooUtils.versionCompare( &quot;not-a-version&quot;, &quot;1.1&quot; ) ); // &#x3D;&gt; NaNconsole.log( FooUtils.versionCompare( &quot;1.1&quot;, &quot;not-a-version&quot; ) ); // &#x3D;&gt; NaNconsole.log( FooUtils.versionCompare( &quot;not-a-version&quot;, &quot;not-a-version&quot; ) ); // &#x3D;&gt; NaN</code></pre>
-					</div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-122">line 122</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".uniqueId" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">uniqueId</span><span class="signature-params">( <span class="signature-param">$element</span> [,&nbsp;<span class="signature-param">prefix</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
-				<div class="summary"><p>Generate and apply a unique id for the given <code>$element</code>.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>$element</code></td>
-							<td><span class="param-type">jQuery</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The jQuery element object to retrieve an id from or generate an id for.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>prefix</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>&quot;uid-&quot;</td>
-							<td class="last">
-									<p>A prefix to append to the start of any generated ids.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>Either the <code>$element</code>'s existing id or a generated one that has been applied to it.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils namespacevar _ &#x3D; FooUtils;// create some elements to testvar $hasId &#x3D; $(&quot;&lt;span/&gt;&quot;, {id: &quot;exists&quot;});var $generatedId &#x3D; $(&quot;&lt;span/&gt;&quot;);var $generatedPrefixedId &#x3D; $(&quot;&lt;span/&gt;&quot;);console.log( _.uniqueId( $hasId ) ); // &#x3D;&gt; &quot;exists&quot;console.log( $hasId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;exists&quot;console.log( _.uniqueId( $generatedId ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( $generatedId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( _.uniqueId( $generatedPrefixedId, &quot;plugin-&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;console.log( $generatedPrefixedId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils namespacevar _ &#x3D; FooUtils;// create some elements to testvar $hasId &#x3D; $(&quot;&lt;span/&gt;&quot;, {id: &quot;exists&quot;});var $generatedId &#x3D; $(&quot;&lt;span/&gt;&quot;);var $generatedPrefixedId &#x3D; $(&quot;&lt;span/&gt;&quot;);console.log( _.uniqueId( $hasId ) ); // &#x3D;&gt; &quot;exists&quot;console.log( $hasId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;exists&quot;console.log( _.uniqueId( $generatedId ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( $generatedId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( _.uniqueId( $generatedPrefixedId, &quot;plugin-&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;console.log( $generatedPrefixedId.attr( &quot;id&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-190">line 190</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".removeUniqueId" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">removeUniqueId</span><span class="signature-params">( <span class="signature-param">$element</span>&nbsp;)</span><span class="signature-type"></span></h4>
-				<div class="summary"><p>Remove the id from the given <code>$element</code> if it was set using the <a href="FooUtils.html#.uniqueId">uniqueId</a> method.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>$element</code></td>
-							<td><span class="param-type">jQuery</span></td>
-							<td class="last">
-									<p>The jQuery element object to remove a generated id from.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils namespacevar _ &#x3D; FooUtils;// create some elements to testvar $hasId &#x3D; $(&quot;&lt;span/&gt;&quot;, {id: &quot;exists&quot;});var $generatedId &#x3D; $(&quot;&lt;span/&gt;&quot;);var $generatedPrefixedId &#x3D; $(&quot;&lt;span/&gt;&quot;);console.log( _.uniqueId( $hasId ) ); // &#x3D;&gt; &quot;exists&quot;console.log( _.uniqueId( $generatedId ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( _.uniqueId( $generatedPrefixedId, &quot;plugin-&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils namespacevar _ &#x3D; FooUtils;// create some elements to testvar $hasId &#x3D; $(&quot;&lt;span/&gt;&quot;, {id: &quot;exists&quot;});var $generatedId &#x3D; $(&quot;&lt;span/&gt;&quot;);var $generatedPrefixedId &#x3D; $(&quot;&lt;span/&gt;&quot;);console.log( _.uniqueId( $hasId ) ); // &#x3D;&gt; &quot;exists&quot;console.log( _.uniqueId( $generatedId ) ); // &#x3D;&gt; &quot;uid-1&quot;console.log( _.uniqueId( $generatedPrefixedId, &quot;plugin-&quot; ) ); // &#x3D;&gt; &quot;plugin-2&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-223">line 223</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".selectify" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">selectify</span><span class="signature-params">( <span class="signature-param">classes</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{object|string}</span></h4>
 				<div class="summary"><p>Convert CSS class names into CSS selectors.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
@@ -1061,7 +678,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-247">line 247</a></p>
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-122">line 122</a></p>
 								</div>
 							</div>
 			
@@ -1073,77 +690,26 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".src" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">src</span><span class="signature-params">( <span class="signature-param">src</span>, <span class="signature-param">srcset</span>, <span class="signature-param">srcWidth</span>, <span class="signature-param">srcHeight</span>, <span class="signature-param">renderWidth</span>, <span class="signature-param">renderHeight</span> [,&nbsp;<span class="signature-param">devicePixelRatio</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{string|null}</span></h4>
-				<div class="summary"><p>Parses the supplied <code>src</code> and <code>srcset</code> values and returns the best matching URL for the supplied render size.</p></div></dt>
+			<h4 id=".requestFrame" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">requestFrame</span><span class="signature-params">( <span class="signature-param">callback</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
+				<div class="summary"><p>A cross browser wrapper for the <code>requestAnimationFrame</code> method.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This can be used to parse the correct src to use when loading an image through JavaScript.</p></div>
-			</div>			<div class="callout callout-info">
+			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
 							<th>Name</th>
 						<th>Type</th>
-							<th>Attributes</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>src</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes"></td>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
 							<td class="last">
-									<p>The default src for the image.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>srcset</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The srcset containing additional image sizes.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>srcWidth</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The width of the <code>src</code> image.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>srcHeight</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The height of the <code>src</code> image.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>renderWidth</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The rendered width of the image element.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>renderHeight</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The rendered height of the image element.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>devicePixelRatio</code></td>
-							<td><span class="param-type">number</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>The device pixel ratio to use while parsing. Defaults to the current device pixel ratio.</p>
+									<p>The function to call when it's time to update your animation for the next repaint.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -1151,36 +717,14 @@
 			</div>
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span> | <span class="param-type">null</span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>Returns the parsed responsive src or null if no src is provided.</p></div>
+									<div class="form-control-static returns-description"><ul>
+			<li>The request id that uniquely identifies the entry in the callback list.</li>
+			</ul></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>The following shows using the method with the srcset w-descriptor.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 480w, test-720x360.jpg 720w, test-960x480.jpg 960w&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 480w, test-720x360.jpg 720w, test-960x480.jpg 960w&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-					<div class="example-caption"><p>The following shows using the method with the srcset h-descriptor.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 240h, test-720x360.jpg 360h, test-960x480.jpg 480h&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 240h, test-720x360.jpg 360h, test-960x480.jpg 480h&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-720x360.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-960x480.jpg&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-					<div class="example-caption"><p>The following shows using the method with the srcset x-descriptor.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 2x, test-720x360.jpg 3x, test-960x480.jpg 4x&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="var src &#x3D; &quot;test-240x120.jpg&quot;,	width &#x3D; 240, // the naturalWidth of the &#x27;src&#x27; image	height &#x3D; 120, // the naturalHeight of the &#x27;src&#x27; image	srcset &#x3D; &quot;test-480x240.jpg 2x, test-720x360.jpg 3x, test-960x480.jpg 4x&quot;;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 240, 120, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 480, 240, 2 ) ); // &#x3D;&gt; &quot;test-480x240.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 720, 360, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;console.log( FooUtils.src( src, srcset, width, height, 960, 480, 1 ) ); // &#x3D;&gt; &quot;test-240x120.jpg&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -1201,7 +745,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-288">line 288</a></p>
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-182">line 182</a></p>
 								</div>
 							</div>
 			
@@ -1213,8 +757,65 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".scrollParent" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">scrollParent</span><span class="signature-params">( <span class="signature-param">element</span> [,&nbsp;<span class="signature-param">axis</span> [,&nbsp;<span class="signature-param">def</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{jQuery}</span></h4>
-				<div class="summary"><p>Get the scroll parent for the supplied element optionally filtering by axis.</p></div></dt>
+			<h4 id=".cancelFrame" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">cancelFrame</span><span class="signature-params">( <span class="signature-param">requestID</span>&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>A cross browser wrapper for the <code>cancelAnimationFrame</code> method.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>requestID</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+									<p>The ID value returned by the call to <a href="FooUtils.html#.requestFrame">requestFrame</a> that requested the callback.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-191">line 191</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".nextFrame" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">nextFrame</span><span class="signature-params">( <span class="signature-param">callback</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Registers a callback with the next available animation frame.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
@@ -1225,36 +826,24 @@
 							<th>Name</th>
 						<th>Type</th>
 							<th>Attributes</th>
-							<th>Default</th>
 						<th class="last">Description</th>
 					</tr>
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>element</code></td>
-							<td><span class="param-type">string</span> | <span class="param-type">Element</span> | <span class="param-type">jQuery</span></td>
+								<td><code>callback</code></td>
+							<td><span class="param-type">function</span></td>
 								<td class="attributes"></td>
-								<td></td>
 							<td class="last">
-									<p>The selector, element or jQuery element to find the scroll parent of.</p>
+									<p>The callback to execute for the next frame.</p>
 							</td>
 						</tr>
 						<tr>
-								<td><code>axis</code></td>
-							<td><span class="param-type">string</span></td>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>&quot;xy&quot;</td>
 							<td class="last">
-									<p>The axis to check. By default this method will check both the X and Y axis.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>def</code></td>
-							<td><span class="param-type">jQuery</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td></td>
-							<td class="last">
-									<p>The default jQuery element to return if no result was found. Defaults to the supplied elements document.</p>
+									<p>The value of <code>this</code> within the callback. Defaults to the callback itself.</p>
 							</td>
 						</tr>
 					</tbody>
@@ -1262,9 +851,9 @@
 			</div>
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">jQuery</span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-static returns-description"><p>Returns a promise object that is resolved using the return value of the callback.</p></div>
 								</div>
 							</div>
 					</form>
@@ -1288,7 +877,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-397">line 397</a></p>
+									<p class="form-control-static"><a href="-_utils.js.html">_utils.js</a>, <a href="-_utils.js.html#line-199">line 199</a></p>
 								</div>
 							</div>
 			
@@ -1563,7 +1152,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

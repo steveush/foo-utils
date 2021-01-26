@@ -37,11 +37,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -50,7 +49,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -220,7 +218,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-566">line 566</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-236">line 236</a></p>
 								</div>
 							</div>
 			
@@ -263,7 +261,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-574">line 574</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-244">line 244</a></p>
 								</div>
 							</div>
 			
@@ -276,6 +274,42 @@
 									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".noop" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">noop</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>An empty function that does nothing. Useful for setting a default value and checking if it has changed.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-42">line 42</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".addOrOverride" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">addOrOverride</span><span class="signature-params">( <span class="signature-param">proto</span>, <span class="signature-param">name</span>, <span class="signature-param">fn</span>&nbsp;)</span><span class="signature-type"></span></h4>
@@ -359,7 +393,90 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-42">line 42</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-49">line 49</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".expose" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">expose</span><span class="signature-params">( <span class="signature-param">source</span>, <span class="signature-param">target</span>, <span class="signature-param">methods</span> [,&nbsp;<span class="signature-param">thisArg</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+				<div class="summary"><p>Exposes the <code>methods</code> from the <code>source</code> on the <code>target</code>.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>source</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The object to expose methods from.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>target</code></td>
+							<td><span class="param-type">Object</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The object to expose methods on.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>methods</code></td>
+							<td><span class="param-type">Array.&lt;String></span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>An array of method names to expose.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The value of <code>this</code> within the exposed <code>methods</code>. Defaults to the <code>source</code> object.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-115">line 115</a></p>
 								</div>
 							</div>
 			
@@ -445,7 +562,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-108">line 108</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-135">line 135</a></p>
 								</div>
 							</div>
 			
@@ -518,7 +635,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-141">line 141</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-164">line 164</a></p>
 								</div>
 							</div>
 			
@@ -531,7 +648,7 @@
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".debounce" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">debounce</span><span class="signature-params">( <span class="signature-param">fn</span>, <span class="signature-param">time</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
-				<div class="summary"><p>Debounces the <code>fn</code> by the supplied <code>time</code>.</p></div></dt>
+				<div class="summary"><p>Debounce the <code>fn</code> by the supplied <code>time</code>.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This returns a wrapped version of the <code>fn</code> which delays its' execution by the supplied <code>time</code>. Additional calls to the function will extend the delay until the <code>time</code> expires.</p></div>
@@ -591,7 +708,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-165">line 165</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-188">line 188</a></p>
 								</div>
 							</div>
 			
@@ -664,7 +781,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-185">line 185</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-208">line 208</a></p>
 								</div>
 							</div>
 			
@@ -676,373 +793,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".check" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">check</span><span class="signature-params">( <span class="signature-param">thisArg</span>, <span class="signature-param">value</span> [,&nbsp;<span class="signature-param">def</span> [,&nbsp;<span class="signature-param">ctx</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
-				<div class="summary"><p>Checks the given <code>value</code> and ensures a function is returned.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This function is primarily used to check the value of a callback option that could be supplied as either a function or a string.</p>
-			<p>When just the function name is supplied this method uses the <a href="FooUtils.fn.html#.fetch">FooUtils.fn.fetch</a> method to resolve and wrap it to ensure when it's called the correct context is applied.</p>
-			<p>Being able to resolve a function from a name allows callbacks to be easily set even through data attributes as you can just supply the full function name as a string and then use this method to retrieve the actual function.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>thisArg</code></td>
-							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;nullable&gt;<br/></td>
-								<td>window</td>
-							<td class="last">
-									<p>The <code>this</code> keyword within the returned function, if the supplied value is not an object this defaults to the <code>window</code>.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>value</code></td>
-							<td><span class="param-type">*</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The value to check, if not a function or the name of one then the <code>def</code> value is automatically returned.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>def</code></td>
-							<td><span class="param-type">function</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>jQuery.noop</td>
-							<td class="last">
-									<p>A default function to use if the <code>value</code> is not resolved to a function.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>ctx</code></td>
-							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>window</td>
-							<td class="last">
-									<p>If the <code>value</code> is a string this is supplied to the <a href="FooUtils.fn.html#.fetch">FooUtils.fn.fetch</a> method as the content to retrieve the function from.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>A function that ensures the correct context is applied when executed.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// a simple &#x60;api&#x60; with a &#x60;sendMessage&#x60; functionwindow.api &#x3D; {	sendMessage: function(){		this.write( &quot;window.api.sendMessage&quot; );	},	child: {		api: {			sendMessage: function(){				this.write( &quot;window.api.child.api.sendMessage&quot; );			}		}	}};// a default function to use in case the check failsvar def &#x3D; function(){	this.write( &quot;default&quot; );};// an object to use as the &#x60;this&#x60; object within the scope of the checked functionsvar thisArg &#x3D; {	write: function( message ){		console.log( message );	}};// check the value and return a wrapped function ensuring the correct context.var fn &#x3D; _fn.check( thisArg, null, def );fn(); // &#x3D;&gt; &quot;default&quot;fn &#x3D; _fn.check( thisArg, &quot;api.doesNotExist&quot;, def );fn(); // &#x3D;&gt; &quot;default&quot;fn &#x3D; _fn.check( thisArg, api.sendMessage, def );fn(); // &#x3D;&gt; &quot;window.api.sendMessage&quot;fn &#x3D; _fn.check( thisArg, &quot;api.sendMessage&quot;, def );fn(); // &#x3D;&gt; &quot;window.api.sendMessage&quot;fn &#x3D; _fn.check( thisArg, &quot;api.sendMessage&quot;, def, window.api.child );fn(); // &#x3D;&gt; &quot;window.api.child.api.sendMessage&quot;</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// a simple &#x60;api&#x60; with a &#x60;sendMessage&#x60; functionwindow.api &#x3D; {	sendMessage: function(){		this.write( &quot;window.api.sendMessage&quot; );	},	child: {		api: {			sendMessage: function(){				this.write( &quot;window.api.child.api.sendMessage&quot; );			}		}	}};// a default function to use in case the check failsvar def &#x3D; function(){	this.write( &quot;default&quot; );};// an object to use as the &#x60;this&#x60; object within the scope of the checked functionsvar thisArg &#x3D; {	write: function( message ){		console.log( message );	}};// check the value and return a wrapped function ensuring the correct context.var fn &#x3D; _fn.check( thisArg, null, def );fn(); // &#x3D;&gt; &quot;default&quot;fn &#x3D; _fn.check( thisArg, &quot;api.doesNotExist&quot;, def );fn(); // &#x3D;&gt; &quot;default&quot;fn &#x3D; _fn.check( thisArg, api.sendMessage, def );fn(); // &#x3D;&gt; &quot;window.api.sendMessage&quot;fn &#x3D; _fn.check( thisArg, &quot;api.sendMessage&quot;, def );fn(); // &#x3D;&gt; &quot;window.api.sendMessage&quot;fn &#x3D; _fn.check( thisArg, &quot;api.sendMessage&quot;, def, window.api.child );fn(); // &#x3D;&gt; &quot;window.api.child.api.sendMessage&quot;">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-213">line 213</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".fetch" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">fetch</span><span class="signature-params">( <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">ctx</span>&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{function}</span></h4>
-				<div class="summary"><p>Fetches a function given its <code>name</code>.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-							<th>Default</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>name</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes"></td>
-								<td></td>
-							<td class="last">
-									<p>The name of the function to fetch. This can be a <code>.</code> notated name.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>ctx</code></td>
-							<td><span class="param-type">Object</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-								<td>window</td>
-							<td class="last">
-									<p>The context to retrieve the function from, defaults to the <code>window</code> object.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p><code>null</code> if a function with the given name is not found within the context.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create a dummy &#x60;api&#x60; with a &#x60;sendMessage&#x60; function to testwindow.api &#x3D; {	sendMessage: function( message ){		console.log( &quot;api.sendMessage: &quot; + message );	}};// the below shows 3 different ways to fetch the &#x60;sendMessage&#x60; functionvar send1 &#x3D; _fn.fetch( &quot;api.sendMessage&quot; );var send2 &#x3D; _fn.fetch( &quot;api.sendMessage&quot;, window );var send3 &#x3D; _fn.fetch( &quot;sendMessage&quot;, window.api );// all the retrieved methods should be the sameconsole.log( send1 &#x3D;&#x3D;&#x3D; send2 &amp;&amp; send2 &#x3D;&#x3D;&#x3D; send3 ); // &#x3D;&gt; true// check if the function was foundif ( send1 !&#x3D; null ){	send1( &quot;My message&quot; ); // &#x3D;&gt; &quot;api.sendMessage: My message&quot;}</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create a dummy &#x60;api&#x60; with a &#x60;sendMessage&#x60; function to testwindow.api &#x3D; {	sendMessage: function( message ){		console.log( &quot;api.sendMessage: &quot; + message );	}};// the below shows 3 different ways to fetch the &#x60;sendMessage&#x60; functionvar send1 &#x3D; _fn.fetch( &quot;api.sendMessage&quot; );var send2 &#x3D; _fn.fetch( &quot;api.sendMessage&quot;, window );var send3 &#x3D; _fn.fetch( &quot;sendMessage&quot;, window.api );// all the retrieved methods should be the sameconsole.log( send1 &#x3D;&#x3D;&#x3D; send2 &amp;&amp; send2 &#x3D;&#x3D;&#x3D; send3 ); // &#x3D;&gt; true// check if the function was foundif ( send1 !&#x3D; null ){	send1( &quot;My message&quot; ); // &#x3D;&gt; &quot;api.sendMessage: My message&quot;}">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-285">line 285</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".enqueue" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">enqueue</span><span class="signature-params">( <span class="signature-param">objects</span>, <span class="signature-param">name</span> [,&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
-				<div class="summary"><p>Enqueues methods using the given <code>name</code> from all supplied <code>objects</code> and executes each in order with the given arguments.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>This method allows an array of <code>objects</code> that implement a common set of methods to be executed in a supplied order. Each method in the queue is only executed after the successful completion of the previous. Success is evaluated as the method did not throw an error and if it returned a promise it was resolved.</p>
-			<p>An example of this being used within the plugin is the loading and execution of methods on the various components. Using this method ensures components are loaded and have their methods executed in a static order regardless of when they were registered with the plugin or if the method is async. This way if <code>ComponentB</code>'s <code>preinit</code> relies on properties set in <code>ComponentA</code>'s <code>preinit</code> method you can register <code>ComponentB</code> with a lower priority than <code>ComponentA</code> and you can be assured <code>ComponentA</code>'s <code>preinit</code> completed successfully before <code>ComponentB</code>'s <code>preinit</code> is called event if it performs an async operation.</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>objects</code></td>
-							<td><span class="param-type">Array.&lt;Object></span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The objects to call the method on.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>name</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes"></td>
-							<td class="last">
-									<p>The name of the method to execute.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>arg1</code></td>
-							<td><span class="param-type">*</span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-									<p>The first argument to call the method with.</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>argN</code></td>
-							<td><span class="param-type">*</span></td>
-								<td class="attributes">&lt;optional&gt;<br/>&lt;repeatable&gt;<br/></td>
-							<td class="last">
-									<p>Any additional arguments for the method.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>If <code>resolved</code> the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.</p>
-			<p>If <code>rejected</code> any fail callbacks are supplied the arguments the promise was rejected with plus an additional one appended by this method, an array of all objects that have already had their methods run. This allows you to perform rollback operations if required after a failure. The last object in this array would contain the method that raised the error.</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Shows a basic example of how you can use this method.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create some dummy objects that implement the same members or methods.var obj1 &#x3D; {	&quot;name&quot;: &quot;obj1&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj1.appendName...&quot; );		return str + this.name;	}};// this objects &#x60;appendName&#x60; method returns a promisevar obj2 &#x3D; {	&quot;name&quot;: &quot;obj2&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj2.appendName...&quot; );		var self &#x3D; this;		return $.Deferred(function(def){			// use a setTimeout to delay execution			setTimeout(function(){					def.resolve(str + self.name);			}, 300);		});	}};// this objects &#x60;appendName&#x60; method is only executed once obj2&#x27;s promise is resolvedvar obj3 &#x3D; {	&quot;name&quot;: &quot;obj3&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj3.appendName...&quot; );		return str + this.name;	}};_fn.enqueue( [obj1, obj2, obj3], &quot;appendName&quot;, &quot;modified_by:&quot; ).then(function(results){	console.log( results ); // &#x3D;&gt; [ [ &quot;modified_by:obj1&quot; ], [ &quot;modified_by:obj2&quot; ], [ &quot;modified_by:obj3&quot; ] ]});</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create some dummy objects that implement the same members or methods.var obj1 &#x3D; {	&quot;name&quot;: &quot;obj1&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj1.appendName...&quot; );		return str + this.name;	}};// this objects &#x60;appendName&#x60; method returns a promisevar obj2 &#x3D; {	&quot;name&quot;: &quot;obj2&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj2.appendName...&quot; );		var self &#x3D; this;		return $.Deferred(function(def){			// use a setTimeout to delay execution			setTimeout(function(){					def.resolve(str + self.name);			}, 300);		});	}};// this objects &#x60;appendName&#x60; method is only executed once obj2&#x27;s promise is resolvedvar obj3 &#x3D; {	&quot;name&quot;: &quot;obj3&quot;,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj3.appendName...&quot; );		return str + this.name;	}};_fn.enqueue( [obj1, obj2, obj3], &quot;appendName&quot;, &quot;modified_by:&quot; ).then(function(results){	console.log( results ); // &#x3D;&gt; [ [ &quot;modified_by:obj1&quot; ], [ &quot;modified_by:obj2&quot; ], [ &quot;modified_by:obj3&quot; ] ]});">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-					<div class="example-caption"><p>If an error is thrown by one of the called methods or it returns a promise that is rejected, execution is halted and any fail callbacks are executed. The last argument is an array of objects that have had their methods run, the last object within this array is the one that raised the error.</p></div>
-					<div class="example-code">
-						<pre class="prettyprint source language-javascript"><code class="language-javascript">// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create some dummy objects that implement the same members or methods.var obj1 &#x3D; {	&quot;name&quot;: &quot;obj1&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj1.appendName...&quot; );		return this.last &#x3D; str + this.name;	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj1.rollback...&quot; );		this.last &#x3D; null;	}};// this objects &#x60;appendName&#x60; method throws an errorvar obj2 &#x3D; {	&quot;name&quot;: &quot;obj2&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj2.appendName...&quot; );		//throw new Error(&quot;Oops, something broke.&quot;);		var self &#x3D; this;		return $.Deferred(function(def){			// use a setTimeout to delay execution			setTimeout(function(){					self.last &#x3D; str + self.name;					def.reject(Error(&quot;Oops, something broke.&quot;));			}, 300);		});	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj2.rollback...&quot; );		this.last &#x3D; null;	}};// this objects &#x60;appendName&#x60; and &#x60;rollback&#x60; methods are never executedvar obj3 &#x3D; {	&quot;name&quot;: &quot;obj3&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj3.appendName...&quot; );		return this.last &#x3D; str + this.name;	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj3.rollback...&quot; );		this.last &#x3D; null;	}};_fn.enqueue( [obj1, obj2, obj3], &quot;appendName&quot;, &quot;modified_by:&quot; ).fail(function(err, run){	console.log( err.message ); // &#x3D;&gt; &quot;Oops, something broke.&quot;	console.log( run ); // &#x3D;&gt; [ {&quot;name&quot;:&quot;obj1&quot;,&quot;last&quot;:&quot;modified_by:obj1&quot;}, {&quot;name&quot;:&quot;obj2&quot;,&quot;last&quot;:&quot;modified_by:obj2&quot;} ]	var guilty &#x3D; run[run.length - 1];	console.log( &quot;Error thrown by: &quot; + guilty.name ); // &#x3D;&gt; &quot;obj2&quot;	run.reverse(); // reverse execution when rolling back to avoid dependency issues	return _fn.enqueue( run, &quot;rollback&quot; ).then(function(){		console.log( &quot;Error handled and rollback performed.&quot; );		console.log( run ); // &#x3D;&gt; [ {&quot;name&quot;:&quot;obj1&quot;,&quot;last&quot;:null}, {&quot;name&quot;:&quot;obj2&quot;,&quot;last&quot;:null} ]	});});</code></pre>
-					</div>
-					<p class="example-run">
-						<input type="hidden" value="// alias the FooUtils.fn namespacevar _fn &#x3D; FooUtils.fn;// create some dummy objects that implement the same members or methods.var obj1 &#x3D; {	&quot;name&quot;: &quot;obj1&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj1.appendName...&quot; );		return this.last &#x3D; str + this.name;	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj1.rollback...&quot; );		this.last &#x3D; null;	}};// this objects &#x60;appendName&#x60; method throws an errorvar obj2 &#x3D; {	&quot;name&quot;: &quot;obj2&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj2.appendName...&quot; );		//throw new Error(&quot;Oops, something broke.&quot;);		var self &#x3D; this;		return $.Deferred(function(def){			// use a setTimeout to delay execution			setTimeout(function(){					self.last &#x3D; str + self.name;					def.reject(Error(&quot;Oops, something broke.&quot;));			}, 300);		});	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj2.rollback...&quot; );		this.last &#x3D; null;	}};// this objects &#x60;appendName&#x60; and &#x60;rollback&#x60; methods are never executedvar obj3 &#x3D; {	&quot;name&quot;: &quot;obj3&quot;,	&quot;last&quot;: null,	&quot;appendName&quot;: function(str){		console.log( &quot;Executing obj3.appendName...&quot; );		return this.last &#x3D; str + this.name;	},	&quot;rollback&quot;: function(){		console.log( &quot;Executing obj3.rollback...&quot; );		this.last &#x3D; null;	}};_fn.enqueue( [obj1, obj2, obj3], &quot;appendName&quot;, &quot;modified_by:&quot; ).fail(function(err, run){	console.log( err.message ); // &#x3D;&gt; &quot;Oops, something broke.&quot;	console.log( run ); // &#x3D;&gt; [ {&quot;name&quot;:&quot;obj1&quot;,&quot;last&quot;:&quot;modified_by:obj1&quot;}, {&quot;name&quot;:&quot;obj2&quot;,&quot;last&quot;:&quot;modified_by:obj2&quot;} ]	var guilty &#x3D; run[run.length - 1];	console.log( &quot;Error thrown by: &quot; + guilty.name ); // &#x3D;&gt; &quot;obj2&quot;	run.reverse(); // reverse execution when rolling back to avoid dependency issues	return _fn.enqueue( run, &quot;rollback&quot; ).then(function(){		console.log( &quot;Error handled and rollback performed.&quot; );		console.log( run ); // &#x3D;&gt; [ {&quot;name&quot;:&quot;obj1&quot;,&quot;last&quot;:null}, {&quot;name&quot;:&quot;obj2&quot;,&quot;last&quot;:null} ]	});});">
-						<button type="button" class="btn btn-default code-run">Run</button>
-					</p>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-326">line 326</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".when" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">when</span><span class="signature-params">( <span class="signature-param">promises</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
-				<div class="summary"><p>Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.</p></div></dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>promises</code></td>
-							<td><span class="param-type">Array.&lt;Promise></span></td>
-							<td class="last">
-									<p>The array of promises to wait for.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-514">line 514</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".rejectWith" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">rejectWith</span><span class="signature-params">( [&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+			<h4 id=".reject" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">reject</span><span class="signature-params">( [&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Return a promise rejected using the supplied args.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -1105,7 +856,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-540">line 540</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-252">line 252</a></p>
 								</div>
 							</div>
 			
@@ -1117,7 +868,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".resolveWith" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">resolveWith</span><span class="signature-params">( [&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+			<h4 id=".resolve" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">resolve</span><span class="signature-params">( [&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
 				<div class="summary"><p>Return a promise resolved using the supplied args.</p></div></dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -1180,7 +931,303 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-553">line 553</a></p>
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-265">line 265</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".rejectWith" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">rejectWith</span><span class="signature-params">( <span class="signature-param">thisArg</span> [,&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Return a promise rejected using the supplied args.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The value of <code>this</code> within the promises callbacks.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>arg1</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The first argument to reject the promise with.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>argN</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/>&lt;repeatable&gt;<br/></td>
+							<td class="last">
+									<p>Any additional arguments to reject the promise with.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-278">line 278</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".resolveWith" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">resolveWith</span><span class="signature-params">( <span class="signature-param">thisArg</span> [,&nbsp;<span class="signature-param">arg1</span> [,&nbsp;<span class="signature-param">...argN</span>&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Return a promise resolved using the supplied args.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>thisArg</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes"></td>
+							<td class="last">
+									<p>The value of <code>this</code> within the promises callbacks.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>arg1</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+									<p>The first argument to resolve the promise with.</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>argN</code></td>
+							<td><span class="param-type">*</span></td>
+								<td class="attributes">&lt;optional&gt;<br/>&lt;repeatable&gt;<br/></td>
+							<td class="last">
+									<p>Any additional arguments to resolve the promise with.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-293">line 293</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".all" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">all</span><span class="signature-params">( <span class="signature-param">promises</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Waits for all promises to complete before resolving with an array containing the return value of each. This method will reject immediately with the first rejection message or error.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>promises</code></td>
+							<td><span class="param-type">Array.&lt;Promise></span></td>
+							<td class="last">
+									<p>The array of promises to wait for.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-308">line 308</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".allSettled" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">allSettled</span><span class="signature-params">( <span class="signature-param">promises</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Promise}</span></h4>
+				<div class="summary"><p>Waits for all promises to complete before resolving with an array containing the outcome of each.</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>promises</code></td>
+							<td><span class="param-type">Array.&lt;Promise></span></td>
+							<td class="last">
+									<p>The array of promises to wait for.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line-356">line 356</a></p>
 								</div>
 							</div>
 			
@@ -1201,7 +1248,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

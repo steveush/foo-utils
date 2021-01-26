@@ -38,11 +38,10 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="FooUtils.Bounds.html">FooUtils.Bounds</a></li>
 											<li><a href="FooUtils.Class.html">FooUtils.Class</a></li>
+											<li><a href="FooUtils.ClassRegistry.html">FooUtils.ClassRegistry</a></li>
 											<li><a href="FooUtils.Event.html">FooUtils.Event</a></li>
 											<li><a href="FooUtils.EventClass.html">FooUtils.EventClass</a></li>
-											<li><a href="FooUtils.Factory.html">FooUtils.Factory</a></li>
 											<li><a href="FooUtils.FullscreenAPI.html">FooUtils.FullscreenAPI</a></li>
 											<li><a href="FooUtils.Timer.html">FooUtils.Timer</a></li>
 									</ul>
@@ -51,7 +50,6 @@
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="FooUtils.html">FooUtils</a></li>
-											<li><a href="FooUtils.animation.html">FooUtils.animation</a></li>
 											<li><a href="FooUtils.fn.html">FooUtils.fn</a></li>
 											<li><a href="FooUtils.is.html">FooUtils.is</a></li>
 											<li><a href="FooUtils.obj.html">FooUtils.obj</a></li>
@@ -98,6 +96,17 @@
 	_.str = {};
 
 	/**
+	 * @summary Removes whitespace from both ends of the target string.
+	 * @memberof FooUtils.str.
+	 * @function trim
+	 * @param {string} target - The string to trim.
+	 * @returns {string|null} Returns `null` if the supplied target is not a string.
+	 */
+	_.str.trim = function(target){
+		return _is.string(target) ? target.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '') : null;
+	};
+
+	/**
 	 * @summary Converts the given `target` to camel case.
 	 * @memberof FooUtils.str.
 	 * @function camel
@@ -115,7 +124,7 @@
 	 * console.log( _str.camel( "Abbreviations like CSS are left intact" ) ); // => "abbreviationsLikeCSSAreLeftIntact"
 	 */
 	_.str.camel = function (target) {
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		if (target.toUpperCase() === target) return target.toLowerCase();
 		return target.replace(/^([A-Z])|[-\s_]+(\w)/g, function (match, p1, p2) {
 			if (_is.string(p2)) return p2.toUpperCase();
@@ -141,7 +150,7 @@
 	 * console.log( _str.kebab( "Non-alphanumeric ch@racters are converted to dashes!" ) ); // => "non-alphanumeric-ch-racters-are-converted-to-dashes"
 	 */
 	_.str.kebab = function(target){
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		return target
 			.match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)
 			.filter(Boolean)
@@ -200,8 +209,9 @@
 	_.str.containsWord = function(target, word, ignoreCase){
 		if (!_is.string(target) || _is.empty(target) || !_is.string(word) || _is.empty(word) || target.length &lt; word.length)
 			return false;
-		var parts = target.split(/\W/);
-		for (var i = 0, len = parts.length; i &lt; len; i++){
+		const parts = target.split(/\W/);
+		let i = 0, len = parts.length;
+		for (; i &lt; len; i++){
 			if (ignoreCase ? parts[i].toUpperCase() === word.toUpperCase() : parts[i] === word) return true;
 		}
 		return false;
@@ -223,8 +233,28 @@
 	 * console.log( _str.endsWith( "something", "no" ) ); // => false
 	 */
 	_.str.endsWith = function (target, substr) {
-		if (!_is.string(target) || _is.empty(target) || !_is.string(substr) || _is.empty(substr)) return target === substr;
+		if (!_is.string(target) || !_is.string(substr) || substr.length > target.length) return false;
 		return target.slice(target.length - substr.length) === substr;
+	};
+
+	/**
+	 * @summary Checks if the `target` starts with the given `substr`.
+	 * @memberof FooUtils.str.
+	 * @function startsWith
+	 * @param {string} target - The string to check.
+	 * @param {string} substr - The substr to check for.
+	 * @returns {boolean} `true` if the `target` starts with the given `substr`.
+	 * @example {@run true}
+	 * // alias the FooUtils.str namespace
+	 * var _str = FooUtils.str;
+	 *
+	 * console.log( _str.startsWith( "something", "s" ) ); // => true
+	 * console.log( _str.startsWith( "something", "some" ) ); // => true
+	 * console.log( _str.startsWith( "something", "no" ) ); // => false
+	 */
+	_.str.startsWith = function (target, substr) {
+		if (_is.empty(target) || _is.empty(substr)) return false;
+		return target.slice(0, substr.length) === substr;
 	};
 
 	/**
@@ -233,10 +263,10 @@
 	 * @function escapeRegExp
 	 * @param {string} target - The string to escape.
 	 * @returns {string}
-	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions|Regular Expressions: Using Special Characters - JavaScript | MDN}
+	 * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 	 */
 	_.str.escapeRegExp = function(target){
-		if (_is.empty(target)) return target;
+		if (!_is.string(target)) return target;
 		return target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&amp;");
 	};
 
@@ -256,7 +286,7 @@
 	 */
 	_.str.fnv1a = function(target){
 		if (!_is.string(target) || _is.empty(target)) return null;
-		var i, l, hval = 0x811c9dc5;
+		let i, l, hval = 0x811c9dc5;
 		for (i = 0, l = target.length; i &lt; l; i++) {
 			hval ^= target.charCodeAt(i);
 			hval += (hval &lt;&lt; 1) + (hval &lt;&lt; 4) + (hval &lt;&lt; 7) + (hval &lt;&lt; 8) + (hval &lt;&lt; 24);
@@ -307,9 +337,9 @@
 	 */
 	_.str.join = function(separator, part, partN){
 		if (!_is.string(separator) || !_is.string(part)) return null;
-		var parts = _fn.arg2arr(arguments);
+		const parts = _fn.arg2arr(arguments);
 		separator = parts.shift();
-		var i, l, result = parts.shift();
+		let i, l, result = parts.shift();
 		for (i = 0, l = parts.length; i &lt; l; i++){
 			part = parts[i];
 			if (_is.empty(part)) continue;
@@ -322,26 +352,6 @@
 			result += separator + part;
 		}
 		return result;
-	};
-
-	/**
-	 * @summary Checks if the `target` starts with the given `substr`.
-	 * @memberof FooUtils.str.
-	 * @function startsWith
-	 * @param {string} target - The string to check.
-	 * @param {string} substr - The substr to check for.
-	 * @returns {boolean} `true` if the `target` starts with the given `substr`.
-	 * @example {@run true}
-	 * // alias the FooUtils.str namespace
-	 * var _str = FooUtils.str;
-	 *
-	 * console.log( _str.startsWith( "something", "s" ) ); // => true
-	 * console.log( _str.startsWith( "something", "some" ) ); // => true
-	 * console.log( _str.startsWith( "something", "no" ) ); // => false
-	 */
-	_.str.startsWith = function (target, substr) {
-		if (_is.empty(target) || _is.empty(substr)) return false;
-		return target.slice(0, substr.length) === substr;
 	};
 
 	/**
@@ -407,7 +417,7 @@
 	 * // => "{0}{0}"
 	 */
 	_.str.format = function (target, arg1, argN){
-		var args = _fn.arg2arr(arguments);
+		let args = _fn.arg2arr(arguments);
 		target = args.shift(); // remove the target from the args
 		if (_is.string(target) &amp;&amp; args.length > 0){
 			if (args.length === 1 &amp;&amp; (_is.array(args[0]) || _is.object(args[0]))){
@@ -432,7 +442,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooUtils Copyright © 2016 The contributors to the FooUtils project.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 6th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on 26th Jan 2021 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
