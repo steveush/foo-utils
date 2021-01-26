@@ -77,9 +77,9 @@
 	 */
 	_.Class.extend = function(definition){
 		definition = _is.hash(definition) ? definition : {};
-		var proto = _obj.create(this.prototype); // create a new prototype to work with so we don't modify the original
+		const proto = _obj.create(this.prototype); // create a new prototype to work with so we don't modify the original
 		// iterate over all properties in the supplied definition and update the prototype
-		for (var name in definition) {
+		for (const name in definition) {
 			if (!definition.hasOwnProperty(name)) continue;
 			_fn.addOrOverride(proto, name, definition[name]);
 		}
@@ -97,8 +97,8 @@
 		Class.prototype.constructor = _is.fn(proto.__ctor__) ? proto.__ctor__ : Class;
 		Class.extend = _.Class.extend;
 		Class.override = _.Class.override;
-		Class.bases = _.Class.bases;
-		Class.__base__ = this;
+		Class.getBaseClasses = _.Class.getBaseClasses;
+		Class.__baseClass__ = this;
 		return Class;
 	};
 
@@ -136,29 +136,29 @@
 	/**
 	 * @summary The base class for this class.
 	 * @memberof FooUtils.Class.
-	 * @name __base__
+	 * @name __baseClass__
 	 * @type {?FooUtils.Class}
 	 * @private
 	 */
-	_.Class.__base__ = null;
+	_.Class.__baseClass__ = null;
+
+	function getBaseClasses(klass, result){
+		if (!_is.array(result)) result = [];
+		if (_is.fn(klass) && klass.__baseClass__ !== null){
+			result.unshift(klass.__baseClass__);
+			return getBaseClasses(klass.__baseClass__, result);
+		}
+		return result;
+	}
 
 	/**
 	 * @summary Get an array of all base classes for this class.
 	 * @memberof FooUtils.Class.
-	 * @function bases
+	 * @function getBaseClasses
 	 * @returns {FooUtils.Class[]}
 	 */
-	_.Class.bases = function(){
-		function _get(klass, result){
-			if (!_is.array(result)) result = [];
-			if (_is.fn(klass) && klass.__base__ !== null){
-				result.unshift(klass.__base__);
-				return _get(klass.__base__, result);
-			}
-			return result;
-		}
-		var initial = [];
-		return _get(this, initial);
+	_.Class.getBaseClasses = function(){
+		return getBaseClasses(this, []);
 	};
 })(
 	// dependencies

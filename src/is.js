@@ -116,7 +116,7 @@
 		if (_.is.array(value) && value.length === 0) return true;
 		if (_.is.jq(value) && value.length === 0) return true;
 		if (_.is.hash(value)){
-			for(var prop in value) {
+			for(const prop in value) {
 				if(value.hasOwnProperty(prop))
 					return false;
 			}

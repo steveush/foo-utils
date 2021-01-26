@@ -1,4 +1,4 @@
-(function($, _, _is, _animation){
+(function($, _, _is, _fn){
 	// only register methods if this version is the current version
 	if (_.version !== '@@version') return;
 
@@ -9,170 +9,198 @@
 	 */
 	_.transition = {};
 
-	// create a test element to check for the existence of the various transition properties
-	var testElement = document.createElement('div');
-
 	/**
-	 * @summary Whether or not transitions are supported by the current browser.
+	 * @summary The data name used by transitions to ensure promises are resolved.
 	 * @memberof FooUtils.transition.
-	 * @name supported
-	 * @type {boolean}
-	 */
-	_.transition.supported = (
-		/**
-		 * @ignore
-		 * @summary Performs a one time test to see if transitions are supported
-		 * @param {HTMLElement} el - An element to test with.
-		 * @returns {boolean} `true` if transitions are supported.
-		 */
-		function(el){
-			var style = el.style;
-			return _is.string(style['transition'])
-				|| _is.string(style['WebkitTransition'])
-				|| _is.string(style['MozTransition'])
-				|| _is.string(style['msTransition'])
-				|| _is.string(style['OTransition']);
-		}
-	)(testElement);
-
-	/**
-	 * @summary The `transitionend` event name for the current browser.
-	 * @memberof FooUtils.transition.
-	 * @name end
+	 * @name dataName
 	 * @type {string}
-	 * @description Depending on the browser this returns one of the following values:
-	 *
-	 * <ul><!--
-	 * --><li>`"transitionend"`</li><!--
-	 * --><li>`"webkitTransitionEnd"`</li><!--
-	 * --><li>`"msTransitionEnd"`</li><!--
-	 * --><li>`"oTransitionEnd"`</li><!--
-	 * --><li>`null` - If the browser doesn't support transitions</li><!--
-	 * --></ul>
+	 * @default "__foo-transition__"
 	 */
-	_.transition.end = (
-		/**
-		 * @ignore
-		 * @summary Performs a one time test to determine which `transitionend` event to use for the current browser.
-		 * @param {HTMLElement} el - An element to test with.
-		 * @returns {?string} The correct `transitionend` event for the current browser, `null` if the browser doesn't support transitions.
-		 */
-		function(el){
-			var style = el.style;
-			if (_is.string(style['transition'])) return 'transitionend';
-			if (_is.string(style['WebkitTransition'])) return 'webkitTransitionEnd';
-			if (_is.string(style['MozTransition'])) return 'transitionend';
-			if (_is.string(style['msTransition'])) return 'msTransitionEnd';
-			if (_is.string(style['OTransition'])) return 'oTransitionEnd';
-			return null;
-		}
-	)(testElement);
+	_.transition.dataName = '__foo-transition__';
 
 	/**
-	 * @summary Gets the `transition-duration` value for the supplied jQuery element.
+	 * @summary The CSS className used to disable transitions when using the {@link FooUtils.transition.disable|disable} method instead of inline styles.
 	 * @memberof FooUtils.transition.
-	 * @function duration
-	 * @param {jQuery} $element - The jQuery element to retrieve the duration from.
-	 * @param {number} [def=0] - The default value to return if no duration is set.
-	 * @returns {number} The value of the `transition-duration` property converted to a millisecond value.
+	 * @name disableClassName
+	 * @type {?string}
+	 * @default null
 	 */
-	_.transition.duration = function($element, def){
-		def = _is.number(def) ? def : 0;
-		if (!_is.jq($element)) return def;
-		// we can use jQuery.css() method to retrieve the value cross browser
-		var duration = $element.css('transition-duration');
-		if (/^([\d.]*)+?(ms|s)/i.test(duration)){
-			// if we have a valid duration value split it into it's components
-			var parts = duration.split(","), max = 0;
-			parts.forEach(function(part){
-				var match = part.match(/^\s*?([\d.]*)+?(ms|s)\s*?$/i),
-					value = parseFloat(match[1]),
-					unit = match[2].toLowerCase();
-				if (unit === 's'){
-					// convert seconds to milliseconds
-					value = value * 1000;
+	_.transition.disableClassName = null;
+
+	/**
+	 * @summary The global timeout used as a safety measure when using the {@link FooUtils.transition.start|start} method. This can be overridden using the `timeout` parameter of the {@link FooUtils.transition.start|start} method.
+	 * @memberof FooUtils.transition.
+	 * @name timeout
+	 * @type {number}
+	 * @default 3000
+	 */
+	_.transition.timeout = 3000;
+
+	/**
+	 * @summary Disable transitions temporarily on the provided element so changes can be made immediately within the callback.
+	 * @memberof FooUtils.transition.
+	 * @function disable
+	 * @param {(jQuery|HTMLElement)} element - The element to disable transitions on.
+	 * @param {FooUtils.transition~modifyFn} modifyFn - A function to execute while the elements transitions are disabled.
+	 */
+	_.transition.disable = function(element, modifyFn){
+		const $el = _is.jq(element) ? element : $(element);
+		if ($el.length > 0 && _is.fn(modifyFn)) {
+			const el = $el.get(0), hasClass = _is.string(_.transition.disableClassName);
+			let restore = null;
+
+			if (hasClass) $el.addClass(_.transition.disableClassName);
+			else {
+				restore = {
+					value: el.style.getPropertyValue('transition'),
+					priority: el.style.getPropertyPriority('transition')
+				};
+				el.style.setProperty('transition', 'none', 'important');
+			}
+
+			modifyFn.call(modifyFn, $el);
+			$el.prop("offsetWidth");
+
+			if (hasClass) $el.removeClass(_.transition.disableClassName);
+			else {
+				el.style.removeProperty('transition');
+				if (_is.string(restore.value) && restore.value.length > 0){
+					el.style.setProperty('transition', restore.value, restore.priority);
 				}
-				if (value > max) max = value;
-			});
-			return max;
+			}
 		}
-		return def;
 	};
 
 	/**
-	 * @summary The callback function to execute when starting a transition.
-	 * @callback FooUtils.transition~startCallback
-	 * @param {jQuery} $element - The element to start the transition on.
-	 * @this Element
+	 * @summary Stop a transition started using the {@link FooUtils.transition.start|start} method.
+	 * @memberof FooUtils.transition.
+	 * @function stop
+	 * @param {(jQuery|HTMLElement)} element - The element to stop the transition on.
+	 * @returns {Promise}
 	 */
+	_.transition.stop = function(element){
+		const d = $.Deferred(), $el = _is.jq(element) ? element : $(element);
+		if ($el.length > 0){
+			const current = $el.data(_.transition.dataName);
+			if (_is.promise(current)){
+				current.always(function(){
+					// request the next frame to give the previous event unbinds time to settle
+					_.requestFrame(function(){
+						d.resolve($el);
+					});
+				}).reject(new Error("Transition cancelled."));
+			} else {
+				d.resolve($el);
+			}
+		} else {
+			d.reject(new Error("Unable to stop transition. Make sure the element exists."));
+		}
+		return d.promise();
+	};
 
 	/**
-	 * @summary Start a transition by toggling the supplied `className` on the `$element`.
+	 * @summary Creates a new transition event listener ensuring the element and optionally the propertyName matches before executing the callback.
+	 * @memberof FooUtils.transition.
+	 * @function createListener
+	 * @param {HTMLElement} element - The element being listened to.
+	 * @param {function(*): void} callback - The callback to execute once the element and optional propertyName are matched.
+	 * @param {?string} [propertyName=null] - The propertyName to match on the TransitionEvent object.
+	 * @returns {function(*): void}
+	 */
+	_.transition.createListener = function(element, callback, propertyName){
+		const el = element, fn = callback, prop = propertyName, hasProp = _is.string(propertyName);
+		return function(event){
+			const evt = event.originalEvent instanceof TransitionEvent ? event.originalEvent : event;
+			let matches = false;
+			if (evt.target === el){
+				matches = hasProp ? evt.propertyName === prop : true;
+			}
+			if (matches) fn.apply(fn, _fn.arg2arr(arguments));
+		};
+	};
+
+	/**
+	 * @summary Start a transition on an element returning a promise that is resolved once the transition ends.
 	 * @memberof FooUtils.transition.
 	 * @function start
-	 * @param {jQuery} $element - The jQuery element to start the transition on.
-	 * @param {(string|FooUtils.transition~startCallback)} classNameOrFunc - One or more class names (separated by spaces) to be toggled or a function that performs the required actions to start the transition.
-	 * @param {boolean} [state] - A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
-	 * @param {number} [timeout] - The maximum time, in milliseconds, to wait for the `transitionend` event to be raised. If not provided this will be automatically set to the elements `transition-duration` property plus an extra 50 milliseconds.
+	 * @param {(jQuery|HTMLElement)} element - The element to perform the transition on.
+	 * @param {FooUtils.transition~modifyFn} triggerFn - The callback that triggers the transition on the element.
+	 * @param {?string} [propertyName] - A specific property name to wait for before resolving. If not supplied the first instance of the transitionend event will resolve the promise.
+	 * @param {number} [timeout] - A safety timeout to ensure the returned promise is finalized. If not supplied the value of the {@link FooUtils.transition.timeout} property is used.
 	 * @returns {Promise}
-	 * @description This method lets us use CSS transitions by toggling a class and using the `transitionend` event to perform additional actions once the transition has completed across all browsers. In browsers that do not support transitions this method would behave the same as if just calling jQuery's `.toggleClass` method.
-	 *
-	 * The last parameter `timeout` is used to create a timer that behaves as a safety net in case the `transitionend` event is never raised and ensures the deferred returned by this method is resolved or rejected within a specified time.
-	 * @see {@link https://developer.mozilla.org/en/docs/Web/CSS/transition-duration|transition-duration - CSS | MDN} for more information on the `transition-duration` CSS property.
 	 */
-	_.transition.start = function($element, classNameOrFunc, state, timeout){
-		var deferred = $.Deferred(), promise = deferred.promise();
+	_.transition.start = function(element, triggerFn, propertyName, timeout){
+		const d = $.Deferred(), $el = _is.jq(element) ? element : $(element);
+		if ($el.length > 0 && _is.fn(triggerFn)){
+			const el = $el.get(0);
+			// first stop any active transitions
+			_.transition.stop($el).always(function(){
+				// then setup the data object and event listeners for the new transition
+				const listener = _.transition.createListener(el, function(){
+					d.resolve($el);
+				}, propertyName);
 
-		$element = $element.first();
+				$el.data(_.transition.dataName, d)
+					.on("transitionend.foo-utils", listener)
+					.prop("offsetWidth"); // force layout to ensure transitions on newly appended elements occur
 
-		if (_.transition.supported){
-			$element.prop('offsetTop');
-			var safety = $element.data('transition_safety');
-			if (_is.hash(safety) && _is.number(safety.timer)){
-				clearTimeout(safety.timer);
-				$element.removeData('transition_safety').off(_.transition.end + '.utils');
-				safety.deferred.reject();
-			}
-			timeout = _is.number(timeout) ? timeout : _.transition.duration($element) + 50;
-			safety = {
-				deferred: deferred,
-				timer: setTimeout(function(){
-					// This is the safety net in case a transition fails for some reason and the transitionend event is never raised.
-					// This will remove the bound event and resolve the deferred
-					$element.removeData('transition_safety').off(_.transition.end + '.utils');
-					deferred.resolve();
-				}, timeout)
-			};
-			$element.data('transition_safety', safety);
+				// request the next frame to give the event bindings time to settle
+				_.requestFrame(function(){
+					// just in case a transition is cancelled by some other means and the transitionend event is never fired this
+					// timeout ensures the returned promise is always finalized.
+					const safety = setTimeout(function(){
+						d.reject(new Error("Transition safety timeout triggered."));
+					}, _is.number(timeout) ? timeout : _.transition.timeout);
 
-			$element.on(_.transition.end + '.utils', function(e){
-				if ($element.is(e.target)){
-					clearTimeout(safety.timer);
-					$element.removeData('transition_safety').off(_.transition.end + '.utils');
-					deferred.resolve();
-				}
+					// we always want to cleanup after ourselves so clear the safety, remove the data object and unbind the events
+					d.always(function(){
+						clearTimeout(safety);
+						$el.removeData(_.transition.dataName).off("transitionend.foo-utils", listener);
+					});
+
+					// now that everything is setup kick off the transition by calling the triggerFn
+					triggerFn.call(triggerFn, $el);
+				});
+
 			});
+		} else {
+			d.reject(new Error("Unable to perform transition. Make sure the element exists and a trigger function is supplied."));
 		}
-
-		_animation.requestFrame(function() {
-			if (_is.fn(classNameOrFunc)){
-				classNameOrFunc.apply($element.get(0), [$element]);
-			} else {
-				$element.toggleClass(classNameOrFunc, state);
-			}
-			if (!_.transition.supported){
-				// If the browser doesn't support transitions then just resolve the deferred
-				deferred.resolve();
-			}
-		});
-
-		return promise;
+		return d.promise();
 	};
+
+	/**
+	 * @summary Used to modify an element which has transitions optionally allowing the transition to occur or not.
+	 * @memberof FooUtils.transition.
+	 * @function modify
+	 * @param {(jQuery|HTMLElement)} element - The element to perform the modifications to.
+	 * @param {FooUtils.transition~modifyFn} modifyFn - The callback used to perform the modifications.
+	 * @param {boolean} [immediate=false] - Whether or not transitions should be allowed to execute and waited on. The default value of `false` means transitions are allowed and the promise will only resolve once there transitionend event has fired.
+	 * @param {?string} [propertyName=null] - A specific property name to wait for before resolving. If not supplied the first instance of the transitionend event will resolve the promise.
+	 * @returns {Promise} Returns a promise that is resolved once the modifications to the element have ended.
+	 */
+	_.transition.modify = function(element, modifyFn, immediate, propertyName){
+		const $el = _is.jq(element) ? element : $(element);
+		if ($el.length > 0 && _is.fn(modifyFn)){
+			if (immediate){
+				_.transition.disable($el, modifyFn);
+				return _fn.resolve();
+			}
+			return _.transition.start($el, modifyFn, propertyName);
+		}
+		return _fn.reject(new Error("Unable to perform modification. Make sure the element exists and a modify function is supplied."));
+	};
+
+	/**
+	 * @summary Perform one or more modifications to the element such as setting inline styles or toggling classNames.
+	 * @callback FooUtils.transition~modifyFn
+	 * @param {jQuery} $element - The jQuery object for the element to modify.
+	 */
 
 })(
 	// dependencies
 	FooUtils.$,
 	FooUtils,
 	FooUtils.is,
-	FooUtils.animation
+	FooUtils.fn
 );

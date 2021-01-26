@@ -2,6 +2,7 @@
     // only register methods if this version is the current version
     if (_.version !== '@@version') return;
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * @summary A wrapper around the fullscreen API to ensure cross browser compatibility.
      * @memberof FooUtils.
@@ -115,7 +116,7 @@
          * @return {?FooUtils.FullscreenAPI~BrowserAPI} Returns `null` if the fullscreen API is not supported.
          */
         getAPI: function(){
-            for (var vendor in this.apis) {
+            for (const vendor in this.apis) {
                 if (!this.apis.hasOwnProperty(vendor)) continue;
                 // Check if document has the "enabled" property
                 if (this.apis[vendor].enabled in document) {
@@ -143,7 +144,7 @@
          */
         request: function(element){
             if (this.supported && !!element[this.api.request]){
-                var result = element[this.api.request]();
+                const result = element[this.api.request]();
                 return !result ? $.Deferred(this.__resolver(this.api.request)).promise() : result;
             }
             return _fn.rejected;
@@ -156,7 +157,7 @@
          */
         exit: function(){
             if (this.supported && !!this.element()){
-                var result = document[this.api.exit]();
+                const result = document[this.api.exit]();
                 return !result ? $.Deferred(this.__resolver(this.api.exit)).promise() : result;
             }
             return _fn.rejected;
@@ -178,7 +179,7 @@
          * @private
          */
         __listen: function(){
-            var self = this;
+            const self = this;
             if (!self.supported) return;
             $(document).on(self.api.events.change + ".utils", function() {
                 self.trigger("change");
@@ -193,7 +194,7 @@
          * @private
          */
         __stopListening: function(){
-            var self = this;
+            const self = this;
             if (!self.supported) return;
             $(document).off(self.api.events.change + ".utils")
                 .off(self.api.events.error + ".utils");
@@ -203,11 +204,11 @@
          * @memberof FooUtils.FullscreenAPI#
          * @function __resolver
          * @param {string} method - The request or exit method the resolver is being created for.
-         * @returns {resolver}
+         * @returns {FooUtils.FullscreenAPI~resolver}
          * @private
          */
         __resolver: function(method){
-            var self = this;
+            const self = this;
             /**
              * @summary Binds to the fullscreen change and error events and resolves or rejects the supplied deferred accordingly.
              * @callback FooUtils.FullscreenAPI~resolver
@@ -217,6 +218,7 @@
                 // Reject the promise if asked to exitFullscreen and there is no element currently in fullscreen
                 if (method === self.api.exit && !!self.element()) {
                     setTimeout(function() {
+                        // noinspection JSUnresolvedFunction
                         def.reject(new TypeError());
                     }, 1);
                     return;
@@ -224,6 +226,7 @@
 
                 // When receiving an internal fullscreenchange event, fulfill the promise
                 function change() {
+                    // noinspection JSUnresolvedFunction
                     def.resolve();
                     $(document).off(self.api.events.change, change)
                         .off(self.api.events.error, error);
@@ -231,6 +234,7 @@
 
                 // When receiving an internal fullscreenerror event, reject the promise
                 function error() {
+                    // noinspection JSUnresolvedFunction
                     def.reject(new TypeError());
                     $(document).off(self.api.events.change, change)
                         .off(self.api.events.error, error);

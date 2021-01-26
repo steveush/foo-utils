@@ -131,243 +131,153 @@ QUnit.test(".throttle", function(assert){
 
 });
 
-QUnit.test(".check", function(assert){
+QUnit.test(".all:empty", function (assert) {
 
-	// a simple `api` with a `testString` function
-	window.api = {
-		testString: function(){
-			return this.context( "window.api.testString" );
-		},
-		child: {
-			api: {
-				testString: function(){
-					return this.context( "window.api.child.api.testString" );
-				}
-			}
-		}
-	};
-
-	// a default function to use in case the check fails
-	var def = function(){
-		return this.context( "default" );
-	};
-
-	// an object to use as the `this` object within the scope of the checked functions
-	var thisArg = {
-		context: function( message ){
-			return "ctx:" + message;
-		}
-	};
-	var thisArg2 = {
-		context: function( message ){
-			return "ctx2:" + message;
-		}
-	};
-
-	// check the value and return a wrapped function ensuring the correct context.
-	var fn = FooUtils.fn.check( thisArg, null, def );
-	assert.equal( fn(), "ctx:default" );
-	fn = FooUtils.fn.check( thisArg, "api.doesNotExist", def );
-	assert.equal( fn(), "ctx:default" );
-	fn = FooUtils.fn.check( thisArg, api.testString, def );
-	assert.equal( fn(), "ctx:window.api.testString" );
-	fn = FooUtils.fn.check( thisArg2, "api.testString", def );
-	assert.equal( fn(), "ctx2:window.api.testString" );
-	fn = FooUtils.fn.check( thisArg2, "api.testString", def, window.api.child );
-	assert.equal( fn(), "ctx2:window.api.child.api.testString" );
-});
-
-QUnit.test(".fetch", function (assert) {
-
-	// a simple `api` with a `testString` function
-	window.api = {
-		testString: function () {
-			return this.context("window.api.testString");
-		}
-	};
-
-	// the below shows 3 different ways to fetch the `sendMessage` function
-	var send1 = FooUtils.fn.fetch( "api.testString" );
-	var send2 = FooUtils.fn.fetch( "api.testString", window );
-	var send3 = FooUtils.fn.fetch( "testString", window.api );
-	var send4 = FooUtils.fn.fetch( "doesNotExist" );
-
-	// all the retrieved methods should be the same except send4 which does not exist
-	assert.ok( send1 === send2 && send2 === send3 && send3 === window.api.testString, "send1 === send2 === send3 === window.api.testString" );
-	assert.equal( send4, null, "send4 === null" );
-
-});
-
-QUnit.test(".enqueue", function(assert){
-
-	assert.expect(6);
-
+	assert.expect(3);
 	var done = assert.async();
 
-	var executed = {
-		obj1: false,
-		obj2: false,
-		obj3: false
-	};
-
-	// create some dummy objects that implement the same members or methods.
-	var obj1 = {
-		"name": "obj1",
-		"appendName": function(str){
-			assert.ok(true, "obj1.appendName executed.");
-			executed.obj1 = true;
-			return str + this.name;
-		}
-	};
-	// this objects `appendName` method returns a promise
-	var obj2 = {
-		"name": "obj2",
-		"appendName": function(str){
-			assert.ok(executed.obj1, "obj1.appendName executed prior to obj2.appendName.");
-			assert.ok(true, "obj2.appendName executed.");
-			var self = this;
-			return $.Deferred(function(def){
-				// use a setTimeout to delay execution
-				setTimeout(function(){
-					executed.obj2 = true;
-					def.resolve(str + self.name);
-				}, 300);
-			});
-		}
-	};
-	// this objects `appendName` method is only executed once obj2's promise is resolved
-	var obj3 = {
-		"name": "obj3",
-		"appendName": function(str){
-			assert.ok(executed.obj2, "obj2.appendName executed prior to obj3.appendName.");
-			assert.ok(true, "obj3.appendName executed.");
-			return str + this.name;
-		}
-	};
-	FooUtils.fn.enqueue( [obj1, obj2, obj3], "appendName", "modified_by:" ).then(function(results){
-		assert.deepEqual( results, [ [ "modified_by:obj1" ], [ "modified_by:obj2" ], [ "modified_by:obj3" ] ], "Results returned from all executed methods in the correct order." );
-		done();
-	});
-
-});
-
-QUnit.test(".enqueue:failure", function (assert) {
-
-	assert.expect(12);
-
-	var done = assert.async();
-
-	// create some dummy objects that implement the same members or methods.
-	var obj1 = {
-		"name": "obj1",
-		"last": null,
-		"appendName": function(str){
-			assert.ok(true, "obj1.appendName executed.");
-			return this.last = str + this.name;
-		},
-		"rollback": function(){
-			assert.ok(true, "obj1.rollback executed.");
-			this.last = null;
-		}
-	};
-	// this objects `appendName` method throws an error
-	var obj2 = {
-		"name": "obj2",
-		"last": null,
-		"appendName": function(str){
-			assert.ok(true, "obj2.appendName executed.");
-			var self = this;
-			return $.Deferred(function(def){
-				// use a setTimeout to delay execution
-				setTimeout(function(){
-					self.last = str + self.name;
-					def.reject(Error("Oops, something broke."));
-				}, 300);
-			});
-		},
-		"rollback": function(){
-			assert.ok(true, "obj2.rollback executed.");
-			this.last = null;
-		}
-	};
-// this objects `appendName` and `rollback` methods are never executed
-	var obj3 = {
-		"name": "obj3",
-		"last": null,
-		"appendName": function(str){
-			assert.ok(false, "obj3.appendName should not be executed.");
-			return this.last = str + this.name;
-		},
-		"rollback": function(){
-			assert.ok(false, "obj3.rollback should not be executed.");
-			this.last = null;
-		}
-	};
-	FooUtils.fn.enqueue( [obj1, obj2, obj3], "appendName", "modified_by:" ).fail(function(err, run){
-		assert.equal( err.message, "Oops, something broke.", "Error is passed to .fail correctly." );
-		assert.ok(run instanceof Array, "Run array is supplied as last parameter.");
-		assert.equal( run.length, 2, "Only obj1 and obj2 should have been run." );
-		assert.equal( run[1].name, "obj2", "The last obj run should be obj2 as it threw the error." );
-		assert.equal(run[0].last, "modified_by:obj1", "obj1.last is set.");
-		assert.equal(run[1].last, "modified_by:obj2", "obj2.last is set but dirty.");
-		run.reverse(); // reverse execution when rolling back to avoid dependency issues
-		return FooUtils.fn.enqueue( run, "rollback" ).then(function(){
-			assert.equal(run[0].last, null, "obj2.last reset to null after rollback");
-			assert.equal(run[1].last, null, "obj1.last reset to null after rollback");
-			done();
-		});
-	});
-
-});
-
-QUnit.test(".when:empty", function (assert) {
-
-	assert.expect(2);
-	var done = assert.async();
-
-	var result = FooUtils.fn.when();
+	var result = FooUtils.fn.all();
 	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
-	result.then(function(){
+	result.then(function(values){
 		assert.ok(true, "Result is a resolved promise.");
-		done();
+		assert.ok(FooUtils.is.array(values) && values.length === 0, "Result is an empty array.");
 	}, function(){
 		assert.ok(false, "Result is a rejected promise.");
+	}).always(function(){
 		done();
 	});
 });
 
-QUnit.test(".when:non-promises", function (assert) {
+QUnit.test(".all:error", function (assert) {
 
-	assert.expect(4);
+	assert.expect(3);
 	var done = assert.async();
 
-	function success(result){
+	function success(arg1, argN){
+		const args = FooUtils.fn.arg2arr(arguments);
 		return $.Deferred(function(def){
 			setTimeout(function(){
-				def.resolve(result);
+				def.resolve.apply(def, args);
 			}, 10);
 		}).promise();
 	}
 
-	function failed(result){
+	function failed(arg1, argN){
+		const args = FooUtils.fn.arg2arr(arguments);
 		return $.Deferred(function(def){
 			setTimeout(function(){
-				def.reject(result);
+				def.reject.apply(def, args);
 			}, 10);
 		}).promise();
 	}
 
-	var promises = [null, false, success("success-1"), failed("failed"), "invalid"];
+	var promises = [null, false, success("success-1"), failed("failed"), "string", failed("failed-2", "second-error")];
 
-	var result = FooUtils.fn.when(promises);
+	var result = FooUtils.fn.all(promises);
 	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
-	result.then(function(results){
-		assert.ok(true, "Result is a resolved promise.");
-		assert.ok(FooUtils.is.array(results), "Results is an array.");
-		assert.ok(results.length === 1 && results[0] === "success-1", "Results contains a single, expected result.");
+	result.then(function(values){
+		assert.ok(false, "Result is a resolved promise.");
+	}, function(err){
+		assert.ok(true, "Result is a rejected promise.");
+		assert.ok(err === "failed", "err is the expected result.");
+	}).always(function(){
 		done();
+	});
+
+});
+
+QUnit.test(".all:success", function (assert) {
+
+	assert.expect(9);
+	var done = assert.async();
+
+	function success(arg1, argN){
+		const args = FooUtils.fn.arg2arr(arguments);
+		return $.Deferred(function(def){
+			setTimeout(function(){
+				def.resolve.apply(def, args);
+			}, 10);
+		}).promise();
+	}
+
+	var promises = [null, false, success("success-1"), "string", success("success-2", "second-result"), success("success-3")];
+
+	var result = FooUtils.fn.all(promises);
+	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
+	result.then(function(values){
+		assert.ok(true, "Result is a resolved promise.");
+		assert.ok(FooUtils.is.array(values), "Result is an array.");
+		assert.ok(values[0] === null, "r1 is the expected result.");
+		assert.ok(values[1] === false, "r2 is the expected result.");
+		assert.ok(values[2] === "success-1", "r3 is the expected result.");
+		assert.ok(values[3] === "string", "r4 is the expected result.");
+		assert.ok(values[4].length === 2 && values[4][0] === "success-2" && values[4][1] === "second-result", "r5 is the expected result.");
+		assert.ok(values[5] === "success-3", "r6 is the expected result.");
 	}, function(){
 		assert.ok(false, "Result is a rejected promise.");
+	}).always(function(){
+		done();
+	});
+
+});
+
+QUnit.test(".allSettled:empty", function (assert) {
+
+	assert.expect(3);
+	var done = assert.async();
+
+	var result = FooUtils.fn.allSettled();
+	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
+	result.then(function(values){
+		assert.ok(true, "Result is a resolved promise.");
+		assert.ok(FooUtils.is.array(values) && values.length === 0, "Result is an empty array.");
+	}, function(){
+		assert.ok(false, "Result is a rejected promise.");
+	}).always(function(){
+		done();
+	});
+});
+
+QUnit.test(".allSettled:mixed", function (assert) {
+
+	assert.expect(10);
+	var done = assert.async();
+
+	function success(arg1, argN){
+		const args = FooUtils.fn.arg2arr(arguments);
+		return $.Deferred(function(def){
+			setTimeout(function(){
+				def.resolve.apply(def, args);
+			}, 10);
+		}).promise();
+	}
+
+	function failed(arg1, argN){
+		const args = FooUtils.fn.arg2arr(arguments);
+		return $.Deferred(function(def){
+			setTimeout(function(){
+				def.reject.apply(def, args);
+			}, 10);
+		}).promise();
+	}
+
+	var promises = [null, false, success("success-1"), failed("failed"), "string", failed("failed-2", "second-arg"), success("success-2", "second-arg")];
+
+	var result = FooUtils.fn.allSettled(promises);
+	assert.ok(FooUtils.is.promise(result), "Result is a promise.");
+	result.then(function(values){
+		assert.ok(true, "Result is a resolved promise.");
+		assert.ok(FooUtils.is.array(values), "Result is an array.");
+		assert.ok(values[0].status === "fulfilled" && values[0].value === null, "r1 is the expected result.");
+		assert.ok(values[1].status === "fulfilled" && values[1].value === false, "r2 is the expected result.");
+		assert.ok(values[2].status === "fulfilled" && values[2].value === "success-1", "r3 is the expected result.");
+		assert.ok(values[3].status === "rejected" && values[3].reason === "failed", "r4 is the expected result.");
+		assert.ok(values[4].status === "fulfilled" && values[4].value === "string", "r5 is the expected result.");
+		assert.ok(values[5].status === "rejected" && values[5].reason.length === 2 && values[5].reason[0] === "failed-2" && values[5].reason[1] === "second-arg", "r6 is the expected result.");
+		assert.ok(values[6].status === "fulfilled" && values[6].value.length === 2 && values[6].value[0] === "success-2" && values[6].value[1] === "second-arg", "r7 is the expected result.");
+	}, function(){
+		assert.ok(false, "Result is a rejected promise.");
+	}).always(function(){
 		done();
 	});
 

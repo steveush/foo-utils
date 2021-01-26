@@ -10,7 +10,7 @@
 	_.url = {};
 
 	// used for parsing a url into it's parts.
-	var _a = document.createElement('a');
+	const _a = document.createElement('a');
 
 	/**
 	 * @summary Parses the supplied url into an object containing it's component parts.
@@ -26,7 +26,7 @@
 	 */
 	_.url.parts = function(url){
 		_a.href = url;
-		var port = _a.port ? _a.port : (["http:","https:"].indexOf(_a.protocol) !== -1 ? (_a.protocol === "https:" ? "443" : "80") : ""),
+		const port = _a.port ? _a.port : (["http:", "https:"].indexOf(_a.protocol) !== -1 ? (_a.protocol === "https:" ? "443" : "80") : ""),
 			host = _a.hostname + (port ? ":" + port : ""),
 			origin = _a.origin ? _a.origin : _a.protocol + "//" + host,
 			pathname = _a.pathname.slice(0, 1) === "/" ? _a.pathname : "/" + _a.pathname;
@@ -91,7 +91,7 @@
 	 */
 	_.url.param = function(search, key, value){
 		if (!_is.string(search) || !_is.string(key) || _is.empty(key)) return search;
-		var regex, match, result, param;
+		let regex, match, result, param;
 		if (_is.undef(value)){
 			regex = new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)'); // regex to match the key and it's value but only capture the value
 			match = regex.exec(search) || ["",""]; // match the param otherwise return an empty string match

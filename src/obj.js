@@ -9,8 +9,6 @@
 	 */
 	_.obj = {};
 
-	// used by the obj.create method
-	var Obj = function () {};
 	/**
 	 * @summary Creates a new object with the specified prototype.
 	 * @memberof FooUtils.obj.
@@ -22,10 +20,10 @@
 	_.obj.create = function (proto) {
 		if (!_is.object(proto))
 			throw TypeError('Argument must be an object');
+
+		function Obj(){}
 		Obj.prototype = proto;
-		var result = new Obj();
-		Obj.prototype = null;
-		return result;
+		return new Obj();
 	};
 
 	/**
@@ -55,9 +53,9 @@
 	 */
 	_.obj.extend = function(target, object, objectN){
 		target = _is.object(target) ? target : {};
-		var objects = _fn.arg2arr(arguments);
+		const objects = _fn.arg2arr(arguments);
 		objects.shift();
-		$.each(objects, function(i, object){
+		_.each(objects, function(object){
 			_.obj.merge(target, object);
 		});
 		return target;
@@ -85,7 +83,7 @@
 	_.obj.merge = function(target, object){
 		target = _is.hash(target) ? target : {};
 		object = _is.hash(object) ? object : {};
-		for (var prop in object) {
+		for (const prop in object) {
 			if (object.hasOwnProperty(prop)) {
 				if (_is.hash(object[prop])) {
 					target[prop] = _is.hash(target[prop]) ? target[prop] : {};
@@ -158,11 +156,11 @@
 		if (!_is.hash(object) || !_is.hash(validators)) return target;
 		validators = _is.hash(validators) ? validators : {};
 		mappings = _is.hash(mappings) ? mappings : {};
-		var prop, maps, value;
+		let prop, maps, value;
 		for (prop in validators){
 			if (!validators.hasOwnProperty(prop) || !_is.fn(validators[prop])) continue;
 			maps = _is.array(mappings[prop]) ? mappings[prop] : (_is.string(mappings[prop]) ? [mappings[prop]] : [prop]);
-			$.each(maps, function(i, map){
+			_.each(maps, function(map){
 				value = _.obj.prop(object, map);
 				if (_is.undef(value)) return; // continue
 				if (validators[prop](value)){
@@ -214,12 +212,12 @@
 	 */
 	_.obj.prop = function(object, name, value){
 		if (!_is.object(object) || _is.empty(name)) return;
-		var parts, last;
+		let parts, last;
 		if (_is.undef(value)){
 			if (_str.contains(name, '.')){
 				parts = name.split('.');
 				last = parts.length - 1;
-				$.each(parts, function(i, part){
+				_.each(parts, function(part, i){
 					if (i === last){
 						value = object[part];
 					} else if (_is.hash(object[part])) {
@@ -237,7 +235,7 @@
 		if (_str.contains(name, '.')){
 			parts = name.split('.');
 			last = parts.length - 1;
-			$.each(parts, function(i, part){
+			_.each(parts, function(part, i){
 				if (i === last){
 					object[part] = value;
 				} else {

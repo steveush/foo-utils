@@ -9,7 +9,7 @@
 	 */
 	_.fn = {};
 
-	var fnStr = Function.prototype.toString;
+	const fnStr = Function.prototype.toString;
 
 	/**
 	 * @summary The regular expression to test if a function uses the `this._super` method applied by the {@link FooUtils.fn.add} method.
@@ -38,6 +38,13 @@
 		//noinspection JSUnresolvedVariable,BadExpressionStatementJS
 		xyz;
 	})) ? /\b_super\b/ : /.*/;
+
+	/**
+	 * @summary An empty function that does nothing. Useful for setting a default value and checking if it has changed.
+	 * @memberof FooUtils.fn.
+	 * @function noop
+	 */
+	_.fn.noop = function(){};
 
 	/**
 	 * @summary Adds or overrides the given method `name` on the `proto` using the supplied `fn`.
@@ -89,20 +96,40 @@
 	 */
 	_.fn.addOrOverride = function(proto, name, fn){
 		if (!_is.object(proto) || !_is.string(name) || _is.empty(name) || !_is.fn(fn)) return;
-		var _super = proto[name],
+		const _super = proto[name],
 			wrap = _is.fn(_super) && _.fn.CONTAINS_SUPER.test(fnStr.call(fn));
 		// only wrap the function if it overrides a method and makes use of `_super` within it's body.
 		proto[name] = wrap ?
 			(function (_super, fn) {
 				// create a new wrapped that exposes the original method as `_super`
 				return function () {
-					var tmp = this._super;
+					const tmp = this._super;
 					this._super = _super;
-					var ret = fn.apply(this, arguments);
+					const ret = fn.apply(this, arguments);
 					this._super = tmp;
 					return ret;
 				};
 			})(_super, fn) : fn;
+	};
+
+	/**
+	 * @summary Exposes the `methods` from the `source` on the `target`.
+	 * @memberof FooUtils.fn.
+	 * @function expose
+	 * @param {Object} source - The object to expose methods from.
+	 * @param {Object} target - The object to expose methods on.
+	 * @param {String[]} methods - An array of method names to expose.
+	 * @param {*} [thisArg] - The value of `this` within the exposed `methods`. Defaults to the `source` object.
+	 */
+	_.fn.expose = function(source, target, methods, thisArg){
+		if (_is.object(source) && _is.object(target) && _is.array(methods)) {
+			thisArg = _is.undef(thisArg) ? source : thisArg;
+			methods.forEach(function(method){
+				if (_is.string(method) && _is.fn(source[method])){
+					target[method] = source[method].bind(thisArg);
+				}
+			});
+		}
 	};
 
 	/**
@@ -130,12 +157,8 @@
 	 * _fn.apply( Test, ["My name", "My value"] ); // => "Test: name = My name, value = My value"
 	 */
 	_.fn.apply = function(klass, args){
-		args = _is.array(args) ? args : [];
-		function Class() {
-			return klass.apply(this, args);
-		}
-		Class.prototype = klass.prototype;
-		return new Class();
+		args.unshift(klass);
+		return new (Function.prototype.bind.apply(klass, args));
 	};
 
 	/**
@@ -163,7 +186,7 @@
 	};
 
 	/**
-	 * @summary Debounces the `fn` by the supplied `time`.
+	 * @summary Debounce the `fn` by the supplied `time`.
 	 * @memberof FooUtils.fn.
 	 * @function debounce
 	 * @param {function} fn - The function to debounce.
@@ -172,9 +195,9 @@
 	 * @description This returns a wrapped version of the `fn` which delays its' execution by the supplied `time`. Additional calls to the function will extend the delay until the `time` expires.
 	 */
 	_.fn.debounce = function (fn, time) {
-		var timeout;
+		let timeout;
 		return function () {
-			var ctx = this, args = _.fn.arg2arr(arguments);
+			const ctx = this, args = _.fn.arg2arr(arguments);
 			clearTimeout(timeout);
 			timeout = setTimeout(function () {
 				fn.apply(ctx, args);
@@ -192,9 +215,9 @@
 	 * @description This returns a wrapped version of the `fn` which ensures it's executed only once every `time` milliseconds. The first call to the function will be executed, after that only the last of any additional calls will be executed once the `time` expires.
 	 */
 	_.fn.throttle = function (fn, time) {
-		var last, timeout;
+		let last, timeout;
 		return function () {
-			var ctx = this, args = _.fn.arg2arr(arguments);
+			const ctx = this, args = _.fn.arg2arr(arguments);
 			if (!last){
 				fn.apply(ctx, args);
 				last = Date.now();
@@ -208,359 +231,6 @@
 				}, time - (Date.now() - last));
 			}
 		}
-	};
-
-	/**
-	 * @summary Checks the given `value` and ensures a function is returned.
-	 * @memberof FooUtils.fn.
-	 * @function check
-	 * @param {?Object} thisArg=window - The `this` keyword within the returned function, if the supplied value is not an object this defaults to the `window`.
-	 * @param {*} value - The value to check, if not a function or the name of one then the `def` value is automatically returned.
-	 * @param {function} [def=jQuery.noop] - A default function to use if the `value` is not resolved to a function.
-	 * @param {Object} [ctx=window] - If the `value` is a string this is supplied to the {@link FooUtils.fn.fetch} method as the content to retrieve the function from.
-	 * @returns {function} A function that ensures the correct context is applied when executed.
-	 * @description This function is primarily used to check the value of a callback option that could be supplied as either a function or a string.
-	 *
-	 * When just the function name is supplied this method uses the {@link FooUtils.fn.fetch} method to resolve and wrap it to ensure when it's called the correct context is applied.
-	 *
-	 * Being able to resolve a function from a name allows callbacks to be easily set even through data attributes as you can just supply the full function name as a string and then use this method to retrieve the actual function.
-	 * @example {@run true}
-	 * // alias the FooUtils.fn namespace
-	 * var _fn = FooUtils.fn;
-	 *
-	 * // a simple `api` with a `sendMessage` function
-	 * window.api = {
-	 * 	sendMessage: function(){
-	 * 		this.write( "window.api.sendMessage" );
-	 * 	},
-	 * 	child: {
-	 * 		api: {
-	 * 			sendMessage: function(){
-	 * 				this.write( "window.api.child.api.sendMessage" );
-	 * 			}
-	 * 		}
-	 * 	}
-	 * };
-	 *
-	 * // a default function to use in case the check fails
-	 * var def = function(){
-	 * 	this.write( "default" );
-	 * };
-	 *
-	 * // an object to use as the `this` object within the scope of the checked functions
-	 * var thisArg = {
-	 * 	write: function( message ){
-	 * 		console.log( message );
-	 * 	}
-	 * };
-	 *
-	 * // check the value and return a wrapped function ensuring the correct context.
-	 * var fn = _fn.check( thisArg, null, def );
-	 * fn(); // => "default"
-	 *
-	 * fn = _fn.check( thisArg, "api.doesNotExist", def );
-	 * fn(); // => "default"
-	 *
-	 * fn = _fn.check( thisArg, api.sendMessage, def );
-	 * fn(); // => "window.api.sendMessage"
-	 *
-	 * fn = _fn.check( thisArg, "api.sendMessage", def );
-	 * fn(); // => "window.api.sendMessage"
-	 *
-	 * fn = _fn.check( thisArg, "api.sendMessage", def, window.api.child );
-	 * fn(); // => "window.api.child.api.sendMessage"
-	 */
-	_.fn.check = function(thisArg, value, def, ctx){
-		def = _is.fn(def) ? def : $.noop;
-		thisArg = _is.object(thisArg) ? thisArg : window;
-		function wrap(fn){
-			return function(){
-				return fn.apply(thisArg, arguments);
-			};
-		}
-		value = _is.string(value) ? _.fn.fetch(value, ctx) : value;
-		return _is.fn(value) ? wrap(value) : wrap(def);
-	};
-
-	/**
-	 * @summary Fetches a function given its `name`.
-	 * @memberof FooUtils.fn.
-	 * @function fetch
-	 * @param {string} name - The name of the function to fetch. This can be a `.` notated name.
-	 * @param {Object} [ctx=window] - The context to retrieve the function from, defaults to the `window` object.
-	 * @returns {?function} `null` if a function with the given name is not found within the context.
-	 * @example {@run true}
-	 * // alias the FooUtils.fn namespace
-	 * var _fn = FooUtils.fn;
-	 *
-	 * // create a dummy `api` with a `sendMessage` function to test
-	 * window.api = {
-	 * 	sendMessage: function( message ){
-	 * 		console.log( "api.sendMessage: " + message );
-	 * 	}
-	 * };
-	 *
-	 * // the below shows 3 different ways to fetch the `sendMessage` function
-	 * var send1 = _fn.fetch( "api.sendMessage" );
-	 * var send2 = _fn.fetch( "api.sendMessage", window );
-	 * var send3 = _fn.fetch( "sendMessage", window.api );
-	 *
-	 * // all the retrieved methods should be the same
-	 * console.log( send1 === send2 && send2 === send3 ); // => true
-	 *
-	 * // check if the function was found
-	 * if ( send1 != null ){
-	 * 	send1( "My message" ); // => "api.sendMessage: My message"
-	 * }
-	 */
-	_.fn.fetch = function(name, ctx){
-		if (!_is.string(name) || _is.empty(name)) return null;
-		ctx = _is.object(ctx) ? ctx : window;
-		$.each(name.split('.'), function(i, part){
-			if (ctx[part]) ctx = ctx[part];
-			else return false;
-		});
-		return _is.fn(ctx) ? ctx : null;
-	};
-
-	/**
-	 * @summary Enqueues methods using the given `name` from all supplied `objects` and executes each in order with the given arguments.
-	 * @memberof FooUtils.fn.
-	 * @function enqueue
-	 * @param {Array.<Object>} objects - The objects to call the method on.
-	 * @param {string} name - The name of the method to execute.
-	 * @param {*} [arg1] - The first argument to call the method with.
-	 * @param {...*} [argN] - Any additional arguments for the method.
-	 * @returns {Promise} If `resolved` the first argument supplied to any success callbacks is an array of all returned value(s). These values are encapsulated within their own array as if the method returned a promise it could be resolved with more than one argument.
-	 *
-	 * If `rejected` any fail callbacks are supplied the arguments the promise was rejected with plus an additional one appended by this method, an array of all objects that have already had their methods run. This allows you to perform rollback operations if required after a failure. The last object in this array would contain the method that raised the error.
-	 * @description This method allows an array of `objects` that implement a common set of methods to be executed in a supplied order. Each method in the queue is only executed after the successful completion of the previous. Success is evaluated as the method did not throw an error and if it returned a promise it was resolved.
-	 *
-	 * An example of this being used within the plugin is the loading and execution of methods on the various components. Using this method ensures components are loaded and have their methods executed in a static order regardless of when they were registered with the plugin or if the method is async. This way if `ComponentB`'s `preinit` relies on properties set in `ComponentA`'s `preinit` method you can register `ComponentB` with a lower priority than `ComponentA` and you can be assured `ComponentA`'s `preinit` completed successfully before `ComponentB`'s `preinit` is called event if it performs an async operation.
-	 * @example {@caption Shows a basic example of how you can use this method.}{@run true}
-	 * // alias the FooUtils.fn namespace
-	 * var _fn = FooUtils.fn;
-	 *
-	 * // create some dummy objects that implement the same members or methods.
-	 * var obj1 = {
-	 * 	"name": "obj1",
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj1.appendName..." );
-	 * 		return str + this.name;
-	 * 	}
-	 * };
-	 *
-	 * // this objects `appendName` method returns a promise
-	 * var obj2 = {
-	 * 	"name": "obj2",
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj2.appendName..." );
-	 * 		var self = this;
-	 * 		return $.Deferred(function(def){
-	 *			// use a setTimeout to delay execution
-	 *			setTimeout(function(){
-	 *					def.resolve(str + self.name);
-	 *			}, 300);
-	 * 		});
-	 * 	}
-	 * };
-	 *
-	 * // this objects `appendName` method is only executed once obj2's promise is resolved
-	 * var obj3 = {
-	 * 	"name": "obj3",
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj3.appendName..." );
-	 * 		return str + this.name;
-	 * 	}
-	 * };
-	 *
-	 * _fn.enqueue( [obj1, obj2, obj3], "appendName", "modified_by:" ).then(function(results){
-	 * 	console.log( results ); // => [ [ "modified_by:obj1" ], [ "modified_by:obj2" ], [ "modified_by:obj3" ] ]
-	 * });
-	 * @example {@caption If an error is thrown by one of the called methods or it returns a promise that is rejected, execution is halted and any fail callbacks are executed. The last argument is an array of objects that have had their methods run, the last object within this array is the one that raised the error.}{@run true}
-	 * // alias the FooUtils.fn namespace
-	 * var _fn = FooUtils.fn;
-	 *
-	 * // create some dummy objects that implement the same members or methods.
-	 * var obj1 = {
-	 * 	"name": "obj1",
-	 * 	"last": null,
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj1.appendName..." );
-	 * 		return this.last = str + this.name;
-	 * 	},
-	 * 	"rollback": function(){
-	 * 		console.log( "Executing obj1.rollback..." );
-	 * 		this.last = null;
-	 * 	}
-	 * };
-	 *
-	 * // this objects `appendName` method throws an error
-	 * var obj2 = {
-	 * 	"name": "obj2",
-	 * 	"last": null,
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj2.appendName..." );
-	 * 		//throw new Error("Oops, something broke.");
-	 * 		var self = this;
-	 * 		return $.Deferred(function(def){
-	 *			// use a setTimeout to delay execution
-	 *			setTimeout(function(){
-	 *					self.last = str + self.name;
-	 *					def.reject(Error("Oops, something broke."));
-	 *			}, 300);
-	 * 		});
-	 * 	},
-	 * 	"rollback": function(){
-	 * 		console.log( "Executing obj2.rollback..." );
-	 * 		this.last = null;
-	 * 	}
-	 * };
-	 *
-	 * // this objects `appendName` and `rollback` methods are never executed
-	 * var obj3 = {
-	 * 	"name": "obj3",
-	 * 	"last": null,
-	 * 	"appendName": function(str){
-	 * 		console.log( "Executing obj3.appendName..." );
-	 * 		return this.last = str + this.name;
-	 * 	},
-	 * 	"rollback": function(){
-	 * 		console.log( "Executing obj3.rollback..." );
-	 * 		this.last = null;
-	 * 	}
-	 * };
-	 *
-	 * _fn.enqueue( [obj1, obj2, obj3], "appendName", "modified_by:" ).fail(function(err, run){
-	 * 	console.log( err.message ); // => "Oops, something broke."
-	 * 	console.log( run ); // => [ {"name":"obj1","last":"modified_by:obj1"}, {"name":"obj2","last":"modified_by:obj2"} ]
-	 * 	var guilty = run[run.length - 1];
-	 * 	console.log( "Error thrown by: " + guilty.name ); // => "obj2"
-	 * 	run.reverse(); // reverse execution when rolling back to avoid dependency issues
-	 * 	return _fn.enqueue( run, "rollback" ).then(function(){
-	 * 		console.log( "Error handled and rollback performed." );
-	 * 		console.log( run ); // => [ {"name":"obj1","last":null}, {"name":"obj2","last":null} ]
-	 * 	});
-	 * });
-	 */
-	_.fn.enqueue = function(objects, name, arg1, argN){
-		var args = _.fn.arg2arr(arguments), // get an array of all supplied arguments
-			def = $.Deferred(), // the main deferred object for the function
-			queue = $.Deferred(), // the deferred object to use as an queue
-			promise = queue.promise(), // used to register component methods for execution
-			results = [], // stores the results of each method to be returned by the main deferred
-			run = [], // stores each object once its' method has been run
-			first = true; // whether or not this is the first resolve callback
-
-		// take the objects and name parameters out of the args array
-		objects = args.shift();
-		name = args.shift();
-
-		// safely execute a function, catch any errors and reject the deferred if required.
-		function safe(obj, method){
-			try {
-				run.push(obj);
-				return method.apply(obj, args);
-			} catch(err) {
-				def.reject(err, run);
-				return def;
-			}
-		}
-
-		// loop through all the supplied objects
-		$.each(objects, function(i, obj){
-			// if the obj has a function with the supplied name
-			if (_is.fn(obj[name])){
-				// then register the method in the callback queue
-				promise = promise.then(function(){
-					// only register the result if this is not the first resolve callback, the first is triggered by this function kicking off the queue
-					if (!first){
-						var resolveArgs = _.fn.arg2arr(arguments);
-						results.push(resolveArgs);
-					}
-					first = false;
-					// execute the method and return it's result, if the result is a promise
-					// the next method will only be executed once it's resolved
-					return safe(obj, obj[name]);
-				});
-			}
-		});
-
-		// add one last callback to catch the final result
-		promise.then(function(){
-			// only register the result if this is not the first resolve callback
-			if (!first){
-				var resolveArgs = _.fn.arg2arr(arguments);
-				results.push(resolveArgs);
-			}
-			first = false;
-			// resolve the main deferred with the array of all the method results
-			def.resolve(results);
-		});
-
-		// hook into failures and ensure the run array is appended to the args
-		promise.fail(function(){
-			var rejectArgs = _.fn.arg2arr(arguments);
-			rejectArgs.push(run);
-			def.reject.apply(def, rejectArgs);
-		});
-
-		// kick off the queue
-		queue.resolve();
-
-		return def.promise();
-	};
-
-	/**
-	 * @summary Waits for the outcome of all promises regardless of failure and resolves supplying the results of just those that succeeded.
-	 * @memberof FooUtils.fn.
-	 * @function when
-	 * @param {Promise[]} promises - The array of promises to wait for.
-	 * @returns {Promise}
-	 */
-	_.fn.when = function(promises){
-		if (!_is.array(promises) || _is.empty(promises)) return $.when();
-		var d = $.Deferred(), results = [], remaining = promises.length;
-		function reduceRemaining(){
-			remaining--; // always mark as finished
-			if(!remaining) d.resolve(results);
-		}
-		for(var i = 0; i < promises.length; i++){
-			if (_is.promise(promises[i])){
-				promises[i].then(function(res){
-					results.push(res); // on success, add to results
-				}).always(reduceRemaining);
-			} else {
-				reduceRemaining();
-			}
-		}
-		return d.promise(); // return a promise on the remaining values
-	};
-
-	/**
-	 * @summary Return a promise rejected using the supplied args.
-	 * @memberof FooUtils.fn.
-	 * @function rejectWith
-	 * @param {*} [arg1] - The first argument to reject the promise with.
-	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
-	 * @returns {Promise}
-	 */
-	_.fn.rejectWith = function(arg1, argN){
-		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
-		return def.reject.apply(def, args).promise();
-	};
-
-	/**
-	 * @summary Return a promise resolved using the supplied args.
-	 * @memberof FooUtils.fn.
-	 * @function resolveWith
-	 * @param {*} [arg1] - The first argument to resolve the promise with.
-	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
-	 * @returns {Promise}
-	 */
-	_.fn.resolveWith = function(arg1, argN){
-		var def = $.Deferred(), args = _.fn.arg2arr(arguments);
-		return def.resolve.apply(def, args).promise();
 	};
 
 	/**
@@ -578,6 +248,159 @@
 	 * @type {Promise}
 	 */
 	_.fn.rejected = $.Deferred().reject().promise();
+
+	/**
+	 * @summary Return a promise rejected using the supplied args.
+	 * @memberof FooUtils.fn.
+	 * @function reject
+	 * @param {*} [arg1] - The first argument to reject the promise with.
+	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.reject = function(arg1, argN){
+		const def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.reject.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise resolved using the supplied args.
+	 * @memberof FooUtils.fn.
+	 * @function resolve
+	 * @param {*} [arg1] - The first argument to resolve the promise with.
+	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.resolve = function(arg1, argN){
+		const def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		return def.resolve.apply(def, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise rejected using the supplied args.
+	 * @memberof FooUtils.fn.
+	 * @function rejectWith
+	 * @param {*} thisArg - The value of `this` within the promises callbacks.
+	 * @param {*} [arg1] - The first argument to reject the promise with.
+	 * @param {...*} [argN] - Any additional arguments to reject the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.rejectWith = function(thisArg, arg1, argN){
+		const def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		args.shift(); // remove the thisArg
+		return def.rejectWith(thisArg, args).promise();
+	};
+
+	/**
+	 * @summary Return a promise resolved using the supplied args.
+	 * @memberof FooUtils.fn.
+	 * @function resolveWith
+	 * @param {*} thisArg - The value of `this` within the promises callbacks.
+	 * @param {*} [arg1] - The first argument to resolve the promise with.
+	 * @param {...*} [argN] - Any additional arguments to resolve the promise with.
+	 * @returns {Promise}
+	 */
+	_.fn.resolveWith = function(thisArg, arg1, argN){
+		const def = $.Deferred(), args = _.fn.arg2arr(arguments);
+		args.shift(); // remove the thisArg
+		return def.resolveWith(thisArg, args).promise();
+	};
+
+	/**
+	 * @summary Waits for all promises to complete before resolving with an array containing the return value of each. This method will reject immediately with the first rejection message or error.
+	 * @memberof FooUtils.fn.
+	 * @function all
+	 * @param {Promise[]} promises - The array of promises to wait for.
+	 * @returns {Promise}
+	 */
+	_.fn.all = function(promises){
+		const d = $.Deferred(), results = [];
+		if (_is.array(promises) && promises.length > 0) {
+			let remaining = promises.length, rejected = false;
+
+			/**
+			 * Pushes the arguments into the results array at the supplied index.
+			 * @ignore
+			 * @param {number} index
+			 * @param {Array} args
+			 */
+			function pushResult(index, args){
+				if (rejected) return;
+				results[index] = args.length === 0 ? undefined : args.length === 1 ? args[0] : args;
+				remaining--;
+				if(!remaining) d.resolve(results);
+			}
+
+			let i = 0, l = promises.length;
+			for (; i < l; i++){
+				if (rejected) break;
+				let j = i; // hold a scoped reference that can be used in the async callbacks
+				if (_is.promise(promises[j])){
+					promises[j].then(function(){
+						pushResult(j, _.fn.arg2arr(arguments));
+					}, function(){
+						if (rejected) return;
+						rejected = true;
+						d.reject.apply(d, _.fn.arg2arr(arguments));
+					});
+				} else {
+					// if we were supplied something that was not a promise then just add it as a fulfilled result
+					pushResult(j, [ promises[j] ]);
+				}
+			}
+		} else {
+			d.resolve(results);
+		}
+		return d.promise();
+	};
+
+	/**
+	 * @summary Waits for all promises to complete before resolving with an array containing the outcome of each.
+	 * @memberof FooUtils.fn.
+	 * @function allSettled
+	 * @param {Promise[]} promises - The array of promises to wait for.
+	 * @returns {Promise}
+	 */
+	_.fn.allSettled = function(promises){
+		const d = $.Deferred(), results = [];
+		if (_is.array(promises) && promises.length > 0) {
+			let remaining = promises.length;
+
+			/**
+			 * Sets the value in the results array using the status and args.
+			 * @ignore
+			 * @param {number} index
+			 * @param {string} status
+			 * @param {Array} args
+			 */
+			function setResult(index, status, args) {
+				results[index] = {status: status};
+				if (args.length > 0) {
+					const prop = status === "rejected" ? "reason" : "value";
+					results[index][prop] = args.length === 1 ? args[0] : args;
+				}
+				remaining--;
+				if (!remaining) d.resolve(results);
+			}
+
+			let i = 0, l = promises.length;
+			for (; i < l; i++) {
+				let j = i; // hold a scoped reference that can be used in the async callbacks
+				if (_is.promise(promises[j])) {
+					promises[j].then(function () {
+						setResult(j, "fulfilled", _.fn.arg2arr(arguments));
+					}, function () {
+						setResult(j, "rejected", _.fn.arg2arr(arguments));
+					});
+				} else {
+					// if we were supplied something that was not a promise then just add it as a fulfilled result
+					setResult(j, "fulfilled", [ promises[j] ]);
+				}
+			}
+		} else {
+			d.resolve(results);
+		}
+		return d.promise();
+	};
 
 })(
 	// dependencies
