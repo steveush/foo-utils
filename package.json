@@ -31,7 +31,12 @@
   "devDependencies": {
     "foodoc": "0.0.9",
     "qunit": "^2.11.1",
+    "qunit-theme-ninja": "^2.0.0",
     "grunt": "^1.0.4",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/register": "^7.12.10",
+    "grunt-babel": "8.0.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
